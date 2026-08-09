@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORRERY // system nav</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+
+    <div id="systemPanel" class="panel">
+      <h2><span class="tick">&#9656;</span> System</h2>
+      <div class="stat big"><span>Name</span><span id="sysName">&mdash;</span></div>
+      <div class="stat"><span>Bodies</span><span id="sysBodyCount">&mdash;</span></div>
+      <div class="stat"><span>Source</span><span id="sysSource" class="val-demo">DEMO</span></div>
+      <div class="stat"><span>Scale</span><span class="val-warn">compressed &mdash; not to scale</span></div>
+    </div>
+
+    <div id="detail" class="panel" hidden>
+      <h2><span class="tick">&#9656;</span> <span id="detailName">&mdash;</span></h2>
+      <div id="detailSpotlight" class="spotlight-row" hidden></div>
+      <div class="stat"><span>Type</span><span id="detailKind">&mdash;</span></div>
+      <div class="stat"><span>Distance from arrival</span><span id="detailDist">&mdash;</span></div>
+      <div class="stat"><span>Radius</span><span id="detailRadius">&mdash;</span></div>
+      <div class="stat"><span>Mass</span><span id="detailMass">&mdash;</span></div>
+      <div class="stat"><span>Gravity</span><span id="detailGravity">&mdash;</span></div>
+      <div class="stat"><span>Surface temp</span><span id="detailTemp">&mdash;</span></div>
+      <div class="stat"><span>Atmosphere</span><span id="detailAtmo">&mdash;</span></div>
+      <div class="stat"><span>Landable</span><span id="detailLandable">&mdash;</span></div>
+      <div class="stat"><span>Orbital period</span><span id="detailPeriod">&mdash;</span></div>
+      <div class="stat"><span>Discovered</span><span id="detailDiscovered">&mdash;</span></div>
+      <div class="stat"><span>Mapped</span><span id="detailMapped">&mdash;</span></div>
+      <button class="act" id="copyName">Copy name</button>
+    </div>
+
+    <div id="hint" class="panel">drag to orbit &middot; wheel to zoom &middot; click a body to select</div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

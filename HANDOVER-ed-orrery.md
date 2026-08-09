@@ -156,6 +156,42 @@ Also resolved two of the open questions below from real data rather than guesswo
 
 Questions 3-5 (EDSM default, second-monitor delivery, which activity mode to prioritize) are still open — they're product decisions, not things code archaeology can resolve.
 
+### Milestone 2 — done (2026-08-09)
+
+Static orrery render, live at `ui/`: Vite + a locally-installed Three.js (not the prototype's CDN script tag — see below), the tree from milestone 1 walked into absolute positions at t=now, selection via raycasting, and a data panel.
+
+Two decisions were made with Terje before building, since his own journal history couldn't settle them from data alone:
+
+- **Demo data stays 100% real, no fabrication.** His local journal history has zero undiscovered bodies and zero ELW/WW/AW/terraformable worlds, so the milestone's "first-discovery/high-value bodies get the loudest treatment, always" requirement is implemented and unit-tested (`shared/src/spotlight.js`) but doesn't visibly trigger against the bundled demo system. It'll light up the first time the live watcher (milestone 3+) sees a real one.
+- **Vite + npm-installed Three.js, not the prototype's CDN `<script>` tag.** Matches the handover's suggested architecture and stays offline-first after one `npm install`, rather than depending on a CDN being reachable.
+
+Building the renderer forced a repo restructure into npm workspaces (`shared/` / `watcher/` / `ui/`): the Kepler solver and Parents-chain position walker from milestone 1 turned out to be needed in the browser too (the UI has to recompute positions every frame once warp/live-time exist in later milestones, not just once at build time), so they moved out of `watcher/` into a new `@orrery/shared` package both `watcher` and `ui` depend on. `shared/`'s own tests were rewritten to use a synthetic tree fixture instead of reaching into watcher's journal fixture, so each package's tests stay self-contained.
+
+New in `shared/`: `display-scale.js` (log-compression for both orbital distances and body radii — this system's own real data spans ~10⁶ m moon orbits to ~5×10¹² m binary separation, six-plus orders of magnitude, so a literal metres-to-pixels mapping would render every inner planet as an invisible dot; see that file's doc comment for the "teaches rather than lies" reasoning the handover calls for), `display-position.js` (composes compression with the parent-chain walk, compressing *each level* before summing rather than compressing one final giant vector — the latter would wreck relative spacing between tightly-orbiting bodies), and `spotlight.js` (the classifier above).
+
+Belt clusters render as a ring band on their owning star/planet (from the real `Rings` data) rather than as individual points — the journal gives no per-cluster angular position, only that they exist somewhere in the band, so inventing 3D positions for them would be exactly the kind of fabrication just ruled out for the discovery/value data.
+
+**Real limitation, not a corner cut:** this was built and validated (production build, and a headless Node test suite in `ui/test/` that constructs the actual Three.js scene graph against the real demo data) in an environment with no browser or screenshot tooling available. It has never actually been opened and looked at. Open `http://localhost:5173` before trusting the visual output — see the README's verification caveat.
+
+### Milestone 3 — done (2026-08-09)
+
+Live mode: `watcher/scripts/watch.js` tails the real journal directory and broadcasts system snapshots to the UI over a local (127.0.0.1-only) WebSocket. The UI loads the demo system immediately on open, then tries the live connection in the background — if a watcher is running it switches seamlessly from DEMO to LIVE (visible in the System panel's Source line); if not, it just stays on the demo, no error surfaced. This preserves milestone 2's "runs standalone, no game required" property rather than replacing it.
+
+Implementation is split so the only untested code is a thin timer + WebSocket wrapper:
+
+- `journal-locator.js` — finds the newest `Journal.*.log` by the timestamp embedded in the filename (not mtime, which sync/backup tools can clobber).
+- `journal-tailer.js` — incremental reads from a byte offset; a partial trailing line (the game can be mid-write) is held back as a remainder and completed on the next read rather than dropped as invalid JSON.
+- `system-model.js` — tracks "the current system" across an incoming event stream. The one non-obvious rule: an `FSDJump`/`Location` to a *different* `SystemAddress` resets accumulated scans and counts as a real switch; re-arriving at the *same* system (leave and come back within a session) does not reset — bodies scanned earlier stay known. Also reports `updated` precisely (a real system switch or at least one new Scan/ScanBaryCentre), so the poller doesn't broadcast an identical snapshot on every idle tick full of Music/ReceiveText noise.
+- `live-watcher.js` — composes the three into one `poll()` step, called on a 1s timer by `scripts/watch.js`. A newer journal file appearing (relog) switches the tailing target immediately; whether that counts as a system *change* is still entirely `system-model.js`'s call.
+
+`watcher/test/watch-process.test.js` spawns the real `scripts/watch.js` process against a synthetic journal directory (not the real Saved Games folder) and drives it with a real `ws` client — the one true end-to-end test in the project so far. The watcher was also run for a few seconds directly against the real journal directory (read-only; no live-mode code path ever writes to a journal) as a final sanity check — it correctly found the newest of many real journal files and read the current system from a `Location` event.
+
+One real gap surfaced during this milestone that live mode newly exposes: `buildBodyTree`'s `orphans` case (a body whose parent hasn't been scanned yet — plausible mid-session if a moon gets scanned before its planet ever does) was previously only exercised by a synthetic test; `build-demo-snapshot.js` asserts zero orphans for the committed static fixture, so milestone 2's renderer never had to handle one. Fixed: `scene-builder.js` now catches a failed position resolution per-body and skips just that body (logging a console warning) rather than the unresolvable chain taking down the whole scene — it reappears on its own once the missing parent gets scanned. Covered by a new test that constructs a node with a deliberately-dangling parentId.
+
+### Label shortening (fixed alongside milestone 3, reported by Terje after trying milestone 2 in a real browser)
+
+Every in-scene label and the detail panel header were showing the full system-qualified body name (e.g. "Col 285 Sector TI-U b18-2 A 12 e a"), which is exactly the "name problem" this doc calls the core design issue — and milestone 2's renderer wasn't actually applying any of the identity-layer thinking to it. Fixed narrowly: `ui/src/naming.js`'s `shortDesignator()` strips the system-name prefix (guaranteed correct by the game's own naming convention, not a heuristic — every ED body name is literally `${systemName} ${designator}`), so labels now read "A 12 e a". Full names remain available via the detail panel's Copy Name button. This is deliberately *not* the full milestone 5 identity layer (icons, pins, nicknames) — just removing redundant noise now that it was visibly a problem, without pulling that whole milestone forward.
+
 ### Orbital math implementation note
 
 The handover doc's 5-step algorithm is implemented literally: each body's `SemiMajorAxis`/`Eccentricity`/`OrbitalInclination`/`Periapsis`/`AscendingNode`/`MeanAnomaly` are relative to its immediate parent, and absolute position is the sum of every ancestor's own Kepler-solved offset walking up to the system root (`orbit-position.js`). This matches the convention EDSM/EDDiscovery-style tools use — inclination/node are already in a common system reference frame, so no per-level frame rotation is needed, just additive offsets.

@@ -1,0 +1,15 @@
+{
+  "name": "orrery",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Elite Dangerous live system orrery — second-monitor companion for the game.",
+  "workspaces": [
+    "shared",
+    "watcher",
+    "ui"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces --if-present"
+  },
+  "license": "MIT"
+}

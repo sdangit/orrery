@@ -5,7 +5,13 @@
   "type": "module",
   "description": "Parses Elite Dangerous journal files into a live system body tree.",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "build:demo-snapshot": "node scripts/build-demo-snapshot.js",
+    "watch": "node scripts/watch.js"
+  },
+  "dependencies": {
+    "@orrery/shared": "*",
+    "ws": "^8.21.3"
   },
   "license": "MIT"
 }

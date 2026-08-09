@@ -1,0 +1,114 @@
+import { classifySpotlight } from '@orrery/shared';
+import { shortDesignator } from './naming.js';
+
+const SPOTLIGHT_LABELS = {
+  'first-discovery': 'First discovery',
+  'first-mapping': 'First mapping',
+  'high-value-world': 'High value world',
+  'terraformable': 'Terraformable',
+};
+
+function setText(id, text) {
+  document.getElementById(id).textContent = text;
+}
+
+function fmtDistanceLs(ls) {
+  if (typeof ls !== 'number') return '—';
+  return `${ls.toFixed(ls < 100 ? 2 : 0)} ls`;
+}
+
+function fmtRadius(metres) {
+  if (typeof metres !== 'number') return '—';
+  return `${(metres / 1000).toFixed(0)} km`;
+}
+
+function fmtMass(node) {
+  const raw = node.raw ?? {};
+  if (typeof raw.StellarMass === 'number') return `${raw.StellarMass.toFixed(3)} solar masses`;
+  if (typeof raw.MassEM === 'number') return `${raw.MassEM.toFixed(4)} Earth masses`;
+  return '—';
+}
+
+function fmtGravity(g) {
+  if (typeof g !== 'number') return '—';
+  return `${g.toFixed(2)} G`;
+}
+
+function fmtTemp(kelvin) {
+  if (typeof kelvin !== 'number') return '—';
+  return `${kelvin.toFixed(0)} K`;
+}
+
+function fmtAtmosphere(node) {
+  const raw = node.raw ?? {};
+  if (raw.AtmosphereType && raw.AtmosphereType !== 'None') return raw.Atmosphere || raw.AtmosphereType;
+  if (node.kind === 'Star') return '—';
+  return 'None';
+}
+
+function fmtPeriod(seconds) {
+  if (typeof seconds !== 'number') return '—';
+  const days = seconds / 86400;
+  if (days < 2) return `${(seconds / 3600).toFixed(1)} h`;
+  if (days < 1000) return `${days.toFixed(1)} d`;
+  return `${(days / 365.25).toFixed(1)} yr`;
+}
+
+function fmtDiscovery(wasDiscovered) {
+  if (wasDiscovered === false) return 'NO — FIRST DISCOVERY';
+  if (wasDiscovered === true) return 'Yes';
+  return '—';
+}
+
+function fmtMapped(wasMapped, kind) {
+  if (kind !== 'Planet') return '—';
+  if (wasMapped === false) return 'NO — FIRST MAPPING';
+  if (wasMapped === true) return 'Yes';
+  return '—';
+}
+
+function fmtKind(node) {
+  const raw = node.raw ?? {};
+  if (node.kind === 'Star') return `Star (${raw.StarType ?? '?'})`;
+  if (node.kind === 'Planet') return `${raw.PlanetClass ?? 'Planet'}${node.isMoon ? ' (moon)' : ''}`;
+  return node.kind;
+}
+
+/**
+ * @param {object} node A body-tree node (see watcher/src/body-tree.js), or null to hide the panel.
+ * @param {string} systemName Used to strip the redundant system-name prefix off the header (see naming.js).
+ */
+export function renderDetailPanel(node, systemName) {
+  const panel = document.getElementById('detail');
+  if (!node) {
+    panel.hidden = true;
+    return;
+  }
+  panel.hidden = false;
+
+  const raw = node.raw ?? {};
+  const { spotlighted, reasons } = classifySpotlight(node);
+
+  setText('detailName', node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`);
+  setText('detailKind', fmtKind(node));
+  setText('detailDist', fmtDistanceLs(raw.DistanceFromArrivalLS));
+  setText('detailRadius', fmtRadius(raw.Radius));
+  setText('detailMass', fmtMass(node));
+  setText('detailGravity', fmtGravity(raw.SurfaceGravity));
+  setText('detailTemp', fmtTemp(raw.SurfaceTemperature));
+  setText('detailAtmo', fmtAtmosphere(node));
+  setText('detailLandable', node.landable === true ? 'Yes' : node.landable === false ? 'No' : '—');
+  setText('detailPeriod', fmtPeriod(node.elements?.orbitalPeriodSec));
+  setText('detailDiscovered', fmtDiscovery(raw.WasDiscovered));
+  setText('detailMapped', fmtMapped(raw.WasMapped, node.kind));
+
+  const spotlightRow = document.getElementById('detailSpotlight');
+  spotlightRow.hidden = !spotlighted;
+  spotlightRow.innerHTML = '';
+  for (const reason of reasons) {
+    const badge = document.createElement('span');
+    badge.className = 'spotlight-badge';
+    badge.textContent = SPOTLIGHT_LABELS[reason] ?? reason;
+    spotlightRow.appendChild(badge);
+  }
+}

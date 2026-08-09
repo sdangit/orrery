@@ -1,0 +1,6780 @@
+{
+  "generatedAt": "2026-08-09T13:52:17.960Z",
+  "sourceFixture": "watcher/test/fixtures/sample-journal.log",
+  "systemName": "Col 285 Sector TI-U b18-2",
+  "systemAddress": 5064706368953,
+  "rootId": 0,
+  "nodes": [
+    {
+      "id": 0,
+      "name": "Col 285 Sector TI-U b18-2",
+      "kind": "SystemBarycentre",
+      "parentId": null,
+      "elements": null,
+      "children": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 3",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 3",
+        "BodyID": 6,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 4.759833,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 5,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 2",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 2",
+        "BodyID": 5,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2.756665,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 10,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 7",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 7",
+        "BodyID": 10,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 4.412159,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 4,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 1",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 1",
+        "BodyID": 4,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3.598916,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 7,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 4",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 4",
+        "BodyID": 7,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1.803715,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 8,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 5",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 5",
+        "BodyID": 8,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 4.591087,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 1,
+      "name": "Col 285 Sector TI-U b18-2 A",
+      "kind": "Star",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 5108792901039.123,
+        "eccentricity": 0.138181,
+        "inclinationDeg": 61.614819,
+        "periapsisDeg": 133.784421,
+        "ascendingNodeDeg": -1.830422,
+        "meanAnomalyDeg": 121.19383,
+        "orbitalPeriodSec": 78646297454.83398,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A",
+        "BodyID": 1,
+        "Parents": [
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 0,
+        "StarType": "M",
+        "Subclass": 7,
+        "StellarMass": 0.28125,
+        "Radius": 284435904,
+        "AbsoluteMagnitude": 10.420013,
+        "Age_MY": 402,
+        "SurfaceTemperature": 2495,
+        "Luminosity": "Va",
+        "SemiMajorAxis": 5108792901039.123,
+        "Eccentricity": 0.138181,
+        "OrbitalInclination": 61.614819,
+        "Periapsis": 133.784421,
+        "OrbitalPeriod": 78646297454.83398,
+        "AscendingNode": -1.830422,
+        "MeanAnomaly": 121.19383,
+        "RotationPeriod": 112446.633463,
+        "AxialTilt": 0,
+        "Rings": [
+          {
+            "Name": "Col 285 Sector TI-U b18-2 A A Belt",
+            "RingClass": "eRingClass_MetalRich",
+            "MassMT": 345240000,
+            "InnerRad": 532390000,
+            "OuterRad": 1581000000
+          }
+        ],
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": [
+        6,
+        5,
+        10,
+        4,
+        7,
+        8,
+        14,
+        13,
+        12,
+        11,
+        9,
+        15,
+        25,
+        21,
+        26,
+        39,
+        50,
+        16,
+        62,
+        18,
+        22
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Col 285 Sector TI-U b18-2 A 2",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 4220347464.084625,
+        "eccentricity": 0.000005,
+        "inclinationDeg": 0.000004,
+        "periapsisDeg": 271.626887,
+        "ascendingNodeDeg": 63.530755,
+        "meanAnomalyDeg": 283.781794,
+        "orbitalPeriodSec": 280719.000101,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 2",
+        "BodyID": 14,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 14.077547,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "High metal content body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001008,
+        "Radius": 661785.5625,
+        "SurfaceGravity": 0.916904,
+        "SurfaceTemperature": 413.584991,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "iron",
+            "Percent": 22.746138
+          },
+          {
+            "Name": "nickel",
+            "Percent": 17.204227
+          },
+          {
+            "Name": "sulphur",
+            "Percent": 15.910909
+          },
+          {
+            "Name": "carbon",
+            "Percent": 13.379425
+          },
+          {
+            "Name": "chromium",
+            "Percent": 10.229694
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 8.565738
+          },
+          {
+            "Name": "zinc",
+            "Percent": 6.181549
+          },
+          {
+            "Name": "selenium",
+            "Percent": 2.490192
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 1.48531
+          },
+          {
+            "Name": "mercury",
+            "Percent": 0.993286
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.813538
+          }
+        ],
+        "Composition": {
+          "Ice": 0,
+          "Rock": 0.66549,
+          "Metal": 0.33451
+        },
+        "SemiMajorAxis": 4220347464.084625,
+        "Eccentricity": 0.000005,
+        "OrbitalInclination": 0.000004,
+        "Periapsis": 271.626887,
+        "OrbitalPeriod": 280719.000101,
+        "AscendingNode": 63.530755,
+        "MeanAnomaly": 283.781794,
+        "RotationPeriod": 281938.776712,
+        "AxialTilt": 0.088927,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 13,
+      "name": "Col 285 Sector TI-U b18-2 A 1",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 2308406651.02005,
+        "eccentricity": 0.000043,
+        "inclinationDeg": -0.000743,
+        "periapsisDeg": 265.166955,
+        "ascendingNodeDeg": 89.701421,
+        "meanAnomalyDeg": 352.56676,
+        "orbitalPeriodSec": 113558.065891,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": true,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 1",
+        "BodyID": 13,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 7.699686,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "High metal content body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "minor silicate vapour geysers volcanism",
+        "MassEM": 0.000859,
+        "Radius": 627817,
+        "SurfaceGravity": 0.868907,
+        "SurfaceTemperature": 558.327026,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "iron",
+            "Percent": 21.992477
+          },
+          {
+            "Name": "nickel",
+            "Percent": 16.634188
+          },
+          {
+            "Name": "sulphur",
+            "Percent": 15.383723
+          },
+          {
+            "Name": "carbon",
+            "Percent": 12.936117
+          },
+          {
+            "Name": "chromium",
+            "Percent": 9.890748
+          },
+          {
+            "Name": "manganese",
+            "Percent": 9.082669
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 8.281924
+          },
+          {
+            "Name": "zirconium",
+            "Percent": 2.55378
+          },
+          {
+            "Name": "tin",
+            "Percent": 1.421796
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 1.207608
+          },
+          {
+            "Name": "polonium",
+            "Percent": 0.61497
+          }
+        ],
+        "Composition": {
+          "Ice": 0,
+          "Rock": 0.66549,
+          "Metal": 0.33451
+        },
+        "SemiMajorAxis": 2308406651.02005,
+        "Eccentricity": 0.000043,
+        "OrbitalInclination": -0.000743,
+        "Periapsis": 265.166955,
+        "OrbitalPeriod": 113558.065891,
+        "AscendingNode": 89.701421,
+        "MeanAnomaly": 352.56676,
+        "RotationPeriod": 114051.488864,
+        "AxialTilt": 0.432191,
+        "WasDiscovered": true,
+        "WasMapped": true,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 12,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 9",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 9",
+        "BodyID": 12,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3.100653,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 11,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 8",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 8",
+        "BodyID": 11,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3.017479,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 9,
+      "name": "Col 285 Sector TI-U b18-2 A A Belt Cluster 6",
+      "kind": "BeltCluster",
+      "parentId": 1,
+      "elements": null,
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A A Belt Cluster 6",
+        "BodyID": 9,
+        "Parents": [
+          {
+            "Ring": 3
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3.943799,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": []
+    },
+    {
+      "id": 15,
+      "name": "Col 285 Sector TI-U b18-2 A 3",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 7872028291.225433,
+        "eccentricity": 0.000026,
+        "inclinationDeg": 0.000045,
+        "periapsisDeg": 44.86518,
+        "ascendingNodeDeg": 166.336416,
+        "meanAnomalyDeg": 249.641916,
+        "orbitalPeriodSec": 715120.923519,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 3",
+        "BodyID": 15,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 26.258497,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Rocky ice body",
+        "Atmosphere": "hot thick water atmosphere",
+        "AtmosphereType": "Water",
+        "AtmosphereComposition": [
+          {
+            "Name": "Water",
+            "Percent": 100
+          }
+        ],
+        "Volcanism": "",
+        "MassEM": 0.02863,
+        "Radius": 2331265,
+        "SurfaceGravity": 2.099635,
+        "SurfaceTemperature": 1990.385254,
+        "SurfacePressure": 2120343424,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.423981,
+          "Rock": 0.383335,
+          "Metal": 0.192684
+        },
+        "SemiMajorAxis": 7872028291.225433,
+        "Eccentricity": 0.000026,
+        "OrbitalInclination": 0.000045,
+        "Periapsis": 44.86518,
+        "OrbitalPeriod": 715120.923519,
+        "AscendingNode": 166.336416,
+        "MeanAnomaly": 249.641916,
+        "RotationPeriod": 718228.277229,
+        "AxialTilt": -0.205457,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 25,
+      "name": "Col 285 Sector TI-U b18-2 A 10",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 154510778188.70544,
+        "eccentricity": 0.00032,
+        "inclinationDeg": -0.02619,
+        "periapsisDeg": 64.007892,
+        "ascendingNodeDeg": 154.682167,
+        "meanAnomalyDeg": 0.338051,
+        "orbitalPeriodSec": 62185294.628143,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 10",
+        "BodyID": 25,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 515.227366,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 90.24691
+          },
+          {
+            "Name": "Nitrogen",
+            "Percent": 7.493052
+          },
+          {
+            "Name": "Neon",
+            "Percent": 2.260042
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 1.97704,
+        "Radius": 9036609,
+        "SurfaceGravity": 9.649704,
+        "SurfaceTemperature": 63.573597,
+        "SurfacePressure": 38425.058594,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.523675,
+          "Rock": 0.31699,
+          "Metal": 0.159336
+        },
+        "SemiMajorAxis": 154510778188.70544,
+        "Eccentricity": 0.00032,
+        "OrbitalInclination": -0.02619,
+        "Periapsis": 64.007892,
+        "OrbitalPeriod": 62185294.628143,
+        "AscendingNode": 154.682167,
+        "MeanAnomaly": 0.338051,
+        "RotationPeriod": 40730.101251,
+        "AxialTilt": 0.368862,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 74,
+      "name": "Col 285 Sector TI-U b18-2 B 4",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 266750162839.88953,
+        "eccentricity": 0.000235,
+        "inclinationDeg": 0.501321,
+        "periapsisDeg": 296.62999,
+        "ascendingNodeDeg": -49.713638,
+        "meanAnomalyDeg": 46.743691,
+        "orbitalPeriodSec": 240370994.80629,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 4",
+        "BodyID": 74,
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 72914.668189,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "neon rich atmosphere",
+        "AtmosphereType": "NeonRich",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 97.556892
+          },
+          {
+            "Name": "Neon",
+            "Percent": 2.443105
+          }
+        ],
+        "Volcanism": "water geysers volcanism",
+        "MassEM": 1.032966,
+        "Radius": 7848239.5,
+        "SurfaceGravity": 6.684221,
+        "SurfaceTemperature": 25.012968,
+        "SurfacePressure": 22204.091797,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.681761,
+          "Rock": 0.211785,
+          "Metal": 0.106454
+        },
+        "SemiMajorAxis": 266750162839.88953,
+        "Eccentricity": 0.000235,
+        "OrbitalInclination": 0.501321,
+        "Periapsis": 296.62999,
+        "OrbitalPeriod": 240370994.80629,
+        "AscendingNode": -49.713638,
+        "MeanAnomaly": 46.743691,
+        "RotationPeriod": 54941.183189,
+        "AxialTilt": -0.040655,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 21,
+      "name": "Col 285 Sector TI-U b18-2 A 7",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 45868205428.123474,
+        "eccentricity": 0.000459,
+        "inclinationDeg": -0.000061,
+        "periapsisDeg": 18.633511,
+        "ascendingNodeDeg": 56.756628,
+        "meanAnomalyDeg": 165.312884,
+        "orbitalPeriodSec": 10058127.641678,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 7",
+        "BodyID": 21,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 153.067847,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Rocky ice body",
+        "Atmosphere": "thick argon rich atmosphere",
+        "AtmosphereType": "ArgonRich",
+        "AtmosphereComposition": [
+          {
+            "Name": "Nitrogen",
+            "Percent": 95.666618
+          },
+          {
+            "Name": "Argon",
+            "Percent": 4.317869
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 3.119371,
+        "Radius": 10008999,
+        "SurfaceGravity": 12.410667,
+        "SurfaceTemperature": 165.317459,
+        "SurfacePressure": 96030608,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.441398,
+          "Rock": 0.371744,
+          "Metal": 0.186858
+        },
+        "SemiMajorAxis": 45868205428.123474,
+        "Eccentricity": 0.000459,
+        "OrbitalInclination": -0.000061,
+        "Periapsis": 18.633511,
+        "OrbitalPeriod": 10058127.641678,
+        "AscendingNode": 56.756628,
+        "MeanAnomaly": 165.312884,
+        "RotationPeriod": 454323.428133,
+        "AxialTilt": -0.477636,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 64,
+      "name": "Col 285 Sector TI-U b18-2 A 14 a",
+      "kind": "Planet",
+      "parentId": 63,
+      "elements": {
+        "semiMajorAxis": 1358893.871307,
+        "eccentricity": 0.077274,
+        "inclinationDeg": 8.32454,
+        "periapsisDeg": 322.732282,
+        "ascendingNodeDeg": 118.372581,
+        "meanAnomalyDeg": 262.474848,
+        "orbitalPeriodSec": 113448.882103,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 14 a",
+        "BodyID": 64,
+        "Parents": [
+          {
+            "Null": 63
+          },
+          {
+            "Planet": 62
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3782.781555,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "minor carbon dioxide geysers volcanism",
+        "MassEM": 0.005651,
+        "Radius": 1562206.625,
+        "SurfaceGravity": 0.922988,
+        "SurfaceTemperature": 24.341181,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.461422
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.092213
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.784032
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.591841
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.523939
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.597528
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.421991
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.092117
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.860585
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.82224
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.752096
+          }
+        ],
+        "Composition": {
+          "Ice": 0.820735,
+          "Rock": 0.162759,
+          "Metal": 0.016506
+        },
+        "SemiMajorAxis": 1358893.871307,
+        "Eccentricity": 0.077274,
+        "OrbitalInclination": 8.32454,
+        "Periapsis": 322.732282,
+        "OrbitalPeriod": 113448.882103,
+        "AscendingNode": 118.372581,
+        "MeanAnomaly": 262.474848,
+        "RotationPeriod": 449912.125719,
+        "AxialTilt": 0.937108,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 77,
+      "name": "Col 285 Sector TI-U b18-2 B 6 a",
+      "kind": "Planet",
+      "parentId": 76,
+      "elements": {
+        "semiMajorAxis": 2231819331.645966,
+        "eccentricity": 0,
+        "inclinationDeg": 80.556921,
+        "periapsisDeg": 80.60449,
+        "ascendingNodeDeg": -97.58306,
+        "meanAnomalyDeg": 336.924697,
+        "orbitalPeriodSec": 26055067.181587,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 6 a",
+        "BodyID": 77,
+        "Parents": [
+          {
+            "Planet": 76
+          },
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 73570.004799,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.079495,
+        "Radius": 3744793,
+        "SurfaceGravity": 2.259397,
+        "SurfaceTemperature": 20.001263,
+        "SurfacePressure": 0.798,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.056259
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.751511
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.565907
+          },
+          {
+            "Name": "iron",
+            "Percent": 11.975236
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.057567
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.385661
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.234533
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.254421
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.74089
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.657561
+          },
+          {
+            "Name": "polonium",
+            "Percent": 0.320458
+          }
+        ],
+        "Composition": {
+          "Ice": 0.877725,
+          "Rock": 0.10487,
+          "Metal": 0.017406
+        },
+        "SemiMajorAxis": 2231819331.645966,
+        "Eccentricity": 0,
+        "OrbitalInclination": 80.556921,
+        "Periapsis": 80.60449,
+        "OrbitalPeriod": 26055067.181587,
+        "AscendingNode": -97.58306,
+        "MeanAnomaly": 336.924697,
+        "RotationPeriod": 68916.910788,
+        "AxialTilt": 0.260527,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 48,
+      "name": "Col 285 Sector TI-U b18-2 A 12 e a",
+      "kind": "Planet",
+      "parentId": 47,
+      "elements": {
+        "semiMajorAxis": 9456676.840782,
+        "eccentricity": 0,
+        "inclinationDeg": -28.038391,
+        "periapsisDeg": 90.949689,
+        "ascendingNodeDeg": -139.205846,
+        "meanAnomalyDeg": 16.490372,
+        "orbitalPeriodSec": 139780.372381,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": true,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12 e a",
+        "BodyID": 48,
+        "Parents": [
+          {
+            "Planet": 47
+          },
+          {
+            "Planet": 39
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2055.710877,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.000219,
+        "Radius": 546470.8125,
+        "SurfaceGravity": 0.291833,
+        "SurfaceTemperature": 37.312511,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 29.522675
+          },
+          {
+            "Name": "carbon",
+            "Percent": 24.825514
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 15.89372
+          },
+          {
+            "Name": "iron",
+            "Percent": 9.216917
+          },
+          {
+            "Name": "nickel",
+            "Percent": 6.971289
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.620549
+          },
+          {
+            "Name": "chromium",
+            "Percent": 4.145154
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.047942
+          },
+          {
+            "Name": "antimony",
+            "Percent": 0.644561
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.629927
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.481753
+          }
+        ],
+        "Composition": {
+          "Ice": 0.928374,
+          "Rock": 0.069325,
+          "Metal": 0.002301
+        },
+        "SemiMajorAxis": 9456676.840782,
+        "Eccentricity": 0,
+        "OrbitalInclination": -28.038391,
+        "Periapsis": 90.949689,
+        "OrbitalPeriod": 139780.372381,
+        "AscendingNode": -139.205846,
+        "MeanAnomaly": 16.490372,
+        "RotationPeriod": 143487.392077,
+        "AxialTilt": 0.029364,
+        "WasDiscovered": true,
+        "WasMapped": true,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 67,
+      "name": "Col 285 Sector TI-U b18-2 A 14 d",
+      "kind": "Planet",
+      "parentId": 62,
+      "elements": {
+        "semiMajorAxis": 1621436476.707458,
+        "eccentricity": 0.00061,
+        "inclinationDeg": -0.370565,
+        "periapsisDeg": 226.952529,
+        "ascendingNodeDeg": 80.113109,
+        "meanAnomalyDeg": 50.66819,
+        "orbitalPeriodSec": 3296875.89407,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 14 d",
+        "BodyID": 67,
+        "Parents": [
+          {
+            "Planet": 62
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3780.594667,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001682,
+        "Radius": 1047975.0625,
+        "SurfaceGravity": 0.610266,
+        "SurfaceTemperature": 24.256498,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.08791
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.778126
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.582947
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.339692
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.333225
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.096167
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.530555
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.353467
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.843352
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.73615
+          },
+          {
+            "Name": "polonium",
+            "Percent": 0.318407
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 1621436476.707458,
+        "Eccentricity": 0.00061,
+        "OrbitalInclination": -0.370565,
+        "Periapsis": 226.952529,
+        "OrbitalPeriod": 3296875.89407,
+        "AscendingNode": 80.113109,
+        "MeanAnomaly": 50.66819,
+        "RotationPeriod": 3297659.861511,
+        "AxialTilt": 0.387785,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 42,
+      "name": "Col 285 Sector TI-U b18-2 A 12 a",
+      "kind": "Planet",
+      "parentId": 39,
+      "elements": {
+        "semiMajorAxis": 1136179566.383362,
+        "eccentricity": 0.000006,
+        "inclinationDeg": 0.019332,
+        "periapsisDeg": 35.221547,
+        "ascendingNodeDeg": -33.677761,
+        "meanAnomalyDeg": 332.215974,
+        "orbitalPeriodSec": 594020.742178,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12 a",
+        "BodyID": 42,
+        "Parents": [
+          {
+            "Planet": 39
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2062.083927,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.000848,
+        "Radius": 835608.8125,
+        "SurfaceGravity": 0.48433,
+        "SurfaceTemperature": 40.368908,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.523804
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.144667
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.817614
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.538261
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.483416
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.638873
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.078961
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.604321
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.973653
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.747996
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.448443
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 1136179566.383362,
+        "Eccentricity": 0.000006,
+        "OrbitalInclination": 0.019332,
+        "Periapsis": 35.221547,
+        "OrbitalPeriod": 594020.742178,
+        "AscendingNode": -33.677761,
+        "MeanAnomaly": 332.215974,
+        "RotationPeriod": 579814.367331,
+        "AxialTilt": 0.209235,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 31,
+      "name": "Col 285 Sector TI-U b18-2 A 11 d",
+      "kind": "Planet",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 1363611340.522766,
+        "eccentricity": 0.000304,
+        "inclinationDeg": -0.002472,
+        "periapsisDeg": 290.126779,
+        "ascendingNodeDeg": -41.675089,
+        "meanAnomalyDeg": 258.511552,
+        "orbitalPeriodSec": 972906.160355,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 d",
+        "BodyID": 31,
+        "Parents": [
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1488.535541,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001086,
+        "Radius": 906661.375,
+        "SurfaceGravity": 0.526323,
+        "SurfaceTemperature": 41.777157,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.969831
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.678835
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.51938
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.285905
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.292543
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.525379
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.073953
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.57203
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.802262
+          },
+          {
+            "Name": "antimony",
+            "Percent": 0.743367
+          },
+          {
+            "Name": "mercury",
+            "Percent": 0.536505
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 1363611340.522766,
+        "Eccentricity": 0.000304,
+        "OrbitalInclination": -0.002472,
+        "Periapsis": 290.126779,
+        "OrbitalPeriod": 972906.160355,
+        "AscendingNode": -41.675089,
+        "MeanAnomaly": 258.511552,
+        "RotationPeriod": 972947.232338,
+        "AxialTilt": 0.053978,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 35,
+      "name": "Col 285 Sector TI-U b18-2 A 11 h",
+      "kind": "Planet",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 4257937014.102936,
+        "eccentricity": 0.019495,
+        "inclinationDeg": -0.002918,
+        "periapsisDeg": 114.396789,
+        "ascendingNodeDeg": 171.227587,
+        "meanAnomalyDeg": 152.516096,
+        "orbitalPeriodSec": 5368264.079094,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 h",
+        "BodyID": 35,
+        "Parents": [
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1471.882018,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.002289,
+        "Radius": 1160461.125,
+        "SurfaceGravity": 0.677499,
+        "SurfaceTemperature": 39.993847,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.860247
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.586683
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.460382
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.235984
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.254785
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.502928
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.053336
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.565643
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.95018
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.799003
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.730841
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 4257937014.102936,
+        "Eccentricity": 0.019495,
+        "OrbitalInclination": -0.002918,
+        "Periapsis": 114.396789,
+        "OrbitalPeriod": 5368264.079094,
+        "AscendingNode": 171.227587,
+        "MeanAnomaly": 152.516096,
+        "RotationPeriod": 4026545.340788,
+        "AxialTilt": 0.182318,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 33,
+      "name": "Col 285 Sector TI-U b18-2 A 11 f",
+      "kind": "Planet",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 2475374639.034271,
+        "eccentricity": 0.00553,
+        "inclinationDeg": -1.214987,
+        "periapsisDeg": 151.799226,
+        "ascendingNodeDeg": 5.761804,
+        "meanAnomalyDeg": 294.602337,
+        "orbitalPeriodSec": 2379558.384418,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 f",
+        "BodyID": 33,
+        "Parents": [
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1487.122809,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001797,
+        "Radius": 1071190,
+        "SurfaceGravity": 0.624111,
+        "SurfaceTemperature": 40.718105,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.720428
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.310009
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.923467
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.627832
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.551163
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.215166
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.100956
+          },
+          {
+            "Name": "zirconium",
+            "Percent": 1.466352
+          },
+          {
+            "Name": "ruthenium",
+            "Percent": 0.779849
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.753339
+          },
+          {
+            "Name": "mercury",
+            "Percent": 0.551437
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 2475374639.034271,
+        "Eccentricity": 0.00553,
+        "OrbitalInclination": -1.214987,
+        "Periapsis": 151.799226,
+        "OrbitalPeriod": 2379558.384418,
+        "AscendingNode": 5.761804,
+        "MeanAnomaly": 294.602337,
+        "RotationPeriod": 2379658.869911,
+        "AxialTilt": 0.102867,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 26,
+      "name": "Col 285 Sector TI-U b18-2 A 11",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 445806825160.9802,
+        "eccentricity": 0.001918,
+        "inclinationDeg": -0.051552,
+        "periapsisDeg": 75.980124,
+        "ascendingNodeDeg": 35.552688,
+        "meanAnomalyDeg": 58.62447,
+        "orbitalPeriodSec": 304768151.044846,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11",
+        "BodyID": 26,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1485.570879,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Sudarsky class I gas giant",
+        "Atmosphere": "",
+        "AtmosphereComposition": [
+          {
+            "Name": "Hydrogen",
+            "Percent": 72.963593
+          },
+          {
+            "Name": "Helium",
+            "Percent": 27.036417
+          }
+        ],
+        "Volcanism": "",
+        "MassEM": 265.298309,
+        "Radius": 71567352,
+        "SurfaceGravity": 20.644957,
+        "SurfaceTemperature": 73.576027,
+        "SurfacePressure": 0,
+        "Landable": false,
+        "SemiMajorAxis": 445806825160.9802,
+        "Eccentricity": 0.001918,
+        "OrbitalInclination": -0.051552,
+        "Periapsis": 75.980124,
+        "OrbitalPeriod": 304768151.044846,
+        "AscendingNode": 35.552688,
+        "MeanAnomaly": 58.62447,
+        "RotationPeriod": 134848.794603,
+        "AxialTilt": 0.329116,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": [
+        31,
+        35,
+        33,
+        32,
+        27,
+        34,
+        36,
+        28
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Col 285 Sector TI-U b18-2 B",
+      "kind": "Star",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 14834384918212.89,
+        "eccentricity": 0.138181,
+        "inclinationDeg": 61.614819,
+        "periapsisDeg": 313.784416,
+        "ascendingNodeDeg": -1.830422,
+        "meanAnomalyDeg": 121.193831,
+        "orbitalPeriodSec": 78646297454.83398,
+        "epochMs": 1763141748000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": null,
+      "raw": {
+        "timestamp": "2025-11-14T17:35:48Z",
+        "event": "Scan",
+        "ScanType": "Detailed",
+        "BodyName": "Col 285 Sector TI-U b18-2 B",
+        "BodyID": 2,
+        "Parents": [
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 72116.208986,
+        "StarType": "L",
+        "Subclass": 8,
+        "StellarMass": 0.097656,
+        "Radius": 156512944,
+        "AbsoluteMagnitude": 14.144562,
+        "Age_MY": 402,
+        "SurfaceTemperature": 1427,
+        "Luminosity": "V",
+        "SemiMajorAxis": 14834384918212.89,
+        "Eccentricity": 0.138181,
+        "OrbitalInclination": 61.614819,
+        "Periapsis": 313.784416,
+        "OrbitalPeriod": 78646297454.83398,
+        "AscendingNode": -1.830422,
+        "MeanAnomaly": 121.193831,
+        "RotationPeriod": 82965.247149,
+        "AxialTilt": 0,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "children": [
+        74,
+        82,
+        73,
+        81,
+        75,
+        76,
+        78,
+        70
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Col 285 Sector TI-U b18-2 A 6",
+      "kind": "Planet",
+      "parentId": 18,
+      "elements": {
+        "semiMajorAxis": 102442473.173141,
+        "eccentricity": 0.191166,
+        "inclinationDeg": 7.436112,
+        "periapsisDeg": 126.889567,
+        "ascendingNodeDeg": -100.786702,
+        "meanAnomalyDeg": 156.048582,
+        "orbitalPeriodSec": 318867.03372,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": true,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 6",
+        "BodyID": 20,
+        "Parents": [
+          {
+            "Null": 18
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 85.98552,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Rocky ice body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "minor carbon dioxide geysers volcanism",
+        "MassEM": 0.024435,
+        "Radius": 2214157.25,
+        "SurfaceGravity": 1.986553,
+        "SurfaceTemperature": 149.867722,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 21.761005
+          },
+          {
+            "Name": "iron",
+            "Percent": 19.460796
+          },
+          {
+            "Name": "carbon",
+            "Percent": 18.298752
+          },
+          {
+            "Name": "nickel",
+            "Percent": 14.71933
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 11.715176
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 4.778894
+          },
+          {
+            "Name": "selenium",
+            "Percent": 3.405781
+          },
+          {
+            "Name": "zirconium",
+            "Percent": 2.259799
+          },
+          {
+            "Name": "niobium",
+            "Percent": 1.330042
+          },
+          {
+            "Name": "ruthenium",
+            "Percent": 1.201828
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 1.068593
+          }
+        ],
+        "Composition": {
+          "Ice": 0.423981,
+          "Rock": 0.383335,
+          "Metal": 0.192684
+        },
+        "SemiMajorAxis": 102442473.173141,
+        "Eccentricity": 0.191166,
+        "OrbitalInclination": 7.436112,
+        "Periapsis": 126.889567,
+        "OrbitalPeriod": 318867.03372,
+        "AscendingNode": -100.786702,
+        "MeanAnomaly": 156.048582,
+        "RotationPeriod": 429875.390496,
+        "AxialTilt": 0.279415,
+        "WasDiscovered": true,
+        "WasMapped": true,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 32,
+      "name": "Col 285 Sector TI-U b18-2 A 11 e",
+      "kind": "Planet",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 1937710642.814636,
+        "eccentricity": 0.000358,
+        "inclinationDeg": -0.034904,
+        "periapsisDeg": 65.939087,
+        "ascendingNodeDeg": 114.853446,
+        "meanAnomalyDeg": 344.589872,
+        "orbitalPeriodSec": 1648042.619228,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 e",
+        "BodyID": 32,
+        "Parents": [
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1483.830518,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001375,
+        "Radius": 980555.5625,
+        "SurfaceGravity": 0.570146,
+        "SurfaceTemperature": 41.115261,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.444586
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.078054
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.774966
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.502175
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.456121
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.16327
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.577044
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.599703
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.970851
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.74674
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.686495
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 1937710642.814636,
+        "Eccentricity": 0.000358,
+        "OrbitalInclination": -0.034904,
+        "Periapsis": 65.939087,
+        "OrbitalPeriod": 1648042.619228,
+        "AscendingNode": 114.853446,
+        "MeanAnomaly": 344.589872,
+        "RotationPeriod": 1648112.17135,
+        "AxialTilt": -0.239106,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 60,
+      "name": "Col 285 Sector TI-U b18-2 A 13 g",
+      "kind": "Planet",
+      "parentId": 50,
+      "elements": {
+        "semiMajorAxis": 3423172175.884247,
+        "eccentricity": 0.007011,
+        "inclinationDeg": -0.613171,
+        "periapsisDeg": 87.224654,
+        "ascendingNodeDeg": 179.024067,
+        "meanAnomalyDeg": 308.139754,
+        "orbitalPeriodSec": 7642324.626446,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 g",
+        "BodyID": 60,
+        "Parents": [
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2721.401078,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.000838,
+        "Radius": 832009.1875,
+        "SurfaceGravity": 0.482387,
+        "SurfaceTemperature": 29.027777,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.95635
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.667498
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.512121
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.292498
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.29753
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.528345
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.340641
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.01861
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.840127
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.802693
+          },
+          {
+            "Name": "antimony",
+            "Percent": 0.743595
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823442,
+          "Rock": 0.160409,
+          "Metal": 0.016149
+        },
+        "SemiMajorAxis": 3423172175.884247,
+        "Eccentricity": 0.007011,
+        "OrbitalInclination": -0.613171,
+        "Periapsis": 87.224654,
+        "OrbitalPeriod": 7642324.626446,
+        "AscendingNode": 179.024067,
+        "MeanAnomaly": 308.139754,
+        "RotationPeriod": 111514.386953,
+        "AxialTilt": -0.29294,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 39,
+      "name": "Col 285 Sector TI-U b18-2 A 12",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 618513888120.6512,
+        "eccentricity": 0.000434,
+        "inclinationDeg": -2.375589,
+        "periapsisDeg": 154.707521,
+        "ascendingNodeDeg": 111.265127,
+        "meanAnomalyDeg": 75.108974,
+        "orbitalPeriodSec": 498050850.629807,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12",
+        "BodyID": 39,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2062.910487,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Sudarsky class I gas giant",
+        "Atmosphere": "",
+        "AtmosphereComposition": [
+          {
+            "Name": "Hydrogen",
+            "Percent": 72.963585
+          },
+          {
+            "Name": "Helium",
+            "Percent": 27.036411
+          }
+        ],
+        "Volcanism": "",
+        "MassEM": 411.667877,
+        "Radius": 74772560,
+        "SurfaceGravity": 29.347556,
+        "SurfaceTemperature": 91.115547,
+        "SurfacePressure": 0,
+        "Landable": false,
+        "SemiMajorAxis": 618513888120.6512,
+        "Eccentricity": 0.000434,
+        "OrbitalInclination": -2.375589,
+        "Periapsis": 154.707521,
+        "OrbitalPeriod": 498050850.629807,
+        "AscendingNode": 111.265127,
+        "MeanAnomaly": 75.108974,
+        "RotationPeriod": 115387.416055,
+        "AxialTilt": -0.365418,
+        "Rings": [
+          {
+            "Name": "Col 285 Sector TI-U b18-2 A 12 A Ring",
+            "RingClass": "eRingClass_Rocky",
+            "MassMT": 207270000000,
+            "InnerRad": 123370000,
+            "OuterRad": 151340000
+          },
+          {
+            "Name": "Col 285 Sector TI-U b18-2 A 12 B Ring",
+            "RingClass": "eRingClass_Icy",
+            "MassMT": 1539800000000,
+            "InnerRad": 151440000,
+            "OuterRad": 277420000
+          }
+        ],
+        "ReserveLevel": "PristineResources",
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": [
+        42,
+        47,
+        46,
+        49,
+        43
+      ]
+    },
+    {
+      "id": 82,
+      "name": "Col 285 Sector TI-U b18-2 B 10",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 1399237811565.3992,
+        "eccentricity": 0.000717,
+        "inclinationDeg": -1.505974,
+        "periapsisDeg": 219.096346,
+        "ascendingNodeDeg": -144.169389,
+        "meanAnomalyDeg": 226.464329,
+        "orbitalPeriodSec": 2887768149.375916,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 10",
+        "BodyID": 82,
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 76572.158861,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 100
+          }
+        ],
+        "Volcanism": "minor carbon dioxide geysers volcanism",
+        "MassEM": 0.747827,
+        "Radius": 7118525.5,
+        "SurfaceGravity": 5.882074,
+        "SurfaceTemperature": 20.180971,
+        "SurfacePressure": 16774.527344,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.681761,
+          "Rock": 0.211785,
+          "Metal": 0.106455
+        },
+        "SemiMajorAxis": 1399237811565.3992,
+        "Eccentricity": 0.000717,
+        "OrbitalInclination": -1.505974,
+        "Periapsis": 219.096346,
+        "OrbitalPeriod": 2887768149.375916,
+        "AscendingNode": -144.169389,
+        "MeanAnomaly": 226.464329,
+        "RotationPeriod": 154375.808831,
+        "AxialTilt": -0.129356,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 79,
+      "name": "Col 285 Sector TI-U b18-2 B 7",
+      "kind": "Planet",
+      "parentId": 78,
+      "elements": {
+        "semiMajorAxis": 1579569816.589355,
+        "eccentricity": 0.100447,
+        "inclinationDeg": 8.518488,
+        "periapsisDeg": 41.97768,
+        "ascendingNodeDeg": -58.914849,
+        "meanAnomalyDeg": 230.383452,
+        "orbitalPeriodSec": 103122872.114182,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 7",
+        "BodyID": 79,
+        "Parents": [
+          {
+            "Null": 78
+          },
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 74722.694955,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 91.379311
+          },
+          {
+            "Name": "Hydrogen",
+            "Percent": 8.620689
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 2.078092,
+        "Radius": 9612190,
+        "SurfaceGravity": 8.96457,
+        "SurfaceTemperature": 20.353172,
+        "SurfacePressure": 41985.816406,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.671327,
+          "Rock": 0.217478,
+          "Metal": 0.111195
+        },
+        "SemiMajorAxis": 1579569816.589355,
+        "Eccentricity": 0.100447,
+        "OrbitalInclination": 8.518488,
+        "Periapsis": 41.97768,
+        "OrbitalPeriod": 103122872.114182,
+        "AscendingNode": -58.914849,
+        "MeanAnomaly": 230.383452,
+        "RotationPeriod": 155497.631251,
+        "AxialTilt": -3.085924,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 69,
+      "name": "Col 285 Sector TI-U b18-2 A 14 f",
+      "kind": "Planet",
+      "parentId": 62,
+      "elements": {
+        "semiMajorAxis": 4018517315.387726,
+        "eccentricity": 0.01167,
+        "inclinationDeg": -0.459575,
+        "periapsisDeg": 8.051075,
+        "ascendingNodeDeg": -25.197353,
+        "meanAnomalyDeg": 169.801856,
+        "orbitalPeriodSec": 12863273.024559,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 14 f",
+        "BodyID": 69,
+        "Parents": [
+          {
+            "Planet": 62
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3772.341483,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.004074,
+        "Radius": 1403661.75,
+        "SurfaceGravity": 0.824166,
+        "SurfaceTemperature": 24.160049,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.18434
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.859215
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.634861
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.38362
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.36645
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.114309
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.254579
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.584533
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.961644
+          },
+          {
+            "Name": "tellurium",
+            "Percent": 0.917676
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.73877
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 4018517315.387726,
+        "Eccentricity": 0.01167,
+        "OrbitalInclination": -0.459575,
+        "Periapsis": 8.051075,
+        "OrbitalPeriod": 12863273.024559,
+        "AscendingNode": -25.197353,
+        "MeanAnomaly": 169.801856,
+        "RotationPeriod": 113702.661403,
+        "AxialTilt": -0.467498,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 73,
+      "name": "Col 285 Sector TI-U b18-2 B 3",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 182316142320.63293,
+        "eccentricity": 0.000354,
+        "inclinationDeg": -0.26398,
+        "periapsisDeg": 351.29214,
+        "ascendingNodeDeg": 113.661905,
+        "meanAnomalyDeg": 273.959246,
+        "orbitalPeriodSec": 135819703.34053,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 3",
+        "BodyID": 73,
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 72612.538331,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 91.883804
+          },
+          {
+            "Name": "Hydrogen",
+            "Percent": 5.815165
+          },
+          {
+            "Name": "Neon",
+            "Percent": 2.301035
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 1.607526,
+        "Radius": 8949944,
+        "SurfaceGravity": 7.998835,
+        "SurfaceTemperature": 29.28434,
+        "SurfacePressure": 33760.101563,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.681761,
+          "Rock": 0.211784,
+          "Metal": 0.106455
+        },
+        "SemiMajorAxis": 182316142320.63293,
+        "Eccentricity": 0.000354,
+        "OrbitalInclination": -0.26398,
+        "Periapsis": 351.29214,
+        "OrbitalPeriod": 135819703.34053,
+        "AscendingNode": 113.661905,
+        "MeanAnomaly": 273.959246,
+        "RotationPeriod": 114506.677336,
+        "AxialTilt": -0.471455,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 38,
+      "name": "Col 285 Sector TI-U b18-2 A 11 j",
+      "kind": "Planet",
+      "parentId": 36,
+      "elements": {
+        "semiMajorAxis": 26598162.055016,
+        "eccentricity": 0.092748,
+        "inclinationDeg": -6.166266,
+        "periapsisDeg": 68.862766,
+        "ascendingNodeDeg": -131.409592,
+        "meanAnomalyDeg": 199.779049,
+        "orbitalPeriodSec": 1182675.302029,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 j",
+        "BodyID": 38,
+        "Parents": [
+          {
+            "Null": 36
+          },
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1469.873791,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001931,
+        "Radius": 1097073.25,
+        "SurfaceGravity": 0.639566,
+        "SurfaceTemperature": 39.631725,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.394695
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.195206
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.20975
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.023906
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.094378
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.40755
+          },
+          {
+            "Name": "manganese",
+            "Percent": 4.965751
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.440205
+          },
+          {
+            "Name": "tellurium",
+            "Percent": 0.89102
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.717311
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.660233
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 26598162.055016,
+        "Eccentricity": 0.092748,
+        "OrbitalInclination": -6.166266,
+        "Periapsis": 68.862766,
+        "OrbitalPeriod": 1182675.302029,
+        "AscendingNode": -131.409592,
+        "MeanAnomaly": 199.779049,
+        "RotationPeriod": 991172.964584,
+        "AxialTilt": 0.357244,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 81,
+      "name": "Col 285 Sector TI-U b18-2 B 9",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 979485809803.009,
+        "eccentricity": 0.015027,
+        "inclinationDeg": 0.753227,
+        "periapsisDeg": 161.905031,
+        "ascendingNodeDeg": -161.662515,
+        "meanAnomalyDeg": 257.351795,
+        "orbitalPeriodSec": 1691306471.824646,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 9",
+        "BodyID": 81,
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 70438.418389,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 100
+          }
+        ],
+        "Volcanism": "minor carbon dioxide geysers volcanism",
+        "MassEM": 0.741044,
+        "Radius": 7098826,
+        "SurfaceGravity": 5.861112,
+        "SurfaceTemperature": 20.180334,
+        "SurfacePressure": 16655.185547,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.681761,
+          "Rock": 0.211785,
+          "Metal": 0.106455
+        },
+        "SemiMajorAxis": 979485809803.009,
+        "Eccentricity": 0.015027,
+        "OrbitalInclination": 0.753227,
+        "Periapsis": 161.905031,
+        "OrbitalPeriod": 1691306471.824646,
+        "AscendingNode": -161.662515,
+        "MeanAnomaly": 257.351795,
+        "RotationPeriod": 104557.320576,
+        "AxialTilt": 0.140326,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 56,
+      "name": "Col 285 Sector TI-U b18-2 A 13 d",
+      "kind": "Planet",
+      "parentId": 50,
+      "elements": {
+        "semiMajorAxis": 1374262690.544128,
+        "eccentricity": 0.000253,
+        "inclinationDeg": -0.000264,
+        "periapsisDeg": 32.949225,
+        "ascendingNodeDeg": 153.43438,
+        "meanAnomalyDeg": 33.20652,
+        "orbitalPeriodSec": 1943958.461285,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 d",
+        "BodyID": 56,
+        "Parents": [
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2727.810398,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001365,
+        "Radius": 977511.125,
+        "SurfaceGravity": 0.569401,
+        "SurfaceTemperature": 29.259842,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.347321
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.155369
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.184247
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.064104
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.124783
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.425629
+          },
+          {
+            "Name": "manganese",
+            "Percent": 4.982352
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.278572
+          },
+          {
+            "Name": "tellurium",
+            "Percent": 0.892985
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.824517
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.720135
+          }
+        ],
+        "Composition": {
+          "Ice": 0.82143,
+          "Rock": 0.162156,
+          "Metal": 0.016415
+        },
+        "SemiMajorAxis": 1374262690.544128,
+        "Eccentricity": 0.000253,
+        "OrbitalInclination": -0.000264,
+        "Periapsis": 32.949225,
+        "OrbitalPeriod": 1943958.461285,
+        "AscendingNode": 153.43438,
+        "MeanAnomaly": 33.20652,
+        "RotationPeriod": 1944684.742231,
+        "AxialTilt": 0.775272,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 24,
+      "name": "Col 285 Sector TI-U b18-2 A 9",
+      "kind": "Planet",
+      "parentId": 22,
+      "elements": {
+        "semiMajorAxis": 369597589.969635,
+        "eccentricity": 0.136671,
+        "inclinationDeg": -9.148038,
+        "periapsisDeg": 64.552941,
+        "ascendingNodeDeg": 56.711539,
+        "meanAnomalyDeg": 53.237155,
+        "orbitalPeriodSec": 2147396.981716,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 9",
+        "BodyID": 24,
+        "Parents": [
+          {
+            "Null": 22
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 278.131712,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "thick methane rich atmosphere",
+        "AtmosphereType": "MethaneRich",
+        "AtmosphereComposition": [
+          {
+            "Name": "Ammonia",
+            "Percent": 33.219017
+          },
+          {
+            "Name": "Methane",
+            "Percent": 33.219017
+          },
+          {
+            "Name": "Nitrogen",
+            "Percent": 33.219017
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 1.624264,
+        "Radius": 8667075,
+        "SurfaceGravity": 8.618286,
+        "SurfaceTemperature": 433.071991,
+        "SurfacePressure": 772609984,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.566561,
+          "Rock": 0.295144,
+          "Metal": 0.138296
+        },
+        "SemiMajorAxis": 369597589.969635,
+        "Eccentricity": 0.136671,
+        "OrbitalInclination": -9.148038,
+        "Periapsis": 64.552941,
+        "OrbitalPeriod": 2147396.981716,
+        "AscendingNode": 56.711539,
+        "MeanAnomaly": 53.237155,
+        "RotationPeriod": 2708964.401592,
+        "AxialTilt": -0.508002,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 50,
+      "name": "Col 285 Sector TI-U b18-2 A 13",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 803815716505.0507,
+        "eccentricity": 0.020464,
+        "inclinationDeg": 0.846013,
+        "periapsisDeg": 273.815942,
+        "ascendingNodeDeg": 179.452671,
+        "meanAnomalyDeg": 142.739188,
+        "orbitalPeriodSec": 737877464.294434,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13",
+        "BodyID": 50,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2725.311162,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Sudarsky class I gas giant",
+        "Atmosphere": "",
+        "AtmosphereComposition": [
+          {
+            "Name": "Hydrogen",
+            "Percent": 72.963585
+          },
+          {
+            "Name": "Helium",
+            "Percent": 27.036411
+          }
+        ],
+        "Volcanism": "",
+        "MassEM": 67.975449,
+        "Radius": 52299616,
+        "SurfaceGravity": 9.905227,
+        "SurfaceTemperature": 37.454002,
+        "SurfacePressure": 0,
+        "Landable": false,
+        "SemiMajorAxis": 803815716505.0507,
+        "Eccentricity": 0.020464,
+        "OrbitalInclination": 0.846013,
+        "Periapsis": 273.815942,
+        "OrbitalPeriod": 737877464.294434,
+        "AscendingNode": 179.452671,
+        "MeanAnomaly": 142.739188,
+        "RotationPeriod": 129180.566167,
+        "AxialTilt": -0.831016,
+        "Rings": [
+          {
+            "Name": "Col 285 Sector TI-U b18-2 A 13 A Ring",
+            "RingClass": "eRingClass_Rocky",
+            "MassMT": 17867000000,
+            "InnerRad": 98632000,
+            "OuterRad": 104560000
+          },
+          {
+            "Name": "Col 285 Sector TI-U b18-2 A 13 B Ring",
+            "RingClass": "eRingClass_Icy",
+            "MassMT": 137150000000,
+            "InnerRad": 104660000,
+            "OuterRad": 142080000
+          }
+        ],
+        "ReserveLevel": "PristineResources",
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": [
+        60,
+        56,
+        61,
+        54,
+        53,
+        55,
+        57
+      ]
+    },
+    {
+      "id": 80,
+      "name": "Col 285 Sector TI-U b18-2 B 8",
+      "kind": "Planet",
+      "parentId": 78,
+      "elements": {
+        "semiMajorAxis": 5060475885.868073,
+        "eccentricity": 0.100447,
+        "inclinationDeg": 8.518488,
+        "periapsisDeg": 221.977658,
+        "ascendingNodeDeg": -58.914849,
+        "meanAnomalyDeg": 230.383452,
+        "orbitalPeriodSec": 103122872.114182,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 8",
+        "BodyID": 80,
+        "Parents": [
+          {
+            "Null": 78
+          },
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 74707.671379,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 100
+          }
+        ],
+        "Volcanism": "minor carbon dioxide geysers volcanism",
+        "MassEM": 0.648653,
+        "Radius": 6816365,
+        "SurfaceGravity": 5.56437,
+        "SurfaceTemperature": 20.17132,
+        "SurfacePressure": 15011.408203,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.681761,
+          "Rock": 0.211785,
+          "Metal": 0.106455
+        },
+        "SemiMajorAxis": 5060475885.868073,
+        "Eccentricity": 0.100447,
+        "OrbitalInclination": 8.518488,
+        "Periapsis": 221.977658,
+        "OrbitalPeriod": 103122872.114182,
+        "AscendingNode": -58.914849,
+        "MeanAnomaly": 230.383452,
+        "RotationPeriod": 168032.288325,
+        "AxialTilt": 0.112371,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 58,
+      "name": "Col 285 Sector TI-U b18-2 A 13 e",
+      "kind": "Planet",
+      "parentId": 57,
+      "elements": {
+        "semiMajorAxis": 5817450.582981,
+        "eccentricity": 0.121583,
+        "inclinationDeg": -8.264954,
+        "periapsisDeg": 141.675824,
+        "ascendingNodeDeg": 155.244954,
+        "meanAnomalyDeg": 269.085402,
+        "orbitalPeriodSec": 363592.833281,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 e",
+        "BodyID": 58,
+        "Parents": [
+          {
+            "Null": 57
+          },
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2732.210899,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001177,
+        "Radius": 931070.1875,
+        "SurfaceGravity": 0.540984,
+        "SurfaceTemperature": 29.115269,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.63732
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.399225
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.340369
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.147015
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.187492
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.462916
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.016593
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 2.982884
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.724742
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.666993
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.43445
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823442,
+          "Rock": 0.160409,
+          "Metal": 0.016149
+        },
+        "SemiMajorAxis": 5817450.582981,
+        "Eccentricity": 0.121583,
+        "OrbitalInclination": -8.264954,
+        "Periapsis": 141.675824,
+        "OrbitalPeriod": 363592.833281,
+        "AscendingNode": 155.244954,
+        "MeanAnomaly": 269.085402,
+        "RotationPeriod": 562452.974032,
+        "AxialTilt": 0.126363,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 61,
+      "name": "Col 285 Sector TI-U b18-2 A 13 h",
+      "kind": "Planet",
+      "parentId": 50,
+      "elements": {
+        "semiMajorAxis": 6414740085.601807,
+        "eccentricity": 0,
+        "inclinationDeg": -86.843294,
+        "periapsisDeg": 233.6277,
+        "ascendingNodeDeg": 158.415757,
+        "meanAnomalyDeg": 346.981533,
+        "orbitalPeriodSec": 19604282.975197,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 h",
+        "BodyID": 61,
+        "Parents": [
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2710.989885,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.042648,
+        "Radius": 3062820,
+        "SurfaceGravity": 1.812017,
+        "SurfaceTemperature": 28.919626,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.955729
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.50787
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 15.050141
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.373348
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.358683
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.110066
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.038464
+          },
+          {
+            "Name": "zirconium",
+            "Percent": 1.436801
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.960847
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.765521
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.442545
+          }
+        ],
+        "Composition": {
+          "Ice": 0.877725,
+          "Rock": 0.104869,
+          "Metal": 0.017406
+        },
+        "SemiMajorAxis": 6414740085.601807,
+        "Eccentricity": 0,
+        "OrbitalInclination": -86.843294,
+        "Periapsis": 233.6277,
+        "OrbitalPeriod": 19604282.975197,
+        "AscendingNode": 158.415757,
+        "MeanAnomaly": 346.981533,
+        "RotationPeriod": 117026.285571,
+        "AxialTilt": 0.147189,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 68,
+      "name": "Col 285 Sector TI-U b18-2 A 14 e",
+      "kind": "Planet",
+      "parentId": 62,
+      "elements": {
+        "semiMajorAxis": 2420037388.801575,
+        "eccentricity": 0.008782,
+        "inclinationDeg": 2.538731,
+        "periapsisDeg": 200.966217,
+        "ascendingNodeDeg": 96.421562,
+        "meanAnomalyDeg": 331.466119,
+        "orbitalPeriodSec": 6011541.306973,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 14 e",
+        "BodyID": 68,
+        "Parents": [
+          {
+            "Planet": 62
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3787.506396,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001753,
+        "Radius": 1062427.875,
+        "SurfaceGravity": 0.618883,
+        "SurfaceTemperature": 24.208521,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.092201
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.781734
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.585258
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.341647
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.334704
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.096974
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.353998
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.030679
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.958385
+          },
+          {
+            "Name": "antimony",
+            "Percent": 0.74674
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.67768
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 2420037388.801575,
+        "Eccentricity": 0.008782,
+        "OrbitalInclination": 2.538731,
+        "Periapsis": 200.966217,
+        "OrbitalPeriod": 6011541.306973,
+        "AscendingNode": 96.421562,
+        "MeanAnomaly": 331.466119,
+        "RotationPeriod": 81050.800818,
+        "AxialTilt": -0.37828,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 45,
+      "name": "Col 285 Sector TI-U b18-2 A 12 c",
+      "kind": "Planet",
+      "parentId": 43,
+      "elements": {
+        "semiMajorAxis": 3280514.240265,
+        "eccentricity": 0.109174,
+        "inclinationDeg": 2.26393,
+        "periapsisDeg": 114.013937,
+        "ascendingNodeDeg": -159.868132,
+        "meanAnomalyDeg": 56.039467,
+        "orbitalPeriodSec": 91072.77751,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12 c",
+        "BodyID": 45,
+        "Parents": [
+          {
+            "Null": 43
+          },
+          {
+            "Planet": 39
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2067.514424,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.001229,
+        "Radius": 944649.5625,
+        "SurfaceGravity": 0.548833,
+        "SurfaceTemperature": 39.138073,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.515657
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.296921
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.274872
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.079007
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.136055
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.432331
+          },
+          {
+            "Name": "manganese",
+            "Percent": 4.988507
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.282622
+          },
+          {
+            "Name": "ruthenium",
+            "Percent": 0.745956
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.720598
+          },
+          {
+            "Name": "mercury",
+            "Percent": 0.52747
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 3280514.240265,
+        "Eccentricity": 0.109174,
+        "OrbitalInclination": 2.26393,
+        "Periapsis": 114.013937,
+        "OrbitalPeriod": 91072.77751,
+        "AscendingNode": -159.868132,
+        "MeanAnomaly": 56.039467,
+        "RotationPeriod": 123900.37621,
+        "AxialTilt": -0.358957,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 23,
+      "name": "Col 285 Sector TI-U b18-2 A 8",
+      "kind": "Planet",
+      "parentId": 22,
+      "elements": {
+        "semiMajorAxis": 218583667.27829,
+        "eccentricity": 0.136671,
+        "inclinationDeg": -9.148038,
+        "periapsisDeg": 244.552936,
+        "ascendingNodeDeg": 56.711539,
+        "meanAnomalyDeg": 53.237155,
+        "orbitalPeriodSec": 2147396.981716,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 8",
+        "BodyID": 23,
+        "Parents": [
+          {
+            "Null": 22
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 276.510617,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Rocky ice body",
+        "Atmosphere": "thick methane rich atmosphere",
+        "AtmosphereType": "MethaneRich",
+        "AtmosphereComposition": [
+          {
+            "Name": "Ammonia",
+            "Percent": 33.217728
+          },
+          {
+            "Name": "Methane",
+            "Percent": 33.217728
+          },
+          {
+            "Name": "Nitrogen",
+            "Percent": 33.217728
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 2.746427,
+        "Radius": 9836958,
+        "SurfaceGravity": 11.31243,
+        "SurfaceTemperature": 456.651642,
+        "SurfacePressure": 1170850048,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.498311,
+          "Rock": 0.329909,
+          "Metal": 0.171779
+        },
+        "SemiMajorAxis": 218583667.27829,
+        "Eccentricity": 0.136671,
+        "OrbitalInclination": -9.148038,
+        "Periapsis": 244.552936,
+        "OrbitalPeriod": 2147396.981716,
+        "AscendingNode": 56.711539,
+        "MeanAnomaly": 53.237155,
+        "RotationPeriod": -3522565.242008,
+        "AxialTilt": -2.113507,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 75,
+      "name": "Col 285 Sector TI-U b18-2 B 5",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 467369067668.9148,
+        "eccentricity": 0.000264,
+        "inclinationDeg": 0.002086,
+        "periapsisDeg": 299.487283,
+        "ascendingNodeDeg": -16.240991,
+        "meanAnomalyDeg": 230.103877,
+        "orbitalPeriodSec": 557461667.060852,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 5",
+        "BodyID": 75,
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 70567.833879,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 91.379311
+          },
+          {
+            "Name": "Hydrogen",
+            "Percent": 8.620689
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 1.392277,
+        "Radius": 8578508,
+        "SurfaceGravity": 7.540698,
+        "SurfaceTemperature": 20.300558,
+        "SurfacePressure": 30169.255859,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.681761,
+          "Rock": 0.211785,
+          "Metal": 0.106454
+        },
+        "SemiMajorAxis": 467369067668.9148,
+        "Eccentricity": 0.000264,
+        "OrbitalInclination": 0.002086,
+        "Periapsis": 299.487283,
+        "OrbitalPeriod": 557461667.060852,
+        "AscendingNode": -16.240991,
+        "MeanAnomaly": 230.103877,
+        "RotationPeriod": 63342.284811,
+        "AxialTilt": -0.167352,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 37,
+      "name": "Col 285 Sector TI-U b18-2 A 11 i",
+      "kind": "Planet",
+      "parentId": 36,
+      "elements": {
+        "semiMajorAxis": 15435951.352119,
+        "eccentricity": 0.092748,
+        "inclinationDeg": -6.166266,
+        "periapsisDeg": 248.862761,
+        "ascendingNodeDeg": -131.409592,
+        "meanAnomalyDeg": 199.779049,
+        "orbitalPeriodSec": 1182675.302029,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 i",
+        "BodyID": 37,
+        "Parents": [
+          {
+            "Null": 36
+          },
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1469.789277,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.003328,
+        "Radius": 1312153.875,
+        "SurfaceGravity": 0.77038,
+        "SurfaceTemperature": 39.631725,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.870207
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.59506
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.465745
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.310835
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.311399
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.536591
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.084249
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.573236
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.84138
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.735311
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.675988
+          }
+        ],
+        "Composition": {
+          "Ice": 0.821134,
+          "Rock": 0.162413,
+          "Metal": 0.016453
+        },
+        "SemiMajorAxis": 15435951.352119,
+        "Eccentricity": 0.092748,
+        "OrbitalInclination": -6.166266,
+        "Periapsis": 248.862761,
+        "OrbitalPeriod": 1182675.302029,
+        "AscendingNode": -131.409592,
+        "MeanAnomaly": 199.779049,
+        "RotationPeriod": 1951640.438943,
+        "AxialTilt": -0.01062,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 19,
+      "name": "Col 285 Sector TI-U b18-2 A 5",
+      "kind": "Planet",
+      "parentId": 18,
+      "elements": {
+        "semiMajorAxis": 2286908.209324,
+        "eccentricity": 0.191166,
+        "inclinationDeg": 7.436112,
+        "periapsisDeg": 306.889562,
+        "ascendingNodeDeg": -100.786702,
+        "meanAnomalyDeg": 156.048582,
+        "orbitalPeriodSec": 318867.03372,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 5",
+        "BodyID": 19,
+        "Parents": [
+          {
+            "Null": 18
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 85.636583,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Rocky ice body",
+        "Atmosphere": "thick argon rich atmosphere",
+        "AtmosphereType": "ArgonRich",
+        "AtmosphereComposition": [
+          {
+            "Name": "Nitrogen",
+            "Percent": 99.009827
+          },
+          {
+            "Name": "Argon",
+            "Percent": 0.990098
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 1.094559,
+        "Radius": 7341369,
+        "SurfaceGravity": 8.09458,
+        "SurfaceTemperature": 224.765198,
+        "SurfacePressure": 171125872,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.423981,
+          "Rock": 0.383335,
+          "Metal": 0.192684
+        },
+        "SemiMajorAxis": 2286908.209324,
+        "Eccentricity": 0.191166,
+        "OrbitalInclination": 7.436112,
+        "Periapsis": 306.889562,
+        "OrbitalPeriod": 318867.03372,
+        "AscendingNode": -100.786702,
+        "MeanAnomaly": 156.048582,
+        "RotationPeriod": 2157840.92235,
+        "AxialTilt": -0.419069,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 44,
+      "name": "Col 285 Sector TI-U b18-2 A 12 b",
+      "kind": "Planet",
+      "parentId": 43,
+      "elements": {
+        "semiMajorAxis": 2791181.564331,
+        "eccentricity": 0.109174,
+        "inclinationDeg": 2.26393,
+        "periapsisDeg": 294.013932,
+        "ascendingNodeDeg": -159.868132,
+        "meanAnomalyDeg": 56.039467,
+        "orbitalPeriodSec": 91072.77751,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": true,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12 b",
+        "BodyID": 44,
+        "Parents": [
+          {
+            "Null": 43
+          },
+          {
+            "Planet": 39
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2067.503843,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.001444,
+        "Radius": 996527,
+        "SurfaceGravity": 0.579639,
+        "SurfaceTemperature": 39.138073,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.959869
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.670458
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.514015
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.281365
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.28911
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.072079
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.513868
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.337616
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.953704
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.733551
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.67437
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 2791181.564331,
+        "Eccentricity": 0.109174,
+        "OrbitalInclination": 2.26393,
+        "Periapsis": 294.013932,
+        "OrbitalPeriod": 91072.77751,
+        "AscendingNode": -159.868132,
+        "MeanAnomaly": 56.039467,
+        "RotationPeriod": 134322.743079,
+        "AxialTilt": 0.151846,
+        "WasDiscovered": true,
+        "WasMapped": true,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 47,
+      "name": "Col 285 Sector TI-U b18-2 A 12 e",
+      "kind": "Planet",
+      "parentId": 39,
+      "elements": {
+        "semiMajorAxis": 2923440933.227539,
+        "eccentricity": 0.00529,
+        "inclinationDeg": 0.536236,
+        "periapsisDeg": 337.505646,
+        "ascendingNodeDeg": 140.242119,
+        "meanAnomalyDeg": 49.117549,
+        "orbitalPeriodSec": 2451729.655266,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12 e",
+        "BodyID": 47,
+        "Parents": [
+          {
+            "Planet": 39
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2055.732402,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.004068,
+        "Radius": 1401084.875,
+        "SurfaceGravity": 0.826057,
+        "SurfaceTemperature": 37.312511,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.821619
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.554203
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.439588
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.357609
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.346777
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.557627
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.103566
+          },
+          {
+            "Name": "zirconium",
+            "Percent": 1.434973
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.959624
+          },
+          {
+            "Name": "antimony",
+            "Percent": 0.74586
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.678557
+          }
+        ],
+        "Composition": {
+          "Ice": 0.818335,
+          "Rock": 0.164842,
+          "Metal": 0.016823
+        },
+        "SemiMajorAxis": 2923440933.227539,
+        "Eccentricity": 0.00529,
+        "OrbitalInclination": 0.536236,
+        "Periapsis": 337.505646,
+        "OrbitalPeriod": 2451729.655266,
+        "AscendingNode": 140.242119,
+        "MeanAnomaly": 49.117549,
+        "RotationPeriod": 2429407.990041,
+        "AxialTilt": -1.310416,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": [
+        48
+      ]
+    },
+    {
+      "id": 71,
+      "name": "Col 285 Sector TI-U b18-2 B 1",
+      "kind": "Planet",
+      "parentId": 70,
+      "elements": {
+        "semiMajorAxis": 342276352.643967,
+        "eccentricity": 0.148396,
+        "inclinationDeg": -5.727792,
+        "periapsisDeg": 312.429908,
+        "ascendingNodeDeg": -86.054339,
+        "meanAnomalyDeg": 322.805468,
+        "orbitalPeriodSec": 5236590.027809,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 1",
+        "BodyID": 71,
+        "Parents": [
+          {
+            "Null": 70
+          },
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 72514.014985,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 89.334976
+          },
+          {
+            "Name": "Hydrogen",
+            "Percent": 8.427828
+          },
+          {
+            "Name": "Neon",
+            "Percent": 2.237205
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 2.690942,
+        "Radius": 10366566,
+        "SurfaceGravity": 9.980309,
+        "SurfaceTemperature": 32.197224,
+        "SurfacePressure": 53542.984375,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.675272,
+          "Rock": 0.215325,
+          "Metal": 0.109404
+        },
+        "SemiMajorAxis": 342276352.643967,
+        "Eccentricity": 0.148396,
+        "OrbitalInclination": -5.727792,
+        "Periapsis": 312.429908,
+        "OrbitalPeriod": 5236590.027809,
+        "AscendingNode": -86.054339,
+        "MeanAnomaly": 322.805468,
+        "RotationPeriod": -9111222.509103,
+        "AxialTilt": -1.753266,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 30,
+      "name": "Col 285 Sector TI-U b18-2 A 11 c",
+      "kind": "Planet",
+      "parentId": 28,
+      "elements": {
+        "semiMajorAxis": 2769667.565823,
+        "eccentricity": 0.124687,
+        "inclinationDeg": 8.917925,
+        "periapsisDeg": 319.30285,
+        "ascendingNodeDeg": 82.659567,
+        "meanAnomalyDeg": 155.700275,
+        "orbitalPeriodSec": 70342.854857,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 c",
+        "BodyID": 30,
+        "Parents": [
+          {
+            "Null": 28
+          },
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1484.69876,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.001122,
+        "Radius": 916717.375,
+        "SurfaceGravity": 0.532278,
+        "SurfaceTemperature": 43.130604,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.308817
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.12299
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.163518
+          },
+          {
+            "Name": "iron",
+            "Percent": 11.984783
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.064788
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.389955
+          },
+          {
+            "Name": "manganese",
+            "Percent": 4.949593
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.117552
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.930673
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.658085
+          },
+          {
+            "Name": "polonium",
+            "Percent": 0.309249
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 2769667.565823,
+        "Eccentricity": 0.124687,
+        "OrbitalInclination": 8.917925,
+        "Periapsis": 319.30285,
+        "OrbitalPeriod": 70342.854857,
+        "AscendingNode": 82.659567,
+        "MeanAnomaly": 155.700275,
+        "RotationPeriod": 94574.25586,
+        "AxialTilt": -0.11463,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 76,
+      "name": "Col 285 Sector TI-U b18-2 B 6",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 579354804754.2572,
+        "eccentricity": 0.002033,
+        "inclinationDeg": 0.013328,
+        "periapsisDeg": 223.396432,
+        "ascendingNodeDeg": 27.016072,
+        "meanAnomalyDeg": 342.390637,
+        "orbitalPeriodSec": 769381970.16716,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 6",
+        "BodyID": 76,
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 73569.223506,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "helium atmosphere",
+        "AtmosphereType": "Helium",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 91.379311
+          },
+          {
+            "Name": "Hydrogen",
+            "Percent": 8.620689
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 1.542442,
+        "Radius": 8811981,
+        "SurfaceGravity": 7.917189,
+        "SurfaceTemperature": 20.312927,
+        "SurfacePressure": 32764.333984,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.671661,
+          "Rock": 0.217296,
+          "Metal": 0.111044
+        },
+        "SemiMajorAxis": 579354804754.2572,
+        "Eccentricity": 0.002033,
+        "OrbitalInclination": 0.013328,
+        "Periapsis": 223.396432,
+        "OrbitalPeriod": 769381970.16716,
+        "AscendingNode": 27.016072,
+        "MeanAnomaly": 342.390637,
+        "RotationPeriod": 107087.552963,
+        "AxialTilt": -2.740516,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": [
+        77
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Col 285 Sector TI-U b18-2 A 13 b",
+      "kind": "Planet",
+      "parentId": 50,
+      "elements": {
+        "semiMajorAxis": 389870989.322662,
+        "eccentricity": 0.000935,
+        "inclinationDeg": 0.00387,
+        "periapsisDeg": 343.896193,
+        "ascendingNodeDeg": -14.789026,
+        "meanAnomalyDeg": 188.694641,
+        "orbitalPeriodSec": 293740.421534,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 b",
+        "BodyID": 54,
+        "Parents": [
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2725.79696,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "minor carbon dioxide geysers volcanism",
+        "MassEM": 0.000311,
+        "Radius": 599226.5,
+        "SurfaceGravity": 0.345741,
+        "SurfaceTemperature": 29.815615,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.968393
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.677626
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.518605
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.297991
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.301684
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.530815
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.078945
+          },
+          {
+            "Name": "zirconium",
+            "Percent": 1.42805
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.954995
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.803052
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.43985
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823442,
+          "Rock": 0.16041,
+          "Metal": 0.016149
+        },
+        "SemiMajorAxis": 389870989.322662,
+        "Eccentricity": 0.000935,
+        "OrbitalInclination": 0.00387,
+        "Periapsis": 343.896193,
+        "OrbitalPeriod": 293740.421534,
+        "AscendingNode": -14.789026,
+        "MeanAnomaly": 188.694641,
+        "RotationPeriod": 293850.125421,
+        "AxialTilt": -0.408194,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 59,
+      "name": "Col 285 Sector TI-U b18-2 A 13 f",
+      "kind": "Planet",
+      "parentId": 57,
+      "elements": {
+        "semiMajorAxis": 8103671.073914,
+        "eccentricity": 0.121583,
+        "inclinationDeg": -8.264954,
+        "periapsisDeg": 321.675819,
+        "ascendingNodeDeg": 155.244954,
+        "meanAnomalyDeg": 269.085402,
+        "orbitalPeriodSec": 363592.833281,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 f",
+        "BodyID": 59,
+        "Parents": [
+          {
+            "Null": 57
+          },
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2732.254041,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.000845,
+        "Radius": 834265,
+        "SurfaceGravity": 0.483718,
+        "SurfaceTemperature": 29.115269,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.189789
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.0229
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.099439
+          },
+          {
+            "Name": "iron",
+            "Percent": 11.942934
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.033135
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.371134
+          },
+          {
+            "Name": "manganese",
+            "Percent": 4.93231
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.098924
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.816236
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.779867
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.713337
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823442,
+          "Rock": 0.160409,
+          "Metal": 0.016149
+        },
+        "SemiMajorAxis": 8103671.073914,
+        "Eccentricity": 0.121583,
+        "OrbitalInclination": -8.264954,
+        "Periapsis": 321.675819,
+        "OrbitalPeriod": 363592.833281,
+        "AscendingNode": 155.244954,
+        "MeanAnomaly": 269.085402,
+        "RotationPeriod": 476553.579418,
+        "AxialTilt": -0.006492,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 53,
+      "name": "Col 285 Sector TI-U b18-2 A 13 a",
+      "kind": "Planet",
+      "parentId": 50,
+      "elements": {
+        "semiMajorAxis": 190183383.226395,
+        "eccentricity": 0.000024,
+        "inclinationDeg": -0.000397,
+        "periapsisDeg": 262.194112,
+        "ascendingNodeDeg": 179.040281,
+        "meanAnomalyDeg": 355.471082,
+        "orbitalPeriodSec": 100078.594685,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 a",
+        "BodyID": 53,
+        "Parents": [
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2725.023354,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.000266,
+        "Radius": 568857.1875,
+        "SurfaceGravity": 0.328019,
+        "SurfaceTemperature": 30.329058,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.442835
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.235683
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.235666
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.058328
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.120414
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.423031
+          },
+          {
+            "Name": "manganese",
+            "Percent": 4.979966
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.277002
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.787402
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.72023
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.719451
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823442,
+          "Rock": 0.16041,
+          "Metal": 0.016149
+        },
+        "SemiMajorAxis": 190183383.226395,
+        "Eccentricity": 0.000024,
+        "OrbitalInclination": -0.000397,
+        "Periapsis": 262.194112,
+        "OrbitalPeriod": 100078.594685,
+        "AscendingNode": 179.040281,
+        "MeanAnomaly": 355.471082,
+        "RotationPeriod": 100115.982023,
+        "AxialTilt": 0.152252,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 27,
+      "name": "Col 285 Sector TI-U b18-2 A 11 a",
+      "kind": "Planet",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 630996966.362,
+        "eccentricity": 0.000007,
+        "inclinationDeg": 0.000495,
+        "periapsisDeg": 197.666614,
+        "ascendingNodeDeg": -103.961189,
+        "meanAnomalyDeg": 101.815245,
+        "orbitalPeriodSec": 306249.850988,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 a",
+        "BodyID": 27,
+        "Parents": [
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1486.891236,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water magma volcanism",
+        "MassEM": 0.000984,
+        "Radius": 877775.1875,
+        "SurfaceGravity": 0.509234,
+        "SurfaceTemperature": 43.708179,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.304247
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.960045
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.699414
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.438246
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.407767
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.273345
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.558753
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.38025
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.850088
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.682985
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.444866
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 630996966.362,
+        "Eccentricity": 0.000007,
+        "OrbitalInclination": 0.000495,
+        "Periapsis": 197.666614,
+        "OrbitalPeriod": 306249.850988,
+        "AscendingNode": -103.961189,
+        "MeanAnomaly": 101.815245,
+        "RotationPeriod": 306262.82629,
+        "AxialTilt": 0.154768,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 34,
+      "name": "Col 285 Sector TI-U b18-2 A 11 g",
+      "kind": "Planet",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 3310924172.401428,
+        "eccentricity": 0.006846,
+        "inclinationDeg": 0.579817,
+        "periapsisDeg": 148.31806,
+        "ascendingNodeDeg": -3.187427,
+        "meanAnomalyDeg": 74.68067,
+        "orbitalPeriodSec": 3680941.045284,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 g",
+        "BodyID": 34,
+        "Parents": [
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1479.239367,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001746,
+        "Radius": 1061178.375,
+        "SurfaceGravity": 0.618138,
+        "SurfaceTemperature": 40.305447,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.748392
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.492628
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.400167
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.18503
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.216246
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.480012
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.186349
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 2.992219
+          },
+          {
+            "Name": "tellurium",
+            "Percent": 0.90296
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.726923
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.669081
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 3310924172.401428,
+        "Eccentricity": 0.006846,
+        "OrbitalInclination": 0.579817,
+        "Periapsis": 148.31806,
+        "OrbitalPeriod": 3680941.045284,
+        "AscendingNode": -3.187427,
+        "MeanAnomaly": 74.68067,
+        "RotationPeriod": 3681096.253897,
+        "AxialTilt": 0.246396,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 17,
+      "name": "Col 285 Sector TI-U b18-2 A 4 a",
+      "kind": "Planet",
+      "parentId": 16,
+      "elements": {
+        "semiMajorAxis": 19335744.976997,
+        "eccentricity": 0,
+        "inclinationDeg": 44.707119,
+        "periapsisDeg": 8.352543,
+        "ascendingNodeDeg": 45.318315,
+        "meanAnomalyDeg": 57.714625,
+        "orbitalPeriodSec": 111684.429646,
+        "epochMs": 1763141756000
+      },
+      "wasDiscovered": true,
+      "wasMapped": true,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:35:56Z",
+        "event": "Scan",
+        "ScanType": "AutoScan",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 4 a",
+        "BodyID": 17,
+        "Parents": [
+          {
+            "Planet": 16
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 46.415978,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.000895,
+        "Radius": 825255.1875,
+        "SurfaceGravity": 0.523514,
+        "SurfaceTemperature": 202.630264,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 25.366068
+          },
+          {
+            "Name": "carbon",
+            "Percent": 21.330236
+          },
+          {
+            "Name": "iron",
+            "Percent": 14.505257
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 13.655983
+          },
+          {
+            "Name": "nickel",
+            "Percent": 10.971167
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.990522
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.561986
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.698052
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 1.126399
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.991357
+          },
+          {
+            "Name": "antimony",
+            "Percent": 0.802959
+          }
+        ],
+        "Composition": {
+          "Ice": 0.711511,
+          "Rock": 0.247423,
+          "Metal": 0.041066
+        },
+        "SemiMajorAxis": 19335744.976997,
+        "Eccentricity": 0,
+        "OrbitalInclination": 44.707119,
+        "Periapsis": 8.352543,
+        "OrbitalPeriod": 111684.429646,
+        "AscendingNode": 45.318315,
+        "MeanAnomaly": 57.714625,
+        "RotationPeriod": 112564.936602,
+        "AxialTilt": 0.340195,
+        "WasDiscovered": true,
+        "WasMapped": true,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 29,
+      "name": "Col 285 Sector TI-U b18-2 A 11 b",
+      "kind": "Planet",
+      "parentId": 28,
+      "elements": {
+        "semiMajorAxis": 2236823.618412,
+        "eccentricity": 0.124687,
+        "inclinationDeg": 8.917925,
+        "periapsisDeg": 139.302856,
+        "ascendingNodeDeg": 82.659567,
+        "meanAnomalyDeg": 155.700275,
+        "orbitalPeriodSec": 70342.854857,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 11 b",
+        "BodyID": 29,
+        "Parents": [
+          {
+            "Null": 28
+          },
+          {
+            "Planet": 26
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 1484.698187,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.00139,
+        "Radius": 983904.4375,
+        "SurfaceGravity": 0.572136,
+        "SurfaceTemperature": 43.130604,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.303419
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.959345
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.698967
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.437866
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.407481
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.273215
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.558645
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.054307
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.812185
+          },
+          {
+            "Name": "antimony",
+            "Percent": 0.752562
+          },
+          {
+            "Name": "tin",
+            "Percent": 0.742006
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 2236823.618412,
+        "Eccentricity": 0.124687,
+        "OrbitalInclination": 8.917925,
+        "Periapsis": 139.302856,
+        "OrbitalPeriod": 70342.854857,
+        "AscendingNode": 82.659567,
+        "MeanAnomaly": 155.700275,
+        "RotationPeriod": 105237.570577,
+        "AxialTilt": 0.034233,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 72,
+      "name": "Col 285 Sector TI-U b18-2 B 2",
+      "kind": "Planet",
+      "parentId": 70,
+      "elements": {
+        "semiMajorAxis": 693897724.151611,
+        "eccentricity": 0.148396,
+        "inclinationDeg": -5.727792,
+        "periapsisDeg": 132.429913,
+        "ascendingNodeDeg": -86.054339,
+        "meanAnomalyDeg": 322.805468,
+        "orbitalPeriodSec": 5236590.027809,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 B 2",
+        "BodyID": 72,
+        "Parents": [
+          {
+            "Null": 70
+          },
+          {
+            "Star": 2
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 72516.215952,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "neon rich atmosphere",
+        "AtmosphereType": "NeonRich",
+        "AtmosphereComposition": [
+          {
+            "Name": "Helium",
+            "Percent": 97.556892
+          },
+          {
+            "Name": "Neon",
+            "Percent": 2.443106
+          }
+        ],
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 1.327351,
+        "Radius": 8457982,
+        "SurfaceGravity": 7.395402,
+        "SurfaceTemperature": 31.917923,
+        "SurfacePressure": 27180.345703,
+        "Landable": false,
+        "Composition": {
+          "Ice": 0.681761,
+          "Rock": 0.211784,
+          "Metal": 0.106455
+        },
+        "SemiMajorAxis": 693897724.151611,
+        "Eccentricity": 0.148396,
+        "OrbitalInclination": -5.727792,
+        "Periapsis": 132.429913,
+        "OrbitalPeriod": 5236590.027809,
+        "AscendingNode": -86.054339,
+        "MeanAnomaly": 322.805468,
+        "RotationPeriod": 3199538.705946,
+        "AxialTilt": -0.057701,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": []
+    },
+    {
+      "id": 65,
+      "name": "Col 285 Sector TI-U b18-2 A 14 b",
+      "kind": "Planet",
+      "parentId": 63,
+      "elements": {
+        "semiMajorAxis": 8139671.325684,
+        "eccentricity": 0.077274,
+        "inclinationDeg": 8.32454,
+        "periapsisDeg": 142.732287,
+        "ascendingNodeDeg": 118.372581,
+        "meanAnomalyDeg": 262.474848,
+        "orbitalPeriodSec": 113448.882103,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 14 b",
+        "BodyID": 65,
+        "Parents": [
+          {
+            "Null": 63
+          },
+          {
+            "Planet": 62
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3782.782546,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "major water geysers volcanism",
+        "MassEM": 0.000944,
+        "Radius": 865521.1875,
+        "SurfaceGravity": 0.501991,
+        "SurfaceTemperature": 24.341181,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.191717
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.865416
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.638832
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.38698
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.368993
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.255733
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.544085
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.366318
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 0.961905
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.73986
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.68017
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 8139671.325684,
+        "Eccentricity": 0.077274,
+        "OrbitalInclination": 8.32454,
+        "Periapsis": 142.732287,
+        "OrbitalPeriod": 113448.882103,
+        "AscendingNode": 118.372581,
+        "MeanAnomaly": 262.474848,
+        "RotationPeriod": 122553.52516,
+        "AxialTilt": -0.522574,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 46,
+      "name": "Col 285 Sector TI-U b18-2 A 12 d",
+      "kind": "Planet",
+      "parentId": 39,
+      "elements": {
+        "semiMajorAxis": 2182538509.368896,
+        "eccentricity": 0.000213,
+        "inclinationDeg": 0.001234,
+        "periapsisDeg": 223.200757,
+        "ascendingNodeDeg": 175.561465,
+        "meanAnomalyDeg": 39.227997,
+        "orbitalPeriodSec": 1581517.517567,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12 d",
+        "BodyID": 46,
+        "Parents": [
+          {
+            "Planet": 39
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2064.842214,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.002534,
+        "Radius": 1200138.5,
+        "SurfaceGravity": 0.701304,
+        "SurfaceTemperature": 38.104336,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.453106
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.085218
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.779552
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.506058
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.459057
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.296643
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.398678
+          },
+          {
+            "Name": "vanadium",
+            "Percent": 3.071052
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.816638
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.686708
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.447291
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 2182538509.368896,
+        "Eccentricity": 0.000213,
+        "OrbitalInclination": 0.001234,
+        "Periapsis": 223.200757,
+        "OrbitalPeriod": 1581517.517567,
+        "AscendingNode": 175.561465,
+        "MeanAnomaly": 39.227997,
+        "RotationPeriod": 1562111.85276,
+        "AxialTilt": -0.473977,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 16,
+      "name": "Col 285 Sector TI-U b18-2 A 4",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 13931012749.671936,
+        "eccentricity": 0.00004,
+        "inclinationDeg": 0.000742,
+        "periapsisDeg": 261.177401,
+        "ascendingNodeDeg": -150.093383,
+        "meanAnomalyDeg": 169.730121,
+        "orbitalPeriodSec": 1683540.403843,
+        "epochMs": 1763141757000
+      },
+      "wasDiscovered": true,
+      "wasMapped": true,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:35:57Z",
+        "event": "Scan",
+        "ScanType": "AutoScan",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 4",
+        "BodyID": 16,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 46.470669,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Rocky ice body",
+        "Atmosphere": "thin sulfur dioxide atmosphere",
+        "AtmosphereType": "SulphurDioxide",
+        "AtmosphereComposition": [
+          {
+            "Name": "SulphurDioxide",
+            "Percent": 100
+          }
+        ],
+        "Volcanism": "",
+        "MassEM": 0.056509,
+        "Radius": 2900417.25,
+        "SurfaceGravity": 2.677356,
+        "SurfaceTemperature": 203.386536,
+        "SurfacePressure": 400.700073,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 20.247982
+          },
+          {
+            "Name": "iron",
+            "Percent": 18.198488
+          },
+          {
+            "Name": "carbon",
+            "Percent": 17.026455
+          },
+          {
+            "Name": "nickel",
+            "Percent": 13.764574
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 10.900629
+          },
+          {
+            "Name": "manganese",
+            "Percent": 7.51579
+          },
+          {
+            "Name": "zinc",
+            "Percent": 4.945668
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.767617
+          },
+          {
+            "Name": "cadmium",
+            "Percent": 1.413195
+          },
+          {
+            "Name": "niobium",
+            "Percent": 1.24377
+          },
+          {
+            "Name": "tellurium",
+            "Percent": 0.975821
+          }
+        ],
+        "Composition": {
+          "Ice": 0.41943,
+          "Rock": 0.385486,
+          "Metal": 0.195084
+        },
+        "SemiMajorAxis": 13931012749.671936,
+        "Eccentricity": 0.00004,
+        "OrbitalInclination": 0.000742,
+        "Periapsis": 261.177401,
+        "OrbitalPeriod": 1683540.403843,
+        "AscendingNode": -150.093383,
+        "MeanAnomaly": 169.730121,
+        "RotationPeriod": 1690855.743222,
+        "AxialTilt": 0.055636,
+        "WasDiscovered": true,
+        "WasMapped": true,
+        "WasFootfalled": true
+      },
+      "isMoon": false,
+      "children": [
+        17
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Col 285 Sector TI-U b18-2 A 14 c",
+      "kind": "Planet",
+      "parentId": 62,
+      "elements": {
+        "semiMajorAxis": 1228796303.272247,
+        "eccentricity": 0.001205,
+        "inclinationDeg": -0.032831,
+        "periapsisDeg": 100.998687,
+        "ascendingNodeDeg": 152.958767,
+        "meanAnomalyDeg": 266.859176,
+        "orbitalPeriodSec": 2175065.934658,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 14 c",
+        "BodyID": 66,
+        "Parents": [
+          {
+            "Planet": 62
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3786.082325,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.001541,
+        "Radius": 1018209.125,
+        "SurfaceGravity": 0.592537,
+        "SurfaceTemperature": 24.295816,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.490202
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.116411
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.799523
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.522952
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.471836
+          },
+          {
+            "Name": "manganese",
+            "Percent": 5.171852
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.40327
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.602361
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.855877
+          },
+          {
+            "Name": "molybdenum",
+            "Percent": 0.817742
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.747981
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 1228796303.272247,
+        "Eccentricity": 0.001205,
+        "OrbitalInclination": -0.032831,
+        "Periapsis": 100.998687,
+        "OrbitalPeriod": 2175065.934658,
+        "AscendingNode": 152.958767,
+        "MeanAnomaly": 266.859176,
+        "RotationPeriod": 2175583.643453,
+        "AxialTilt": 0.039566,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 62,
+      "name": "Col 285 Sector TI-U b18-2 A 14",
+      "kind": "Planet",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 1182936131954.193,
+        "eccentricity": 0.049076,
+        "inclinationDeg": 0.102613,
+        "periapsisDeg": 4.719282,
+        "ascendingNodeDeg": -118.811212,
+        "meanAnomalyDeg": 328.755683,
+        "orbitalPeriodSec": 1317320525.64621,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": false,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 14",
+        "BodyID": 62,
+        "Parents": [
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 3783.016329,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Sudarsky class I gas giant",
+        "Atmosphere": "",
+        "AtmosphereComposition": [
+          {
+            "Name": "Hydrogen",
+            "Percent": 72.963593
+          },
+          {
+            "Name": "Helium",
+            "Percent": 27.036417
+          }
+        ],
+        "Volcanism": "",
+        "MassEM": 38.826591,
+        "Radius": 43853680,
+        "SurfaceGravity": 8.046863,
+        "SurfaceTemperature": 29.410553,
+        "SurfacePressure": 0,
+        "Landable": false,
+        "SemiMajorAxis": 1182936131954.193,
+        "Eccentricity": 0.049076,
+        "OrbitalInclination": 0.102613,
+        "Periapsis": 4.719282,
+        "OrbitalPeriod": 1317320525.64621,
+        "AscendingNode": -118.811212,
+        "MeanAnomaly": 328.755683,
+        "RotationPeriod": 41003.278558,
+        "AxialTilt": 1.089338,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": false,
+      "children": [
+        67,
+        69,
+        68,
+        66,
+        63
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Col 285 Sector TI-U b18-2 A 12 f",
+      "kind": "Planet",
+      "parentId": 39,
+      "elements": {
+        "semiMajorAxis": 7198201417.922974,
+        "eccentricity": 0.000014,
+        "inclinationDeg": -8.250736,
+        "periapsisDeg": 23.132013,
+        "ascendingNodeDeg": 134.211841,
+        "meanAnomalyDeg": 222.961832,
+        "orbitalPeriodSec": 9472555.041313,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 12 f",
+        "BodyID": 49,
+        "Parents": [
+          {
+            "Planet": 39
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2085.574884,
+        "TidalLock": false,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "",
+        "MassEM": 0.010896,
+        "Radius": 1939755.5,
+        "SurfaceGravity": 1.154152,
+        "SurfaceTemperature": 35.495457,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 26.681715
+          },
+          {
+            "Name": "carbon",
+            "Percent": 22.436558
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.364269
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.154654
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.193271
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.466352
+          },
+          {
+            "Name": "selenium",
+            "Percent": 4.175914
+          },
+          {
+            "Name": "zinc",
+            "Percent": 3.30318
+          },
+          {
+            "Name": "niobium",
+            "Percent": 0.830706
+          },
+          {
+            "Name": "yttrium",
+            "Percent": 0.725983
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.667413
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823947,
+          "Rock": 0.159971,
+          "Metal": 0.016082
+        },
+        "SemiMajorAxis": 7198201417.922974,
+        "Eccentricity": 0.000014,
+        "OrbitalInclination": -8.250736,
+        "Periapsis": 23.132013,
+        "OrbitalPeriod": 9472555.041313,
+        "AscendingNode": 134.211841,
+        "MeanAnomaly": 222.961832,
+        "RotationPeriod": 49559.859812,
+        "AxialTilt": 0.03188,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 55,
+      "name": "Col 285 Sector TI-U b18-2 A 13 c",
+      "kind": "Planet",
+      "parentId": 50,
+      "elements": {
+        "semiMajorAxis": 679568403.959274,
+        "eccentricity": 0.001489,
+        "inclinationDeg": 0.006945,
+        "periapsisDeg": 188.143831,
+        "ascendingNodeDeg": 140.029198,
+        "meanAnomalyDeg": 324.575681,
+        "orbitalPeriodSec": 675977.33736,
+        "epochMs": 1763141597000
+      },
+      "wasDiscovered": true,
+      "wasMapped": false,
+      "landable": true,
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "Scan",
+        "ScanType": "NavBeaconDetail",
+        "BodyName": "Col 285 Sector TI-U b18-2 A 13 c",
+        "BodyID": 55,
+        "Parents": [
+          {
+            "Planet": 50
+          },
+          {
+            "Star": 1
+          },
+          {
+            "Null": 0
+          }
+        ],
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "DistanceFromArrivalLS": 2723.423014,
+        "TidalLock": true,
+        "TerraformState": "",
+        "PlanetClass": "Icy body",
+        "Atmosphere": "",
+        "AtmosphereType": "None",
+        "Volcanism": "minor nitrogen magma volcanism",
+        "MassEM": 0.000324,
+        "Radius": 607044.8125,
+        "SurfaceGravity": 0.350307,
+        "SurfaceTemperature": 29.527164,
+        "SurfacePressure": 0,
+        "Landable": true,
+        "Materials": [
+          {
+            "Name": "sulphur",
+            "Percent": 27.508015
+          },
+          {
+            "Name": "carbon",
+            "Percent": 23.131392
+          },
+          {
+            "Name": "phosphorus",
+            "Percent": 14.809114
+          },
+          {
+            "Name": "iron",
+            "Percent": 12.544065
+          },
+          {
+            "Name": "nickel",
+            "Percent": 9.487805
+          },
+          {
+            "Name": "chromium",
+            "Percent": 5.641483
+          },
+          {
+            "Name": "germanium",
+            "Percent": 3.588205
+          },
+          {
+            "Name": "arsenic",
+            "Percent": 1.604694
+          },
+          {
+            "Name": "tungsten",
+            "Percent": 0.688795
+          },
+          {
+            "Name": "mercury",
+            "Percent": 0.547779
+          },
+          {
+            "Name": "technetium",
+            "Percent": 0.448651
+          }
+        ],
+        "Composition": {
+          "Ice": 0.823442,
+          "Rock": 0.160409,
+          "Metal": 0.016149
+        },
+        "SemiMajorAxis": 679568403.959274,
+        "Eccentricity": 0.001489,
+        "OrbitalInclination": 0.006945,
+        "Periapsis": 188.143831,
+        "OrbitalPeriod": 675977.33736,
+        "AscendingNode": 140.029198,
+        "MeanAnomaly": 324.575681,
+        "RotationPeriod": 676229.870333,
+        "AxialTilt": -0.189121,
+        "WasDiscovered": true,
+        "WasMapped": false,
+        "WasFootfalled": false
+      },
+      "isMoon": true,
+      "children": []
+    },
+    {
+      "id": 63,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 62,
+      "elements": {
+        "semiMajorAxis": 930170118.808746,
+        "eccentricity": 0.000014,
+        "inclinationDeg": 0.113338,
+        "periapsisDeg": 260.244588,
+        "ascendingNodeDeg": -157.298358,
+        "meanAnomalyDeg": 180.373704,
+        "orbitalPeriodSec": 1432505.548,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 63,
+        "SemiMajorAxis": 930170118.808746,
+        "Eccentricity": 0.000014,
+        "OrbitalInclination": 0.113338,
+        "Periapsis": 260.244588,
+        "OrbitalPeriod": 1432505.548,
+        "AscendingNode": -157.298358,
+        "MeanAnomaly": 180.373704
+      },
+      "children": [
+        64,
+        65
+      ]
+    },
+    {
+      "id": 18,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 25669065713.882446,
+        "eccentricity": 0.000255,
+        "inclinationDeg": -0.001039,
+        "periapsisDeg": 280.872863,
+        "ascendingNodeDeg": 175.06602,
+        "meanAnomalyDeg": 168.906131,
+        "orbitalPeriodSec": 4210799.93248,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 18,
+        "SemiMajorAxis": 25669065713.882446,
+        "Eccentricity": 0.000255,
+        "OrbitalInclination": -0.001039,
+        "Periapsis": 280.872863,
+        "OrbitalPeriod": 4210799.93248,
+        "AscendingNode": 175.06602,
+        "MeanAnomaly": 168.906131
+      },
+      "children": [
+        20,
+        19
+      ]
+    },
+    {
+      "id": 78,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 798012739419.9371,
+        "eccentricity": 0.003808,
+        "inclinationDeg": -0.28183,
+        "periapsisDeg": 37.848998,
+        "ascendingNodeDeg": 118.822895,
+        "meanAnomalyDeg": 278.483162,
+        "orbitalPeriodSec": 1243769228.458405,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 78,
+        "SemiMajorAxis": 798012739419.9371,
+        "Eccentricity": 0.003808,
+        "OrbitalInclination": -0.28183,
+        "Periapsis": 37.848998,
+        "OrbitalPeriod": 1243769228.458405,
+        "AscendingNode": 118.822895,
+        "MeanAnomaly": 278.483162
+      },
+      "children": [
+        79,
+        80
+      ]
+    },
+    {
+      "id": 36,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 5974071204.662323,
+        "eccentricity": 0.000969,
+        "inclinationDeg": -0.975361,
+        "periapsisDeg": 161.671264,
+        "ascendingNodeDeg": -16.886922,
+        "meanAnomalyDeg": 347.825117,
+        "orbitalPeriodSec": 8921556.711197,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 36,
+        "SemiMajorAxis": 5974071204.662323,
+        "Eccentricity": 0.000969,
+        "OrbitalInclination": -0.975361,
+        "Periapsis": 161.671264,
+        "OrbitalPeriod": 8921556.711197,
+        "AscendingNode": -16.886922,
+        "MeanAnomaly": 347.825117
+      },
+      "children": [
+        38,
+        37
+      ]
+    },
+    {
+      "id": 22,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 1,
+      "elements": {
+        "semiMajorAxis": 83076387643.81409,
+        "eccentricity": 0.000006,
+        "inclinationDeg": -0.037048,
+        "periapsisDeg": 69.725324,
+        "ascendingNodeDeg": -84.179903,
+        "meanAnomalyDeg": 278.230064,
+        "orbitalPeriodSec": 24516918.063164,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 22,
+        "SemiMajorAxis": 83076387643.81409,
+        "Eccentricity": 0.000006,
+        "OrbitalInclination": -0.037048,
+        "Periapsis": 69.725324,
+        "OrbitalPeriod": 24516918.063164,
+        "AscendingNode": -84.179903,
+        "MeanAnomaly": 278.230064
+      },
+      "children": [
+        24,
+        23
+      ]
+    },
+    {
+      "id": 57,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 50,
+      "elements": {
+        "semiMajorAxis": 2307401895.523071,
+        "eccentricity": 0.000085,
+        "inclinationDeg": 0.013262,
+        "periapsisDeg": 171.934638,
+        "ascendingNodeDeg": 156.110244,
+        "meanAnomalyDeg": 126.68071,
+        "orbitalPeriodSec": 4229287.50515,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 57,
+        "SemiMajorAxis": 2307401895.523071,
+        "Eccentricity": 0.000085,
+        "OrbitalInclination": 0.013262,
+        "Periapsis": 171.934638,
+        "OrbitalPeriod": 4229287.50515,
+        "AscendingNode": 156.110244,
+        "MeanAnomaly": 126.68071
+      },
+      "children": [
+        58,
+        59
+      ]
+    },
+    {
+      "id": 43,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 39,
+      "elements": {
+        "semiMajorAxis": 1576109528.541565,
+        "eccentricity": 0.000077,
+        "inclinationDeg": 0.047201,
+        "periapsisDeg": 286.622864,
+        "ascendingNodeDeg": 59.069966,
+        "meanAnomalyDeg": 38.508113,
+        "orbitalPeriodSec": 970533.961058,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 43,
+        "SemiMajorAxis": 1576109528.541565,
+        "Eccentricity": 0.000077,
+        "OrbitalInclination": 0.047201,
+        "Periapsis": 286.622864,
+        "OrbitalPeriod": 970533.961058,
+        "AscendingNode": 59.069966,
+        "MeanAnomaly": 38.508113
+      },
+      "children": [
+        45,
+        44
+      ]
+    },
+    {
+      "id": 70,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 146507984399.79553,
+        "eccentricity": 0.000085,
+        "inclinationDeg": -0.155664,
+        "periapsisDeg": 93.930585,
+        "ascendingNodeDeg": -7.615074,
+        "meanAnomalyDeg": 255.330752,
+        "orbitalPeriodSec": 97840130.329132,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 70,
+        "SemiMajorAxis": 146507984399.79553,
+        "Eccentricity": 0.000085,
+        "OrbitalInclination": -0.155664,
+        "Periapsis": 93.930585,
+        "OrbitalPeriod": 97840130.329132,
+        "AscendingNode": -7.615074,
+        "MeanAnomaly": 255.330752
+      },
+      "children": [
+        71,
+        72
+      ]
+    },
+    {
+      "id": 28,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 26,
+      "elements": {
+        "semiMajorAxis": 771513003.110886,
+        "eccentricity": 0.000622,
+        "inclinationDeg": -0.129465,
+        "periapsisDeg": 54.263773,
+        "ascendingNodeDeg": 96.212825,
+        "meanAnomalyDeg": 97.069926,
+        "orbitalPeriodSec": 414047.241211,
+        "epochMs": 1763141597000
+      },
+      "raw": {
+        "timestamp": "2025-11-14T17:33:17Z",
+        "event": "ScanBaryCentre",
+        "StarSystem": "Col 285 Sector TI-U b18-2",
+        "SystemAddress": 5064706368953,
+        "BodyID": 28,
+        "SemiMajorAxis": 771513003.110886,
+        "Eccentricity": 0.000622,
+        "OrbitalInclination": -0.129465,
+        "Periapsis": 54.263773,
+        "OrbitalPeriod": 414047.241211,
+        "AscendingNode": 96.212825,
+        "MeanAnomaly": 97.069926
+      },
+      "children": [
+        30,
+        29
+      ]
+    }
+  ]
+}
