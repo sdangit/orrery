@@ -91,6 +91,29 @@ test('a body with an unresolvable parent chain (an "orphan", possible mid-sessio
   }
 });
 
+test('mining mode boosts a real Pristine-reserve ring\'s opacity and color; exploration mode does not', () => {
+  // Body 39 ("A 12") has a real Rings entry with ReserveLevel:"PristineResources" in the fixture.
+  const findRing39 = (group) => {
+    const rings = [];
+    group.traverse((obj) => {
+      if (obj.geometry instanceof THREE.RingGeometry && obj.userData.bodyId === 39) rings.push(obj);
+    });
+    return rings;
+  };
+
+  const exploration = buildSystemScene(nodes, Date.now(), demoSystem.systemName, 'exploration');
+  const mining = buildSystemScene(nodes, Date.now(), demoSystem.systemName, 'mining');
+
+  const explorationRing = findRing39(exploration.group)[0];
+  const miningRing = findRing39(mining.group)[0];
+  assert.ok(explorationRing, 'expected a ring mesh for body 39 in exploration mode');
+  assert.ok(miningRing, 'expected a ring mesh for body 39 in mining mode');
+
+  assert.equal(explorationRing.material.opacity, 0.35, 'exploration mode should use the baseline ring opacity');
+  assert.equal(miningRing.material.opacity, 0.65, 'mining mode should boost opacity for a Pristine-reserve ring');
+  assert.equal(miningRing.material.color.getHex(), 0xffd24d, 'mining mode should color a Pristine ring amber');
+});
+
 test('belt clusters (no independent position data) do not get their own pickable mesh', () => {
   const { pickables } = buildSystemScene(nodes, Date.now(), demoSystem.systemName);
   const beltClusterIds = [...nodes.values()].filter((n) => n.kind === 'BeltCluster').map((n) => n.id);

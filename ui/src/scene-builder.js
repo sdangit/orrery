@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { displayPosition, classifySpotlight, compressDistance } from '@orrery/shared';
+import { displayPosition, classifySpotlight, classifyModeHighlight, compressDistance } from '@orrery/shared';
 import { makeLabel } from './labels.js';
 import { bodyColor, bodyDisplayRadius } from './body-visuals.js';
 import { shortDesignator } from './naming.js';
@@ -22,9 +22,10 @@ const RENDERABLE_KINDS = new Set(['Star', 'Planet']);
  * @param {Map<number, object>} nodes
  * @param {number} atEpochMs
  * @param {string} systemName Used to strip the redundant system-name prefix off in-scene labels (see naming.js).
+ * @param {string} [mode] The active activity mode (see mode-detect.js's MODES) — drives per-mode highlighting (see mode-highlight.js). Defaults to 'exploration', which has no per-body highlight beyond the always-on spotlight treatment.
  * @returns {{ group: THREE.Group, pickables: Map<THREE.Object3D, number> }}
  */
-export function buildSystemScene(nodes, atEpochMs, systemName) {
+export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'exploration') {
   const group = new THREE.Group();
   const pickables = new Map();
   const ringsAddedFor = new Set();
@@ -48,6 +49,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName) {
     const radius = bodyDisplayRadius(node);
     const color = bodyColor(node);
     const { spotlighted } = classifySpotlight(node);
+    const modeHighlight = classifyModeHighlight(node, mode);
 
     const bodyGroup = new THREE.Group();
     bodyGroup.position.set(pos.x, pos.y, pos.z);
@@ -65,6 +67,14 @@ export function buildSystemScene(nodes, atEpochMs, systemName) {
         new THREE.MeshBasicMaterial({ color: 0xffd24d, transparent: true, opacity: 0.28, side: THREE.BackSide }),
       );
       bodyGroup.add(halo);
+    }
+
+    if (modeHighlight.highlighted && modeHighlight.reasons.includes('good-reserve')) {
+      const miningHalo = new THREE.Mesh(
+        new THREE.SphereGeometry(radius * 2.2, 20, 14),
+        new THREE.MeshBasicMaterial({ color: 0x0ae6f0, transparent: true, opacity: 0.15, side: THREE.BackSide }),
+      );
+      bodyGroup.add(miningHalo);
     }
 
     if (node.landable) {
@@ -92,13 +102,19 @@ export function buildSystemScene(nodes, atEpochMs, systemName) {
       for (const ring of rawRings) {
         const innerR = compressDistance(ring.InnerRad);
         const outerR = compressDistance(ring.OuterRad);
-        const ringColor = RING_CLASS_COLORS[ring.RingClass] ?? 0x7a4a1e;
+        // In mining mode, a Pristine/Major reserve ring gets FDev's own
+        // amber "this is good" color and a brighter band ("Pristine glows",
+        // per the handover's mode table) instead of its natural ring-class tint.
+        const isGoodReserve = modeHighlight.reasons.includes('good-reserve');
+        const ringColor = isGoodReserve ? 0xffd24d : (RING_CLASS_COLORS[ring.RingClass] ?? 0x7a4a1e);
+        const opacity = modeHighlight.highlighted ? (isGoodReserve ? 0.65 : 0.45) : 0.35;
         const ringMesh = new THREE.Mesh(
           new THREE.RingGeometry(innerR, outerR, 96),
-          new THREE.MeshBasicMaterial({ color: ringColor, side: THREE.DoubleSide, transparent: true, opacity: 0.35 }),
+          new THREE.MeshBasicMaterial({ color: ringColor, side: THREE.DoubleSide, transparent: true, opacity }),
         );
         ringMesh.rotation.x = Math.PI / 2;
         ringMesh.position.set(pos.x, pos.y, pos.z);
+        ringMesh.userData.bodyId = node.id; // stashed for testability
         group.add(ringMesh);
       }
     }

@@ -23,6 +23,12 @@
         <option value="mining">Mining</option>
         <option value="piracy">Piracy</option>
       </select>
+      <div class="stat"><span>Security</span><span id="sysSecurity">&mdash;</span></div>
+      <div id="piracyInfo" hidden>
+        <div class="stat"><span>Nav Beacon</span><span id="sysNavBeacon">&mdash;</span></div>
+        <div class="stat"><span>Combat zones</span><span id="sysCombatZones">&mdash;</span></div>
+        <div class="stat"><span>Bounty (session)</span><span id="sysBountyTally">&mdash;</span></div>
+      </div>
       <div class="stat"><span>Scale</span><span class="val-warn">compressed &mdash; not to scale</span></div>
     </div>
 
@@ -38,6 +44,7 @@
       <div class="stat"><span>Atmosphere</span><span id="detailAtmo">&mdash;</span></div>
       <div class="stat"><span>Landable</span><span id="detailLandable">&mdash;</span></div>
       <div class="stat"><span>Orbital period</span><span id="detailPeriod">&mdash;</span></div>
+      <div class="stat" id="detailRingsRow" hidden><span>Rings</span><span id="detailRings">&mdash;</span></div>
       <div class="stat"><span>Discovered</span><span id="detailDiscovered">&mdash;</span></div>
       <div class="stat"><span>Mapped</span><span id="detailMapped">&mdash;</span></div>
       <button class="act" id="copyName">Copy name</button>

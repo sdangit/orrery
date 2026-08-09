@@ -72,6 +72,10 @@ let systemName = '';
 let pickables = new Map();
 let systemGroup = null;
 let detectedMode = 'exploration';
+let systemSecurity = null;
+let factions = [];
+let navBeaconDetected = false;
+let bountyTally = 0;
 
 function selectNode(id) {
   selectedId = id;
@@ -95,38 +99,6 @@ document.getElementById('copyName').addEventListener('click', () => {
   navigator.clipboard?.writeText(node.name ?? '');
 });
 
-// ---------- loading a system (shared by the demo data and live snapshots) ----------
-function loadSystem(payload) {
-  const newNodes = new Map(payload.nodes.map((node) => [node.id, node]));
-
-  if (systemGroup) disposeSystemScene(systemGroup);
-  const built = buildSystemScene(newNodes, Date.now(), payload.systemName);
-  scene.add(built.group);
-
-  nodes = newNodes;
-  systemName = payload.systemName;
-  pickables = built.pickables;
-  systemGroup = built.group;
-
-  document.getElementById('sysName').textContent = systemName;
-  const renderableCount = [...nodes.values()].filter((n) => n.kind === 'Star' || n.kind === 'Planet').length;
-  document.getElementById('sysBodyCount').textContent = String(renderableCount);
-
-  // The demo snapshot has no live event stream to detect a mode from — default
-  // to exploration, ED's own baseline activity, per the handover's mode table.
-  detectedMode = payload.mode ?? 'exploration';
-  updateModeDisplay();
-
-  // Keep the current selection if it still exists in the new tree (a rescan
-  // shouldn't yank the view away); otherwise fall back to the primary star.
-  if (selectedId !== null && nodes.has(selectedId)) {
-    selectNode(selectedId);
-  } else {
-    const primaryStar = [...nodes.values()].find((n) => n.kind === 'Star');
-    selectNode(primaryStar ? primaryStar.id : null);
-  }
-}
-
 // ---------- activity mode: auto-detected, overridable by a manual pin ----------
 // "Auto wins unless the user has pinned a mode" (handover doc). The watcher
 // always reports its own auto-detection in the snapshot; the pin is a purely
@@ -142,6 +114,8 @@ modeSelect.addEventListener('change', () => {
   if (pinnedMode) localStorage.setItem('orrery.pinnedMode', pinnedMode);
   else localStorage.removeItem('orrery.pinnedMode');
   updateModeDisplay();
+  updateSystemLevelPanel(); // piracy's info block visibility depends on the effective mode
+  rebuildSceneVisuals(); // mode-dependent highlighting (e.g. mining's ring glow) needs a rebuild, not just a label change
 });
 
 function effectiveMode() {
@@ -150,6 +124,68 @@ function effectiveMode() {
 
 function updateModeDisplay() {
   document.getElementById('sysMode').textContent = MODE_LABELS[effectiveMode()] ?? effectiveMode();
+}
+
+// System-level context (security always shown; nav beacon/combat zones/bounty
+// tally are piracy-specific, so gated behind the active mode to keep the
+// panel lean the rest of the time — same "reduce clutter per mode" idea as
+// the 3D overlay). The demo snapshot doesn't carry any of this (it's only
+// ever captured live, from FSDJump/Bounty events), so it just reads "—".
+function updateSystemLevelPanel() {
+  document.getElementById('sysSecurity').textContent = systemSecurity ?? '—';
+
+  const isPiracy = effectiveMode() === 'piracy';
+  document.getElementById('piracyInfo').hidden = !isPiracy;
+  if (!isPiracy) return;
+
+  document.getElementById('sysNavBeacon').textContent = navBeaconDetected ? 'Yes' : 'No';
+  const combatFactions = factions.filter((f) => f.state === 'War' || f.state === 'CivilWar');
+  document.getElementById('sysCombatZones').textContent = combatFactions.length > 0
+    ? combatFactions.map((f) => `${f.name} (${f.state})`).join(', ')
+    : 'None';
+  document.getElementById('sysBountyTally').textContent = `${bountyTally.toLocaleString()} CR`;
+}
+
+// Rebuilds just the 3D scene for the current nodes/systemName at the current
+// effective mode — used both by loadSystem (new data) and by a manual mode
+// pin change (same data, different highlighting), without touching selection.
+function rebuildSceneVisuals() {
+  if (systemGroup) disposeSystemScene(systemGroup);
+  const built = buildSystemScene(nodes, Date.now(), systemName, effectiveMode());
+  scene.add(built.group);
+  pickables = built.pickables;
+  systemGroup = built.group;
+  requestRender();
+}
+
+// ---------- loading a system (shared by the demo data and live snapshots) ----------
+function loadSystem(payload) {
+  nodes = new Map(payload.nodes.map((node) => [node.id, node]));
+  systemName = payload.systemName;
+  // The demo snapshot has no live event stream to detect a mode from — default
+  // to exploration, ED's own baseline activity, per the handover's mode table.
+  detectedMode = payload.mode ?? 'exploration';
+  systemSecurity = payload.systemSecurity ?? null;
+  factions = payload.factions ?? [];
+  navBeaconDetected = payload.navBeaconDetected ?? false;
+  bountyTally = payload.bountyTally ?? 0;
+  updateModeDisplay();
+  updateSystemLevelPanel();
+
+  rebuildSceneVisuals();
+
+  document.getElementById('sysName').textContent = systemName;
+  const renderableCount = [...nodes.values()].filter((n) => n.kind === 'Star' || n.kind === 'Planet').length;
+  document.getElementById('sysBodyCount').textContent = String(renderableCount);
+
+  // Keep the current selection if it still exists in the new tree (a rescan
+  // shouldn't yank the view away); otherwise fall back to the primary star.
+  if (selectedId !== null && nodes.has(selectedId)) {
+    selectNode(selectedId);
+  } else {
+    const primaryStar = [...nodes.values()].find((n) => n.kind === 'Star');
+    selectNode(primaryStar ? primaryStar.id : null);
+  }
 }
 
 // ---------- source indicator (DEMO vs LIVE) ----------

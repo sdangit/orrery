@@ -107,7 +107,7 @@ test('a snapshot carries the auto-detected mode, computed from real event scorin
   });
 });
 
-test('relogging into a new file but the same system does not spuriously report a change', () => {
+test('relogging into a new file but the same system preserves earlier scan data (system-level context still legitimately refreshes)', () => {
   withTempDir((dir) => {
     writeFileSync(join(dir, 'Journal.2026-01-01T000000.01.log'), line(fsdJump('Sol', 1)) + line(scan(1, 1)));
     const watcher = createLiveWatcher(dir);
@@ -116,7 +116,10 @@ test('relogging into a new file but the same system does not spuriously report a
     const newerPath = join(dir, 'Journal.2026-01-01T010000.01.log');
     writeFileSync(newerPath, line(fsdJump('Sol', 1))); // same SystemAddress
     const result = watcher.poll();
-    assert.equal(result.changed, false);
+    // changed is still true here — not because the tree changed, but because
+    // security/faction state legitimately can shift between visits (the BGS
+    // doesn't pause while you're away), so every arrival re-reports context.
+    assert.equal(result.changed, true);
     assert.equal(result.snapshot.systemName, 'Sol');
     assert.ok(result.snapshot.nodes.some((n) => n.id === 1), 'earlier scan of body 1 should survive the relog');
   });

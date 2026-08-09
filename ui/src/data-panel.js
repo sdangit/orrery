@@ -1,4 +1,4 @@
-import { classifySpotlight } from '@orrery/shared';
+import { classifySpotlight, reserveLevelLabel } from '@orrery/shared';
 import { shortDesignator } from './naming.js';
 
 const SPOTLIGHT_LABELS = {
@@ -67,6 +67,21 @@ function fmtMapped(wasMapped, kind) {
   return '—';
 }
 
+const RING_CLASS_LABELS = {
+  eRingClass_Icy: 'Icy',
+  eRingClass_Rocky: 'Rocky',
+  eRingClass_Metalic: 'Metallic',
+  eRingClass_MetalRich: 'Metal Rich',
+};
+
+function fmtRings(node) {
+  const rings = node.raw?.Rings;
+  if (!Array.isArray(rings) || rings.length === 0) return null;
+  const classes = [...new Set(rings.map((r) => RING_CLASS_LABELS[r.RingClass] ?? r.RingClass))].join(', ');
+  const reserveLevel = node.raw?.ReserveLevel;
+  return reserveLevel ? `${classes} — ${reserveLevelLabel(reserveLevel)} reserves` : classes;
+}
+
 function fmtKind(node) {
   const raw = node.raw ?? {};
   if (node.kind === 'Star') return `Star (${raw.StarType ?? '?'})`;
@@ -101,6 +116,11 @@ export function renderDetailPanel(node, systemName) {
   setText('detailPeriod', fmtPeriod(node.elements?.orbitalPeriodSec));
   setText('detailDiscovered', fmtDiscovery(raw.WasDiscovered));
   setText('detailMapped', fmtMapped(raw.WasMapped, node.kind));
+
+  const ringsText = fmtRings(node);
+  const ringsRow = document.getElementById('detailRingsRow');
+  ringsRow.hidden = ringsText === null;
+  if (ringsText !== null) setText('detailRings', ringsText);
 
   const spotlightRow = document.getElementById('detailSpotlight');
   spotlightRow.hidden = !spotlighted;

@@ -9,7 +9,7 @@ A personalized, real-time 3D orrery of the star system you're currently in, buil
 - [x] **Milestone 1** — journal parsing core: NDJSON parser, body-tree builder (Parents chain resolution, including the Ring pseudo-body quirk and barycentre-without-Parents recovery), Kepler solver, and the pure activity-mode-detection function. All unit-tested against a real (scrubbed) journal fixture. See [watcher/](watcher/).
 - [x] **Milestone 2** — static orrery render at t=now, selection + data panel, first-discovery/high-value treatment. See [ui/](ui/).
 - [x] **Milestone 3** — live mode: watcher process tails the real journal directory, broadcasts system snapshots over a local WebSocket, UI auto-switches on system jump, FPS-capped + render-on-demand.
-- [~] **Milestone 4 (in progress)** — auto-detection is fully wired end-to-end (recent-events buffer → `detectMode` → included in every live snapshot → shown in the UI's Mode line, overridable by a manual pin that persists in localStorage). The actual per-mode visual overlays (what lights up in each mode, and exploration's estimated mapping value) are paused pending a decision on data-accuracy risk — see the handover doc's progress log.
+- [~] **Milestone 4 (in progress)** — auto-detection wired end-to-end (recent-events buffer → `detectMode` → every live snapshot → UI's Mode line, overridable by a manual pin persisted in localStorage). Exploration needs no extra overlay (already covered by the always-on spotlight treatment). Mining (ring reserve-level glow) and piracy (system security, combat-zone factions, nav beacon, session bounty tally) are built and real-data-verified. Exobiology is not yet built — see the handover doc's progress log for exactly what's confirmed vs. unverified.
 - [ ] Milestone 5 — identity layer: icons, pins/nicknames, NavRoute badge.
 - [ ] Milestone 6 — EDSM backfill toggle.
 - [ ] Milestone 7 — polish: warp slider, true-scale toggle, session tracker, audio cues.
@@ -27,7 +27,7 @@ This is an npm workspaces monorepo with three packages:
 
 ```
 npm install                          # once, from the repo root — sets up all three workspace packages
-npm test                             # runs every package's tests (125 as of the milestone 4 mode-detection wiring)
+npm test                             # runs every package's tests (141 as of the mining/piracy overlays)
 npm run dev --workspace=ui           # starts the orrery UI at http://localhost:5173
 npm run watch --workspace=watcher    # (optional, in a second terminal) starts the live watcher against your real journal
 ```
