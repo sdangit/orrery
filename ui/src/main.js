@@ -71,6 +71,7 @@ let nodes = new Map();
 let systemName = '';
 let pickables = new Map();
 let systemGroup = null;
+let detectedMode = 'exploration';
 
 function selectNode(id) {
   selectedId = id;
@@ -111,6 +112,11 @@ function loadSystem(payload) {
   const renderableCount = [...nodes.values()].filter((n) => n.kind === 'Star' || n.kind === 'Planet').length;
   document.getElementById('sysBodyCount').textContent = String(renderableCount);
 
+  // The demo snapshot has no live event stream to detect a mode from — default
+  // to exploration, ED's own baseline activity, per the handover's mode table.
+  detectedMode = payload.mode ?? 'exploration';
+  updateModeDisplay();
+
   // Keep the current selection if it still exists in the new tree (a rescan
   // shouldn't yank the view away); otherwise fall back to the primary star.
   if (selectedId !== null && nodes.has(selectedId)) {
@@ -119,6 +125,31 @@ function loadSystem(payload) {
     const primaryStar = [...nodes.values()].find((n) => n.kind === 'Star');
     selectNode(primaryStar ? primaryStar.id : null);
   }
+}
+
+// ---------- activity mode: auto-detected, overridable by a manual pin ----------
+// "Auto wins unless the user has pinned a mode" (handover doc). The watcher
+// always reports its own auto-detection in the snapshot; the pin is a purely
+// local UI preference layered on top, so multiple UI instances could each
+// pin their own mode without needing to coordinate through the watcher.
+const MODE_LABELS = { exploration: 'Exploration', exobiology: 'Exobiology', mining: 'Mining', piracy: 'Piracy' };
+let pinnedMode = localStorage.getItem('orrery.pinnedMode') || null;
+
+const modeSelect = document.getElementById('modeSelect');
+modeSelect.value = pinnedMode ?? '';
+modeSelect.addEventListener('change', () => {
+  pinnedMode = modeSelect.value || null;
+  if (pinnedMode) localStorage.setItem('orrery.pinnedMode', pinnedMode);
+  else localStorage.removeItem('orrery.pinnedMode');
+  updateModeDisplay();
+});
+
+function effectiveMode() {
+  return pinnedMode ?? detectedMode;
+}
+
+function updateModeDisplay() {
+  document.getElementById('sysMode').textContent = MODE_LABELS[effectiveMode()] ?? effectiveMode();
 }
 
 // ---------- source indicator (DEMO vs LIVE) ----------

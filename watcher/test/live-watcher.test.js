@@ -90,6 +90,23 @@ test('a newer journal file appearing (relog) is picked up and tailed instead of 
   });
 });
 
+test('a snapshot carries the auto-detected mode, computed from real event scoring (not just the fallback default)', () => {
+  withTempDir((dir) => {
+    const journalPath = join(dir, 'Journal.2026-01-01T000000.01.log');
+    const nowIso = new Date().toISOString();
+    writeFileSync(journalPath, line(fsdJump('Sol', 1, nowIso)));
+    const watcher = createLiveWatcher(dir);
+    const first = watcher.poll();
+    assert.equal(first.snapshot.mode, 'exploration', 'no piracy signal yet — should be the default');
+
+    appendFileSync(journalPath, line({ event: 'Bounty', timestamp: new Date().toISOString(), TotalReward: 5000 }));
+    appendFileSync(journalPath, line({ event: 'UnderAttack', timestamp: new Date().toISOString(), Target: 'You' }));
+    const second = watcher.poll();
+    assert.equal(second.snapshot.mode, 'piracy');
+    assert.equal(second.changed, true, 'a mode flip should be reported as a change even with no new Scan data');
+  });
+});
+
 test('relogging into a new file but the same system does not spuriously report a change', () => {
   withTempDir((dir) => {
     writeFileSync(join(dir, 'Journal.2026-01-01T000000.01.log'), line(fsdJump('Sol', 1)) + line(scan(1, 1)));
