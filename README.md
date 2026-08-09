@@ -1,10 +1,20 @@
 # ORRERY
 
-<!-- demo gif goes here -->
+<img width="1280" height="720" alt="orrery2" src="https://github.com/user-attachments/assets/e72d844e-cc12-4119-a7ea-316d601affa9" />
+
+<br>
+<br>
 
 You jump into a system, honk, and get handed forty names that look like `Col 285 Sector TI-U b18-2 A 12 e a`. Somewhere in that list is the one moon worth landing on. ORRERY reads your journal and draws the system instead: real orbits, real positions, updating as you fly. It's built to sit on a second monitor and be glanced at rather than read.
+<br>
+<br>
 
-<!-- screenshots go here -->
+<img width="1913" height="913" alt="image" src="https://github.com/user-attachments/assets/589eb7f7-c2bf-408e-983d-d40a263f0dd8" />
+<img width="950" height="851" alt="image" src="https://github.com/user-attachments/assets/4bd1a514-e51e-4174-93b3-bf15bbb96a32" />
+<img width="304" height="358" alt="image" src="https://github.com/user-attachments/assets/9f8e10c3-77db-4240-9a8d-1f840bba5e02" />
+
+<br>
+<br>
 
 ## What it does
 
