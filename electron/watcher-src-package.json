@@ -1,0 +1,4 @@
+{
+  "//": "Copied to resources/watcher-src/package.json at package time. Node picks ESM vs CommonJS from the nearest package.json's `type` field; extraResources copies watcher/src/ out of its own package, so without this marker the packaged watcher modules get parsed as CommonJS and every `import` statement throws SyntaxError.",
+  "type": "module"
+}

@@ -26,6 +26,7 @@
     ],
     "extraResources": [
       { "from": "../watcher/src", "to": "watcher-src", "filter": ["**/*", "!**/*.test.js"] },
+      { "from": "watcher-src-package.json", "to": "watcher-src/package.json" },
       { "from": "../ui/dist", "to": "ui-dist" },
       { "from": "../node_modules/ws", "to": "node_modules/ws" }
     ],
