@@ -137,3 +137,49 @@ test('bio data for a body with no corresponding Scan yet is silently dropped, no
   ];
   assert.doesNotThrow(() => buildBodyTree(events, { systemAddress: 1 }));
 });
+
+test('a single-star system where the primary star itself is BodyID 0 (real journal shape, no synthetic root collision)', () => {
+  // Shaped exactly like a real Scan event for "LFT 682": the star has
+  // BodyID:0 and no Parents field at all — it's the absolute root, nothing
+  // to orbit. This is the common case, not an edge case: single-star
+  // systems name their one star after the system itself with no letter
+  // suffix, and the journal gives it BodyID 0 directly.
+  const events = [
+    {
+      event: 'Scan', timestamp: '2025-01-01T00:00:00Z', ScanType: 'AutoScan',
+      BodyName: 'LFT 682', BodyID: 0, StarSystem: 'LFT 682', SystemAddress: 1,
+      DistanceFromArrivalLS: 0, StarType: 'M', Subclass: 3, StellarMass: 0.449219,
+      Radius: 429593472, AbsoluteMagnitude: 10.362732, Age_MY: 898,
+      SurfaceTemperature: 3532, Luminosity: 'V', RotationPeriod: 166830.658176,
+      AxialTilt: 0, WasDiscovered: true, WasMapped: false,
+      // deliberately no Parents field, matching the real event
+    },
+  ];
+  const { rootId, nodes, orphans } = buildBodyTree(events, { systemAddress: 1, systemName: 'LFT 682' });
+  assert.equal(rootId, 0);
+  const star = nodes.get(0);
+  assert.equal(star.kind, 'Star', 'the real star data must win over the synthetic placeholder, not be discarded');
+  assert.equal(star.name, 'LFT 682');
+  assert.equal(star.parentId, null);
+  assert.equal(star.elements, null, 'a lone star with nothing to orbit has no SemiMajorAxis etc.');
+  assert.deepEqual(orphans, []);
+});
+
+test('a planet orbiting a single-star system\'s BodyID-0 star resolves its parent correctly', () => {
+  const events = [
+    {
+      event: 'Scan', timestamp: '2025-01-01T00:00:00Z', BodyID: 0, BodyName: 'LFT 682', SystemAddress: 1,
+      StarType: 'M', WasDiscovered: true, WasMapped: false,
+    },
+    {
+      event: 'Scan', timestamp: '2025-01-01T00:00:01Z', BodyID: 1, BodyName: 'LFT 682 1', SystemAddress: 1,
+      PlanetClass: 'Rocky body', Parents: [{ Star: 0 }],
+      SemiMajorAxis: 1e9, Eccentricity: 0, OrbitalInclination: 0, Periapsis: 0, AscendingNode: 0, MeanAnomaly: 0, OrbitalPeriod: 100000,
+      WasDiscovered: true, WasMapped: false,
+    },
+  ];
+  const { nodes, orphans } = buildBodyTree(events, { systemAddress: 1 });
+  assert.equal(nodes.get(1).parentId, 0);
+  assert.equal(nodes.get(0).kind, 'Star');
+  assert.deepEqual(orphans, []);
+});

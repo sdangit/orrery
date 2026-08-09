@@ -93,6 +93,24 @@ test('a pinned nickname overrides the label\'s designator, but the icon prefix s
   assert.ok(!labelTexts.includes('✦ A'), 'the plain designator should no longer appear once nicknamed');
 });
 
+test('an EDSM backfill body renders as a dim wireframe; a real scanned body does not', () => {
+  const withBackfill = new Map(nodes);
+  withBackfill.set(9002, {
+    id: 9002, name: 'Backfill Planet', kind: 'Planet', parentId: 1, isBackfill: true, isMoon: false,
+    elements: { semiMajorAxis: 5e9, eccentricity: 0, inclinationDeg: 0, periapsisDeg: 0, ascendingNodeDeg: 0, meanAnomalyDeg: 0, orbitalPeriodSec: 100000, epochMs: 0 },
+    raw: { Radius: 1000000, WasDiscovered: true },
+    children: [],
+  });
+
+  const { group, pickables } = buildSystemScene(withBackfill, Date.now(), demoSystem.systemName);
+  const backfillMesh = [...pickables.entries()].find(([, id]) => id === 9002)?.[0];
+  const realStarMesh = [...pickables.entries()].find(([, id]) => id === 1)?.[0];
+
+  assert.ok(backfillMesh, 'expected a pickable mesh for the backfill body');
+  assert.equal(backfillMesh.material.wireframe, true);
+  assert.equal(realStarMesh.material.wireframe, false, 'a real scanned body must never render as wireframe');
+});
+
 test('a body with an unresolvable parent chain (an "orphan", possible mid-session live data) is skipped, not a crash', () => {
   // Simulates scanning a moon before its planet has ever been scanned — a real
   // possibility in live play, per buildBodyTree's `orphans` reporting.

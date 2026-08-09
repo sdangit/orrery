@@ -55,9 +55,15 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     const bodyGroup = new THREE.Group();
     bodyGroup.position.set(pos.x, pos.y, pos.z);
 
+    // EDSM backfill bodies ("known, not yours yet" — see edsm-backfill.js)
+    // render as dim wireframes, never solid — their position in particular
+    // is a fixed, non-live approximation (EDSM gives no orbital phase data),
+    // and the wireframe is the visual promise that this isn't real scan data.
     const mesh = new THREE.Mesh(
       new THREE.SphereGeometry(radius, 24, 16),
-      new THREE.MeshBasicMaterial({ color }),
+      node.isBackfill
+        ? new THREE.MeshBasicMaterial({ color, wireframe: true, transparent: true, opacity: 0.5 })
+        : new THREE.MeshBasicMaterial({ color }),
     );
     bodyGroup.add(mesh);
     pickables.set(mesh, node.id);
@@ -100,7 +106,10 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     const designator = nicknames[node.id] ?? (node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`);
     const icon = bodyIcon(node);
     const labelText = icon ? `${icon} ${designator}` : designator;
-    const label = makeLabel(labelText, spotlighted ? '#ffd24d' : '#ff8a2a');
+    // Spotlight (e.g. a genuinely high-value world) still pops through even
+    // on backfill data — that's the point of showing it before it's scanned.
+    const labelColor = spotlighted ? '#ffd24d' : (node.isBackfill ? '#7a4a1e' : '#ff8a2a');
+    const label = makeLabel(labelText, labelColor);
     label.userData.text = labelText; // stashed for testability — canvas-texture text isn't otherwise inspectable
     label.position.set(0, radius + 1.1, 0);
     bodyGroup.add(label);

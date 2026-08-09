@@ -5,6 +5,8 @@ import { buildSystemScene, disposeSystemScene } from './scene-builder.js';
 import { renderDetailPanel } from './data-panel.js';
 import { connectLive } from './live-connection.js';
 import { getNickname, getNicknames, setNickname } from './nicknames.js';
+import { buildBackfillNodes } from '@orrery/shared';
+import { fetchEdsmBodies } from './edsm-client.js';
 
 // ---------- renderer & scene ----------
 const canvas = document.getElementById('c');
@@ -68,7 +70,8 @@ resize();
 const raycaster = new THREE.Raycaster();
 const pointerNdc = new THREE.Vector2();
 let selectedId = null;
-let nodes = new Map();
+let scannedNodes = new Map(); // the real, authoritative tree — never mutated by EDSM backfill
+let renderedNodes = new Map(); // scannedNodes, merged with EDSM backfill bodies when enabled — what's actually shown/selectable
 let systemName = '';
 let systemAddress = null;
 let pickables = new Map();
@@ -88,7 +91,7 @@ function currentNickname(id) {
 
 function selectNode(id) {
   selectedId = id;
-  renderDetailPanel(id === null ? null : nodes.get(id), systemName, currentNickname(id));
+  renderDetailPanel(id === null ? null : renderedNodes.get(id), systemName, currentNickname(id));
   nicknameInput.value = currentNickname(id) ?? '';
   requestRender();
 }
@@ -96,7 +99,7 @@ function selectNode(id) {
 function saveNicknameFromInput() {
   if (selectedId === null || systemAddress === null) return;
   setNickname(systemAddress, selectedId, nicknameInput.value);
-  renderDetailPanel(nodes.get(selectedId), systemName, currentNickname(selectedId));
+  renderDetailPanel(renderedNodes.get(selectedId), systemName, currentNickname(selectedId));
   rebuildSceneVisuals(); // the in-scene label needs to pick up the new nickname too
 }
 nicknameInput.addEventListener('blur', saveNicknameFromInput);
@@ -119,7 +122,7 @@ canvas.addEventListener('click', (event) => {
 
 document.getElementById('copyName').addEventListener('click', () => {
   if (selectedId === null) return;
-  const node = nodes.get(selectedId);
+  const node = renderedNodes.get(selectedId);
   navigator.clipboard?.writeText(node.name ?? '');
 });
 
@@ -174,13 +177,50 @@ function updateSystemLevelPanel() {
   document.getElementById('sysBountyTally').textContent = `${bountyTally.toLocaleString()} CR`;
 }
 
-// Rebuilds just the 3D scene for the current nodes/systemName at the current
-// effective mode — used both by loadSystem (new data) and by a manual mode
-// pin change (same data, different highlighting), without touching selection.
+// ---------- EDSM backfill (opt-in, off by default) ----------
+// The one and only network call this app ever makes — see edsm-client.js and
+// the README's privacy note. Bodies EDSM knows about that the player hasn't
+// personally scanned are shown dim/wireframe ("known, not yours yet"); real
+// Scan data always wins and is never overwritten (see edsm-backfill.js).
+let edsmEnabled = localStorage.getItem('orrery.edsmEnabled') === 'true';
+let edsmBodies = null; // raw EDSM response for the current system, or null (disabled/not fetched/failed)
+let edsmFetchToken = 0; // guards against a stale response landing after the system has already changed again
+
+const edsmToggle = document.getElementById('edsmToggle');
+edsmToggle.checked = edsmEnabled;
+edsmToggle.addEventListener('change', () => {
+  edsmEnabled = edsmToggle.checked;
+  localStorage.setItem('orrery.edsmEnabled', String(edsmEnabled));
+  refreshEdsmBackfill();
+});
+
+function recomputeRenderedNodes() {
+  renderedNodes = (edsmEnabled && edsmBodies) ? buildBackfillNodes(scannedNodes, edsmBodies) : scannedNodes;
+}
+
+async function refreshEdsmBackfill() {
+  const token = ++edsmFetchToken;
+  if (!edsmEnabled) {
+    edsmBodies = null;
+    recomputeRenderedNodes();
+    rebuildSceneVisuals();
+    return;
+  }
+  const bodies = await fetchEdsmBodies(systemName);
+  if (token !== edsmFetchToken) return; // the system (or toggle) changed again while this was in flight — discard
+  edsmBodies = bodies;
+  recomputeRenderedNodes();
+  rebuildSceneVisuals();
+}
+
+// Rebuilds just the 3D scene for the current renderedNodes/systemName at the
+// current effective mode — used by loadSystem (new data), a manual mode pin
+// change, and an EDSM backfill refresh (each changes what should render
+// without necessarily touching selection).
 function rebuildSceneVisuals() {
   if (systemGroup) disposeSystemScene(systemGroup);
   const nicknames = systemAddress !== null ? getNicknames(systemAddress) : {};
-  const built = buildSystemScene(nodes, Date.now(), systemName, effectiveMode(), nicknames);
+  const built = buildSystemScene(renderedNodes, Date.now(), systemName, effectiveMode(), nicknames);
   scene.add(built.group);
   pickables = built.pickables;
   systemGroup = built.group;
@@ -189,9 +229,11 @@ function rebuildSceneVisuals() {
 
 // ---------- loading a system (shared by the demo data and live snapshots) ----------
 function loadSystem(payload) {
-  nodes = new Map(payload.nodes.map((node) => [node.id, node]));
+  scannedNodes = new Map(payload.nodes.map((node) => [node.id, node]));
   systemName = payload.systemName;
   systemAddress = payload.systemAddress ?? null;
+  edsmBodies = null; // that was for the previous system — cleared until refetched below
+  recomputeRenderedNodes();
   // The demo snapshot has no live event stream to detect a mode from — default
   // to exploration, ED's own baseline activity, per the handover's mode table.
   detectedMode = payload.mode ?? 'exploration';
@@ -204,17 +246,18 @@ function loadSystem(payload) {
   updateSystemLevelPanel();
 
   rebuildSceneVisuals();
+  refreshEdsmBackfill(); // no-op if disabled; otherwise fetches in the background and re-renders once it lands
 
   document.getElementById('sysName').textContent = systemName;
-  const renderableCount = [...nodes.values()].filter((n) => n.kind === 'Star' || n.kind === 'Planet').length;
+  const renderableCount = [...scannedNodes.values()].filter((n) => n.kind === 'Star' || n.kind === 'Planet').length;
   document.getElementById('sysBodyCount').textContent = String(renderableCount);
 
   // Keep the current selection if it still exists in the new tree (a rescan
   // shouldn't yank the view away); otherwise fall back to the primary star.
-  if (selectedId !== null && nodes.has(selectedId)) {
+  if (selectedId !== null && renderedNodes.has(selectedId)) {
     selectNode(selectedId);
   } else {
-    const primaryStar = [...nodes.values()].find((n) => n.kind === 'Star');
+    const primaryStar = [...renderedNodes.values()].find((n) => n.kind === 'Star');
     selectNode(primaryStar ? primaryStar.id : null);
   }
 }

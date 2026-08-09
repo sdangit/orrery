@@ -137,6 +137,7 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   const designator = nickname ?? (node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`);
   const icon = bodyIcon(node);
   setText('detailName', icon ? `${icon} ${designator}` : designator);
+  document.getElementById('detailBackfillNotice').hidden = !node.isBackfill;
   setText('detailKind', fmtKind(node));
   setText('detailDist', fmtDistanceLs(raw.DistanceFromArrivalLS));
   setText('detailRadius', fmtRadius(raw.Radius));

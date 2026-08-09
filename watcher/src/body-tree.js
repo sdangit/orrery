@@ -123,13 +123,6 @@ export function buildBodyTree(events, { systemAddress, systemName } = {}) {
   const parentLinks = resolveParentLinks([...latestScans.values()]);
 
   const nodes = new Map();
-  nodes.set(ROOT_ID, {
-    id: ROOT_ID,
-    name: systemName ?? null,
-    kind: 'SystemBarycentre',
-    parentId: null,
-    elements: null,
-  });
 
   for (const evt of latestScans.values()) {
     nodes.set(evt.BodyID, {
@@ -142,6 +135,23 @@ export function buildBodyTree(events, { systemAddress, systemName } = {}) {
       wasMapped: evt.WasMapped ?? null,
       landable: evt.Landable ?? null,
       raw: evt,
+    });
+  }
+
+  // BodyID 0 is usually an implicit, never-scanned system barycentre/root —
+  // but for a single-star system, the star itself *is* BodyID 0, with no
+  // Parents field at all (confirmed against real journals: e.g. "LFT 682"'s
+  // star has BodyID:0 and no Parents, being the absolute root with nothing
+  // to orbit). Only synthesize a placeholder root if no real scanned body
+  // already claims id 0 — a real Scan always wins, and must, since the
+  // synthetic root is inserted here specifically *after* the scan loop.
+  if (!nodes.has(ROOT_ID)) {
+    nodes.set(ROOT_ID, {
+      id: ROOT_ID,
+      name: systemName ?? null,
+      kind: 'SystemBarycentre',
+      parentId: null,
+      elements: null,
     });
   }
 

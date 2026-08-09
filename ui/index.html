@@ -31,10 +31,12 @@
         <div class="stat"><span>Bounty (session)</span><span id="sysBountyTally">&mdash;</span></div>
       </div>
       <div class="stat"><span>Scale</span><span class="val-warn">compressed &mdash; not to scale</span></div>
+      <label class="chk"><input type="checkbox" id="edsmToggle"> EDSM backfill (network)</label>
     </div>
 
     <div id="detail" class="panel" hidden>
       <h2><span class="tick">&#9656;</span> <span id="detailName">&mdash;</span></h2>
+      <div id="detailBackfillNotice" class="val-warn" hidden style="margin-bottom:8px;">EDSM DATA &mdash; NOT YET SCANNED &mdash; POSITION APPROXIMATE</div>
       <div id="detailSpotlight" class="spotlight-row" hidden></div>
       <div class="row"><label>Nickname</label></div>
       <input type="text" id="nicknameInput" placeholder="pin a nickname&hellip;" maxlength="40" />

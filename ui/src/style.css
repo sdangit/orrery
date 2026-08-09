@@ -66,6 +66,12 @@ input[type=text] {
 input[type=text]:focus { outline: none; border-color: var(--hud-cyan); }
 input[type=text]::placeholder { color: var(--hud-orange-dim); }
 
+.chk {
+  display: flex; align-items: center; gap: 8px; margin: 10px 0 2px; cursor: pointer;
+  color: var(--hud-orange); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+}
+.chk input { accent-color: var(--hud-orange); }
+
 .stat { display: flex; justify-content: space-between; gap: 10px; margin: 4px 0; font-size: 12px; }
 .stat span:first-child { color: var(--hud-orange-dim); letter-spacing: .06em; text-transform: uppercase; font-size: 11px; flex-shrink: 0; }
 .stat span:last-child { color: var(--hud-cyan); text-align: right; }
