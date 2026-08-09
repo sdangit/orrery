@@ -1,5 +1,7 @@
 # ORRERY
 
+**[⬇ Download for Windows](https://github.com/TerjeRu/orrery/releases/latest)** — installer or portable, no Node or terminal required.
+
 <img width="1280" height="720" alt="orrery2" src="https://github.com/user-attachments/assets/e72d844e-cc12-4119-a7ea-316d601affa9" />
 
 <br>
@@ -44,9 +46,11 @@ Everything stays on your machine. The watcher listens on 127.0.0.1 and nowhere e
 
 ## Running it
 
-You need Node 20 or newer and a PC copy of the game. Journals don't exist on console, and the exobiology features need Odyssey.
+You need a PC copy of the game — journals don't exist on console, and the exobiology features need Odyssey.
 
-Double-click `Start Orrery.cmd`. The first run installs dependencies, then it starts the server and opens the page for you. From a terminal it's:
+The easiest way in is the [latest release](https://github.com/TerjeRu/orrery/releases/latest): grab the installer or the portable exe, run it, and you're looking at your current system. Nothing else to install, Node is bundled inside. It's an unsigned build, so Windows SmartScreen will complain the first time — "More info," then "Run anyway."
+
+If you'd rather run it from source, you need Node 20 or newer. Double-click `Start Orrery.cmd` and the first run installs dependencies, starts the server, and opens the page for you. From a terminal it's:
 
 ```sh
 npm install
@@ -55,7 +59,7 @@ npm start
 
 Leave it running while you play. Drag to orbit, scroll to zoom, click a body for its details.
 
-If you'd rather have a real installer than a terminal window, `npm run electron:build` packages ORRERY as a Windows app (NSIS installer and a portable exe, both in `dist-installer/` when it's done) — same watcher and same UI, just running inside its own window instead of a browser tab.
+To build your own installer instead of using the release, `npm run electron:build` does the same packaging locally (NSIS installer and a portable exe, both land in `dist-installer/`).
 
 To hack on it, `npm run dev --workspace=ui` gives you Vite with hot reload on port 5173, and `npm run watch --workspace=watcher` runs the journal watcher separately alongside it. `npm run electron:dev` runs the Electron shell against the built UI. `npm test` runs the test suite.
 
