@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { displayPosition, classifySpotlight, classifyModeHighlight, compressDistance } from '@orrery/shared';
 import { makeLabel } from './labels.js';
-import { bodyColor, bodyDisplayRadius } from './body-visuals.js';
+import { bodyColor, bodyDisplayRadius, bodyIcon } from './body-visuals.js';
 import { shortDesignator } from './naming.js';
 
 const RING_CLASS_COLORS = {
@@ -23,9 +23,10 @@ const RENDERABLE_KINDS = new Set(['Star', 'Planet']);
  * @param {number} atEpochMs
  * @param {string} systemName Used to strip the redundant system-name prefix off in-scene labels (see naming.js).
  * @param {string} [mode] The active activity mode (see mode-detect.js's MODES) — drives per-mode highlighting (see mode-highlight.js). Defaults to 'exploration', which has no per-body highlight beyond the always-on spotlight treatment.
+ * @param {Record<number, string>} [nicknames] bodyId -> nickname (see nicknames.js) — stands in for the designator wherever a body is pinned.
  * @returns {{ group: THREE.Group, pickables: Map<THREE.Object3D, number> }}
  */
-export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'exploration') {
+export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'exploration', nicknames = {}) {
   const group = new THREE.Group();
   const pickables = new Map();
   const ringsAddedFor = new Set();
@@ -96,7 +97,9 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
       bodyGroup.add(marker);
     }
 
-    const labelText = node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`;
+    const designator = nicknames[node.id] ?? (node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`);
+    const icon = bodyIcon(node);
+    const labelText = icon ? `${icon} ${designator}` : designator;
     const label = makeLabel(labelText, spotlighted ? '#ffd24d' : '#ff8a2a');
     label.userData.text = labelText; // stashed for testability — canvas-texture text isn't otherwise inspectable
     label.position.set(0, radius + 1.1, 0);

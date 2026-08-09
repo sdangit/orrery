@@ -208,6 +208,16 @@ New `watcher/src/bio-signals.js` parses all three events into per-body data — 
 
 This is the one area of the codebase where the underlying event schema (not just the numbers, which milestone 2-3's "no fabrication" caveats already cover) is sourced from external documentation rather than a real example in Terje's own journal — worth a first-hand sanity check the first time bio signals actually show up in play, same spirit as the "visual verification caveat" for the UI overall.
 
+### Milestone 5 — done (2026-08-09)
+
+The identity layer, per this doc's "name problem" section:
+
+**Icon language.** `ui/src/body-visuals.js`'s `bodyIcon(node)` prefixes a glyph onto every label and the data panel header: `✦` for stars, `○`/`◉` for non-landable/landable planets, `·`/`◈` for non-landable/landable moons — deliberately smaller/plainer-looking symbols for moons, matching the glanceability principle that less-important bodies should read as less important. No new data needed — `kind`/`isMoon`/`landable` were already on every node.
+
+**Pins/nicknames.** `ui/src/nicknames.js` persists one localStorage entry per system (keyed by the stable numeric `SystemAddress`, so two procedurally-named systems that happen to look similar can't collide), mapping bodyId to nickname. A nickname overrides the designator everywhere — in-scene label, data panel header — the instant it's saved (blur or Enter on the new nickname input in the detail panel), without touching the underlying real name, which is still what Copy Name copies. Needed a `localStorage` polyfill in the test DOM shim, since plain Node doesn't have that global the way a browser does.
+
+**NavRoute badge.** `watcher/src/nav-route.js` reads `NavRoute.json` — a separate snapshot file next to the journal, not part of the append-only log — to find the hop after the current system on a plotted multi-jump route. Worth noting explicitly: the journal's own bare `NavRoute` event carries zero route data (confirmed from Terje's real journal history: literally `{"event":"NavRoute"}`, nothing else); the route only ever lives in the file. Verified the populated-route schema (`StarSystem`/`SystemAddress`/`StarPos`/`StarClass`, top-level `"event":"Route"`) against two independent sources, since Terje's own `NavRoute.json` currently holds a cleared route — but that cleared-state shape (`"event":"NavRouteClear"`, empty `Route` array) *is* confirmed from his real file. Displayed as a plain "Next stop: `<system name>`" text badge rather than an actual 3D glow on a body, since galaxy mode (which would be needed to place another system's star in the scene at all) stayed out of scope for v1 per this doc's own prototype-reuse notes.
+
 ### Orbital math implementation note
 
 The handover doc's 5-step algorithm is implemented literally: each body's `SemiMajorAxis`/`Eccentricity`/`OrbitalInclination`/`Periapsis`/`AscendingNode`/`MeanAnomaly` are relative to its immediate parent, and absolute position is the sum of every ancestor's own Kepler-solved offset walking up to the system root (`orbit-position.js`). This matches the convention EDSM/EDDiscovery-style tools use — inclination/node are already in a common system reference frame, so no per-level frame rotation is needed, just additive offsets.

@@ -12,6 +12,7 @@ import { parseJournalLines } from './journal-parser.js';
 import { createSystemModel } from './system-model.js';
 import { createRecentEventsBuffer } from './recent-events.js';
 import { detectMode } from './mode-detect.js';
+import { readNavRouteFile, nextSystemInRoute } from './nav-route.js';
 
 /**
  * @param {string} journalDir
@@ -24,15 +25,33 @@ export function createLiveWatcher(journalDir) {
   let offset = 0;
   let remainder = '';
   let lastMode = null;
+  let lastNextStop = null; // starSystem name of the next hop, or null — tracked to detect a change worth broadcasting
 
-  function snapshotWithMode() {
+  function buildSnapshot() {
     const snapshot = model.snapshot();
     if (!snapshot) return null;
     // Auto-detection only — a manually pinned mode is a UI-local preference
     // (see the handover doc: "auto wins unless the user has pinned a mode"),
     // applied client-side over whatever mode this reports.
     snapshot.mode = detectMode(recentEvents.getRecent());
+
+    // NavRoute.json is a small snapshot file, not part of the append-only
+    // journal — cheap enough to just re-read on every poll, same as Status.json's
+    // own ~1/sec refresh cadence.
+    const navRoute = readNavRouteFile(journalDir);
+    snapshot.nextSystem = navRoute ? nextSystemInRoute(navRoute.route, snapshot.systemAddress) : null;
+
     return snapshot;
+  }
+
+  /** Updates lastMode/lastNextStop and reports whether either actually changed since the last poll. */
+  function trackDerivedChanges(snapshot) {
+    if (!snapshot) return false;
+    const nextStop = snapshot.nextSystem?.starSystem ?? null;
+    const changed = snapshot.mode !== lastMode || nextStop !== lastNextStop;
+    lastMode = snapshot.mode;
+    lastNextStop = nextStop;
+    return changed;
   }
 
   function poll() {
@@ -56,20 +75,18 @@ export function createLiveWatcher(journalDir) {
     remainder = read.remainder;
 
     if (read.lines.length === 0) {
-      const snapshot = snapshotWithMode();
-      const modeChanged = snapshot !== null && snapshot.mode !== lastMode;
-      if (modeChanged) lastMode = snapshot.mode;
-      return { changed: modeChanged, snapshot, journalPath: currentPath };
+      const snapshot = buildSnapshot();
+      const derivedChanged = trackDerivedChanges(snapshot);
+      return { changed: derivedChanged, snapshot, journalPath: currentPath };
     }
 
     const events = parseJournalLines(read.lines.join('\n'));
     recentEvents.add(events);
     const { updated } = model.applyEvents(events);
 
-    const snapshot = snapshotWithMode();
-    const modeChanged = snapshot !== null && snapshot.mode !== lastMode;
-    if (snapshot) lastMode = snapshot.mode;
-    return { changed: updated || modeChanged, snapshot, journalPath: currentPath };
+    const snapshot = buildSnapshot();
+    const derivedChanged = trackDerivedChanges(snapshot);
+    return { changed: updated || derivedChanged, snapshot, journalPath: currentPath };
   }
 
   return { poll, model };

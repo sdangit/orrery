@@ -1,5 +1,6 @@
 import { classifySpotlight, reserveLevelLabel } from '@orrery/shared';
 import { shortDesignator } from './naming.js';
+import { bodyIcon } from './body-visuals.js';
 
 const SPOTLIGHT_LABELS = {
   'first-discovery': 'First discovery',
@@ -120,8 +121,9 @@ function renderBioSection(bio) {
 /**
  * @param {object} node A body-tree node (see watcher/src/body-tree.js), or null to hide the panel.
  * @param {string} systemName Used to strip the redundant system-name prefix off the header (see naming.js).
+ * @param {string|null} [nickname] Overrides the designator wherever this body is pinned (see nicknames.js).
  */
-export function renderDetailPanel(node, systemName) {
+export function renderDetailPanel(node, systemName, nickname = null) {
   const panel = document.getElementById('detail');
   if (!node) {
     panel.hidden = true;
@@ -132,7 +134,9 @@ export function renderDetailPanel(node, systemName) {
   const raw = node.raw ?? {};
   const { spotlighted, reasons } = classifySpotlight(node);
 
-  setText('detailName', node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`);
+  const designator = nickname ?? (node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`);
+  const icon = bodyIcon(node);
+  setText('detailName', icon ? `${icon} ${designator}` : designator);
   setText('detailKind', fmtKind(node));
   setText('detailDist', fmtDistanceLs(raw.DistanceFromArrivalLS));
   setText('detailRadius', fmtRadius(raw.Radius));

@@ -4,6 +4,7 @@ import { createOrbitCamera } from './camera.js';
 import { buildSystemScene, disposeSystemScene } from './scene-builder.js';
 import { renderDetailPanel } from './data-panel.js';
 import { connectLive } from './live-connection.js';
+import { getNickname, getNicknames, setNickname } from './nicknames.js';
 
 // ---------- renderer & scene ----------
 const canvas = document.getElementById('c');
@@ -69,6 +70,7 @@ const pointerNdc = new THREE.Vector2();
 let selectedId = null;
 let nodes = new Map();
 let systemName = '';
+let systemAddress = null;
 let pickables = new Map();
 let systemGroup = null;
 let detectedMode = 'exploration';
@@ -76,12 +78,34 @@ let systemSecurity = null;
 let factions = [];
 let navBeaconDetected = false;
 let bountyTally = 0;
+let nextSystem = null;
+
+const nicknameInput = document.getElementById('nicknameInput');
+
+function currentNickname(id) {
+  return id !== null && systemAddress !== null ? getNickname(systemAddress, id) : null;
+}
 
 function selectNode(id) {
   selectedId = id;
-  renderDetailPanel(id === null ? null : nodes.get(id), systemName);
+  renderDetailPanel(id === null ? null : nodes.get(id), systemName, currentNickname(id));
+  nicknameInput.value = currentNickname(id) ?? '';
   requestRender();
 }
+
+function saveNicknameFromInput() {
+  if (selectedId === null || systemAddress === null) return;
+  setNickname(systemAddress, selectedId, nicknameInput.value);
+  renderDetailPanel(nodes.get(selectedId), systemName, currentNickname(selectedId));
+  rebuildSceneVisuals(); // the in-scene label needs to pick up the new nickname too
+}
+nicknameInput.addEventListener('blur', saveNicknameFromInput);
+nicknameInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    saveNicknameFromInput();
+    nicknameInput.blur();
+  }
+});
 
 canvas.addEventListener('click', (event) => {
   pointerNdc.x = (event.clientX / innerWidth) * 2 - 1;
@@ -134,6 +158,10 @@ function updateModeDisplay() {
 function updateSystemLevelPanel() {
   document.getElementById('sysSecurity').textContent = systemSecurity ?? '—';
 
+  const nextStopRow = document.getElementById('sysNextStopRow');
+  nextStopRow.hidden = !nextSystem;
+  if (nextSystem) document.getElementById('sysNextStop').textContent = nextSystem.starSystem;
+
   const isPiracy = effectiveMode() === 'piracy';
   document.getElementById('piracyInfo').hidden = !isPiracy;
   if (!isPiracy) return;
@@ -151,7 +179,8 @@ function updateSystemLevelPanel() {
 // pin change (same data, different highlighting), without touching selection.
 function rebuildSceneVisuals() {
   if (systemGroup) disposeSystemScene(systemGroup);
-  const built = buildSystemScene(nodes, Date.now(), systemName, effectiveMode());
+  const nicknames = systemAddress !== null ? getNicknames(systemAddress) : {};
+  const built = buildSystemScene(nodes, Date.now(), systemName, effectiveMode(), nicknames);
   scene.add(built.group);
   pickables = built.pickables;
   systemGroup = built.group;
@@ -162,6 +191,7 @@ function rebuildSceneVisuals() {
 function loadSystem(payload) {
   nodes = new Map(payload.nodes.map((node) => [node.id, node]));
   systemName = payload.systemName;
+  systemAddress = payload.systemAddress ?? null;
   // The demo snapshot has no live event stream to detect a mode from — default
   // to exploration, ED's own baseline activity, per the handover's mode table.
   detectedMode = payload.mode ?? 'exploration';
@@ -169,6 +199,7 @@ function loadSystem(payload) {
   factions = payload.factions ?? [];
   navBeaconDetected = payload.navBeaconDetected ?? false;
   bountyTally = payload.bountyTally ?? 0;
+  nextSystem = payload.nextSystem ?? null;
   updateModeDisplay();
   updateSystemLevelPanel();
 

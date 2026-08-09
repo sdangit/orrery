@@ -13,6 +13,7 @@
       <h2><span class="tick">&#9656;</span> System</h2>
       <div class="stat big"><span>Name</span><span id="sysName">&mdash;</span></div>
       <div class="stat"><span>Bodies</span><span id="sysBodyCount">&mdash;</span></div>
+      <div class="stat" id="sysNextStopRow" hidden><span>Next stop</span><span id="sysNextStop" class="val-live">&mdash;</span></div>
       <div class="stat"><span>Source</span><span id="sysSource" class="val-demo">DEMO</span></div>
       <div class="stat"><span>Mode</span><span id="sysMode">Exploration</span></div>
       <div class="row"><label>Mode override</label></div>
@@ -35,6 +36,8 @@
     <div id="detail" class="panel" hidden>
       <h2><span class="tick">&#9656;</span> <span id="detailName">&mdash;</span></h2>
       <div id="detailSpotlight" class="spotlight-row" hidden></div>
+      <div class="row"><label>Nickname</label></div>
+      <input type="text" id="nicknameInput" placeholder="pin a nickname&hellip;" maxlength="40" />
       <div class="stat"><span>Type</span><span id="detailKind">&mdash;</span></div>
       <div class="stat"><span>Distance from arrival</span><span id="detailDist">&mdash;</span></div>
       <div class="stat"><span>Radius</span><span id="detailRadius">&mdash;</span></div>

@@ -71,3 +71,22 @@ export function bodyColor(node) {
   if (node.kind === 'Planet') return planetColor(node.raw?.PlanetClass);
   return 0x666666;
 }
+
+// The "per-body-type icon language" from the handover's identity-layer
+// section: a glyph conveying category (star/planet/moon) and landable status
+// at a glance, ahead of reading the name — moons get visually smaller/dimmer
+// symbols than planets, matching the "less important gets less emphasis"
+// glanceability principle.
+const ICON_STAR = '✦'; // ✦
+const ICON_PLANET_LANDABLE = '◉'; // ◉
+const ICON_PLANET = '○'; // ○
+const ICON_MOON_LANDABLE = '◈'; // ◈
+const ICON_MOON = '·'; // ·
+
+/** @param {{kind: string, isMoon?: boolean, landable?: boolean|null}} node */
+export function bodyIcon(node) {
+  if (node.kind === 'Star') return ICON_STAR;
+  if (node.kind !== 'Planet') return '';
+  if (node.isMoon) return node.landable ? ICON_MOON_LANDABLE : ICON_MOON;
+  return node.landable ? ICON_PLANET_LANDABLE : ICON_PLANET;
+}

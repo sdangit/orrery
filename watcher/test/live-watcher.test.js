@@ -30,6 +30,52 @@ function scan(bodyId, systemAddress, timestamp = '2026-01-01T00:00:01Z') {
   };
 }
 
+test('a snapshot has nextSystem null when there is no NavRoute.json at all', () => {
+  withTempDir((dir) => {
+    writeFileSync(join(dir, 'Journal.2026-01-01T000000.01.log'), line(fsdJump('Sol', 1)));
+    const watcher = createLiveWatcher(dir);
+    const result = watcher.poll();
+    assert.equal(result.snapshot.nextSystem, null);
+  });
+});
+
+test('a snapshot reports the next hop from a real-shaped NavRoute.json', () => {
+  withTempDir((dir) => {
+    writeFileSync(join(dir, 'Journal.2026-01-01T000000.01.log'), line(fsdJump('Sol', 1)));
+    writeFileSync(join(dir, 'NavRoute.json'), JSON.stringify({
+      timestamp: '2026-01-01T00:00:00Z',
+      event: 'Route',
+      Route: [
+        { StarSystem: 'Sol', SystemAddress: 1, StarPos: [0, 0, 0], StarClass: 'G' },
+        { StarSystem: 'Alpha Centauri', SystemAddress: 2, StarPos: [3, 0, 3], StarClass: 'G' },
+      ],
+    }));
+    const watcher = createLiveWatcher(dir);
+    const result = watcher.poll();
+    assert.deepEqual(result.snapshot.nextSystem, { starSystem: 'Alpha Centauri', starClass: 'G' });
+  });
+});
+
+test('the next hop appearing (route freshly plotted) is reported as a change even with no new journal lines', () => {
+  withTempDir((dir) => {
+    writeFileSync(join(dir, 'Journal.2026-01-01T000000.01.log'), line(fsdJump('Sol', 1)));
+    const watcher = createLiveWatcher(dir);
+    watcher.poll();
+
+    writeFileSync(join(dir, 'NavRoute.json'), JSON.stringify({
+      timestamp: '2026-01-01T00:00:01Z',
+      event: 'Route',
+      Route: [
+        { StarSystem: 'Sol', SystemAddress: 1, StarPos: [0, 0, 0], StarClass: 'G' },
+        { StarSystem: 'Alpha Centauri', SystemAddress: 2, StarPos: [3, 0, 3], StarClass: 'G' },
+      ],
+    }));
+    const result = watcher.poll();
+    assert.equal(result.changed, true);
+    assert.deepEqual(result.snapshot.nextSystem, { starSystem: 'Alpha Centauri', starClass: 'G' });
+  });
+});
+
 test('polling an empty directory reports no journal and a null snapshot', () => {
   withTempDir((dir) => {
     const watcher = createLiveWatcher(dir);

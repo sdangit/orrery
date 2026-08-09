@@ -66,8 +66,31 @@ test('body labels are shortened to their designator, not the full system-qualifi
   for (const text of labelTexts) {
     assert.ok(!text.startsWith(demoSystem.systemName), `label "${text}" still carries the full system-name prefix`);
   }
-  // The primary star's designator specifically should just be "A".
-  assert.ok(labelTexts.includes('A'), 'expected the primary star\'s label to be shortened to "A"');
+  // The primary star's designator specifically should just be "A" (plus its icon prefix).
+  assert.ok(labelTexts.includes('✦ A'), 'expected the primary star\'s label to be shortened to "A" with its star icon');
+});
+
+test('body labels are prefixed with the per-kind icon (star vs landable/non-landable planet)', () => {
+  const { group } = buildSystemScene(nodes, Date.now(), demoSystem.systemName);
+  const labelTexts = [];
+  group.traverse((obj) => {
+    if (obj instanceof THREE.Sprite) labelTexts.push(obj.userData.text);
+  });
+  assert.ok(labelTexts.some((t) => t.startsWith('✦ ')), 'expected at least one star-icon label');
+  assert.ok(
+    labelTexts.some((t) => t.startsWith('○ ') || t.startsWith('◉ ')),
+    'expected at least one planet-icon label',
+  );
+});
+
+test('a pinned nickname overrides the label\'s designator, but the icon prefix stays', () => {
+  const { group } = buildSystemScene(nodes, Date.now(), demoSystem.systemName, 'exploration', { 1: 'money star' });
+  const labelTexts = [];
+  group.traverse((obj) => {
+    if (obj instanceof THREE.Sprite) labelTexts.push(obj.userData.text);
+  });
+  assert.ok(labelTexts.includes('✦ money star'), 'expected the nicknamed star\'s label to show the nickname, not "A"');
+  assert.ok(!labelTexts.includes('✦ A'), 'the plain designator should no longer appear once nicknamed');
 });
 
 test('a body with an unresolvable parent chain (an "orphan", possible mid-session live data) is skipped, not a crash', () => {

@@ -10,7 +10,7 @@ A personalized, real-time 3D orrery of the star system you're currently in, buil
 - [x] **Milestone 2** — static orrery render at t=now, selection + data panel, first-discovery/high-value treatment. See [ui/](ui/).
 - [x] **Milestone 3** — live mode: watcher process tails the real journal directory, broadcasts system snapshots over a local WebSocket, UI auto-switches on system jump, FPS-capped + render-on-demand.
 - [x] **Milestone 4** — auto-detection wired end-to-end (recent-events buffer → `detectMode` → every live snapshot → UI's Mode line, overridable by a manual pin persisted in localStorage). Exploration needs no extra overlay (already covered by the always-on spotlight treatment). Mining (ring reserve-level glow), piracy (system security, combat-zone factions, nav beacon, session bounty tally), and exobiology (bio signal counts, confirmed genuses, per-species sample progress — no genus prediction or credit values) are all built and either real-data-verified or sourced against authoritative journal-schema documentation. See the handover doc's progress log for exactly what's confirmed against real data vs. researched.
-- [ ] Milestone 5 — identity layer: icons, pins/nicknames, NavRoute badge.
+- [x] **Milestone 5** — identity layer: a per-body-kind icon language (star/planet/moon, landable status) prefixed on labels and the data panel header; pins/nicknames (persisted per system in localStorage, override the designator everywhere once set); a "next stop" badge sourced from `NavRoute.json`.
 - [ ] Milestone 6 — EDSM backfill toggle.
 - [ ] Milestone 7 — polish: warp slider, true-scale toggle, session tracker, audio cues, HUD color-scheme picker, camera reset button.
 
@@ -19,7 +19,7 @@ A personalized, real-time 3D orrery of the star system you're currently in, buil
 This is an npm workspaces monorepo with three packages:
 
 - `shared/` — pure orbital math used by both the watcher and the UI: Kepler solving, Parents-chain position resolution, the display-scale compression (real distances/radii span too many orders of magnitude to render true-to-scale — see the doc comment in `shared/src/display-scale.js`), and the first-discovery/high-value spotlight classifier.
-- `watcher/` — Node: parses journal files into a system body tree, and (as of milestone 3) a live process that tails the real journal directory and serves system snapshots over WebSocket. See its own module docs: `journal-locator.js` (finds the newest journal file), `journal-tailer.js` (incremental reads, handles a mid-write partial line), `system-model.js` (tracks "current system" across incoming events, detects real system switches vs. a same-system relog), `live-watcher.js` (ties those three together into one `poll()` step — the piece scripts/watch.js's timer calls).
+- `watcher/` — Node: parses journal files into a system body tree, and (as of milestone 3) a live process that tails the real journal directory and serves system snapshots over WebSocket. See its own module docs: `journal-locator.js` (finds the newest journal file), `journal-tailer.js` (incremental reads, handles a mid-write partial line), `system-model.js` (tracks "current system" across incoming events, detects real system switches vs. a same-system relog), `bio-signals.js` (exobiology event parsing), `nav-route.js` (reads the separate `NavRoute.json` snapshot file to find the next hop on a plotted route), `live-watcher.js` (ties all of those together into one `poll()` step — the piece scripts/watch.js's timer calls).
 - `ui/` — Vite + Three.js: renders the orrery. Loads the bundled demo system immediately, then tries to connect to the live watcher in the background — if it's running, the view seamlessly switches from DEMO to LIVE; if not, it just stays on the demo, no error.
 - `ed-space-tutor.html` — the original prototype (plain HTML + CDN Three.js, no build step). Reference for visual language and the manual orbit camera; `ui/` ports the same ideas through a proper local build instead of a CDN script tag, to stay offline-first.
 
@@ -27,7 +27,7 @@ This is an npm workspaces monorepo with three packages:
 
 ```
 npm install                          # once, from the repo root — sets up all three workspace packages
-npm test                             # runs every package's tests (165 as of the exobiology overlay)
+npm test                             # runs every package's tests (195 as of the identity layer)
 npm run dev --workspace=ui           # starts the orrery UI at http://localhost:5173
 npm run watch --workspace=watcher    # (optional, in a second terminal) starts the live watcher against your real journal
 ```

@@ -37,3 +37,23 @@ globalThis.document = {
     throw new Error(`dom-shim: unexpected createElement("${tag}")`);
   },
 };
+
+// Plain Node has no `localStorage` global (unlike a browser) — a minimal
+// in-memory stand-in, just enough for nicknames.js's getItem/setItem calls.
+class FakeLocalStorage {
+  #store = new Map();
+  getItem(key) {
+    return this.#store.has(key) ? this.#store.get(key) : null;
+  }
+  setItem(key, value) {
+    this.#store.set(key, String(value));
+  }
+  removeItem(key) {
+    this.#store.delete(key);
+  }
+  clear() {
+    this.#store.clear();
+  }
+}
+
+globalThis.localStorage = new FakeLocalStorage();
