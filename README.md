@@ -1,60 +1,52 @@
 # ORRERY
 
-**A live 3D map of the star system you're in — built from your own Elite Dangerous journal, running on your second monitor.**
-
 <!-- demo gif goes here -->
 
-Jump into a system, and ORRERY renders it: real bodies, real orbits, moving in real time (or up to 100,000× faster). It answers at a glance what the in-game UI makes you dig through three panels for — *what in this system matters to what I'm doing right now?*
+You jump into a system, honk, and get handed forty names that look like `Col 285 Sector TI-U b18-2 A 12 e a`. Somewhere in that list is the one moon worth landing on. ORRERY reads your journal and draws the system instead: real orbits, real positions, updating as you fly. It's built to sit on a second monitor and be glanced at rather than read.
 
 <!-- screenshots go here -->
 
 ## What it does
 
-- **Live-follows your game.** A tiny local watcher tails your journal folder; the view switches the instant you jump. No game running? It opens on a bundled demo system.
-- **Auto-detects what you're doing** — exploration, exobiology, mining, or bounty hunting — from your recent journal events, and re-lights the map for that activity (pin a mode manually any time):
-  - **Exploration** — undiscovered and unmapped bodies, Earth-likes, water/ammonia worlds, and terraformables glow in every mode, always.
-  - **Exobiology** — biological signal counts, confirmed genuses, and per-species sample progress (1/3 → 3/3).
-  - **Mining** — ringed bodies by ring class; pristine and major reserves glow.
-  - **Bounty hunting** — system security, factions at War/Civil War, nav beacon status, session bounty tally.
-- **Solves the procedural-name problem.** "LK-4 OC b17-2 A 12 e a" is unmemorable; a glowing icy moon in the right place isn't. Bodies read by icon, color, and position — names are demoted to short designators, and you can pin your own nicknames ("money moon") that persist per system.
-- **Time warp** from real-time to 100,000×, with orbit-path ellipses tracing the system's structure. Two scale modes, both honest about what they are: compressed (everything visible) and true distances (space is mostly nothing).
-- **Session strip**: scans, first discoveries, bounty earned.
-- **EDSM backfill (opt-in)**: bodies the community knows but you haven't scanned yet appear as dim wireframes — "known, not yours yet."
-- Second-monitor niceties: GPU-polite rendering (idle = zero draw calls, 30 FPS cap — it shares your card with the game), four HUD color schemes, hidable legend, optional audio cues for first discoveries and bio signals (off by default).
+A small watcher process tails your journal folder and pushes what it finds to a browser page. Jump somewhere new and the map follows you there; scan a body and it appears in place. If the game isn't running you still get a demo system to poke at, so the page is never empty.
+
+It also pays attention to what you've been doing lately. A few `ScanOrganic` events in the last ten minutes and it switches to exobiology, where bodies with biological signals light up and each species shows how far along its three samples you are. Launch a prospector limpet and it flips to mining, where ringed bodies come forward and pristine reserves glow. Collect a bounty and it moves to combat: system security, which factions are at war, whether there's a nav beacon, what you've earned this session. Exploration is the default, and in every mode, regardless of what else is highlighted, undiscovered bodies, unmapped bodies, Earth-likes, water and ammonia worlds and terraformables keep their glow. Those are never filtered away. If the guessing annoys you, pin a mode by hand.
+
+The naming problem is the part this was really built for. Procedural names are impossible to hold in your head, so the map leans on position, colour and icon, keeps the text short (the system prefix is stripped, since you already know which system you're in), and lets you rename anything you like. Call something "money moon" and it stays "money moon" in that system forever.
+
+There's a time warp slider running up to 100,000× if you want to watch the system actually move, orbit ellipses so the structure reads even when the bodies themselves are small, and two scale modes: a compressed one where everything is visible at once, and a true-distance one that shows you how much emptiness is really out there. EDSM can optionally fill in bodies you haven't scanned yourself, drawn as dim wireframes so you can tell at a glance what's yours and what's borrowed.
+
+Smaller things: four colour schemes, a legend you can hide, quiet audio pings for first discoveries and bio signals (silent unless you ask for them). It renders on demand and caps at 30fps, so it isn't quietly stealing frames from the game.
 
 ## How accurate is it?
 
-Short version: **as accurate as the game's own data, drawn at a scale you can actually see.**
+The orbits are real. Every `Scan` event carries a full Keplerian element set and ORRERY uses all of it, solved properly and propagated from the timestamp on the scan itself, so warping forward a year puts things where they would actually be instead of accumulating drift. Binaries and co-orbiting moon pairs orbit their real barycentres.
 
-- Orbits use the full Keplerian element set from your own `Scan` events (semi-major axis, eccentricity, inclination, argument of periapsis, ascending node, mean anomaly), propagated in closed form from the scan's timestamp — no integration drift, same two-body model the game uses. Binaries and co-orbiting moon pairs orbit their real barycentres.
-- The **default view compresses distances logarithmically** — real systems span seven orders of magnitude and a literal rendering makes every moon invisible. Ordering is preserved and the badge always says "not to scale." Body sizes are exaggerated in both modes (real scale is sub-pixel).
-- **True-distances mode** shows honest orbital spacing (1 unit = 10⁹ m). Body sizes stay exaggerated — the planetarium convention — and the badge says exactly that.
-- **EDSM-backfilled bodies** have correct orbit size/shape but an *unknowable* position along the orbit (EDSM doesn't record orbital phase) — hence the wireframe and the "position approximate" notice.
-- **No invented numbers, ever.** No credit-value estimates, no predicted genuses — only what the journal or EDSM actually reports. If a number would require guessing Frontier's current balance tables, it isn't shown.
+Scale is the part that isn't honest, and the panel says so while it's happening. A real system spans about seven orders of magnitude between a tight moon orbit and a wide binary separation, so the default view compresses distances logarithmically, per orbit rather than globally, which keeps a moon visible beside its planet however far that planet sits from its star. Ordering always survives: further away is always drawn further away. Switch on true distances for an honest linear scale. Body sizes are exaggerated in both modes.
 
-Full details — the math, the journal-format quirks (Ring pseudo-bodies, parentless barycentres, the BodyID-0 single-star case), and every accuracy caveat — in **[TECHNICAL.md](TECHNICAL.md)**.
+Bodies filled in from EDSM are marked as approximate. The shape and size of the orbit are right, but EDSM doesn't record where along that orbit a body currently is, so it gets parked at periapsis and drawn as a wireframe.
+
+[TECHNICAL.md](TECHNICAL.md) has the math, the journal format quirks and the detail behind all of this.
 
 ## Privacy
 
-Everything runs on your machine. Journal files never leave it; the watcher binds to `127.0.0.1` only. The **single** network call in the entire app is the EDSM lookup — opt-in, off by default, clearly labeled "(network)" in the UI.
+Everything stays on your machine. The watcher listens on 127.0.0.1 and nowhere else. The only network call in the entire application is the EDSM lookup, it's off by default, and the checkbox says "(network)" so you always know when it's on.
 
-## Getting started
+## Running it
 
-Requirements: [Node.js](https://nodejs.org) 20+, ED on PC (journals are PC-only; exobiology features need Odyssey).
+You need Node 20 or newer and a PC copy of the game. Journals don't exist on console, and the exobiology features need Odyssey.
 
-**Easiest (Windows):** double-click **`Start Orrery.cmd`**. It installs dependencies on first run, starts the server, and opens the orrery in your browser.
-
-**Terminal:**
+Double-click `Start Orrery.cmd`. The first run installs dependencies, then it starts the server and opens the page for you. From a terminal it's:
 
 ```sh
-npm install    # once
-npm start      # builds the UI and serves everything at http://127.0.0.1:47821
+npm install
+npm start
 ```
 
-Leave it running while you play — the view follows your jumps. Drag to orbit, wheel to zoom, click a body for details.
+Leave it running while you play. Drag to orbit, scroll to zoom, click a body for its details.
 
-**Development:** `npm run dev --workspace=ui` (Vite dev server on :5173, hot reload) plus `npm run watch --workspace=watcher` in a second terminal. `npm test` runs the full suite (~250 tests, Node's built-in runner, no test dependencies).
+To hack on it, `npm run dev --workspace=ui` gives you Vite with hot reload on port 5173, and `npm run watch --workspace=watcher` runs the journal watcher separately alongside it. `npm test` runs the test suite.
 
 ## License
 
-MIT
+MIT.
