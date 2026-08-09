@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GALNAV TUTOR // Elite Dangerous spatial intuition</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  :root{
+    --hud-orange:#ff8a2a;
+    --hud-orange-dim:#7a4a1e;
+    --hud-orange-faint:#3a220e;
+    --hud-cyan:#0ae6f0;
+    --hud-amber:#ffd24d;
+    --hud-red:#ff3b30;
+    --bg:#060402;
+    --panel:#0d0805e6;
+    --text:#f5d9b8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Consolas,'JetBrains Mono','Cascadia Mono',monospace;
+    overflow:hidden;
+    font-size:13px;
+  }
+  #c{position:fixed;inset:0;display:block;}
+
+  /* scanline atmosphere */
+  body::after{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:50;
+    background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.12) 2px 3px);
+    mix-blend-mode:multiply;
+  }
+
+  .panel{
+    position:fixed;z-index:10;
+    background:var(--panel);
+    border:1px solid var(--hud-orange-dim);
+    box-shadow:0 0 18px #0009, inset 0 0 24px #ff8a2a08;
+    padding:10px 12px;
+    backdrop-filter:blur(2px);
+  }
+  .panel h2{
+    font-size:11px;letter-spacing:.18em;color:var(--hud-orange);
+    font-weight:400;text-transform:uppercase;
+    border-bottom:1px solid var(--hud-orange-faint);
+    padding-bottom:6px;margin-bottom:8px;
+  }
+  .panel h2 .tick{color:var(--hud-cyan);}
+
+  /* mode toggle — cockpit tab switch */
+  #modes{top:14px;left:50%;transform:translateX(-50%);display:flex;gap:0;padding:0;border:none;background:none;box-shadow:none;}
+  #modes button{
+    font-family:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--panel);color:var(--hud-orange-dim);
+    border:1px solid var(--hud-orange-dim);
+    padding:9px 22px 7px;cursor:pointer;position:relative;
+    clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+  }
+  #modes button+button{margin-left:-6px;}
+  #modes button.on{
+    color:#1a0d02;background:var(--hud-orange);
+    text-shadow:none;border-color:var(--hud-orange);
+    box-shadow:0 0 16px #ff8a2a66;
+  }
+
+  #left{top:64px;left:14px;width:270px;max-height:calc(100% - 90px);overflow:auto;}
+  #right{top:64px;right:14px;width:250px;}
+  #readout{bottom:14px;left:14px;min-width:270px;}
+  #hint{bottom:14px;right:14px;color:var(--hud-orange-dim);font-size:11px;background:none;border:none;box-shadow:none;text-align:right;letter-spacing:.06em;}
+
+  .row{display:flex;justify-content:space-between;align-items:center;margin:7px 0;gap:8px;}
+  .row label{color:var(--hud-orange);font-size:11px;letter-spacing:.08em;text-transform:uppercase;flex-shrink:0;}
+  .val{color:var(--hud-cyan);}
+  input[type=range]{
+    -webkit-appearance:none;appearance:none;width:110px;height:3px;background:var(--hud-orange-faint);outline:none;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;width:10px;height:14px;background:var(--hud-orange);cursor:pointer;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+  }
+  input[type=range]::-moz-range-thumb{width:10px;height:14px;background:var(--hud-orange);border:none;cursor:pointer;}
+  select,button.act{
+    font-family:inherit;font-size:12px;background:#150c05;color:var(--hud-amber);
+    border:1px solid var(--hud-orange-dim);padding:5px 8px;width:100%;cursor:pointer;
+  }
+  button.act{color:#1a0d02;background:var(--hud-orange);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;}
+  button.act:active{background:var(--hud-amber);}
+  .chk{display:flex;align-items:center;gap:8px;margin:7px 0;cursor:pointer;color:var(--hud-orange);font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+  .chk input{accent-color:var(--hud-orange);}
+
+  .tut p{margin:0 0 9px;line-height:1.55;color:var(--text);}
+  .tut p b{color:var(--hud-cyan);font-weight:400;}
+  .tut p em{color:var(--hud-amber);font-style:normal;}
+
+  .stat{display:flex;justify-content:space-between;margin:3px 0;font-size:12px;}
+  .stat span:first-child{color:var(--hud-orange-dim);letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .stat span:last-child{color:var(--hud-cyan);}
+  .stat.big span:last-child{color:var(--hud-amber);font-size:15px;}
+  #alertline{color:var(--hud-red);font-size:11px;letter-spacing:.1em;min-height:15px;margin-top:5px;text-transform:uppercase;}
+
+  @media (max-width:820px){
+    #left{width:230px;font-size:12px;}
+    #right{width:210px;}
+    #hint{display:none;}
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="modes" class="panel">
+  <button id="btnGal" class="on">Galaxy Map</button>
+  <button id="btnSys">System Orrery</button>
+</div>
+
+<div id="left" class="panel tut">
+  <h2><span class="tick">&#9656;</span> Tutorial</h2>
+  <div id="tutGal">
+    <p>Out here, the box intuition is <b>true</b>. Every system is a fixed point in one galactic grid, measured in light years with <em>Sol at 0,0,0</em>.</p>
+    <p><b>X</b> runs galactic east&ndash;west. <b>Z</b> points toward the galactic core. <b>Y</b> is height above the galactic plane &mdash; the flat grid below.</p>
+    <p>The vertical stalks are the trick: they drop each star onto the plane, exactly like the in-game galaxy map. Read a position as <em>"where on the floor, plus how high."</em></p>
+    <p>The cyan sphere is your <b>jump range</b>. Routing is hop-by-hop through whatever stars fall inside it &mdash; this is where the traveling-salesman feel comes from. Widen it and watch the plotted route need fewer hops.</p>
+  </div>
+  <div id="tutSys" style="display:none">
+    <p>Inside a system the box breaks. Nothing holds still: planets sweep along orbits, stations ride along with them. Your destination is a <b>moving point</b>.</p>
+    <p>In supercruise your max speed is choked by <em>gravity wells</em>. The dim rings show them &mdash; watch the ship's speed collapse whenever its path skims a planet.</p>
+    <p>That's why a station 1,200&nbsp;ls out can cost more time than three extra hyperspace jumps, and why cutting close past a big planet is slower than swinging wide.</p>
+    <p>Launch the ship at different targets and time scales. Watch <b>SPEED</b> vs <b>DIST</b> in the readout &mdash; the deceleration wall on approach is the same one you fight in the game.</p>
+  </div>
+</div>
+
+<div id="right" class="panel">
+  <h2><span class="tick">&#9656;</span> Controls</h2>
+  <div id="ctlGal">
+    <div class="row"><label>Target system</label></div>
+    <select id="sysSel"></select>
+    <div class="row"><label>Jump range</label><input type="range" id="jump" min="8" max="80" value="22"><span class="val" id="jumpV">22 ly</span></div>
+    <div class="row"><label>Auto-rotate</label><input type="range" id="spin" min="0" max="100" value="18"><span class="val" id="spinV">18%</span></div>
+    <label class="chk"><input type="checkbox" id="stalks" checked> Plane stalks</label>
+    <label class="chk"><input type="checkbox" id="routeOn" checked> Plot route from Sol</label>
+  </div>
+  <div id="ctlSys" style="display:none">
+    <div class="row"><label>Target</label></div>
+    <select id="tgtSel">
+      <option value="1">Planet 1 &mdash; 45 ls (hot rock)</option>
+      <option value="2">Planet 2 &mdash; 260 ls (gas giant)</option>
+      <option value="3" selected>Station &mdash; orbiting P3, 900 ls</option>
+    </select>
+    <div class="row"><label>Time scale</label><input type="range" id="tscale" min="0" max="100" value="35"><span class="val" id="tscaleV"></span></div>
+    <label class="chk"><input type="checkbox" id="wells" checked> Gravity wells</label>
+    <label class="chk"><input type="checkbox" id="closePass"> Force close pass by P2</label>
+    <button class="act" id="launch">Launch ship</button>
+  </div>
+</div>
+
+<div id="readout" class="panel">
+  <h2><span class="tick">&#9656;</span> <span id="roTitle">Nav Readout</span></h2>
+  <div id="roGal">
+    <div class="stat big"><span>System</span><span id="roName">&mdash;</span></div>
+    <div class="stat"><span>X / east</span><span id="roX">&mdash;</span></div>
+    <div class="stat"><span>Y / height</span><span id="roY">&mdash;</span></div>
+    <div class="stat"><span>Z / coreward</span><span id="roZ">&mdash;</span></div>
+    <div class="stat"><span>Dist from Sol</span><span id="roDist">&mdash;</span></div>
+    <div class="stat"><span>Route hops</span><span id="roHops">&mdash;</span></div>
+    <div id="alertline"></div>
+  </div>
+  <div id="roSys" style="display:none">
+    <div class="stat big"><span>Speed</span><span id="roSpd">docked</span></div>
+    <div class="stat"><span>Speed cap here</span><span id="roCap">&mdash;</span></div>
+    <div class="stat"><span>Dist to target</span><span id="roTd">&mdash;</span></div>
+    <div class="stat"><span>ETA</span><span id="roEta">&mdash;</span></div>
+    <div id="alertline2" style="color:var(--hud-red);font-size:11px;letter-spacing:.1em;min-height:15px;margin-top:5px;text-transform:uppercase;"></div>
+  </div>
+</div>
+
+<div id="hint" class="panel">drag to orbit &middot; wheel to zoom</div>
+
+<script>
+(function(){
+'use strict';
+
+// ---------- renderer & scene ----------
+const canvas=document.getElementById('c');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(0x060402);
+const camera=new THREE.PerspectiveCamera(55,1,0.1,20000);
+
+// starfield backdrop
+(function(){
+  const g=new THREE.BufferGeometry();const n=1500;const p=new Float32Array(n*3);
+  for(let i=0;i<n;i++){const r=6000+Math.random()*4000;const t=Math.random()*Math.PI*2;const ph=Math.acos(2*Math.random()-1);
+    p[i*3]=r*Math.sin(ph)*Math.cos(t);p[i*3+1]=r*Math.cos(ph);p[i*3+2]=r*Math.sin(ph)*Math.sin(t);}
+  g.setAttribute('position',new THREE.BufferAttribute(p,3));
+  scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x554433,size:6,sizeAttenuation:true})));
+})();
+
+// ---------- manual orbit camera ----------
+const cam={theta:0.9,phi:1.15,r:520,target:new THREE.Vector3(0,0,0)};
+let dragging=false,lx=0,ly=0;
+function applyCam(){
+  cam.phi=Math.max(0.08,Math.min(Math.PI-0.08,cam.phi));
+  camera.position.set(
+    cam.target.x+cam.r*Math.sin(cam.phi)*Math.cos(cam.theta),
+    cam.target.y+cam.r*Math.cos(cam.phi),
+    cam.target.z+cam.r*Math.sin(cam.phi)*Math.sin(cam.theta));
+  camera.lookAt(cam.target);
+}
+canvas.addEventListener('pointerdown',e=>{dragging=true;lx=e.clientX;ly=e.clientY;});
+addEventListener('pointerup',()=>dragging=false);
+addEventListener('pointermove',e=>{
+  if(!dragging)return;
+  cam.theta+=(e.clientX-lx)*0.006;cam.phi+=(e.clientY-ly)*0.006;
+  lx=e.clientX;ly=e.clientY;
+});
+canvas.addEventListener('wheel',e=>{e.preventDefault();cam.r*=(1+Math.sign(e.deltaY)*0.09);cam.r=Math.max(30,Math.min(6000,cam.r));},{passive:false});
+
+function resize(){
+  const w=innerWidth,h=innerHeight;
+  renderer.setSize(w,h,false);
+  camera.aspect=w/h;camera.updateProjectionMatrix();
+}
+addEventListener('resize',resize);resize();
+
+// ---------- label sprites ----------
+function makeLabel(text,color){
+  const cv=document.createElement('canvas');const ctx=cv.getContext('2d');
+  const fs=26;ctx.font=fs+'px Consolas, monospace';
+  cv.width=Math.ceil(ctx.measureText(text).width)+16;cv.height=fs+14;
+  const c2=cv.getContext('2d');c2.font=fs+'px Consolas, monospace';
+  c2.fillStyle=color;c2.fillText(text,8,fs+2);
+  const tex=new THREE.CanvasTexture(cv);tex.minFilter=THREE.LinearFilter;
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthTest:false}));
+  sp.scale.set(cv.width*0.28,cv.height*0.28,1);
+  return sp;
+}
+
+// =====================================================
+// GALAXY MODE
+// =====================================================
+const galaxy=new THREE.Group();scene.add(galaxy);
+
+// named systems (approx galactic coords, ly). Sol origin exact; streamer system from HUD.
+const named=[
+  {name:'Sol',x:0,y:0,z:0},
+  {name:'Alpha Centauri',x:3.0,y:-0.1,z:3.2},
+  {name:'Sirius',x:6.3,y:-1.3,z:-5.8},
+  {name:'Achenar',x:67.5,y:-119.5,z:24.8},
+  {name:'Col 285 XK-O d6-108',x:-91.3,y:25.8,z:178.5},
+];
+// procedural filler stars, deterministic
+const stars=[...named];
+let seed=1337;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+for(let i=0;i<140;i++){
+  stars.push({name:'HIP '+(1000+Math.floor(rnd()*90000)),
+    x:(rnd()*2-1)*220,y:(rnd()*2-1)*70,z:(rnd()*2-1)*240,proc:true});
+}
+
+// galactic plane grid
+const grid=new THREE.GridHelper(600,24,0x7a4a1e,0x2a1808);
+galaxy.add(grid);
+
+// axes + labels
+function axis(dir,len,color,text){
+  const g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0),dir.clone().multiplyScalar(len)]);
+  galaxy.add(new THREE.Line(g,new THREE.LineBasicMaterial({color})));
+  const l=makeLabel(text,'#ffd24d');l.position.copy(dir.clone().multiplyScalar(len+18));galaxy.add(l);
+}
+axis(new THREE.Vector3(1,0,0),300,0xff8a2a,'+X east');
+axis(new THREE.Vector3(0,1,0),120,0x0ae6f0,'+Y up');
+axis(new THREE.Vector3(0,0,1),300,0xff8a2a,'+Z core');
+
+// star points
+const starGeo=new THREE.BufferGeometry();
+starGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(stars.flatMap(s=>[s.x,s.y,s.z])),3));
+const starCols=new Float32Array(stars.length*3);
+const starMat=new THREE.PointsMaterial({size:5,vertexColors:true,sizeAttenuation:false});
+starGeo.setAttribute('color',new THREE.BufferAttribute(starCols,3));
+galaxy.add(new THREE.Points(starGeo,starMat));
+
+// stalks
+const stalkGeo=new THREE.BufferGeometry();
+stalkGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(stars.flatMap(s=>[s.x,s.y,s.z,s.x,0,s.z])),3));
+const stalks=new THREE.LineSegments(stalkGeo,new THREE.LineBasicMaterial({color:0x5a3616,transparent:true,opacity:0.55}));
+galaxy.add(stalks);
+
+// labels for named systems
+named.forEach(s=>{
+  const l=makeLabel(s.name,s.name==='Sol'?'#0ae6f0':'#ff8a2a');
+  l.position.set(s.x,s.y+9,s.z);galaxy.add(l);
+});
+
+// selection marker + jump sphere + route line
+const selMarker=new THREE.Mesh(new THREE.OctahedronGeometry(5),new THREE.MeshBasicMaterial({color:0xffd24d,wireframe:true}));
+galaxy.add(selMarker);
+const jumpSphere=new THREE.Mesh(new THREE.SphereGeometry(1,28,20),
+  new THREE.MeshBasicMaterial({color:0x0ae6f0,wireframe:true,transparent:true,opacity:0.14}));
+galaxy.add(jumpSphere);
+let routeLine=null;
+
+const sysSel=document.getElementById('sysSel');
+named.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=s.name;sysSel.appendChild(o);});
+sysSel.value=4;
+
+const dist3=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z);
+
+function plotRoute(fromIdx,toIdx,range){
+  // greedy: repeatedly hop to the in-range star closest to destination
+  const dest=stars[toIdx];let cur=stars[fromIdx];
+  const path=[cur];const visited=new Set([fromIdx]);
+  for(let hop=0;hop<60;hop++){
+    if(dist3(cur,dest)<=range){path.push(dest);return path;}
+    let best=null,bestD=Infinity;
+    for(let i=0;i<stars.length;i++){
+      if(visited.has(i))continue;
+      const s=stars[i];
+      if(dist3(cur,s)<=range){
+        const d=dist3(s,dest);
+        if(d<bestD){bestD=d;best=i;}
+      }
+    }
+    if(best===null||bestD>=dist3(cur,dest))return null; // stranded
+    visited.add(best);cur=stars[best];path.push(cur);
+  }
+  return null;
+}
+
+function updateGalaxy(){
+  const idx=+sysSel.value;const s=named[idx];
+  const range=+document.getElementById('jump').value;
+  document.getElementById('jumpV').textContent=range+' ly';
+  selMarker.position.set(s.x,s.y,s.z);
+  jumpSphere.position.copy(selMarker.position);
+  jumpSphere.scale.setScalar(range);
+  stalks.visible=document.getElementById('stalks').checked;
+
+  // color stars: in-range cyan, else orange; named brighter
+  const inC=new THREE.Color(0x0ae6f0),outC=new THREE.Color(0xff8a2a),dimC=new THREE.Color(0x8a5522);
+  stars.forEach((st,i)=>{
+    const d=dist3(st,s);
+    const c=(d<=range&&d>0)?inC:(st.proc?dimC:outC);
+    starCols[i*3]=c.r;starCols[i*3+1]=c.g;starCols[i*3+2]=c.b;
+  });
+  starGeo.attributes.color.needsUpdate=true;
+
+  // route
+  if(routeLine){galaxy.remove(routeLine);routeLine.geometry.dispose();routeLine=null;}
+  let hops='—';
+  document.getElementById('alertline').textContent='';
+  if(document.getElementById('routeOn').checked&&idx!==0){
+    const path=plotRoute(0,stars.indexOf(s),range);
+    if(path){
+      const g=new THREE.BufferGeometry().setFromPoints(path.map(p=>new THREE.Vector3(p.x,p.y,p.z)));
+      routeLine=new THREE.Line(g,new THREE.LineBasicMaterial({color:0xffd24d}));
+      galaxy.add(routeLine);
+      hops=(path.length-1)+' jumps';
+    }else{
+      hops='no route';
+      document.getElementById('alertline').textContent='frame shift range insufficient';
+    }
+  }
+  document.getElementById('roName').textContent=s.name;
+  document.getElementById('roX').textContent=s.x.toFixed(1)+' ly';
+  document.getElementById('roY').textContent=s.y.toFixed(1)+' ly';
+  document.getElementById('roZ').textContent=s.z.toFixed(1)+' ly';
+  document.getElementById('roDist').textContent=dist3(s,named[0]).toFixed(1)+' ly';
+  document.getElementById('roHops').textContent=hops;
+}
+['sysSel','jump','stalks','routeOn'].forEach(id=>document.getElementById(id).addEventListener('input',updateGalaxy));
+
+// =====================================================
+// SYSTEM MODE  (units: 1 world unit = 1 ls, scaled radii for visibility)
+// =====================================================
+const system=new THREE.Group();system.visible=false;scene.add(system);
+
+const star={r:14,well:120,pos:new THREE.Vector3(0,0,0)};
+const starMesh=new THREE.Mesh(new THREE.SphereGeometry(star.r,32,24),
+  new THREE.MeshBasicMaterial({color:0xffc46b}));
+system.add(starMesh);
+const glow=new THREE.Mesh(new THREE.SphereGeometry(star.r*1.6,32,24),
+  new THREE.MeshBasicMaterial({color:0xff8a2a,transparent:true,opacity:0.18}));
+system.add(glow);
+
+function ring(radius,color,op){
+  const g=new THREE.RingGeometry(radius-0.6,radius+0.6,128);
+  const m=new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide,transparent:true,opacity:op});
+  const r=new THREE.Mesh(g,m);r.rotation.x=Math.PI/2;return r;
+}
+
+const planets=[
+  {name:'P1',a:45, period:60,  r:3.5,well:26, color:0xcc7744,phase:0.7},
+  {name:'P2',a:260,period:300, r:9,  well:70, color:0xdd9955,phase:2.6},
+  {name:'P3',a:900,period:1200,r:6,  well:48, color:0x88aacc,phase:4.4},
+];
+planets.forEach(p=>{
+  system.add(ring(p.a,0x7a4a1e,0.5));
+  p.mesh=new THREE.Mesh(new THREE.SphereGeometry(p.r,24,18),new THREE.MeshBasicMaterial({color:p.color}));
+  system.add(p.mesh);
+  p.wellMesh=new THREE.Mesh(new THREE.SphereGeometry(1,20,14),
+    new THREE.MeshBasicMaterial({color:0xff3b30,wireframe:true,transparent:true,opacity:0.10}));
+  p.wellMesh.scale.setScalar(p.well);
+  system.add(p.wellMesh);
+  p.pos=new THREE.Vector3();
+});
+const starWell=new THREE.Mesh(new THREE.SphereGeometry(1,24,16),
+  new THREE.MeshBasicMaterial({color:0xff3b30,wireframe:true,transparent:true,opacity:0.08}));
+starWell.scale.setScalar(star.well);system.add(starWell);
+
+// station orbiting P3
+const station={a:18,period:40,phase:0,pos:new THREE.Vector3()};
+station.mesh=new THREE.Mesh(new THREE.OctahedronGeometry(2.2),new THREE.MeshBasicMaterial({color:0x0ae6f0,wireframe:true}));
+system.add(station.mesh);
+const stLabel=makeLabel('STATION','#0ae6f0');system.add(stLabel);
+planets.forEach(p=>{const l=makeLabel(p.name,'#ff8a2a');p.label=l;system.add(l);});
+
+// ship
+const ship={pos:new THREE.Vector3(0,0,-140),active:false,speed:0,trail:[]};
+const shipMesh=new THREE.Mesh(new THREE.ConeGeometry(2.4,7,10),new THREE.MeshBasicMaterial({color:0xffd24d}));
+system.add(shipMesh);
+let trailLine=new THREE.Line(new THREE.BufferGeometry(),new THREE.LineBasicMaterial({color:0xffd24d,transparent:true,opacity:0.6}));
+system.add(trailLine);
+let tgtLineGeo=new THREE.BufferGeometry();
+const tgtLine=new THREE.Line(tgtLineGeo,new THREE.LineDashedMaterial({color:0x0ae6f0,dashSize:6,gapSize:5}));
+system.add(tgtLine);
+
+let simT=0;
+function bodyPositions(t){
+  planets.forEach(p=>{
+    const a=t/p.period*Math.PI*2+p.phase;
+    p.pos.set(Math.cos(a)*p.a,0,Math.sin(a)*p.a);
+    p.mesh.position.copy(p.pos);
+    p.wellMesh.position.copy(p.pos);
+    p.label.position.set(p.pos.x,p.pos.y+p.r+8,p.pos.z);
+  });
+  const sa=t/station.period*Math.PI*2;
+  station.pos.copy(planets[2].pos).add(new THREE.Vector3(Math.cos(sa)*station.a,0,Math.sin(sa)*station.a));
+  station.mesh.position.copy(station.pos);
+  station.mesh.rotation.y=t*0.5;
+  stLabel.position.set(station.pos.x,station.pos.y+7,station.pos.z);
+}
+
+function targetPos(){
+  const v=document.getElementById('tgtSel').value;
+  if(v==='1')return planets[0].pos;
+  if(v==='2')return planets[1].pos;
+  return station.pos;
+}
+
+// speed model (fake but honest in shape):
+// cap grows with distance from nearest massive body; approach rule caps at d/6s
+const KM_PER_LS=299792;
+function speedCap(pos){
+  let dmin=Math.max(1,pos.distanceTo(star.pos)-star.r)/ (star.well/60);
+  planets.forEach(p=>{
+    const d=Math.max(0.5,pos.distanceTo(p.pos)-p.r)/(p.well/60);
+    if(d<dmin)dmin=d;
+  });
+  // dmin in "well units": cap in ls/s
+  return Math.min(6.0, 0.0012*Math.pow(dmin,1.6)); // hard cap ~6 ls/s (~2000c-ish feel, scaled)
+}
+function fmtSpeed(lsps){
+  const kms=lsps*KM_PER_LS;
+  if(lsps<0.001)return Math.round(kms)+' km/s';
+  return (lsps).toFixed(2)+' c'; // 1 ls/s = 1 c
+}
+
+document.getElementById('launch').addEventListener('click',()=>{
+  ship.active=true;ship.trail.length=0;
+  document.getElementById('alertline2').textContent='';
+  if(document.getElementById('closePass').checked){
+    // start opposite side so path crosses inner system near P2
+    const t=targetPos().clone();
+    ship.pos.copy(t).multiplyScalar(-0.9).add(new THREE.Vector3(0,0,0));
+    if(ship.pos.length()<80)ship.pos.set(0,0,-300);
+  }else{
+    ship.pos.set(0,0,-140);
+  }
+});
+
+function stepShip(dt){
+  if(!ship.active)return;
+  const tgt=targetPos();
+  const d=ship.pos.distanceTo(tgt);
+  if(d<4){
+    ship.active=false;ship.speed=0;
+    document.getElementById('alertline2').textContent='arrived — drop to normal space';
+    return;
+  }
+  const cap=speedCap(ship.pos);
+  const approach=d/6; // ETA held ~6s, the in-game deceleration rule
+  ship.speed=Math.min(cap,approach);
+  const dir=tgt.clone().sub(ship.pos).normalize();
+  ship.pos.addScaledVector(dir,ship.speed*dt);
+  shipMesh.position.copy(ship.pos);
+  shipMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),dir);
+  ship.trail.push(ship.pos.clone());
+  if(ship.trail.length>400)ship.trail.shift();
+  trailLine.geometry.dispose();
+  trailLine.geometry=new THREE.BufferGeometry().setFromPoints(ship.trail);
+}
+
+function updateSysReadout(){
+  const tgt=targetPos();
+  const d=ship.pos.distanceTo(tgt);
+  document.getElementById('roSpd').textContent=ship.active?fmtSpeed(ship.speed):'docked';
+  document.getElementById('roCap').textContent=fmtSpeed(speedCap(ship.pos));
+  document.getElementById('roTd').textContent=d.toFixed(1)+' ls';
+  document.getElementById('roEta').textContent=(ship.active&&ship.speed>0)?Math.round(d/ship.speed)+' s':'—';
+  tgtLine.geometry.dispose();
+  tgtLine.geometry=new THREE.BufferGeometry().setFromPoints([ship.pos,tgt]);
+  tgtLine.computeLineDistances();
+  planets.forEach(p=>p.wellMesh.visible=document.getElementById('wells').checked);
+  starWell.visible=document.getElementById('wells').checked;
+}
+
+// ---------- mode switching ----------
+const btnGal=document.getElementById('btnGal'),btnSys=document.getElementById('btnSys');
+let mode='gal';
+function setMode(m){
+  mode=m;
+  const g=m==='gal';
+  galaxy.visible=g;system.visible=!g;
+  btnGal.classList.toggle('on',g);btnSys.classList.toggle('on',!g);
+  document.getElementById('tutGal').style.display=g?'':'none';
+  document.getElementById('tutSys').style.display=g?'none':'';
+  document.getElementById('ctlGal').style.display=g?'':'none';
+  document.getElementById('ctlSys').style.display=g?'none':'';
+  document.getElementById('roGal').style.display=g?'':'none';
+  document.getElementById('roSys').style.display=g?'none':'';
+  document.getElementById('roTitle').textContent=g?'Nav Readout':'Supercruise Readout';
+  cam.r=g?520:900;cam.phi=g?1.15:0.7;cam.target.set(0,0,0);
+}
+btnGal.addEventListener('click',()=>setMode('gal'));
+btnSys.addEventListener('click',()=>setMode('sys'));
+
+// ---------- main loop ----------
+let last=performance.now();
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function loop(now){
+  requestAnimationFrame(loop);
+  const dt=Math.min(0.05,(now-last)/1000);last=now;
+  if(mode==='gal'){
+    const spin=+document.getElementById('spin').value;
+    document.getElementById('spinV').textContent=spin+'%';
+    if(!dragging&&!reduceMotion)cam.theta+=dt*spin*0.004;
+  }else{
+    const ts=+document.getElementById('tscale').value;
+    const mult=Math.pow(10,ts/33); // 1x .. ~1000x
+    document.getElementById('tscaleV').textContent=mult<10?mult.toFixed(1)+'x':Math.round(mult)+'x';
+    simT+=dt*mult*0.05;
+    bodyPositions(simT);
+    stepShip(dt*Math.min(mult,60)*0.05);
+    updateSysReadout();
+    glow.scale.setScalar(1+Math.sin(now*0.002)*0.04);
+  }
+  applyCam();
+  renderer.render(scene,camera);
+}
+updateGalaxy();
+bodyPositions(0);
+shipMesh.position.copy(ship.pos);
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
