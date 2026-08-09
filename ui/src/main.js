@@ -1,12 +1,15 @@
 import * as THREE from 'three';
 import demoSystem from './data/demo-system.json';
 import { createOrbitCamera } from './camera.js';
-import { buildSystemScene, disposeSystemScene } from './scene-builder.js';
+import { buildSystemScene, updateSystemScene, disposeSystemScene } from './scene-builder.js';
 import { renderDetailPanel } from './data-panel.js';
 import { connectLive } from './live-connection.js';
 import { getNickname, getNicknames, setNickname } from './nicknames.js';
 import { buildBackfillNodes } from '@orrery/shared';
 import { fetchEdsmBodies } from './edsm-client.js';
+import { createTimeControl, advance, resetToNow, warpFromSlider, formatWarp } from './time-control.js';
+import { applyColorScheme, DEFAULT_SCHEME } from './color-schemes.js';
+import { createAudioCues } from './audio-cues.js';
 
 // ---------- renderer & scene ----------
 const canvas = document.getElementById('c');
@@ -33,27 +36,69 @@ const camera = new THREE.PerspectiveCamera(55, 1, 0.05, 20000);
   scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x554433, size: 1.2, sizeAttenuation: true })));
 })();
 
+// ---------- HUD color scheme (milestone 7) ----------
+// Applied before the first scene build so the 3D labels pick up the accent.
+let labelAccent = '#ff8a2a';
+const schemeSelect = document.getElementById('schemeSelect');
+{
+  const saved = localStorage.getItem('orrery.colorScheme') ?? DEFAULT_SCHEME;
+  const applied = applyColorScheme(saved);
+  labelAccent = applied.accent;
+  schemeSelect.value = applied.name;
+}
+schemeSelect.addEventListener('change', () => {
+  const applied = applyColorScheme(schemeSelect.value);
+  labelAccent = applied.accent;
+  localStorage.setItem('orrery.colorScheme', applied.name);
+  schemeSelect.value = applied.name;
+  rebuildSceneVisuals(); // 3D labels are canvas textures — they need a redraw to recolor
+});
+
+// ---------- simulated time: warp slider + "now" reset (milestone 7) ----------
+const timeControl = createTimeControl();
+const warpSlider = document.getElementById('warpSlider');
+const warpValue = document.getElementById('warpValue');
+
+warpSlider.addEventListener('input', () => {
+  timeControl.warp = warpFromSlider(Number(warpSlider.value));
+  warpValue.textContent = formatWarp(timeControl.warp);
+  requestRender();
+});
+document.getElementById('nowButton').addEventListener('click', () => {
+  resetToNow(timeControl);
+  requestRender();
+});
+
 // ---------- GPU-polite render-on-demand, FPS-capped ----------
-// Only camera input, a selection change, or a new live snapshot should
-// trigger a redraw — and even then, never faster than the FPS cap. See the
-// handover doc's GPU-politeness principle: this shares a card with the game.
+// Only camera input, a selection change, a new live snapshot, or active time
+// warping should trigger a redraw — and even then, never faster than the FPS
+// cap. See the handover doc's GPU-politeness principle: this shares a card
+// with the game. At warp 1× (real time) bodies move imperceptibly, so no
+// continuous rendering happens; above 1× the scene animates at the cap.
 const FPS_CAP = 30;
 const MIN_FRAME_INTERVAL_MS = 1000 / FPS_CAP;
 let needsRender = true;
 let lastRenderTime = 0;
+let lastFrameTime = null;
 function requestRender() { needsRender = true; }
 
 function loop(now) {
   requestAnimationFrame(loop);
+  const realDt = lastFrameTime === null ? 0 : now - lastFrameTime;
+  lastFrameTime = now;
+  advance(timeControl, realDt);
+  if (timeControl.warp > 1) needsRender = true;
   if (!needsRender) return;
   if (now - lastRenderTime < MIN_FRAME_INTERVAL_MS) return; // stays dirty; picked up on the next eligible frame
   needsRender = false;
   lastRenderTime = now;
+  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { trueScale });
   renderer.render(scene, camera);
 }
 requestAnimationFrame(loop);
 
 const orbitCamera = createOrbitCamera(canvas, camera, { initialRadius: 70, onDirty: requestRender });
+document.getElementById('resetViewButton').addEventListener('click', () => orbitCamera.reset());
 
 function resize() {
   const w = innerWidth;
@@ -75,6 +120,7 @@ let renderedNodes = new Map(); // scannedNodes, merged with EDSM backfill bodies
 let systemName = '';
 let systemAddress = null;
 let pickables = new Map();
+let updatables = new Map();
 let systemGroup = null;
 let detectedMode = 'exploration';
 let systemSecurity = null;
@@ -82,6 +128,7 @@ let factions = [];
 let navBeaconDetected = false;
 let bountyTally = 0;
 let nextSystem = null;
+let trueScale = false;
 
 const nicknameInput = document.getElementById('nicknameInput');
 
@@ -125,6 +172,88 @@ document.getElementById('copyName').addEventListener('click', () => {
   const node = renderedNodes.get(selectedId);
   navigator.clipboard?.writeText(node.name ?? '');
 });
+
+// ---------- true scale toggle (milestone 7) ----------
+// Honest distances and radii — see scene-builder.js's TRUE_SCALE notes. Moons
+// collapsing into their planets and near-invisible bodies are the honest
+// point, per the handover doc: "flag it in the UI so it teaches rather than lies."
+const trueScaleToggle = document.getElementById('trueScaleToggle');
+trueScale = localStorage.getItem('orrery.trueScale') === 'true';
+trueScaleToggle.checked = trueScale;
+trueScaleToggle.addEventListener('change', () => {
+  trueScale = trueScaleToggle.checked;
+  localStorage.setItem('orrery.trueScale', String(trueScale));
+  updateScaleBadge();
+  rebuildSceneVisuals();
+});
+
+function updateScaleBadge() {
+  const el = document.getElementById('sysScale');
+  if (trueScale) {
+    el.textContent = 'true scale — small bodies may be invisible';
+    el.className = 'val-live';
+  } else {
+    el.textContent = 'compressed — not to scale';
+    el.className = 'val-warn';
+  }
+}
+updateScaleBadge();
+
+// ---------- legend window (milestone 7): hidable icon/color explainer ----------
+const legendPanel = document.getElementById('legend');
+const legendToggle = document.getElementById('legendToggle');
+legendPanel.hidden = localStorage.getItem('orrery.legendVisible') !== 'true';
+legendToggle.addEventListener('click', () => {
+  legendPanel.hidden = !legendPanel.hidden;
+  localStorage.setItem('orrery.legendVisible', String(!legendPanel.hidden));
+});
+
+// ---------- audio cues (milestone 7): off by default ----------
+const audioCues = createAudioCues();
+const audioToggle = document.getElementById('audioToggle');
+let audioEnabled = localStorage.getItem('orrery.audioEnabled') === 'true';
+audioToggle.checked = audioEnabled;
+audioToggle.addEventListener('change', () => {
+  audioEnabled = audioToggle.checked;
+  localStorage.setItem('orrery.audioEnabled', String(audioEnabled));
+});
+
+// Cue detection: compares each live snapshot's first-discovery and bio-signal
+// body sets against the previous snapshot of the *same* system, so arriving
+// in a system (or the first live snapshot after boot) never plays a burst of
+// stale cues — only genuinely new events during play do.
+let cueSystemAddress = null;
+let knownDiscoveryIds = new Set();
+let knownBioIds = new Set();
+
+function detectAudioCues(payload) {
+  const discoveryIds = new Set();
+  const bioIds = new Set();
+  for (const node of payload.nodes) {
+    if (node.raw?.WasDiscovered === false) discoveryIds.add(node.id);
+    if (node.bio?.signalCount > 0) bioIds.add(node.id);
+  }
+
+  const sameSystem = payload.systemAddress === cueSystemAddress;
+  if (sameSystem && audioEnabled) {
+    if ([...discoveryIds].some((id) => !knownDiscoveryIds.has(id))) audioCues.play('discovery');
+    else if ([...bioIds].some((id) => !knownBioIds.has(id))) audioCues.play('bio');
+  }
+  cueSystemAddress = payload.systemAddress;
+  knownDiscoveryIds = discoveryIds;
+  knownBioIds = bioIds;
+}
+
+// ---------- session tracker strip (milestone 7, "thin v1.5") ----------
+function updateSessionStrip(payload) {
+  const strip = document.getElementById('sessionStrip');
+  const stats = payload.sessionStats;
+  strip.hidden = !stats; // the demo snapshot has no session — live only
+  if (!stats) return;
+  document.getElementById('stripScans').textContent = String(stats.scans);
+  document.getElementById('stripFirstDisc').textContent = String(stats.firstDiscoveries);
+  document.getElementById('stripBounty').textContent = (payload.bountyTally ?? 0).toLocaleString();
+}
 
 // ---------- activity mode: auto-detected, overridable by a manual pin ----------
 // "Auto wins unless the user has pinned a mode" (handover doc). The watcher
@@ -214,15 +343,19 @@ async function refreshEdsmBackfill() {
 }
 
 // Rebuilds just the 3D scene for the current renderedNodes/systemName at the
-// current effective mode — used by loadSystem (new data), a manual mode pin
-// change, and an EDSM backfill refresh (each changes what should render
-// without necessarily touching selection).
+// current effective mode/scale/scheme — used by loadSystem (new data), a
+// manual mode pin change, a scale or scheme change, and an EDSM backfill
+// refresh (each changes what should render without touching selection).
 function rebuildSceneVisuals() {
   if (systemGroup) disposeSystemScene(systemGroup);
   const nicknames = systemAddress !== null ? getNicknames(systemAddress) : {};
-  const built = buildSystemScene(renderedNodes, Date.now(), systemName, effectiveMode(), nicknames);
+  const built = buildSystemScene(renderedNodes, timeControl.simTimeMs, systemName, effectiveMode(), nicknames, {
+    trueScale,
+    labelColor: labelAccent,
+  });
   scene.add(built.group);
   pickables = built.pickables;
+  updatables = built.updatables;
   systemGroup = built.group;
   requestRender();
 }
@@ -244,6 +377,8 @@ function loadSystem(payload) {
   nextSystem = payload.nextSystem ?? null;
   updateModeDisplay();
   updateSystemLevelPanel();
+  updateSessionStrip(payload);
+  detectAudioCues(payload);
 
   rebuildSceneVisuals();
   refreshEdsmBackfill(); // no-op if disabled; otherwise fetches in the background and re-renders once it lands

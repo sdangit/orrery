@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import * as THREE from 'three';
-import { buildSystemScene } from '../src/scene-builder.js';
+import { buildSystemScene, updateSystemScene } from '../src/scene-builder.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const demoSystem = JSON.parse(readFileSync(join(__dirname, '..', 'src', 'data', 'demo-system.json'), 'utf8'));
@@ -200,4 +200,61 @@ test('belt clusters (no independent position data) do not get their own pickable
   for (const id of pickables.values()) {
     assert.ok(!beltClusterIds.includes(id), `belt cluster ${id} unexpectedly got a pickable mesh`);
   }
+});
+
+test('updateSystemScene moves bodies as simulated time advances (the warp path), without a rebuild', () => {
+  const now = Date.now();
+  const { updatables } = buildSystemScene(nodes, now, demoSystem.systemName);
+  // Body 13 ("A 1") has a ~1.3-day orbital period — a week of simulated time
+  // moves it substantially.
+  const entry = updatables.get(13);
+  assert.ok(entry, 'expected an updatable entry for body 13');
+  const before = entry.bodyGroup.position.clone();
+  updateSystemScene(nodes, updatables, now + 7 * 86400 * 1000);
+  const after = entry.bodyGroup.position;
+  assert.ok(before.distanceTo(after) > 0.1, `expected real movement, got ${before.distanceTo(after)}`);
+  for (const axis of ['x', 'y', 'z']) {
+    assert.ok(Number.isFinite(after[axis]));
+  }
+});
+
+test('updateSystemScene keeps a body\'s ring band moving with it', () => {
+  const now = Date.now();
+  const { updatables } = buildSystemScene(nodes, now, demoSystem.systemName);
+  // Body 39 ("A 12") has a real ring band.
+  const entry = updatables.get(39);
+  assert.ok(entry.rings.length > 0, 'expected body 39 to own ring meshes');
+  updateSystemScene(nodes, updatables, now + 30 * 86400 * 1000);
+  for (const ring of entry.rings) {
+    assert.ok(ring.position.equals(entry.bodyGroup.position), 'ring must stay centred on its body');
+  }
+});
+
+test('true-scale mode uses honest distances: the wide binary separation dwarfs the compressed layout', () => {
+  const now = Date.now();
+  const compressed = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: false });
+  const honest = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: true });
+
+  const starDistance = (built) => {
+    const a = built.updatables.get(1).bodyGroup.position;
+    const b = built.updatables.get(2).bodyGroup.position;
+    return a.distanceTo(b);
+  };
+  // Real separation is ~5e12 m = ~5000 units at 1e9 m/unit; the compressed
+  // scale keeps everything within tens of units.
+  assert.ok(starDistance(honest) > 100 * starDistance(compressed), 'true scale should be dramatically larger');
+});
+
+test('true-scale mode uses honest (tiny) radii with only a minimal clickability floor', () => {
+  const now = Date.now();
+  const honest = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: true });
+  const starMesh = [...honest.pickables.entries()].find(([, id]) => id === 1)[0];
+  // The primary star's real radius is ~2.8e8 m -> ~0.28 units at 1e9 m/unit.
+  assert.ok(Math.abs(starMesh.geometry.parameters.radius - 0.284435904) < 0.01);
+});
+
+test('the labelColor option recolors ordinary labels while spotlighted/backfill labels keep their fixed colors', () => {
+  // Only proves the option threads through without breaking the build; the
+  // actual color lands inside a canvas texture, which isn't inspectable here.
+  assert.doesNotThrow(() => buildSystemScene(nodes, Date.now(), demoSystem.systemName, 'exploration', {}, { labelColor: '#4fc3f7' }));
 });

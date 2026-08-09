@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Defense-in-depth CSP: no inline/eval scripts ever run; network is limited
+      to same-origin, local websockets (the watcher + Vite dev HMR), and the
+      opt-in EDSM API. style-src allows inline because Vite injects styles that
+      way in dev (and Three.js labels are canvas textures, not styles).
+      If the page ever renders broken/blank, suspect this line first.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' ws: https://www.edsm.net; object-src 'none'; base-uri 'none'; form-action 'none'" />
     <title>ORRERY // system nav</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
@@ -30,8 +38,21 @@
         <div class="stat"><span>Combat zones</span><span id="sysCombatZones">&mdash;</span></div>
         <div class="stat"><span>Bounty (session)</span><span id="sysBountyTally">&mdash;</span></div>
       </div>
-      <div class="stat"><span>Scale</span><span class="val-warn">compressed &mdash; not to scale</span></div>
+      <div class="row"><label>Time warp</label><span class="val" id="warpValue">1&times;</span></div>
+      <input type="range" id="warpSlider" min="0" max="100" value="0" />
+      <button class="act ghost" id="nowButton">Reset to now</button>
+      <div class="stat"><span>Scale</span><span id="sysScale" class="val-warn">compressed &mdash; not to scale</span></div>
+      <label class="chk"><input type="checkbox" id="trueScaleToggle"> True scale</label>
       <label class="chk"><input type="checkbox" id="edsmToggle"> EDSM backfill (network)</label>
+      <label class="chk"><input type="checkbox" id="audioToggle"> Audio cues</label>
+      <div class="row"><label>Color scheme</label></div>
+      <select id="schemeSelect">
+        <option value="ember">Ember</option>
+        <option value="ice">Ice</option>
+        <option value="viridian">Viridian</option>
+        <option value="amethyst">Amethyst</option>
+      </select>
+      <button class="act ghost" id="resetViewButton">Reset view</button>
     </div>
 
     <div id="detail" class="panel" hidden>
@@ -59,6 +80,31 @@
       <div class="stat"><span>Mapped</span><span id="detailMapped">&mdash;</span></div>
       <button class="act" id="copyName">Copy name</button>
     </div>
+
+    <div id="legend" class="panel" hidden>
+      <h2><span class="tick">&#9656;</span> Legend</h2>
+      <div class="legend-section">Icons</div>
+      <div class="stat"><span>&#10022;</span><span>Star</span></div>
+      <div class="stat"><span>&#9675;</span><span>Planet</span></div>
+      <div class="stat"><span>&#9673;</span><span>Planet, landable</span></div>
+      <div class="stat"><span>&middot;</span><span>Moon</span></div>
+      <div class="stat"><span>&#9672;</span><span>Moon, landable</span></div>
+      <div class="legend-section">Colors &amp; effects</div>
+      <div class="stat"><span class="swatch sw-amber"></span><span>First discovery / high value / terraformable</span></div>
+      <div class="stat"><span class="swatch sw-cyan"></span><span>Landable surface ring &middot; pristine-reserve glow (mining)</span></div>
+      <div class="stat"><span class="swatch sw-green"></span><span>Biological signals (exobiology mode)</span></div>
+      <div class="stat"><span class="swatch sw-wire"></span><span>Wireframe: EDSM data, not yet scanned</span></div>
+      <div class="stat"><span class="swatch sw-dim"></span><span>Dim ring band: belt/ring (brighter = better reserves)</span></div>
+    </div>
+
+    <div id="sessionStrip" class="panel" hidden>
+      <span class="strip-label">Session</span>
+      <span class="strip-stat">SCANS <span id="stripScans">0</span></span>
+      <span class="strip-stat">FIRST DISC <span id="stripFirstDisc">0</span></span>
+      <span class="strip-stat">BOUNTY <span id="stripBounty">0</span> CR</span>
+    </div>
+
+    <button class="act ghost" id="legendToggle">Legend</button>
 
     <div id="hint" class="panel">drag to orbit &middot; wheel to zoom &middot; click a body to select</div>
 

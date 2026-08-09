@@ -32,6 +32,12 @@ export function createSystemModel() {
   let systemContext = null; // { starSystem, systemAddress, starPos, timestamp, security, government, population, factions }
   let bodyEvents = []; // Scan/ScanBaryCentre/FSSBodySignals/SAASignalsFound/ScanOrganic for the current system
   let bountyTally = 0;
+  // Session tracker (handover doc's "thin, v1.5" strip): watcher-lifetime,
+  // like bountyTally — survives system switches, resets only on restart.
+  // Keyed by system+body so a body scanned twice (AutoScan then a nav-beacon
+  // detail scan is common) counts once.
+  const sessionScanKeys = new Set();
+  const sessionFirstDiscoveryKeys = new Set();
 
   /**
    * @param {object[]} newEvents Freshly-parsed journal events, in file order.
@@ -68,6 +74,11 @@ export function createSystemModel() {
       }
       if (BODY_EVENTS.has(evt.event) && systemContext && evt.SystemAddress === systemContext.systemAddress) {
         bodyEvents.push(evt);
+        if (evt.event === 'Scan' && typeof evt.BodyID === 'number') {
+          const key = `${evt.SystemAddress}:${evt.BodyID}`;
+          sessionScanKeys.add(key);
+          if (evt.WasDiscovered === false) sessionFirstDiscoveryKeys.add(key);
+        }
         updated = true;
         continue;
       }
@@ -108,6 +119,10 @@ export function createSystemModel() {
       factions: systemContext.factions,
       navBeaconDetected: systemContext.navBeaconDetected,
       bountyTally,
+      sessionStats: {
+        scans: sessionScanKeys.size,
+        firstDiscoveries: sessionFirstDiscoveryKeys.size,
+      },
       rootId,
       nodes: [...nodes.values()],
       orphans,

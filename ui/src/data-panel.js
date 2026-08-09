@@ -105,7 +105,7 @@ function renderBioSection(bio) {
   if (bio.genuses.length > 0) setText('detailGenuses', bio.genuses.join(', '));
 
   const samplesEl = document.getElementById('detailSamples');
-  samplesEl.innerHTML = '';
+  samplesEl.replaceChildren();
   for (const sample of bio.samples) {
     const row = document.createElement('div');
     row.className = 'stat';
@@ -159,7 +159,7 @@ export function renderDetailPanel(node, systemName, nickname = null) {
 
   const spotlightRow = document.getElementById('detailSpotlight');
   spotlightRow.hidden = !spotlighted;
-  spotlightRow.innerHTML = '';
+  spotlightRow.replaceChildren();
   for (const reason of reasons) {
     const badge = document.createElement('span');
     badge.className = 'spotlight-badge';

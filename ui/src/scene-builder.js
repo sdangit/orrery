@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { displayPosition, classifySpotlight, classifyModeHighlight, compressDistance } from '@orrery/shared';
+import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighlight, compressDistance } from '@orrery/shared';
 import { makeLabel } from './labels.js';
 import { bodyColor, bodyDisplayRadius, bodyIcon } from './body-visuals.js';
 import { shortDesignator } from './naming.js';
@@ -13,6 +13,35 @@ const RING_CLASS_COLORS = {
 
 const RENDERABLE_KINDS = new Set(['Star', 'Planet']);
 
+// True-scale mode: 1 display unit = 1e9 m (~0.0067 AU). At this scale the
+// demo system's binary separation (~5e12 m) sits ~5000 units out and a tight
+// moon orbit (~1.5e6 m) collapses to 0.0015 units — invisible, which is the
+// honest point of the toggle (the handover doc: "flag it in the UI so it
+// teaches rather than lies"). Radii are also honest, floored only barely
+// enough to stay clickable.
+const TRUE_SCALE_METRES_PER_UNIT = 1e9;
+const TRUE_SCALE_MIN_RADIUS = 0.02;
+
+function scenePosition(nodes, id, atEpochMs, trueScale) {
+  if (!trueScale) return displayPosition(nodes, id, atEpochMs);
+  const p = absolutePosition(nodes, id, atEpochMs);
+  return {
+    x: p.x / TRUE_SCALE_METRES_PER_UNIT,
+    y: p.y / TRUE_SCALE_METRES_PER_UNIT,
+    z: p.z / TRUE_SCALE_METRES_PER_UNIT,
+  };
+}
+
+function sceneRadius(node, trueScale) {
+  if (!trueScale) return bodyDisplayRadius(node);
+  const realRadius = node.raw?.Radius ?? 0;
+  return Math.max(realRadius / TRUE_SCALE_METRES_PER_UNIT, TRUE_SCALE_MIN_RADIUS);
+}
+
+function sceneRingRadius(realMetres, trueScale) {
+  return trueScale ? realMetres / TRUE_SCALE_METRES_PER_UNIT : compressDistance(realMetres);
+}
+
 /**
  * Builds Three.js objects for every renderable body in the tree (stars and
  * planets/moons — barycentres are invisible organizing nodes, and belt
@@ -24,11 +53,17 @@ const RENDERABLE_KINDS = new Set(['Star', 'Planet']);
  * @param {string} systemName Used to strip the redundant system-name prefix off in-scene labels (see naming.js).
  * @param {string} [mode] The active activity mode (see mode-detect.js's MODES) — drives per-mode highlighting (see mode-highlight.js). Defaults to 'exploration', which has no per-body highlight beyond the always-on spotlight treatment.
  * @param {Record<number, string>} [nicknames] bodyId -> nickname (see nicknames.js) — stands in for the designator wherever a body is pinned.
- * @returns {{ group: THREE.Group, pickables: Map<THREE.Object3D, number> }}
+ * @param {object} [options]
+ * @param {boolean} [options.trueScale] Honest distances/radii instead of the default log-compressed display scale.
+ * @param {string} [options.labelColor] CSS color for ordinary body labels (the active HUD color scheme's accent). Spotlighted/backfill labels keep their own fixed colors.
+ * @returns {{ group: THREE.Group, pickables: Map<THREE.Object3D, number>, updatables: Map<number, {bodyGroup: THREE.Group, rings: THREE.Mesh[]}> }}
+ *   `updatables` lets updateSystemScene() move bodies as simulated time advances (the warp slider) without a full scene rebuild.
  */
-export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'exploration', nicknames = {}) {
+export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'exploration', nicknames = {}, options = {}) {
+  const { trueScale = false, labelColor = '#ff8a2a' } = options;
   const group = new THREE.Group();
   const pickables = new Map();
+  const updatables = new Map();
   const ringsAddedFor = new Set();
 
   for (const node of nodes.values()) {
@@ -42,12 +77,12 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     // the chain. It reappears on its own once the missing parent is scanned.
     let pos;
     try {
-      pos = displayPosition(nodes, node.id, atEpochMs);
+      pos = scenePosition(nodes, node.id, atEpochMs, trueScale);
     } catch (err) {
       console.warn(`orrery: skipping body ${node.id} (${node.name ?? 'unnamed'}) — ${err.message}`);
       continue;
     }
-    const radius = bodyDisplayRadius(node);
+    const radius = sceneRadius(node, trueScale);
     const color = bodyColor(node);
     const { spotlighted } = classifySpotlight(node);
     const modeHighlight = classifyModeHighlight(node, mode);
@@ -108,13 +143,16 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     const labelText = icon ? `${icon} ${designator}` : designator;
     // Spotlight (e.g. a genuinely high-value world) still pops through even
     // on backfill data — that's the point of showing it before it's scanned.
-    const labelColor = spotlighted ? '#ffd24d' : (node.isBackfill ? '#7a4a1e' : '#ff8a2a');
-    const label = makeLabel(labelText, labelColor);
+    const finalLabelColor = spotlighted ? '#ffd24d' : (node.isBackfill ? '#7a4a1e' : labelColor);
+    const label = makeLabel(labelText, finalLabelColor);
     label.userData.text = labelText; // stashed for testability — canvas-texture text isn't otherwise inspectable
     label.position.set(0, radius + 1.1, 0);
     bodyGroup.add(label);
 
     group.add(bodyGroup);
+
+    const updatable = { bodyGroup, rings: [] };
+    updatables.set(node.id, updatable);
 
     // Ring band(s), drawn once per owning body regardless of how many belt
     // clusters reference it — the journal never gives individual cluster
@@ -123,8 +161,8 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     if (Array.isArray(rawRings) && !ringsAddedFor.has(node.id)) {
       ringsAddedFor.add(node.id);
       for (const ring of rawRings) {
-        const innerR = compressDistance(ring.InnerRad);
-        const outerR = compressDistance(ring.OuterRad);
+        const innerR = sceneRingRadius(ring.InnerRad, trueScale);
+        const outerR = sceneRingRadius(ring.OuterRad, trueScale);
         // In mining mode, a Pristine/Major reserve ring gets FDev's own
         // amber "this is good" color and a brighter band ("Pristine glows",
         // per the handover's mode table) instead of its natural ring-class tint.
@@ -139,11 +177,38 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
         ringMesh.position.set(pos.x, pos.y, pos.z);
         ringMesh.userData.bodyId = node.id; // stashed for testability
         group.add(ringMesh);
+        updatable.rings.push(ringMesh);
       }
     }
   }
 
-  return { group, pickables };
+  return { group, pickables, updatables };
+}
+
+/**
+ * Moves every body (and its rings) to its position at a new simulated time —
+ * the warp slider's per-frame update path. Radii/highlighting/labels are
+ * time-independent, so no rebuild is needed; ~70 Kepler solves per call is
+ * cheap. A body whose chain can't resolve (same orphan tolerance as build
+ * time) just stays where it was.
+ *
+ * @param {Map<number, object>} nodes
+ * @param {Map<number, {bodyGroup: THREE.Group, rings: THREE.Mesh[]}>} updatables From buildSystemScene.
+ * @param {number} atEpochMs
+ * @param {{trueScale?: boolean}} [options] Must match what the scene was built with.
+ */
+export function updateSystemScene(nodes, updatables, atEpochMs, options = {}) {
+  const { trueScale = false } = options;
+  for (const [id, entry] of updatables) {
+    let pos;
+    try {
+      pos = scenePosition(nodes, id, atEpochMs, trueScale);
+    } catch {
+      continue;
+    }
+    entry.bodyGroup.position.set(pos.x, pos.y, pos.z);
+    for (const ring of entry.rings) ring.position.set(pos.x, pos.y, pos.z);
+  }
 }
 
 /**

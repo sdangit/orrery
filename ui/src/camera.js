@@ -6,10 +6,11 @@ import * as THREE from 'three';
 // loop instead of a continuous requestAnimationFrame tick (GPU-polite: this
 // project shares a card with the game).
 export function createOrbitCamera(canvas, camera, { initialRadius = 60, onDirty } = {}) {
+  const initial = { theta: 0.9, phi: 1.15, r: initialRadius };
   const state = {
-    theta: 0.9,
-    phi: 1.15,
-    r: initialRadius,
+    theta: initial.theta,
+    phi: initial.phi,
+    r: initial.r,
     target: new THREE.Vector3(0, 0, 0),
   };
   let dragging = false;
@@ -62,6 +63,15 @@ export function createOrbitCamera(canvas, camera, { initialRadius = 60, onDirty 
     focus(target, radius) {
       state.target.copy(target);
       if (radius !== undefined) state.r = radius;
+      apply();
+      markDirty();
+    },
+    /** Restores the default view: initial angles/zoom, target back at the system origin. */
+    reset() {
+      state.theta = initial.theta;
+      state.phi = initial.phi;
+      state.r = initial.r;
+      state.target.set(0, 0, 0);
       apply();
       markDirty();
     },

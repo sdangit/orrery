@@ -12,7 +12,7 @@ A personalized, real-time 3D orrery of the star system you're currently in, buil
 - [x] **Milestone 4** — auto-detection wired end-to-end (recent-events buffer → `detectMode` → every live snapshot → UI's Mode line, overridable by a manual pin persisted in localStorage). Exploration needs no extra overlay (already covered by the always-on spotlight treatment). Mining (ring reserve-level glow), piracy (system security, combat-zone factions, nav beacon, session bounty tally), and exobiology (bio signal counts, confirmed genuses, per-species sample progress — no genus prediction or credit values) are all built and either real-data-verified or sourced against authoritative journal-schema documentation. See the handover doc's progress log for exactly what's confirmed against real data vs. researched.
 - [x] **Milestone 5** — identity layer: a per-body-kind icon language (star/planet/moon, landable status) prefixed on labels and the data panel header; pins/nicknames (persisted per system in localStorage, override the designator everywhere once set); a "next stop" badge sourced from `NavRoute.json`.
 - [x] **Milestone 6** — EDSM backfill: an opt-in toggle (off by default) fetches known-but-unscanned bodies for the current system from EDSM's public API and renders them as dim wireframes ("known, not yours yet"). Real scan data is never overwritten. The one and only network call in the whole app — see `ui/src/edsm-client.js`.
-- [ ] Milestone 7 — polish: warp slider, true-scale toggle, session tracker, audio cues, HUD color-scheme picker, camera reset button, hidable icon/color legend window.
+- [x] **Milestone 7** — polish: time-warp slider (1×–100,000×, log scale, "reset to now"), true-scale toggle (honest distances/radii — small bodies genuinely become invisible, which is the point), session tracker strip (scans / first discoveries / bounty), optional audio cues (off by default, Web Audio blips, no asset files), HUD color-scheme picker (4 presets, 3D labels follow the scheme accent), camera reset button, and a hidable icon/color legend window. Plus a safety pass: CSP meta header, `replaceChildren` instead of `innerHTML`, all dynamic text rendered via `textContent`/canvas.
 
 ## Layout
 
@@ -27,7 +27,7 @@ This is an npm workspaces monorepo with three packages:
 
 ```
 npm install                          # once, from the repo root — sets up all three workspace packages
-npm test                             # runs every package's tests (229 as of EDSM backfill)
+npm test                             # runs every package's tests (248 as of milestone 7)
 npm run dev --workspace=ui           # starts the orrery UI at http://localhost:5173
 npm run watch --workspace=watcher    # (optional, in a second terminal) starts the live watcher against your real journal
 ```

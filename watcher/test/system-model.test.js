@@ -146,6 +146,36 @@ test('a NavBeacon signal for a different system than the current context is igno
   assert.equal(model.snapshot().navBeaconDetected, false);
 });
 
+test('sessionStats counts unique scanned bodies — a rescan of the same body counts once', () => {
+  const model = createSystemModel();
+  model.applyEvents([fsdJump('Sol', 1)]);
+  model.applyEvents([scan(1, 1)]);
+  model.applyEvents([scan(1, 1)]); // e.g. AutoScan followed by a NavBeaconDetail scan of the same body
+  model.applyEvents([scan(2, 1, { StarType: undefined, PlanetClass: 'Rocky body', Parents: [{ Star: 1 }, { Null: 0 }] })]);
+  assert.equal(model.snapshot().sessionStats.scans, 2);
+});
+
+test('sessionStats counts first discoveries (WasDiscovered:false) separately', () => {
+  const model = createSystemModel();
+  model.applyEvents([fsdJump('Sol', 1)]);
+  model.applyEvents([
+    scan(1, 1, { WasDiscovered: true }),
+    scan(2, 1, { WasDiscovered: false, StarType: undefined, PlanetClass: 'Rocky body', Parents: [{ Star: 1 }, { Null: 0 }] }),
+  ]);
+  const stats = model.snapshot().sessionStats;
+  assert.equal(stats.scans, 2);
+  assert.equal(stats.firstDiscoveries, 1);
+});
+
+test('sessionStats survives a system switch (session-scoped, like the bounty tally)', () => {
+  const model = createSystemModel();
+  model.applyEvents([fsdJump('Sol', 1)]);
+  model.applyEvents([scan(1, 1)]);
+  model.applyEvents([fsdJump('Alpha Centauri', 2)]);
+  model.applyEvents([scan(1, 2)]); // same BodyID, different system — a distinct body
+  assert.equal(model.snapshot().sessionStats.scans, 2);
+});
+
 test('a Bounty event marks the poll as updated even though it never touches the body tree', () => {
   const model = createSystemModel();
   model.applyEvents([fsdJump('Sol', 1)]);
