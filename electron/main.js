@@ -39,7 +39,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 800,
-    title: 'ORRERY',
+    title: `ORRERY v${app.getVersion()}`,
     backgroundColor: '#0a0a0f',
     autoHideMenuBar: true,
     webPreferences: {
@@ -47,6 +47,14 @@ function createWindow() {
       nodeIntegration: false,
       sandbox: true,
     },
+  });
+  // Keep the app version visible in the title bar — the page's own <title>
+  // would otherwise replace it on load. Debugging "which build is this
+  // actually?" over chat is miserable without it; release assets got
+  // replaced in place once and cost a whole round-trip to notice.
+  mainWindow.on('page-title-updated', (event, title) => {
+    event.preventDefault();
+    mainWindow.setTitle(`${title} — v${app.getVersion()}`);
   });
   mainWindow.loadURL(`http://127.0.0.1:${PORT}`);
 }
