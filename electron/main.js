@@ -15,7 +15,11 @@
 // process.resourcesPath at runtime. Node's own module resolution then finds
 // resources/node_modules/ws from resources/watcher-src/server.js the same
 // way it would find a sibling node_modules in dev.
-const { app, BrowserWindow } = require('electron');
+//
+// A packaged GUI app has no console a user will ever see, so any startup
+// failure that isn't caught and shown via dialog.showErrorBox is a silent
+// fail: the process just exits and nothing appears to happen at all.
+const { app, BrowserWindow, dialog } = require('electron');
 const { resolve } = require('node:path');
 const { pathToFileURL } = require('node:url');
 
@@ -47,17 +51,34 @@ function createWindow() {
   mainWindow.loadURL(`http://127.0.0.1:${PORT}`);
 }
 
+function fatal(title, err) {
+  dialog.showErrorBox(title, (err && err.stack) || String(err));
+  app.quit();
+}
+
 app.whenReady().then(async () => {
-  const { startWatcherServer } = await import(pathToFileURL(resolve(watcherSrcDir, 'server.js')));
-  const { defaultJournalDir } = await import(pathToFileURL(resolve(watcherSrcDir, 'journal-locator.js')));
+  try {
+    const { startWatcherServer } = await import(pathToFileURL(resolve(watcherSrcDir, 'server.js')));
+    const { defaultJournalDir } = await import(pathToFileURL(resolve(watcherSrcDir, 'journal-locator.js')));
 
-  watcherServer = startWatcherServer({
-    port: PORT,
-    journalDir: defaultJournalDir(),
-    distDir,
-  });
-
-  createWindow();
+    watcherServer = startWatcherServer({
+      port: PORT,
+      journalDir: defaultJournalDir(),
+      distDir,
+      // Wait for the server to actually be listening before opening the
+      // window, rather than racing loadURL() against listen() — a race that
+      // used to produce a blank/failed page instead of a clean start.
+      onReady: createWindow,
+      onError: (err) => {
+        fatal(
+          'ORRERY failed to start',
+          new Error(`The local server couldn't bind to port ${PORT}: ${err.message}\n\nIs another copy of ORRERY already running? Close it (check Task Manager) and try again.`)
+        );
+      },
+    });
+  } catch (err) {
+    fatal('ORRERY failed to start', err);
+  }
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
@@ -67,4 +88,8 @@ app.whenReady().then(async () => {
 app.on('window-all-closed', () => {
   watcherServer?.close();
   if (process.platform !== 'darwin') app.quit();
+});
+
+process.on('uncaughtException', (err) => {
+  fatal('ORRERY crashed', err);
 });

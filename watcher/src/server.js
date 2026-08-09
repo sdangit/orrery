@@ -33,6 +33,8 @@ const MIME_TYPES = {
  * @param {number} [options.pollIntervalMs]
  * @param {(msg: string) => void} [options.log]
  * @param {(msg: string) => void} [options.logError]
+ * @param {(err: Error) => void} [options.onError] Called if the HTTP server fails to start (e.g. the port is already taken by another instance). Without this, the process exits with a non-zero code instead — the right default for the CLI, but Electron needs to catch this itself and show a dialog rather than fail silently.
+ * @param {() => void} [options.onReady] Called once the server is actually listening — lets a caller (Electron's window creation) wait for this instead of racing it.
  * @returns {{ close: () => void, port: number }}
  */
 export function startWatcherServer({
@@ -42,6 +44,8 @@ export function startWatcherServer({
   pollIntervalMs = 1000,
   log = console.log,
   logError = console.error,
+  onError,
+  onReady,
 } = {}) {
   // Static file serving with a strict containment check: the resolved path
   // must stay inside distDir, so no crafted URL (`..%2f` etc.) can read
@@ -84,12 +88,46 @@ export function startWatcherServer({
   const watcher = createLiveWatcher(journalDir);
   const httpServer = createServer(serveStatic);
   const wss = new WebSocketServer({ server: httpServer });
-  httpServer.listen(port, '127.0.0.1', () => {
-    log(`[orrery-watcher] websocket + UI on http://127.0.0.1:${port}`);
-    if (!existsSync(distDir)) {
-      log('[orrery-watcher] (UI not built — run `npm run build --workspace=ui` to serve it here, or use the Vite dev server)');
+
+  // A failed listen() (e.g. EADDRINUSE from another running instance) is an
+  // async 'error' event on httpServer — but `ws` also re-forwards that same
+  // event onto `wss` itself (a separate EventEmitter; see websocket-server.js's
+  // `error: this.emit.bind(this, 'error')`), and Node throws unhandled
+  // 'error' events as uncaught exceptions. Skip attaching to wss too and the
+  // re-emit throws inside ws's own forwarding listener before our handler
+  // below ever runs. Without either listener, it's an uncaught exception:
+  // fine for the CLI (visible crash in the terminal), invisible and fatal
+  // for Electron (no console, no dialog, the process just exits).
+  let handledError = false;
+  function handleServerError(err) {
+    if (handledError) return;
+    handledError = true;
+    logError(`[orrery-watcher] server error: ${err.message}`);
+    if (onError) {
+      onError(err);
+    } else {
+      // No handler means no one else is watching for this — the poll
+      // interval below would otherwise start up and keep the process alive
+      // uselessly forever. Exit hard, matching the old default (unhandled
+      // 'error' events throw and crash the process) instead of hanging.
+      process.exit(1);
     }
-  });
+  }
+
+  httpServer.on('error', handleServerError);
+  wss.on('error', handleServerError);
+
+  try {
+    httpServer.listen(port, '127.0.0.1', () => {
+      log(`[orrery-watcher] websocket + UI on http://127.0.0.1:${port}`);
+      if (!existsSync(distDir)) {
+        log('[orrery-watcher] (UI not built — run `npm run build --workspace=ui` to serve it here, or use the Vite dev server)');
+      }
+      onReady?.();
+    });
+  } catch (err) {
+    handleServerError(err);
+  }
 
   function broadcast(snapshot) {
     const payload = JSON.stringify({ type: 'snapshot', snapshot });
