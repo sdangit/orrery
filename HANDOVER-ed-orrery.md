@@ -137,3 +137,25 @@ Repo hygiene: MIT license (Lethio default), `.gitignore` for node_modules and an
 ## Prototype file
 
 `ed-space-tutor.html` sits next to this doc. Open it once before building — the target look and feel is that, but denser with real data.
+
+## Progress log
+
+### Milestone 1 — done (2026-08-09)
+
+Built `watcher/` as a pure parsing library (no file-watching yet — that's milestone 3): NDJSON journal parser, body-tree builder, Kepler solver, orbital-position walker, and the mode-detection function, all unit-tested (48 tests, `node:test`, zero dependencies) against a real scrubbed journal excerpt at `watcher/test/fixtures/sample-journal.log`.
+
+That fixture turned out to be a good stress test on its own: a binary star system (Col 285 Sector TI-U b18-2, from the owner's own Nov 2025 play session) with belt clusters, moons, a moon-of-a-moon chain, and multiple barycentre-hosted co-orbiting moon pairs. It exercises both hard cases flagged in the doc above:
+
+- **The Ring quirk**: a ring is never independently scanned — a belt cluster's `Parents` chain names a synthetic ring id (e.g. `[{"Ring":3},{"Star":1},{"Null":0}]`) that has no `Scan`/`ScanBaryCentre` event of its own. `resolveParentLinks()` collapses Ring entries out of every chain so belt clusters resolve straight to the star/planet that actually owns the ring.
+- **Barycentres have no `Parents` of their own**: `ScanBaryCentre` gives orbital elements for a barycentre BodyID but nothing about what it orbits. Its parent is only recoverable from *other* bodies' chains (a moon's `Parents` naming that barycentre id, followed by the real parent). Handled by unioning parent-links derived from every body's chain, not just the barycentre's own record.
+
+Also resolved two of the open questions below from real data rather than guesswork:
+
+- **Q1 (platform/Odyssey)**: confirmed. Real journals exist locally at the documented path; the current file's `Fileheader` shows `"Odyssey":true`, game version 4.4.0.3 (Aug 2026).
+- **Q6 (schema verification)**: confirmed against real 2026-era journals — `MeanAnomaly` and `AscendingNode` are both present on every `Scan` and `ScanBaryCentre` event in the sample, in degrees, with the scan's own `timestamp` serving as that element set's epoch (there's no separate epoch field). No `ScanOrganic`/`FSSBodySignals` events were available in local history to verify those exact signal-type strings yet — still worth a spot-check before building the exobiology mode overlay in milestone 4.
+
+Questions 3-5 (EDSM default, second-monitor delivery, which activity mode to prioritize) are still open — they're product decisions, not things code archaeology can resolve.
+
+### Orbital math implementation note
+
+The handover doc's 5-step algorithm is implemented literally: each body's `SemiMajorAxis`/`Eccentricity`/`OrbitalInclination`/`Periapsis`/`AscendingNode`/`MeanAnomaly` are relative to its immediate parent, and absolute position is the sum of every ancestor's own Kepler-solved offset walking up to the system root (`orbit-position.js`). This matches the convention EDSM/EDDiscovery-style tools use — inclination/node are already in a common system reference frame, so no per-level frame rotation is needed, just additive offsets.

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
+
+# Never commit real player journals — only the scrubbed sample fixtures under test/fixtures/.
+*.log
+!watcher/test/fixtures/*.log

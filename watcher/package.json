@@ -1,0 +1,11 @@
+{
+  "name": "@orrery/watcher",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Parses Elite Dangerous journal files into a live system body tree.",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
