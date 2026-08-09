@@ -12,8 +12,8 @@
   "scripts": {
     "test": "npm test --workspaces --if-present",
     "start": "npm run build --workspace=ui && npm run watch --workspace=watcher",
-    "electron:dev": "npm run dev --workspace=electron",
-    "electron:build": "npm run build --workspace=electron"
+    "electron:dev": "npm run build --workspace=ui && npm run dev --workspace=electron",
+    "electron:build": "npm run build --workspace=ui && npm run build --workspace=electron"
   },
   "license": "MIT"
 }

@@ -5,8 +5,8 @@
   "description": "Packaged desktop shell for ORRERY, for players who'd rather not touch Node or a terminal.",
   "main": "main.js",
   "scripts": {
-    "dev": "npm run build --workspace=ui && electron .",
-    "build": "npm run build --workspace=ui && electron-builder"
+    "dev": "electron .",
+    "build": "electron-builder"
   },
   "devDependencies": {
     "electron": "^33.0.0",
@@ -16,6 +16,7 @@
     "appId": "com.orrery.desktop",
     "productName": "ORRERY",
     "electronVersion": "33.4.11",
+    "npmRebuild": false,
     "directories": {
       "output": "../dist-installer"
     },
