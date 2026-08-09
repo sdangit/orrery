@@ -1,4 +1,4 @@
-// Simulated-time state for the warp slider (handover doc: "real-time plus
+// Simulated-time state for the warp slider (design brief: "real-time plus
 // warp slider up to ~100,000x, and a 'now' reset"). Pure, so it's testable
 // without a rAF loop: the render loop calls advance() with each frame's real
 // elapsed time and reads simTimeMs for position solving.

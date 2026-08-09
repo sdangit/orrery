@@ -2,7 +2,7 @@
 // (e.g. "Col 285 Sector TI-U b18-2 A 6", designator "A 6"). The system name
 // is already shown once in the System panel, so repeating it on every single
 // in-scene label and in the detail panel header is pure redundancy — this is
-// the "name problem" the handover doc calls out as the core design issue.
+// the "name problem" the design brief calls out as the core design issue.
 //
 // This is a plain prefix strip, not a heuristic: it's guaranteed correct by
 // the game's own naming convention. Hand-named systems (Sol -> "Earth",

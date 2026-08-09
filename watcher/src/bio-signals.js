@@ -10,13 +10,13 @@
 // Deliberately does NOT predict which genera *might* appear before the game
 // itself reports them (FSSBodySignals/SAASignalsFound), and does NOT compute
 // a credit value — both would need the unverifiable heuristic/payout tables
-// this project ruled out (see the handover doc's progress log).
+// this project ruled out (see TECHNICAL.md).
 
 const BIOLOGICAL_SIGNAL_TYPE = '$SAA_SignalType_Biological;';
 
 // Confirmed via the same schema research: ScanType progresses Log -> Sample
-// -> Analyse across exactly three scans per species, matching the handover
-// doc's "sample progress 1/3-3/3."
+// -> Analyse across exactly three scans per species ("sample progress
+// 1/3-3/3"; see TECHNICAL.md).
 const REQUIRED_SAMPLES = 3;
 const FINAL_SCAN_TYPE = 'Analyse';
 

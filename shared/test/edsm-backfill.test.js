@@ -4,7 +4,7 @@ import { buildBackfillNodes } from '../src/edsm-backfill.js';
 import { displayPosition } from '../src/display-position.js';
 
 // Real EDSM API responses (systemName=Sol), captured while building this
-// feature — see the handover doc's progress log. Sol's star has bodyId:0 and
+// feature — see TECHNICAL.md. Sol's star has bodyId:0 and
 // parents:null (matches the journal's own single-star-system convention);
 // Earth is bodyId:3, orbiting it.
 const REAL_SOL_STAR = {

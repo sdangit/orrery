@@ -4,7 +4,7 @@
 // built only from fields the journal hands us directly (ReserveLevel,
 // RingClass are literal enum strings FDev writes into the Scan event) —
 // no computed/predicted values, per the decision to skip anything that
-// needs an unverifiable formula or lookup table (see the handover doc).
+// needs an unverifiable formula or lookup table (see the design brief).
 //
 // Reserve level ordering (Pristine > Major > Common > Low > Depleted) is
 // the game's own terminology, not a rebalance-prone constant — safe to
@@ -47,7 +47,7 @@ function classifyMining(node) {
  * Exobiology highlighting, built entirely from real counts/booleans the
  * journal already reports (bio-signals.js) — no genus prediction before the
  * game itself confirms one, no credit value, per the decision to skip
- * anything needing an unverifiable table (see the handover doc).
+ * anything needing an unverifiable table (see the design brief).
  */
 function classifyExobiology(node) {
   const bio = node.bio;

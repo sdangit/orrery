@@ -203,7 +203,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
         const outerR = compressDistance(ring.OuterRad);
         // In mining mode, a Pristine/Major reserve ring gets FDev's own
         // amber "this is good" color and a brighter band ("Pristine glows",
-        // per the handover's mode table) instead of its natural ring-class tint.
+        // per the design brief's mode table) instead of its natural ring-class tint.
         const isGoodReserve = modeHighlight.reasons.includes('good-reserve');
         const ringColor = isGoodReserve ? 0xffd24d : (RING_CLASS_COLORS[ring.RingClass] ?? 0x7a4a1e);
         const opacity = modeHighlight.highlighted ? (isGoodReserve ? 0.65 : 0.45) : 0.35;

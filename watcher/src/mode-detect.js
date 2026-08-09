@@ -1,5 +1,5 @@
 // Pure function over recent journal events -> activity mode, per the
-// handover doc's mode table. "Pure" matters: it's unit-tested with recorded
+// design brief's mode table. "Pure" matters: it's unit-tested with recorded
 // event sequences and has no knowledge of file I/O, websockets, or time.
 //
 // Recency-weighted scoring: each matching event contributes a weight that
@@ -16,7 +16,7 @@ const TRIGGER_EVENTS = {
   piracy: ['Bounty', 'ShipTargeted', 'UnderAttack'],
 };
 
-const DEFAULT_WINDOW_MS = 10 * 60 * 1000; // "last N minutes" per the handover doc
+const DEFAULT_WINDOW_MS = 10 * 60 * 1000; // "last N minutes" per the design brief
 
 function eventTimestampMs(evt) {
   return typeof evt.timestamp === 'number' ? evt.timestamp : Date.parse(evt.timestamp);

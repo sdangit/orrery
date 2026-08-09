@@ -1,6 +1,6 @@
 // Walks a body tree's Parents chain to turn each node's own Keplerian
 // elements (which are relative to its immediate parent) into an absolute
-// position in the system's reference frame — step 5 from the handover doc's
+// position in the system's reference frame — step 5 from the design brief's
 // orbital rendering math.
 //
 // Nodes with no elements (the root, and belt clusters, which the game never

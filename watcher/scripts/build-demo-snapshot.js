@@ -1,6 +1,6 @@
 // Builds ui/'s bundled demo system snapshot from the real (scrubbed) journal
 // fixture. This is the "runs standalone with a bundled demo system JSON"
-// path from the handover doc: the UI never needs a live watcher connection
+// path from the design brief: the UI never needs a live watcher connection
 // (or the game running) to render something real.
 //
 // Run with: npm run build:demo-snapshot --workspace=watcher

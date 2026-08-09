@@ -1,4 +1,4 @@
-// Pin/nickname persistence — "local JSON" per the handover's identity-layer
+// Pin/nickname persistence — "local JSON" per the design brief's identity-layer
 // section, implemented as one localStorage entry per system (keyed by the
 // stable numeric SystemAddress, not the name, since two systems can't share
 // an address but procedurally-named systems can look superficially similar).

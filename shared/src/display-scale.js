@@ -1,6 +1,6 @@
 // Compresses real orbital distances into display-friendly units.
 //
-// The handover doc's scale problem, concretely, in this project's own test
+// The design brief's scale problem, concretely, in this project's own test
 // system: moons orbit their planet at ~1e6 m while the two stars sit ~5e12 m
 // apart — six-plus orders of magnitude in one system. A linear metres-to-
 // pixels mapping makes every inner planet an invisible dot huddled at the
@@ -13,10 +13,10 @@
 // root. The renderer walks the tree the same way orbit-position.js does —
 // summing each level's own (now-compressed) offset — so a moon's tight orbit
 // around its planet stays legible regardless of how far that planet's own
-// star is from the system barycentre. This is a deliberate lie (see the
-// handover doc: "flag it in the UI so it teaches rather than lies") — the UI
-// must show a permanent "compressed scale" indicator, and a future "true
-// scale" toggle (milestone 7) can switch this out for an identity function.
+// star is from the system barycentre. This is a deliberate lie, flagged in
+// the UI so it teaches rather than lies — a permanent "compressed" scale
+// badge, plus a true-distances toggle that switches positions to an honest
+// linear scale instead.
 
 const DEFAULT_OPTIONS = {
   minDisplay: 2, // smallest nonzero display radius, so tight moon orbits don't collapse into their parent
@@ -46,9 +46,9 @@ const DEFAULT_RADIUS_OPTIONS = {
 
 /**
  * Compresses a body's real radius into a display-unit radius. Unlike
- * compressDistance, this is explicitly *not* trying to be honest — the
- * handover doc calls exaggerating body radii out as a deliberate, expected
- * choice ("real scale is invisible"). Same log-curve shape as
+ * compressDistance, this is explicitly *not* trying to be honest —
+ * exaggerating body radii is a deliberate, expected choice ("real scale is
+ * invisible"; see TECHNICAL.md). Same log-curve shape as
  * compressDistance, tuned separately (radii need to stay visible as spheres,
  * not just as separated points).
  * @param {number} realMetres

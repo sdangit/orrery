@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-// Ported from ed-space-tutor.html's makeLabel: a canvas-texture sprite. depthTest
+// Ported from the original prototype's makeLabel: a canvas-texture sprite. depthTest
 // is off so labels always read over geometry, same as the prototype.
 export function makeLabel(text, color) {
   const cv = document.createElement('canvas');

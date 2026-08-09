@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-// Manual spherical-orbit camera, ported from ed-space-tutor.html — no
-// OrbitControls dependency, per the handover doc. Calls onDirty() whenever
+// Manual spherical-orbit camera, ported from the original prototype — no
+// OrbitControls dependency, per the design brief. Calls onDirty() whenever
 // user input changes the view, so the caller can drive a render-on-demand
 // loop instead of a continuous requestAnimationFrame tick (GPU-polite: this
 // project shares a card with the game).

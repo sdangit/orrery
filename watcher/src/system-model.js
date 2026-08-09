@@ -32,7 +32,7 @@ export function createSystemModel() {
   let systemContext = null; // { starSystem, systemAddress, starPos, timestamp, security, government, population, factions }
   let bodyEvents = []; // Scan/ScanBaryCentre/FSSBodySignals/SAASignalsFound/ScanOrganic for the current system
   let bountyTally = 0;
-  // Session tracker (handover doc's "thin, v1.5" strip): watcher-lifetime,
+  // Session tracker (design brief's "thin, v1.5" strip): watcher-lifetime,
   // like bountyTally — survives system switches, resets only on restart.
   // Keyed by system+body so a body scanned twice (AutoScan then a nav-beacon
   // detail scan is common) counts once.

@@ -1,6 +1,6 @@
 // Merges EDSM's system-bodies API response into a body tree, producing
 // "backfill" nodes for anything EDSM knows about that the player hasn't
-// personally scanned yet — the handover doc's "dimmer/wireframe = known,
+// personally scanned yet — the design brief's "dimmer/wireframe = known,
 // not yours yet" idea. Real Scan data always wins: this never overwrites an
 // existing node.
 //

@@ -1,45 +1,60 @@
-# Elite Dangerous Live System Orrery
+# ORRERY
 
-A personalized, real-time 3D orrery of the star system you're currently in, built from your own Elite Dangerous journal data, meant to live on a second monitor while you play. See [HANDOVER-ed-orrery.md](HANDOVER-ed-orrery.md) for the full design doc.
+**A live 3D map of the star system you're in — built from your own Elite Dangerous journal, running on your second monitor.**
 
-**Privacy:** everything runs locally. Journal files never leave your machine. The only optional network call is an opt-in EDSM lookup to backfill bodies you haven't personally scanned yet — off by default. The watcher's WebSocket server binds to 127.0.0.1 only.
+<!-- demo gif goes here -->
 
-## Status
+Jump into a system, and ORRERY renders it: real bodies, real orbits, moving in real time (or up to 100,000× faster). It answers at a glance what the in-game UI makes you dig through three panels for — *what in this system matters to what I'm doing right now?*
 
-- [x] **Milestone 1** — journal parsing core: NDJSON parser, body-tree builder (Parents chain resolution, including the Ring pseudo-body quirk and barycentre-without-Parents recovery), Kepler solver, and the pure activity-mode-detection function. All unit-tested against a real (scrubbed) journal fixture. See [watcher/](watcher/).
-- [x] **Milestone 2** — static orrery render at t=now, selection + data panel, first-discovery/high-value treatment. See [ui/](ui/).
-- [x] **Milestone 3** — live mode: watcher process tails the real journal directory, broadcasts system snapshots over a local WebSocket, UI auto-switches on system jump, FPS-capped + render-on-demand.
-- [x] **Milestone 4** — auto-detection wired end-to-end (recent-events buffer → `detectMode` → every live snapshot → UI's Mode line, overridable by a manual pin persisted in localStorage). Exploration needs no extra overlay (already covered by the always-on spotlight treatment). Mining (ring reserve-level glow), piracy (system security, combat-zone factions, nav beacon, session bounty tally), and exobiology (bio signal counts, confirmed genuses, per-species sample progress — no genus prediction or credit values) are all built and either real-data-verified or sourced against authoritative journal-schema documentation. See the handover doc's progress log for exactly what's confirmed against real data vs. researched.
-- [x] **Milestone 5** — identity layer: a per-body-kind icon language (star/planet/moon, landable status) prefixed on labels and the data panel header; pins/nicknames (persisted per system in localStorage, override the designator everywhere once set); a "next stop" badge sourced from `NavRoute.json`.
-- [x] **Milestone 6** — EDSM backfill: an opt-in toggle (off by default) fetches known-but-unscanned bodies for the current system from EDSM's public API and renders them as dim wireframes ("known, not yours yet"). Real scan data is never overwritten. The one and only network call in the whole app — see `ui/src/edsm-client.js`.
-- [x] **Milestone 7** — polish: time-warp slider (1×–100,000×, log scale, "reset to now"), true-distance toggle (honest orbital spacing with exaggerated body sizes — the planetarium convention, reworked after real-browser feedback showed fully-honest radii were just invisible dots), orbit path ellipses in both scale modes, camera auto-fit on scale toggle, session tracker strip (scans / first discoveries / bounty), optional audio cues (off by default, Web Audio blips, no asset files), HUD color-scheme picker (4 presets, 3D labels follow the scheme accent), camera reset button, and a hidable icon/color legend window. Plus a safety pass: CSP meta header, `replaceChildren` instead of `innerHTML`, all dynamic text rendered via `textContent`/canvas.
+<!-- screenshots go here -->
 
-## Layout
+## What it does
 
-This is an npm workspaces monorepo with three packages:
+- **Live-follows your game.** A tiny local watcher tails your journal folder; the view switches the instant you jump. No game running? It opens on a bundled demo system.
+- **Auto-detects what you're doing** — exploration, exobiology, mining, or bounty hunting — from your recent journal events, and re-lights the map for that activity (pin a mode manually any time):
+  - **Exploration** — undiscovered and unmapped bodies, Earth-likes, water/ammonia worlds, and terraformables glow in every mode, always.
+  - **Exobiology** — biological signal counts, confirmed genuses, and per-species sample progress (1/3 → 3/3).
+  - **Mining** — ringed bodies by ring class; pristine and major reserves glow.
+  - **Bounty hunting** — system security, factions at War/Civil War, nav beacon status, session bounty tally.
+- **Solves the procedural-name problem.** "LK-4 OC b17-2 A 12 e a" is unmemorable; a glowing icy moon in the right place isn't. Bodies read by icon, color, and position — names are demoted to short designators, and you can pin your own nicknames ("money moon") that persist per system.
+- **Time warp** from real-time to 100,000×, with orbit-path ellipses tracing the system's structure. Two scale modes, both honest about what they are: compressed (everything visible) and true distances (space is mostly nothing).
+- **Session strip**: scans, first discoveries, bounty earned.
+- **EDSM backfill (opt-in)**: bodies the community knows but you haven't scanned yet appear as dim wireframes — "known, not yours yet."
+- Second-monitor niceties: GPU-polite rendering (idle = zero draw calls, 30 FPS cap — it shares your card with the game), four HUD color schemes, hidable legend, optional audio cues for first discoveries and bio signals (off by default).
 
-- `shared/` — pure orbital math used by both the watcher and the UI: Kepler solving, Parents-chain position resolution, the display-scale compression (real distances/radii span too many orders of magnitude to render true-to-scale — see the doc comment in `shared/src/display-scale.js`), the first-discovery/high-value spotlight classifier, and `edsm-mapping.js`/`edsm-backfill.js` (maps EDSM's API fields onto the journal's own vocabulary and merges backfill bodies into a tree without ever overwriting real scan data).
-- `watcher/` — Node: parses journal files into a system body tree, and (as of milestone 3) a live process that tails the real journal directory and serves system snapshots over WebSocket. See its own module docs: `journal-locator.js` (finds the newest journal file), `journal-tailer.js` (incremental reads, handles a mid-write partial line), `system-model.js` (tracks "current system" across incoming events, detects real system switches vs. a same-system relog), `bio-signals.js` (exobiology event parsing), `nav-route.js` (reads the separate `NavRoute.json` snapshot file to find the next hop on a plotted route), `live-watcher.js` (ties all of those together into one `poll()` step — the piece scripts/watch.js's timer calls).
-- `ui/` — Vite + Three.js: renders the orrery. Loads the bundled demo system immediately, then tries to connect to the live watcher in the background — if it's running, the view seamlessly switches from DEMO to LIVE; if not, it just stays on the demo, no error.
-- `ed-space-tutor.html` — the original prototype (plain HTML + CDN Three.js, no build step). Reference for visual language and the manual orbit camera; `ui/` ports the same ideas through a proper local build instead of a CDN script tag, to stay offline-first.
+## How accurate is it?
 
-## Running it
+Short version: **as accurate as the game's own data, drawn at a scale you can actually see.**
 
+- Orbits use the full Keplerian element set from your own `Scan` events (semi-major axis, eccentricity, inclination, argument of periapsis, ascending node, mean anomaly), propagated in closed form from the scan's timestamp — no integration drift, same two-body model the game uses. Binaries and co-orbiting moon pairs orbit their real barycentres.
+- The **default view compresses distances logarithmically** — real systems span seven orders of magnitude and a literal rendering makes every moon invisible. Ordering is preserved and the badge always says "not to scale." Body sizes are exaggerated in both modes (real scale is sub-pixel).
+- **True-distances mode** shows honest orbital spacing (1 unit = 10⁹ m). Body sizes stay exaggerated — the planetarium convention — and the badge says exactly that.
+- **EDSM-backfilled bodies** have correct orbit size/shape but an *unknowable* position along the orbit (EDSM doesn't record orbital phase) — hence the wireframe and the "position approximate" notice.
+- **No invented numbers, ever.** No credit-value estimates, no predicted genuses — only what the journal or EDSM actually reports. If a number would require guessing Frontier's current balance tables, it isn't shown.
+
+Full details — the math, the journal-format quirks (Ring pseudo-bodies, parentless barycentres, the BodyID-0 single-star case), and every accuracy caveat — in **[TECHNICAL.md](TECHNICAL.md)**.
+
+## Privacy
+
+Everything runs on your machine. Journal files never leave it; the watcher binds to `127.0.0.1` only. The **single** network call in the entire app is the EDSM lookup — opt-in, off by default, clearly labeled "(network)" in the UI.
+
+## Getting started
+
+Requirements: [Node.js](https://nodejs.org) 20+, ED on PC (journals are PC-only; exobiology features need Odyssey).
+
+**Easiest (Windows):** double-click **`Start Orrery.cmd`**. It installs dependencies on first run, starts the server, and opens the orrery in your browser.
+
+**Terminal:**
+
+```sh
+npm install    # once
+npm start      # builds the UI and serves everything at http://127.0.0.1:47821
 ```
-npm install                          # once, from the repo root — sets up all three workspace packages
-npm test                             # runs every package's tests (250 as of milestone 7)
-npm run dev --workspace=ui           # starts the orrery UI at http://localhost:5173
-npm run watch --workspace=watcher    # (optional, in a second terminal) starts the live watcher against your real journal
-```
 
-Click a body to select it; drag to orbit the camera, wheel to zoom. With the watcher running and the game open, the System panel's "Source" line flips from DEMO to LIVE once it picks up your current system, and switches systems automatically when you jump.
+Leave it running while you play — the view follows your jumps. Drag to orbit, wheel to zoom, click a body for details.
 
-**Milestone 2 demo data note:** the demo system (`ui/src/data/demo-system.json`, generated by `watcher/scripts/build-demo-snapshot.js` from the real fixture) is a real, previously-explored binary system — nothing in it is undiscovered or a high-value world (Earthlike/water/ammonia/terraformable), so the first-discovery/high-value spotlight styling exists and is unit-tested but won't visibly trigger in this particular demo. It'll light up the first time the live watcher sees an actual unexplored body or valuable world.
+**Development:** `npm run dev --workspace=ui` (Vite dev server on :5173, hot reload) plus `npm run watch --workspace=watcher` in a second terminal. `npm test` runs the full suite (~250 tests, Node's built-in runner, no test dependencies).
 
-**Visual verification caveat:** this UI was built and tested (module build, production bundle, and a headless Node test suite that constructs the real Three.js scene graph against real data and checks it for sane geometry — see `ui/test/`) without ever being opened in an actual browser, since the environment it was built in has no browser/screenshot tooling. Open `http://localhost:5173` yourself before trusting it looks right.
+## License
 
-## Running the tests
-
-Each package uses Node's built-in test runner (`node:test`) — no test framework dependency. Run them all from the root with `npm test`, or per-package with `npm test --workspace=shared` (etc).
-
-`watcher`'s and `shared`'s tests run against `watcher/test/fixtures/sample-journal.log`, a real journal excerpt (scrubbed of any commander-identifying fields) covering a binary star system with belt clusters, moons, moon-of-moon chains, and barycentre-hosted moon pairs. `ui`'s tests run against the demo snapshot generated from that same fixture. `watcher/test/watch-process.test.js` is a real end-to-end test: it spawns the actual `scripts/watch.js` process against a synthetic (not your real) journal directory and connects a real WebSocket client to it. `shared/test/edsm-*-live.test.js` and `ui/test/edsm-client-live.test.js` make real requests to the actual EDSM API (including, for one of them, this project's own real demo system) — they skip their assertions with a warning rather than failing if there's no network.
+MIT

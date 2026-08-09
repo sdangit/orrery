@@ -72,7 +72,7 @@ export function bodyColor(node) {
   return 0x666666;
 }
 
-// The "per-body-type icon language" from the handover's identity-layer
+// The "per-body-type icon language" from the design brief's identity-layer
 // section: a glyph conveying category (star/planet/moon) and landable status
 // at a glance, ahead of reading the name — moons get visually smaller/dimmer
 // symbols than planets, matching the "less important gets less emphasis"

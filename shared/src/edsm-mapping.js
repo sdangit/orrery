@@ -5,8 +5,7 @@
 // misclassify backfilled bodies (e.g. failing to highlight a genuine
 // Earthlike world just because the label reads differently).
 //
-// Verified against a real EDSM API response (Sol — see the handover doc's
-// progress log): "Earth-like world" -> "Earthlike body", "Metal-rich body"
+// Verified against a real EDSM API response (Sol — see TECHNICAL.md): "Earth-like world" -> "Earthlike body", "Metal-rich body"
 // -> "Metal rich body", "High metal content world" -> "High metal content
 // body", "Rocky Ice world" -> "Rocky ice body", "Class I gas giant" ->
 // "Sudarsky class I gas giant" (EDSM drops "Sudarsky"), "Rocky body" and

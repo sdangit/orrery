@@ -19,7 +19,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x060402);
 const camera = new THREE.PerspectiveCamera(55, 1, 0.05, 60000);
 
-// starfield backdrop, ported from ed-space-tutor.html — pushed far enough out
+// starfield backdrop, ported from the original prototype — pushed far enough out
 // that even true-distance mode's widest zoom stays inside the star sphere
 (function addStarfield() {
   const count = 1200;
@@ -73,7 +73,7 @@ document.getElementById('nowButton').addEventListener('click', () => {
 // ---------- GPU-polite render-on-demand, FPS-capped ----------
 // Only camera input, a selection change, a new live snapshot, or active time
 // warping should trigger a redraw — and even then, never faster than the FPS
-// cap. See the handover doc's GPU-politeness principle: this shares a card
+// cap. See the design brief's GPU-politeness principle: this shares a card
 // with the game. At warp 1× (real time) bodies move imperceptibly, so no
 // continuous rendering happens; above 1× the scene animates at the cap.
 const FPS_CAP = 30;
@@ -177,7 +177,7 @@ document.getElementById('copyName').addEventListener('click', () => {
 // ---------- true scale toggle (milestone 7) ----------
 // Honest distances and radii — see scene-builder.js's TRUE_SCALE notes. Moons
 // collapsing into their planets and near-invisible bodies are the honest
-// point, per the handover doc: "flag it in the UI so it teaches rather than lies."
+// point, per the design brief: "flag it in the UI so it teaches rather than lies."
 const trueScaleToggle = document.getElementById('trueScaleToggle');
 trueScale = localStorage.getItem('orrery.trueScale') === 'true';
 trueScaleToggle.checked = trueScale;
@@ -269,7 +269,7 @@ function updateSessionStrip(payload) {
 }
 
 // ---------- activity mode: auto-detected, overridable by a manual pin ----------
-// "Auto wins unless the user has pinned a mode" (handover doc). The watcher
+// "Auto wins unless the user has pinned a mode" (design brief). The watcher
 // always reports its own auto-detection in the snapshot; the pin is a purely
 // local UI preference layered on top, so multiple UI instances could each
 // pin their own mode without needing to coordinate through the watcher.
@@ -381,7 +381,7 @@ function loadSystem(payload) {
   edsmBodies = null; // that was for the previous system — cleared until refetched below
   recomputeRenderedNodes();
   // The demo snapshot has no live event stream to detect a mode from — default
-  // to exploration, ED's own baseline activity, per the handover's mode table.
+  // to exploration, ED's own baseline activity, per the design brief's mode table.
   detectedMode = payload.mode ?? 'exploration';
   systemSecurity = payload.systemSecurity ?? null;
   factions = payload.factions ?? [];
@@ -429,7 +429,7 @@ function setSourceBadge(state) {
 // ---------- boot: demo data immediately, then try the live watcher ----------
 // The UI never requires a live watcher connection to render something real —
 // this is the "runs standalone with a bundled demo system JSON" path from
-// the handover doc. See watcher/scripts/build-demo-snapshot.js for how this
+// the design brief. See watcher/scripts/build-demo-snapshot.js for how this
 // file is generated from the real (scrubbed) journal fixture.
 loadSystem(demoSystem);
 setSourceBadge('demo');

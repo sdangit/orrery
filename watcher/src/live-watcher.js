@@ -31,7 +31,7 @@ export function createLiveWatcher(journalDir) {
     const snapshot = model.snapshot();
     if (!snapshot) return null;
     // Auto-detection only — a manually pinned mode is a UI-local preference
-    // (see the handover doc: "auto wins unless the user has pinned a mode"),
+    // (see the design brief: "auto wins unless the user has pinned a mode"),
     // applied client-side over whatever mode this reports.
     snapshot.mode = detectMode(recentEvents.getRecent());
 

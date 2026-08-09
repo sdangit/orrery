@@ -1,5 +1,5 @@
 // Classifies a body node for the "loudest treatment, in every mode, always"
-// rule from the handover doc: first discoveries/first mappings, and the
+// rule from the design brief: first discoveries/first mappings, and the
 // small set of scientifically/financially valuable world types, never get
 // filtered out regardless of which activity mode is active. This is a
 // baseline classification the renderer applies on top of whatever the

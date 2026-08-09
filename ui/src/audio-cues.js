@@ -1,4 +1,4 @@
-// Optional short audio cues (off by default, per the handover doc) — plain
+// Optional short audio cues (off by default, per the design brief) — plain
 // Web Audio oscillator blips, no asset files. Two distinct pitches: a bright
 // one for a first discovery, a lower one for new biological signals.
 // Every call is wrapped so a missing/blocked AudioContext (autoplay policy,

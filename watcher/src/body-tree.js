@@ -1,5 +1,5 @@
 // Builds a body tree for one star system from Scan / ScanBaryCentre journal
-// events. This is the "goldmine" parsing step described in the handover doc:
+// events. This is the "goldmine" parsing step described in the design brief:
 // resolve each body's Parents chain into a real tree, keyed by BodyID, rooted
 // at the implicit system barycentre (BodyID 0 / Parents entry {"Null":0}).
 //

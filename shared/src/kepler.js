@@ -1,5 +1,5 @@
 // Kepler orbit math: solves the eccentric anomaly and turns Keplerian
-// elements into a 3D offset from the parent body, per the handover doc's
+// elements into a 3D offset from the parent body, per the design brief's
 // step list:
 //
 //   1. Mean anomaly M = M0 + 2*pi*(t - t0) / OrbitalPeriod
