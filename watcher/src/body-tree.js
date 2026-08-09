@@ -17,6 +17,8 @@
 //    Parents chain (e.g. a moon's chain [{"Null":63},{"Planet":62},...] tells
 //    us barycentre 63 orbits planet 62) and reading the next entry along.
 
+import { extractBioData } from './bio-signals.js';
+
 const ROOT_ID = 0;
 
 /**
@@ -153,6 +155,16 @@ export function buildBodyTree(events, { systemAddress, systemName } = {}) {
       elements: extractElements(evt),
       raw: evt,
     });
+  }
+
+  // Attach exobiology data (see bio-signals.js) to whichever bodies have it.
+  // Skips bodies with no corresponding Scan-derived node yet — same
+  // grace-period tolerance as orphans below; it resolves itself once the
+  // body's own Scan event lands.
+  const bioData = extractBioData(events, systemAddress);
+  for (const [bodyId, bio] of bioData) {
+    const node = nodes.get(bodyId);
+    if (node) node.bio = bio;
   }
 
   // Mark moons: a Planet whose nearest non-root ancestor is also a Planet.

@@ -16,7 +16,10 @@
 import { buildBodyTree } from './body-tree.js';
 
 const SYSTEM_CONTEXT_EVENTS = new Set(['FSDJump', 'Location']);
-const SCAN_EVENTS = new Set(['Scan', 'ScanBaryCentre']);
+// Everything buildBodyTree/bio-signals.js can turn into per-body data on the
+// snapshot — not just Scan/ScanBaryCentre anymore now that exobiology needs
+// FSSBodySignals/SAASignalsFound/ScanOrganic too.
+const BODY_EVENTS = new Set(['Scan', 'ScanBaryCentre', 'FSSBodySignals', 'SAASignalsFound', 'ScanOrganic']);
 const NAV_BEACON_SIGNAL_TYPE = 'NavBeacon';
 
 /** Faction state names are the game's own stable vocabulary (War, CivilWar, Boom, ...), not a rebalance-prone value. */
@@ -27,7 +30,7 @@ function extractFactions(evt) {
 
 export function createSystemModel() {
   let systemContext = null; // { starSystem, systemAddress, starPos, timestamp, security, government, population, factions }
-  let scanEvents = [];
+  let bodyEvents = []; // Scan/ScanBaryCentre/FSSBodySignals/SAASignalsFound/ScanOrganic for the current system
   let bountyTally = 0;
 
   /**
@@ -44,7 +47,7 @@ export function createSystemModel() {
       if (SYSTEM_CONTEXT_EVENTS.has(evt.event)) {
         const isNewSystem = !systemContext || systemContext.systemAddress !== evt.SystemAddress;
         if (isNewSystem) {
-          scanEvents = [];
+          bodyEvents = [];
           switched = true;
         }
         systemContext = {
@@ -63,8 +66,8 @@ export function createSystemModel() {
         updated = true;
         continue;
       }
-      if (SCAN_EVENTS.has(evt.event) && systemContext && evt.SystemAddress === systemContext.systemAddress) {
-        scanEvents.push(evt);
+      if (BODY_EVENTS.has(evt.event) && systemContext && evt.SystemAddress === systemContext.systemAddress) {
+        bodyEvents.push(evt);
         updated = true;
         continue;
       }
@@ -91,7 +94,7 @@ export function createSystemModel() {
   /** @returns {object|null} A JSON-serializable snapshot, or null if no system context has been seen yet. */
   function snapshot() {
     if (!systemContext) return null;
-    const { rootId, nodes, orphans } = buildBodyTree(scanEvents, {
+    const { rootId, nodes, orphans } = buildBodyTree(bodyEvents, {
       systemAddress: systemContext.systemAddress,
       systemName: systemContext.starSystem,
     });

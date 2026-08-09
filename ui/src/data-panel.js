@@ -90,6 +90,34 @@ function fmtKind(node) {
 }
 
 /**
+ * @param {{signalCount: number|null, genuses: string[], samples: Array<{genus:string, species:string, scansLogged:number, complete:boolean}>}} [bio]
+ */
+function renderBioSection(bio) {
+  const section = document.getElementById('detailBio');
+  section.hidden = !bio || !(bio.signalCount > 0);
+  if (section.hidden) return;
+
+  setText('detailBioCount', String(bio.signalCount));
+
+  const genusesRow = document.getElementById('detailGenusesRow');
+  genusesRow.hidden = bio.genuses.length === 0;
+  if (bio.genuses.length > 0) setText('detailGenuses', bio.genuses.join(', '));
+
+  const samplesEl = document.getElementById('detailSamples');
+  samplesEl.innerHTML = '';
+  for (const sample of bio.samples) {
+    const row = document.createElement('div');
+    row.className = 'stat';
+    const label = document.createElement('span');
+    label.textContent = sample.species;
+    const value = document.createElement('span');
+    value.textContent = sample.complete ? 'Complete' : `${sample.scansLogged}/3 sampled`;
+    row.append(label, value);
+    samplesEl.appendChild(row);
+  }
+}
+
+/**
  * @param {object} node A body-tree node (see watcher/src/body-tree.js), or null to hide the panel.
  * @param {string} systemName Used to strip the redundant system-name prefix off the header (see naming.js).
  */
@@ -121,6 +149,8 @@ export function renderDetailPanel(node, systemName) {
   const ringsRow = document.getElementById('detailRingsRow');
   ringsRow.hidden = ringsText === null;
   if (ringsText !== null) setText('detailRings', ringsText);
+
+  renderBioSection(node.bio);
 
   const spotlightRow = document.getElementById('detailSpotlight');
   spotlightRow.hidden = !spotlighted;

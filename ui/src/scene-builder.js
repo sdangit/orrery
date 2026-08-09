@@ -77,6 +77,17 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
       bodyGroup.add(miningHalo);
     }
 
+    if (modeHighlight.highlighted && modeHighlight.reasons.includes('has-bio-signals')) {
+      // Brighter once every found species is fully sampled (3/3) — a glanceable
+      // "nothing left to do here" signal, dim while signals are still unconfirmed/in-progress.
+      const bioOpacity = modeHighlight.reasons.includes('fully-sampled') ? 0.3 : 0.15;
+      const bioHalo = new THREE.Mesh(
+        new THREE.SphereGeometry(radius * 2.2, 20, 14),
+        new THREE.MeshBasicMaterial({ color: 0x6bffb3, transparent: true, opacity: bioOpacity, side: THREE.BackSide }),
+      );
+      bodyGroup.add(bioHalo);
+    }
+
     if (node.landable) {
       const marker = new THREE.Mesh(
         new THREE.RingGeometry(radius * 1.3, radius * 1.5, 24),

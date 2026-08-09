@@ -21,12 +21,13 @@ export function reserveLevelLabel(reserveLevel) {
 }
 
 /**
- * @param {{raw?: object}} node A body-tree node.
+ * @param {{raw?: object, bio?: object}} node A body-tree node.
  * @param {string} mode One of the MODES from mode-detect.js.
  * @returns {{highlighted: boolean, reasons: string[]}}
  */
 export function classifyModeHighlight(node, mode) {
   if (mode === 'mining') return classifyMining(node);
+  if (mode === 'exobiology') return classifyExobiology(node);
   return { highlighted: false, reasons: [] };
 }
 
@@ -39,5 +40,24 @@ function classifyMining(node) {
   const reasons = ['ringed'];
   if (GOOD_RESERVE_LEVELS.has(reserveLevel)) reasons.push('good-reserve');
   if (reserveLevel) reasons.push(`reserve-${reserveLevelLabel(reserveLevel).toLowerCase()}`);
+  return { highlighted: true, reasons };
+}
+
+/**
+ * Exobiology highlighting, built entirely from real counts/booleans the
+ * journal already reports (bio-signals.js) — no genus prediction before the
+ * game itself confirms one, no credit value, per the decision to skip
+ * anything needing an unverifiable table (see the handover doc).
+ */
+function classifyExobiology(node) {
+  const bio = node.bio;
+  if (!bio || !(bio.signalCount > 0)) {
+    return { highlighted: false, reasons: [] };
+  }
+  const reasons = ['has-bio-signals'];
+  if (bio.genuses.length > 0) reasons.push('genus-known');
+  if (bio.samples.length > 0) {
+    reasons.push(bio.samples.every((s) => s.complete) ? 'fully-sampled' : 'sampling-in-progress');
+  }
   return { highlighted: true, reasons };
 }

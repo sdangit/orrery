@@ -153,6 +153,18 @@ test('a Bounty event marks the poll as updated even though it never touches the 
   assert.equal(result.updated, true);
 });
 
+test('FSSBodySignals events accumulate the same way Scan events do, and land in the snapshot as node.bio', () => {
+  const model = createSystemModel();
+  model.applyEvents([fsdJump('Sol', 1)]);
+  model.applyEvents([
+    scan(1, 1, { PlanetClass: 'Rocky body', StarType: undefined, Parents: [{ Null: 0 }] }),
+    { event: 'FSSBodySignals', timestamp: '2026-01-01T00:00:02Z', BodyID: 1, SystemAddress: 1, Signals: [{ Type: '$SAA_SignalType_Biological;', Type_Localised: 'Biological', Count: 4 }] },
+  ]);
+  const snap = model.snapshot();
+  const body = snap.nodes.find((n) => n.id === 1);
+  assert.equal(body.bio.signalCount, 4);
+});
+
 test('Scan events for a system other than the current context are ignored', () => {
   const model = createSystemModel();
   model.applyEvents([fsdJump('Sol', 1)]);

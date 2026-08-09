@@ -91,6 +91,45 @@ test('a body with an unresolvable parent chain (an "orphan", possible mid-sessio
   }
 });
 
+test('exobiology mode gives a bio-signal body a green halo; other modes do not', () => {
+  const bioNodes = new Map(nodes);
+  bioNodes.set(13, { ...nodes.get(13), bio: { signalCount: 2, genuses: [], samples: [] } }); // real body "A 1"
+
+  const findHalos = (group, color) => {
+    const halos = [];
+    group.traverse((obj) => {
+      if (obj.geometry instanceof THREE.SphereGeometry && obj.material?.color?.getHex() === color) halos.push(obj);
+    });
+    return halos;
+  };
+
+  const exploration = buildSystemScene(bioNodes, Date.now(), demoSystem.systemName, 'exploration');
+  const exobiology = buildSystemScene(bioNodes, Date.now(), demoSystem.systemName, 'exobiology');
+
+  assert.equal(findHalos(exploration.group, 0x6bffb3).length, 0, 'no bio halo outside exobiology mode');
+  assert.equal(findHalos(exobiology.group, 0x6bffb3).length, 1, 'expected exactly one bio halo in exobiology mode');
+});
+
+test('a fully-sampled body gets a brighter bio halo than one still in progress', () => {
+  const inProgressNodes = new Map(nodes);
+  inProgressNodes.set(13, { ...nodes.get(13), bio: { signalCount: 1, genuses: [], samples: [{ genus: 'Tubus', species: 'Tubus Conifer', scansLogged: 1, complete: false }] } });
+
+  const completeNodes = new Map(nodes);
+  completeNodes.set(13, { ...nodes.get(13), bio: { signalCount: 1, genuses: [], samples: [{ genus: 'Tubus', species: 'Tubus Conifer', scansLogged: 3, complete: true }] } });
+
+  const findHaloOpacity = (group) => {
+    let opacity = null;
+    group.traverse((obj) => {
+      if (obj.material?.color?.getHex() === 0x6bffb3) opacity = obj.material.opacity;
+    });
+    return opacity;
+  };
+
+  const inProgress = buildSystemScene(inProgressNodes, Date.now(), demoSystem.systemName, 'exobiology');
+  const complete = buildSystemScene(completeNodes, Date.now(), demoSystem.systemName, 'exobiology');
+  assert.ok(findHaloOpacity(complete.group) > findHaloOpacity(inProgress.group));
+});
+
 test('mining mode boosts a real Pristine-reserve ring\'s opacity and color; exploration mode does not', () => {
   // Body 39 ("A 12") has a real Rings entry with ReserveLevel:"PristineResources" in the fixture.
   const findRing39 = (group) => {

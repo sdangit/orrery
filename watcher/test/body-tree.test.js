@@ -113,3 +113,27 @@ test('buildBodyTree keeps only the latest Scan per BodyID', () => {
   const { nodes } = buildBodyTree(events, { systemAddress: 1 });
   assert.equal(nodes.get(1).elements.meanAnomalyDeg, 20);
 });
+
+test('buildBodyTree attaches exobiology data (FSSBodySignals) to the matching body', () => {
+  const events = [
+    { event: 'Scan', timestamp: '2025-01-01T00:00:00Z', BodyID: 1, BodyName: 'Bio World', SystemAddress: 1, PlanetClass: 'Rocky body', Parents: [{ Null: 0 }] },
+    { event: 'FSSBodySignals', timestamp: '2025-01-01T00:00:01Z', BodyID: 1, SystemAddress: 1, Signals: [{ Type: '$SAA_SignalType_Biological;', Type_Localised: 'Biological', Count: 3 }] },
+  ];
+  const { nodes } = buildBodyTree(events, { systemAddress: 1 });
+  assert.equal(nodes.get(1).bio.signalCount, 3);
+});
+
+test('a body with no exobiology events has no bio field at all (not an empty stub)', () => {
+  const events = [
+    { event: 'Scan', timestamp: '2025-01-01T00:00:00Z', BodyID: 1, BodyName: 'Ordinary', SystemAddress: 1, PlanetClass: 'Rocky body', Parents: [{ Null: 0 }] },
+  ];
+  const { nodes } = buildBodyTree(events, { systemAddress: 1 });
+  assert.equal('bio' in nodes.get(1), false);
+});
+
+test('bio data for a body with no corresponding Scan yet is silently dropped, not thrown', () => {
+  const events = [
+    { event: 'FSSBodySignals', timestamp: '2025-01-01T00:00:00Z', BodyID: 99, SystemAddress: 1, Signals: [{ Type: '$SAA_SignalType_Biological;', Type_Localised: 'Biological', Count: 1 }] },
+  ];
+  assert.doesNotThrow(() => buildBodyTree(events, { systemAddress: 1 }));
+});
