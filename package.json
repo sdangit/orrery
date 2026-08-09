@@ -6,11 +6,14 @@
   "workspaces": [
     "shared",
     "watcher",
-    "ui"
+    "ui",
+    "electron"
   ],
   "scripts": {
     "test": "npm test --workspaces --if-present",
-    "start": "npm run build --workspace=ui && npm run watch --workspace=watcher"
+    "start": "npm run build --workspace=ui && npm run watch --workspace=watcher",
+    "electron:dev": "npm run dev --workspace=electron",
+    "electron:build": "npm run build --workspace=electron"
   },
   "license": "MIT"
 }

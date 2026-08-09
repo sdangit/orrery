@@ -55,7 +55,9 @@ npm start
 
 Leave it running while you play. Drag to orbit, scroll to zoom, click a body for its details.
 
-To hack on it, `npm run dev --workspace=ui` gives you Vite with hot reload on port 5173, and `npm run watch --workspace=watcher` runs the journal watcher separately alongside it. `npm test` runs the test suite.
+If you'd rather have a real installer than a terminal window, `npm run electron:build` packages ORRERY as a Windows app (NSIS installer and a portable exe, both in `dist-installer/` when it's done) — same watcher and same UI, just running inside its own window instead of a browser tab.
+
+To hack on it, `npm run dev --workspace=ui` gives you Vite with hot reload on port 5173, and `npm run watch --workspace=watcher` runs the journal watcher separately alongside it. `npm run electron:dev` runs the Electron shell against the built UI. `npm test` runs the test suite.
 
 ## License
 

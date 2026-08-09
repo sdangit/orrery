@@ -1,0 +1,43 @@
+{
+  "name": "@orrery/desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Packaged desktop shell for ORRERY, for players who'd rather not touch Node or a terminal.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "npm run build --workspace=ui && electron .",
+    "build": "npm run build --workspace=ui && electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.orrery.desktop",
+    "productName": "ORRERY",
+    "electronVersion": "33.4.11",
+    "directories": {
+      "output": "../dist-installer"
+    },
+    "files": [
+      "main.js",
+      "package.json"
+    ],
+    "extraResources": [
+      { "from": "../watcher/src", "to": "watcher-src", "filter": ["**/*", "!**/*.test.js"] },
+      { "from": "../ui/dist", "to": "ui-dist" },
+      { "from": "../node_modules/ws", "to": "node_modules/ws" }
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "license": "MIT"
+}
