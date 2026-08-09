@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighlight, compressDistance } from '@orrery/shared';
+import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighlight, compressDistance, compressOffset, keplerianOffset } from '@orrery/shared';
 import { makeLabel } from './labels.js';
 import { bodyColor, bodyDisplayRadius, bodyIcon } from './body-visuals.js';
 import { shortDesignator } from './naming.js';
@@ -13,14 +13,14 @@ const RING_CLASS_COLORS = {
 
 const RENDERABLE_KINDS = new Set(['Star', 'Planet']);
 
-// True-scale mode: 1 display unit = 1e9 m (~0.0067 AU). At this scale the
-// demo system's binary separation (~5e12 m) sits ~5000 units out and a tight
-// moon orbit (~1.5e6 m) collapses to 0.0015 units — invisible, which is the
-// honest point of the toggle (the handover doc: "flag it in the UI so it
-// teaches rather than lies"). Radii are also honest, floored only barely
-// enough to stay clickable.
+// True-scale mode: honest *distances* (1 display unit = 1e9 m, ~0.0067 AU),
+// exaggerated body sizes — the standard planetarium convention. Reworked
+// after real-browser feedback: fully-honest radii made every body an
+// invisible sub-pixel dot, which taught nothing. The distances are the part
+// that teaches ("space is mostly nothing"); body sizes and ring bands keep
+// the same exaggerated display sizing as compressed mode so there's still
+// something to see and click, and the scale badge says so.
 const TRUE_SCALE_METRES_PER_UNIT = 1e9;
-const TRUE_SCALE_MIN_RADIUS = 0.02;
 
 function scenePosition(nodes, id, atEpochMs, trueScale) {
   if (!trueScale) return displayPosition(nodes, id, atEpochMs);
@@ -32,14 +32,33 @@ function scenePosition(nodes, id, atEpochMs, trueScale) {
   };
 }
 
-function sceneRadius(node, trueScale) {
-  if (!trueScale) return bodyDisplayRadius(node);
-  const realRadius = node.raw?.Radius ?? 0;
-  return Math.max(realRadius / TRUE_SCALE_METRES_PER_UNIT, TRUE_SCALE_MIN_RADIUS);
-}
-
-function sceneRingRadius(realMetres, trueScale) {
-  return trueScale ? realMetres / TRUE_SCALE_METRES_PER_UNIT : compressDistance(realMetres);
+/**
+ * A body's orbit path around its parent, as a line loop of positions sampled
+ * across one full orbital period — glanceable structure even where the body
+ * itself is a small dot (which true-distance mode makes common). Sampling by
+ * time through keplerianOffset naturally spaces points by real motion, and
+ * in compressed mode each sample is compressed exactly the way the body's own
+ * position is, so the path always passes through the body.
+ * @returns {THREE.Line|null} Positioned relative to the parent — the caller places it at the parent's current position.
+ */
+function buildOrbitPath(node, trueScale) {
+  if (!node.elements) return null;
+  const samples = 96;
+  const periodMs = node.elements.orbitalPeriodSec * 1000;
+  const points = [];
+  for (let i = 0; i <= samples; i++) {
+    const offset = keplerianOffset(node.elements, node.elements.epochMs + (i / samples) * periodMs);
+    const p = trueScale
+      ? { x: offset.x / TRUE_SCALE_METRES_PER_UNIT, y: offset.y / TRUE_SCALE_METRES_PER_UNIT, z: offset.z / TRUE_SCALE_METRES_PER_UNIT }
+      : compressOffset(offset);
+    points.push(new THREE.Vector3(p.x, p.y, p.z));
+  }
+  const line = new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints(points),
+    new THREE.LineBasicMaterial({ color: 0x7a4a1e, transparent: true, opacity: node.isBackfill ? 0.18 : 0.35 }),
+  );
+  line.userData.orbitBodyId = node.id; // stashed for testability
+  return line;
 }
 
 /**
@@ -82,7 +101,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
       console.warn(`orrery: skipping body ${node.id} (${node.name ?? 'unnamed'}) — ${err.message}`);
       continue;
     }
-    const radius = sceneRadius(node, trueScale);
+    const radius = bodyDisplayRadius(node);
     const color = bodyColor(node);
     const { spotlighted } = classifySpotlight(node);
     const modeHighlight = classifyModeHighlight(node, mode);
@@ -151,18 +170,37 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
 
     group.add(bodyGroup);
 
-    const updatable = { bodyGroup, rings: [] };
+    const updatable = { bodyGroup, rings: [], orbit: null, parentId: node.parentId ?? null };
     updatables.set(node.id, updatable);
+
+    // Orbit path ellipse, centred on the body's parent. Kept out of bodyGroup
+    // (which sits at the body itself) and repositioned alongside the parent
+    // during warp updates.
+    const orbitLine = buildOrbitPath(node, trueScale);
+    if (orbitLine) {
+      try {
+        const parentPos = node.parentId != null
+          ? scenePosition(nodes, node.parentId, atEpochMs, trueScale)
+          : { x: 0, y: 0, z: 0 };
+        orbitLine.position.set(parentPos.x, parentPos.y, parentPos.z);
+        group.add(orbitLine);
+        updatable.orbit = orbitLine;
+      } catch {
+        // parent unresolvable (orphan tolerance) — skip the path, keep the body
+      }
+    }
 
     // Ring band(s), drawn once per owning body regardless of how many belt
     // clusters reference it — the journal never gives individual cluster
-    // angles, only that they exist somewhere in the band.
+    // angles, only that they exist somewhere in the band. Ring radii stay on
+    // the compressed display scale even in true-distance mode, consistent
+    // with the exaggerated body sizes they belong to.
     const rawRings = node.raw?.Rings;
     if (Array.isArray(rawRings) && !ringsAddedFor.has(node.id)) {
       ringsAddedFor.add(node.id);
       for (const ring of rawRings) {
-        const innerR = sceneRingRadius(ring.InnerRad, trueScale);
-        const outerR = sceneRingRadius(ring.OuterRad, trueScale);
+        const innerR = compressDistance(ring.InnerRad);
+        const outerR = compressDistance(ring.OuterRad);
         // In mining mode, a Pristine/Major reserve ring gets FDev's own
         // amber "this is good" color and a brighter band ("Pristine glows",
         // per the handover's mode table) instead of its natural ring-class tint.
@@ -193,7 +231,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
  * time) just stays where it was.
  *
  * @param {Map<number, object>} nodes
- * @param {Map<number, {bodyGroup: THREE.Group, rings: THREE.Mesh[]}>} updatables From buildSystemScene.
+ * @param {Map<number, {bodyGroup: THREE.Group, rings: THREE.Mesh[], orbit: THREE.Line|null, parentId: number|null}>} updatables From buildSystemScene.
  * @param {number} atEpochMs
  * @param {{trueScale?: boolean}} [options] Must match what the scene was built with.
  */
@@ -208,6 +246,16 @@ export function updateSystemScene(nodes, updatables, atEpochMs, options = {}) {
     }
     entry.bodyGroup.position.set(pos.x, pos.y, pos.z);
     for (const ring of entry.rings) ring.position.set(pos.x, pos.y, pos.z);
+    if (entry.orbit) {
+      try {
+        const parentPos = entry.parentId != null
+          ? scenePosition(nodes, entry.parentId, atEpochMs, trueScale)
+          : { x: 0, y: 0, z: 0 };
+        entry.orbit.position.set(parentPos.x, parentPos.y, parentPos.z);
+      } catch {
+        // parent unresolvable this tick — leave the path where it was
+      }
+    }
   }
 }
 

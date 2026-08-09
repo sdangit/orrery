@@ -17,14 +17,15 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x060402);
-const camera = new THREE.PerspectiveCamera(55, 1, 0.05, 20000);
+const camera = new THREE.PerspectiveCamera(55, 1, 0.05, 60000);
 
-// starfield backdrop, ported from ed-space-tutor.html
+// starfield backdrop, ported from ed-space-tutor.html — pushed far enough out
+// that even true-distance mode's widest zoom stays inside the star sphere
 (function addStarfield() {
   const count = 1200;
   const positions = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
-    const r = 400 + Math.random() * 300;
+    const r = 25000 + Math.random() * 15000;
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos(2 * Math.random() - 1);
     positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
@@ -33,7 +34,7 @@ const camera = new THREE.PerspectiveCamera(55, 1, 0.05, 20000);
   }
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x554433, size: 1.2, sizeAttenuation: true })));
+  scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x554433, size: 2.5, sizeAttenuation: false })));
 })();
 
 // ---------- HUD color scheme (milestone 7) ----------
@@ -185,12 +186,24 @@ trueScaleToggle.addEventListener('change', () => {
   localStorage.setItem('orrery.trueScale', String(trueScale));
   updateScaleBadge();
   rebuildSceneVisuals();
+  fitCameraToBodies(); // the two scales differ by orders of magnitude — never leave the camera staring at empty space
 });
+
+// Zooms out (or in) so the whole system fits the view — used when toggling
+// scale modes, where the layout size jumps by orders of magnitude.
+function fitCameraToBodies() {
+  let maxDistance = 0;
+  for (const { bodyGroup } of updatables.values()) {
+    maxDistance = Math.max(maxDistance, bodyGroup.position.length());
+  }
+  const radius = Math.min(Math.max(maxDistance * 1.4, 40), 18000);
+  orbitCamera.focus(new THREE.Vector3(0, 0, 0), radius);
+}
 
 function updateScaleBadge() {
   const el = document.getElementById('sysScale');
   if (trueScale) {
-    el.textContent = 'true scale — small bodies may be invisible';
+    el.textContent = 'true distances — body sizes exaggerated';
     el.className = 'val-live';
   } else {
     el.textContent = 'compressed — not to scale';

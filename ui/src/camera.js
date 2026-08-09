@@ -49,7 +49,9 @@ export function createOrbitCamera(canvas, camera, { initialRadius = 60, onDirty 
   canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
     state.r *= 1 + Math.sign(e.deltaY) * 0.09;
-    state.r = Math.max(1, Math.min(6000, state.r));
+    // Max zoom-out accommodates true-distance mode, where outer bodies can sit
+    // ~10,000 units from the origin (e.g. Eris at ~68 AU with 1 unit = 1e9 m).
+    state.r = Math.max(1, Math.min(20000, state.r));
     apply();
     markDirty();
   }, { passive: false });

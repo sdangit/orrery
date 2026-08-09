@@ -245,12 +245,37 @@ test('true-scale mode uses honest distances: the wide binary separation dwarfs t
   assert.ok(starDistance(honest) > 100 * starDistance(compressed), 'true scale should be dramatically larger');
 });
 
-test('true-scale mode uses honest (tiny) radii with only a minimal clickability floor', () => {
+test('true-scale mode keeps exaggerated body sizes (honest radii made everything invisible — reworked per real-browser feedback)', () => {
   const now = Date.now();
+  const compressed = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: false });
   const honest = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: true });
-  const starMesh = [...honest.pickables.entries()].find(([, id]) => id === 1)[0];
-  // The primary star's real radius is ~2.8e8 m -> ~0.28 units at 1e9 m/unit.
-  assert.ok(Math.abs(starMesh.geometry.parameters.radius - 0.284435904) < 0.01);
+  const starRadius = (built) => [...built.pickables.entries()].find(([, id]) => id === 1)[0].geometry.parameters.radius;
+  assert.equal(starRadius(honest), starRadius(compressed), 'body sizes must be identical across scale modes');
+  assert.ok(starRadius(honest) > 1, 'and visibly large, not a sub-pixel dot');
+});
+
+test('every body with orbital elements gets an orbit path line, centred on its parent', () => {
+  const now = Date.now();
+  const { group, updatables } = buildSystemScene(nodes, now, demoSystem.systemName);
+  const orbitLines = [];
+  group.traverse((obj) => {
+    if (obj.userData?.orbitBodyId !== undefined) orbitLines.push(obj);
+  });
+  assert.ok(orbitLines.length > 50, `expected an orbit path for most of the 59 renderable bodies, got ${orbitLines.length}`);
+
+  // Planet 13 ("A 1") orbits star 1 — its path must sit at the star's position.
+  const path13 = orbitLines.find((l) => l.userData.orbitBodyId === 13);
+  assert.ok(path13, 'expected an orbit path for body 13');
+  assert.ok(path13.position.equals(updatables.get(1).bodyGroup.position));
+});
+
+test('updateSystemScene keeps orbit paths anchored to their (moving) parents', () => {
+  const now = Date.now();
+  const { updatables } = buildSystemScene(nodes, now, demoSystem.systemName);
+  updateSystemScene(nodes, updatables, now + 30 * 86400 * 1000);
+  const entry13 = updatables.get(13);
+  assert.ok(entry13.orbit, 'body 13 should have an orbit line');
+  assert.ok(entry13.orbit.position.equals(updatables.get(1).bodyGroup.position), 'path must follow the parent star');
 });
 
 test('the labelColor option recolors ordinary labels while spotlighted/backfill labels keep their fixed colors', () => {
