@@ -1,5 +1,9 @@
 # ORRERY
 
+> **About this fork:** This fork of [TerjeRu/orrery](https://github.com/TerjeRu/orrery) adapts ORRERY for macOS, with Elite Dangerous running through CrossOver. `macos` is the default integration branch; `main` mirrors upstream, and upstream updates are regularly merged into `macos`. Development happens on sub-branches with PRs targeting `macos`.
+>
+> **Agentic workflow disclosure:** Changes made in this fork use a purely agentic workflow: AI coding agents implement, test, document, and manage changes under human direction. This disclosure applies to this fork's changes, not the upstream project's development process.
+
 **[⬇ Download for Windows](https://github.com/TerjeRu/orrery/releases/latest)** — installer or portable, no Node or terminal required.
 
 <img width="1280" height="720" alt="orrery2" src="https://github.com/user-attachments/assets/e72d844e-cc12-4119-a7ea-316d601affa9" />
