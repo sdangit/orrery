@@ -9,7 +9,7 @@ import { displayPosition } from '../src/display-position.js';
 // Earth is bodyId:3, orbiting it.
 const REAL_SOL_STAR = {
   id: 3794, bodyId: 0, name: 'Sol', type: 'Star', subType: 'G (White-Yellow) Star', parents: null,
-  distanceToArrival: 0, solarMasses: 1, surfaceTemperature: 5778,
+  distanceToArrival: 0, solarMasses: 1, surfaceTemperature: 5778, isMainStar: true,
   orbitalPeriod: null, semiMajorAxis: null, orbitalEccentricity: null, orbitalInclination: null, argOfPeriapsis: null,
 };
 const REAL_EARTH = {
@@ -40,6 +40,26 @@ test('real scan data is never overwritten by a backfill body with the same id', 
   assert.equal(merged.get(0).name, 'Real Sol Scan', 'the real node must survive untouched');
   assert.equal(merged.get(0).isBackfill, undefined);
   assert.equal(merged.get(3).isBackfill, true, 'Earth was not already known, so it should still be backfilled');
+});
+
+test('Sol replaces the synthetic root placeholder without mutating the journal tree', () => {
+  const placeholder = { id: 0, kind: 'SystemBarycentre', parentId: null, elements: null };
+  const existing = new Map([[0, placeholder]]);
+  const merged = buildBackfillNodes(existing, [REAL_SOL_STAR, REAL_EARTH]);
+  assert.equal(existing.get(0), placeholder);
+  assert.equal(merged.get(0).kind, 'Star');
+  assert.equal(merged.get(0).name, 'Sol');
+  assert.equal(merged.get(0).isMainStar, true);
+  assert.equal(merged.get(0).parentId, null);
+  assert.equal(merged.get(3).parentId, 0);
+  assert.doesNotThrow(() => displayPosition(merged, 3, Date.now()));
+});
+
+test('EDSM entries without valid journal IDs do not become bodies', () => {
+  const invalid = [null, undefined, -1, 1.5, '0'].map((bodyId) => ({ ...REAL_SOL_STAR, bodyId, name: 'Invalid body' }));
+  const merged = buildBackfillNodes(new Map(), [null, ...invalid, REAL_SOL_STAR]);
+  assert.equal(merged.size, 1);
+  assert.equal(merged.get(0).name, 'Sol');
 });
 
 test('the root star (EDSM parents:null) gets parentId null, matching a real single-star Scan', () => {
@@ -96,7 +116,7 @@ test('real physical fields (radius km->m, gravity, mass, distance) are converted
   const merged = buildBackfillNodes(new Map(), [REAL_SOL_STAR, REAL_MERCURY]);
   const mercury = merged.get(1);
   assert.equal(mercury.raw.Radius, 2439.7 * 1000);
-  assert.equal(mercury.raw.SurfaceGravity, 0.37588835103398993);
+  assert.equal(mercury.raw.SurfaceGravity, 0.37588835103398993 * 9.80665);
   assert.equal(mercury.raw.MassEM, 0.055);
   assert.equal(mercury.raw.DistanceFromArrivalLS, 178);
   assert.equal(mercury.landable, true);

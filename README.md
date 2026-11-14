@@ -30,7 +30,7 @@ It also pays attention to what you've been doing lately. A few `ScanOrganic` eve
 
 The naming problem is the part this was really built for. Procedural names are impossible to hold in your head, so the map leans on position, colour and icon, keeps the text short (the system prefix is stripped, since you already know which system you're in), and lets you rename anything you like. Call something "money moon" and it stays "money moon" in that system forever.
 
-There's a time warp slider running up to 100,000× if you want to watch the system actually move, orbit ellipses so the structure reads even when the bodies themselves are small, and two scale modes: a compressed one where everything is visible at once, and a true-distance one that shows you how much emptiness is really out there. EDSM can optionally fill in bodies you haven't scanned yourself, drawn as dim wireframes so you can tell at a glance what's yours and what's borrowed.
+There's reference-orbit playback to watch even very slow systems move at a useful speed, orbit ellipses so the structure reads even when the bodies themselves are small, and two scale modes: a compressed one where everything is visible at once, and a true-distance one that shows you how much emptiness is really out there. EDSM and Spansh can optionally fill in bodies you haven't scanned yourself, drawn as dim wireframes so you can tell at a glance what's yours and what's borrowed.
 
 Smaller things: four colour schemes, a legend you can hide, quiet audio pings for first discoveries and bio signals (silent unless you ask for them). It renders on demand and caps at 30fps, so it isn't quietly stealing frames from the game.
 
@@ -40,13 +40,13 @@ The orbits are real. Every `Scan` event carries a full Keplerian element set and
 
 Scale is the part that isn't honest, and the panel says so while it's happening. A real system spans about seven orders of magnitude between a tight moon orbit and a wide binary separation, so the default view compresses distances logarithmically, per orbit rather than globally, which keeps a moon visible beside its planet however far that planet sits from its star. Ordering always survives: further away is always drawn further away. Switch on true distances for an honest linear scale. Body sizes are exaggerated in both modes.
 
-Bodies filled in from EDSM are marked as approximate. The shape and size of the orbit are right, but EDSM doesn't record where along that orbit a body currently is, so it gets parked at periapsis and drawn as a wireframe.
+Community bodies are drawn as wireframes to distinguish them from personal scans. Their position quality is shown separately: a complete Spansh orbit can be propagated from its mean-anomaly timestamp, while EDSM-only orbits use an illustrative phase and remain approximate. An approximate ancestor also makes a child's absolute position approximate. Bodies with unresolved parent links are not placed at the origin; they are omitted with a diagnostic count.
 
 [TECHNICAL.md](TECHNICAL.md) has the math, the journal format quirks and the detail behind all of this.
 
 ## Privacy
 
-Everything stays on your machine. The watcher listens on 127.0.0.1 and nowhere else. The only network call in the entire application is the EDSM lookup, it's off by default, and the checkbox says "(network)" so you always know when it's on.
+The watcher listens on 127.0.0.1 and nowhere else. EDSM and Spansh lookups are independently opt-in, off by default, and labelled "(network)". Enabling EDSM sends the system name to EDSM; enabling Spansh sends the system address (ID64) to Spansh. The watcher makes these requests, caches results in memory, and returns body data to the local UI. Journal contents and commander details are not sent. An existing EDSM preference does not automatically enable Spansh.
 
 ## Running it
 
@@ -62,6 +62,44 @@ npm start
 ```
 
 Leave it running while you play. Drag to orbit, scroll to zoom, click a body for its details.
+
+Camera controls: left-drag to orbit; right-drag or Shift-drag to pan; scroll or
+pinch to zoom. Arrow keys pan while the map has focus. On a touchscreen, use
+one finger to orbit and two fingers to pan/zoom. Dragging does not select a body.
+
+**Center main star** and the detail panel's **Center selected body** move the
+orbit pivot while preserving angle and zoom. The centered body stays under the
+pivot as simulated time advances; panning releases it. **Fit system** frames the
+known bodies at the current angle, while **Reset view** also restores the default
+orientation. The **Orbiting** indicator names the current target. Main-star
+centering is disabled until the available data identifies the arrival star. The
+selected body's orbit line is slightly brighter; selecting another body or
+closing details restores the previous line.
+
+**Time controls:** select a body, then choose **Use as time reference** in its
+detail panel. At **1× playback speed**, that body's orbital period takes 30 real
+seconds; **×2** and **÷2** adjust the speed without a fixed slider ceiling. The
+readout shows the resulting seconds per reference orbit. Every body still uses
+one shared simulation clock, so their relative orbital periods are preserved;
+fast moons may jump between frames when viewing a slow outer orbit. Selecting
+or centering another body does not change the reference. Its period is captured
+when chosen, so incoming scans do not unexpectedly change playback speed.
+
+**Pause / Resume** and **Reverse / Play forward** control playback. **Return to
+live time** clears the reference and restores the current time, forward at real
+speed. Entering another system also returns to live time. A reference remains
+usable if its source data is temporarily hidden (for example, disabling a community provider).
+Bodies without a known nonzero orbital period cannot be used as references.
+Retrograde orbits retain their signed period for positioning; playback uses its
+absolute duration.
+
+The **ED date / time** clock follows the displayed simulation, using UTC with
+1,286 added to the displayed year (2026 → 3312), following the
+[ED year offset](https://git.aror.org/florian/edjournal/src/commit/078c4ae7e7a243dda86fd8dc5792fad66647b713/EliteDangerous.cs).
+This is a display conversion;
+journal epochs and orbit calculations keep their original timestamps. Month,
+day and UTC time are preserved, including leap days. The Live / Forward /
+Reverse / Paused indicator distinguishes live game time from simulated time.
 
 On macOS, the watcher and Electron app default to journals in the CrossOver
 bottle named `Elite Dangerous`:
@@ -82,11 +120,39 @@ To hack on it, `npm run dev --workspace=ui` gives you Vite with hot reload on po
 
 ## Data sources
 
-This project uses journal data generated by Elite Dangerous. Where scan data is missing or 
-incomplete in local journal logs, system and body data is backfilled using the EDSM 
-(Elite Dangerous Star Map) API — https://www.edsm.net/
+This project uses journal data generated by Elite Dangerous, supplemented by
+[EDSM](https://www.edsm.net/) and [Spansh](https://spansh.co.uk/) when enabled.
+Consider supporting these community-run services.
 
-EDSM is a community-run project. If you find this tool useful, consider supporting them.
+The two providers are combined by system address and journal body ID. Journal
+fields win; missing descriptive fields prefer Spansh, then EDSM. Orbital elements
+are chosen as a complete group: journal first, then Spansh, with an approximate
+provider orbit as the last resort. Conflicting parent chains are diagnosed;
+community conflicts cannot overwrite a journal parent link. Barycentre parent
+links can be recovered from the ancestor chains of their children.
+
+Spansh's `timestamps.meanAnomaly` supplies the orbital epoch. **`updateTime` is
+record freshness, not an orbital epoch**, and appears separately in the detail
+panel. EDSM-only phase is anchored to the cached response's receipt time, so
+rebuilding the scene does not reset it. Missing/invalid phase timestamps never
+produce a claim of a fully propagated position.
+
+Requests use EDSM's `/api-system-v1/bodies?systemName=…` and Spansh's
+`/api/dump/{id64}`. Each provider has an 8-second timeout and fails independently.
+Successful responses are cached for 30 minutes, failures/empty responses for one
+minute, with a maximum of 64 cache entries. Requests for the same provider/system
+are coalesced. The UI requires the local watcher for community lookups; Vite dev
+and preview proxy that route to the watcher on port 47821. Spansh needs a known
+system address. Changing systems or disabling a provider discards stale UI
+responses. Provider statuses appear beside the checkboxes.
+
+Mapping fixtures capture Sol's body data from both APIs. They pin the actual
+response units (semi-major axis in AU, arrival distance in light-seconds,
+Spansh ring radii in metres versus EDSM ring radii in kilometres), which differ
+from some labels in the [Spansh OpenAPI docs](https://docs.spansh.co.uk/).
+Unsafe JSON integer IDs are retained as decimal strings before they can be
+rounded by JavaScript.
+
 
 ## License
 

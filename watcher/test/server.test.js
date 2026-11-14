@@ -72,3 +72,37 @@ test('onError fires (instead of crashing the process) when the port is already t
     rmSync(journalDir, { recursive: true, force: true });
   }
 });
+
+test('community route validates origin, method and input before fixed-provider service calls', async () => {
+  const journalDir = mkdtempSync(join(tmpdir(), 'orrery-community-server-'));
+  const port = 47932;
+  let server;
+  const calls = [];
+  let closed = false;
+  try {
+    await new Promise((ready) => {
+      server = startWatcherServer({ port, journalDir, distDir: join(journalDir, 'none'),
+        pollIntervalMs: 60000, log: () => {}, logError: () => {}, onReady: ready,
+        communityData: {
+          async get(input) { calls.push(input); return { spansh: { status: 'ready', bodies: [{ bodyId: 0 }] } }; },
+          close() { closed = true; },
+        },
+      });
+    });
+    const url = `http://127.0.0.1:${port}/api/community-bodies?systemName=Sol&systemAddress=10477373803&providers=spansh`;
+    const headers = { 'X-Orrery-Community': '1' };
+    assert.equal((await fetch(url)).status, 403);
+    assert.equal((await fetch(url, { headers: { ...headers, Origin: 'https://unrelated.example' } })).status, 403);
+    assert.equal((await fetch(url, { headers, method: 'POST' })).status, 405);
+    assert.equal((await fetch(url.replace('providers=spansh', 'providers=unknown'), { headers })).status, 400);
+    assert.equal(calls.length, 0);
+    const result = await fetch(url, { headers });
+    assert.equal(result.status, 200);
+    assert.equal((await result.json()).spansh.bodies[0].bodyId, 0);
+    assert.deepEqual(calls[0], { systemName: 'Sol', systemAddress: '10477373803', providers: ['spansh'] });
+  } finally {
+    server?.close();
+    rmSync(journalDir, { recursive: true, force: true });
+  }
+  assert.equal(closed, true);
+});

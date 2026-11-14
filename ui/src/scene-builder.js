@@ -57,6 +57,7 @@ function buildOrbitPath(node, trueScale) {
     new THREE.BufferGeometry().setFromPoints(points),
     new THREE.LineBasicMaterial({ color: 0x7a4a1e, transparent: true, opacity: node.isBackfill ? 0.18 : 0.35 }),
   );
+  line.userData.baseOpacity = line.material.opacity;
   line.userData.orbitBodyId = node.id; // stashed for testability
   return line;
 }
@@ -109,10 +110,8 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     const bodyGroup = new THREE.Group();
     bodyGroup.position.set(pos.x, pos.y, pos.z);
 
-    // EDSM backfill bodies ("known, not yours yet" — see edsm-backfill.js)
-    // render as dim wireframes, never solid — their position in particular
-    // is a fixed, non-live approximation (EDSM gives no orbital phase data),
-    // and the wireframe is the visual promise that this isn't real scan data.
+    // Community bodies remain wireframes even when their orbital phase is
+    // known. Personal scan status and position quality are separate concepts.
     const mesh = new THREE.Mesh(
       new THREE.SphereGeometry(radius, 24, 16),
       node.isBackfill
@@ -165,7 +164,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     const finalLabelColor = spotlighted ? '#ffd24d' : (node.isBackfill ? '#7a4a1e' : labelColor);
     const label = makeLabel(labelText, finalLabelColor);
     label.userData.text = labelText; // stashed for testability — canvas-texture text isn't otherwise inspectable
-    label.position.set(0, radius + 1.1, 0);
+    label.position.set(0, 0, radius + 1.1);
     bodyGroup.add(label);
 
     group.add(bodyGroup);
@@ -211,7 +210,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
           new THREE.RingGeometry(innerR, outerR, 96),
           new THREE.MeshBasicMaterial({ color: ringColor, side: THREE.DoubleSide, transparent: true, opacity }),
         );
-        ringMesh.rotation.x = Math.PI / 2;
+        // RingGeometry is already in XY, matching the journal reference plane.
         ringMesh.position.set(pos.x, pos.y, pos.z);
         ringMesh.userData.bodyId = node.id; // stashed for testability
         group.add(ringMesh);
@@ -279,4 +278,14 @@ export function disposeSystemScene(group) {
     }
   });
   group.parent?.remove(group);
+}
+
+/** A subtle selection cue; does not change the camera or time reference. */
+export function highlightSelectedOrbit(updatables, selectedId) {
+  for (const [id, entry] of updatables) {
+    if (!entry.orbit) continue;
+    const selected = id === selectedId;
+    entry.orbit.material.color.setHex(selected ? 0xa76b32 : 0x7a4a1e);
+    entry.orbit.material.opacity = entry.orbit.userData.baseOpacity + (selected ? 0.15 : 0);
+  }
 }

@@ -1,3 +1,4 @@
+import { parseJsonPreservingIntegers } from './json-integers.js';
 // Parses Elite Dangerous journal files: newline-delimited JSON, one event per line.
 //
 // Journals are written incrementally while the game runs, so a live tail can
@@ -14,7 +15,7 @@ export function parseJournalLines(text) {
     const line = rawLine.trim();
     if (!line) continue;
     try {
-      events.push(JSON.parse(line));
+      events.push(parseJsonPreservingIntegers(line));
     } catch {
       // Partial write (common on the live-tailed final line) or corrupt line — skip it.
     }

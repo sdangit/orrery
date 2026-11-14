@@ -1,0 +1,41 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { renderDetailPanel } from '../src/data-panel.js';
+
+function setup() {
+  const nodes = new Map();
+  const make = () => ({ textContent: '', hidden: false, title: '', replaceChildren() {}, appendChild() {} });
+  globalThis.document = { createElement: make, getElementById(id) {
+    if (!nodes.has(id)) nodes.set(id, make());
+    return nodes.get(id);
+  } };
+  return (id) => document.getElementById(id);
+}
+
+test('details separate orbital epoch, database freshness, ancestry quality and personal scan status', () => {
+  const el = setup();
+  renderDetailPanel({ id: 3, name: 'Earth', kind: 'Planet', sources: ['journal', 'spansh'],
+    orbitSource: 'journal', orbitQuality: 'propagated', positionQuality: 'approximate', positionSources: ['journal', 'edsm'],
+    elements: { epochMs: Date.parse('2026-01-01T00:00:00Z'), orbitalPeriodSec: -86400 },
+    recordUpdates: { spansh: Date.parse('2026-02-01T12:00:00Z') },
+    raw: { SurfaceGravity: 9.80665, WasMapped: false, WasDiscovered: false },
+  }, 'Sol');
+  assert.equal(el('detailBackfillNotice').hidden, true);
+  assert.equal(el('detailSources').textContent, 'Journal + Spansh');
+  assert.equal(el('detailPosition').textContent, 'Approximate phase / orientation');
+  assert.equal(el('detailOrbitEpoch').textContent, '2026-01-01 00:00:00');
+  assert.equal(el('detailRecordUpdated').textContent, 'Spansh: 2026-02-01 12:00:00');
+  assert.equal(el('detailGravity').textContent, '1.00 G');
+  assert.equal(el('detailPeriod').textContent, '24.0 h (retrograde)');
+  assert.equal(el('detailMapped').textContent, 'NO — FIRST MAPPING');
+});
+
+test('illustrative community epochs are not presented as known orbital phase timestamps', () => {
+  const el = setup();
+  renderDetailPanel({ id: 3, name: 'Earth', kind: 'Planet', isBackfill: true,
+    sources: ['edsm'], orbitSource: 'edsm', orbitQuality: 'approximate', positionQuality: 'approximate',
+    elements: { epochMs: Date.now(), orbitalPeriodSec: 86400 }, raw: {},
+  }, 'Sol');
+  assert.equal(el('detailBackfillNotice').hidden, false);
+  assert.equal(el('detailOrbitEpoch').textContent, 'Unknown (illustrative phase)');
+});
