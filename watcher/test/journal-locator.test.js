@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { homedir, tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { newestJournalFilename, findNewestJournalPath, defaultJournalDir } from '../src/journal-locator.js';
 
@@ -52,6 +52,31 @@ test('findNewestJournalPath returns null for a directory with no journals', () =
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+for (const platform of ['darwin', 'win32']) {
+  test(`defaultJournalDir uses the expected default on ${platform}`, () => {
+    const originalPlatform = Object.getOwnPropertyDescriptor(process, 'platform');
+    const originalOverride = process.env.ORRERY_JOURNAL_DIR;
+    try {
+      Object.defineProperty(process, 'platform', { value: platform });
+      delete process.env.ORRERY_JOURNAL_DIR;
+      const expected = platform === 'darwin'
+        ? join(homedir(), 'Library/Application Support/CrossOver/Bottles/Elite Dangerous/drive_c/users/crossover/Saved Games/Frontier Developments/Elite Dangerous')
+        : join(homedir(), 'Saved Games/Frontier Developments/Elite Dangerous');
+      assert.equal(defaultJournalDir(), expected);
+
+      process.env.ORRERY_JOURNAL_DIR = '';
+      assert.equal(defaultJournalDir(), expected);
+
+      process.env.ORRERY_JOURNAL_DIR = '/custom/bottle/Saved Games';
+      assert.equal(defaultJournalDir(), '/custom/bottle/Saved Games');
+    } finally {
+      Object.defineProperty(process, 'platform', originalPlatform);
+      if (originalOverride === undefined) delete process.env.ORRERY_JOURNAL_DIR;
+      else process.env.ORRERY_JOURNAL_DIR = originalOverride;
+    }
+  });
+}
 
 test('defaultJournalDir respects the ORRERY_JOURNAL_DIR override', () => {
   const original = process.env.ORRERY_JOURNAL_DIR;

@@ -10,12 +10,18 @@ import { join } from 'node:path';
 const JOURNAL_FILENAME_RE = /^Journal\.(\d{4}-\d{2}-\d{2}T\d{6})\.\d+\.log$/;
 
 /**
- * The default journal directory (Windows-only — ED journals don't exist on
- * other platforms). Overridable via ORRERY_JOURNAL_DIR, mainly so tests and
- * local development don't have to touch the real Saved Games folder.
+ * The default journal directory: the Elite Dangerous CrossOver bottle on
+ * macOS, or the user's Saved Games folder elsewhere. ORRERY_JOURNAL_DIR
+ * overrides either default, including for custom bottle names and locations.
  */
 export function defaultJournalDir() {
-  return process.env.ORRERY_JOURNAL_DIR || join(homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous');
+  if (process.env.ORRERY_JOURNAL_DIR) return process.env.ORRERY_JOURNAL_DIR;
+
+  const userDir = process.platform === 'darwin'
+    ? join(homedir(), 'Library', 'Application Support', 'CrossOver', 'Bottles',
+      'Elite Dangerous', 'drive_c', 'users', 'crossover')
+    : homedir();
+  return join(userDir, 'Saved Games', 'Frontier Developments', 'Elite Dangerous');
 }
 
 /**
