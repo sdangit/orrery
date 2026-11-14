@@ -30,6 +30,27 @@ function scan(bodyId, systemAddress, timestamp = '2026-01-01T00:00:01Z') {
   };
 }
 
+test('rotation drains unread scans from the old part and retains the cache across a game restart', () => {
+  withTempDir((dir) => {
+    const first = join(dir, 'Journal.2026-01-01T000000.01.log');
+    const second = join(dir, 'Journal.2026-01-01T000000.02.log');
+    const commander = { event: 'Commander', FID: 'F1', Name: 'Test' };
+    writeFileSync(first, line(commander) + line(fsdJump('A', 1)));
+    const watcher = createLiveWatcher(dir);
+    watcher.poll();
+    appendFileSync(first, line(scan(1, 1)) + line({ event: 'Continued', Part: 2 }));
+    writeFileSync(second, line(fsdJump('B', 2)) + line(scan(2, 2)));
+    assert.equal(watcher.poll().journalPath, second);
+    const relog = join(dir, 'Journal.2026-01-01T010000.01.log');
+    writeFileSync(relog, line(commander) + line(fsdJump('A', 1)));
+    const result = watcher.poll();
+    assert.equal(result.journalPath, relog);
+    assert.ok(result.snapshot.nodes.some((n) => n.id === 1));
+    assert.equal(result.snapshot.sessionStats.scans, 2);
+    assert.equal(watcher.poll().changed, false);
+  });
+});
+
 test('a snapshot has nextSystem null when there is no NavRoute.json at all', () => {
   withTempDir((dir) => {
     writeFileSync(join(dir, 'Journal.2026-01-01T000000.01.log'), line(fsdJump('Sol', 1)));

@@ -22,6 +22,18 @@ test('disabled providers trigger no network request', async () => {
   assert.deepEqual(await fetchCommunityBodies({ ...input, providers: [] }), {});
 });
 
+test('manual refresh explicitly bypasses the watcher cache', async () => {
+  let called;
+  globalThis.fetch = async (url) => {
+    called = new URL(url, 'http://localhost');
+    return { ok: true, json: async () => ({ edsm: { bodies: [] }, spansh: { bodies: [] } }) };
+  };
+  await fetchCommunityBodies({ ...input, refresh: true });
+  assert.equal(called.searchParams.get('refresh'), '1');
+  await fetchCommunityBodies(input);
+  assert.equal(called.searchParams.has('refresh'), false);
+});
+
 test('missing watcher, malformed response and cancellation return null', async () => {
   for (const mock of [
     async () => { throw new Error('offline'); },

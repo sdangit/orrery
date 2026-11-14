@@ -60,7 +60,24 @@ export function createLiveWatcher(journalDir) {
       return { changed: false, snapshot: null, journalPath: null };
     }
 
+    let updated = false;
+    function consumeCurrentFile() {
+      const read = readNewLines(currentPath, offset, remainder);
+      offset = read.newOffset;
+      remainder = read.remainder;
+      const events = parseJournalLines(read.lines.join('\n'));
+      recentEvents.add(events);
+      updated = model.applyEvents(events).updated || updated;
+    }
+
     if (newestPath !== currentPath) {
+      // Drain the previous part first: its last scans may have been appended
+      // between our last poll and creation of the new journal.
+      if (currentPath) {
+        try { consumeCurrentFile(); } catch (error) {
+          if (error.code !== 'ENOENT') throw error;
+        }
+      }
       // A new session file appeared (game launch, or a relog). Start tailing
       // it from the beginning — the system model itself decides whether this
       // represents an actual system switch (a relog usually reopens in the
@@ -70,19 +87,7 @@ export function createLiveWatcher(journalDir) {
       remainder = '';
     }
 
-    const read = readNewLines(currentPath, offset, remainder);
-    offset = read.newOffset;
-    remainder = read.remainder;
-
-    if (read.lines.length === 0) {
-      const snapshot = buildSnapshot();
-      const derivedChanged = trackDerivedChanges(snapshot);
-      return { changed: derivedChanged, snapshot, journalPath: currentPath };
-    }
-
-    const events = parseJournalLines(read.lines.join('\n'));
-    recentEvents.add(events);
-    const { updated } = model.applyEvents(events);
+    consumeCurrentFile();
 
     const snapshot = buildSnapshot();
     const derivedChanged = trackDerivedChanges(snapshot);

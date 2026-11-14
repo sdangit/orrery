@@ -54,7 +54,7 @@ test('Scan events for the current system accumulate into the snapshot', () => {
   assert.ok(snap.nodes.some((n) => n.id === 1));
 });
 
-test('jumping to a different system resets accumulated scans and reports switched=true', () => {
+test('jumping to a different system displays only that system and reports switched=true', () => {
   const model = createSystemModel();
   model.applyEvents([fsdJump('Sol', 1)]);
   model.applyEvents([scan(1, 1)]);
@@ -63,6 +63,63 @@ test('jumping to a different system resets accumulated scans and reports switche
   const snap = model.snapshot();
   assert.equal(snap.systemName, 'Alpha Centauri');
   assert.equal(snap.nodes.some((n) => n.id === 1 && n.kind === 'Star'), false);
+});
+
+test('A → B → A restores journal scans, barycentres and biology without recounting stats', () => {
+  const model = createSystemModel();
+  const organic = { event: 'ScanOrganic', timestamp: '2026-01-01T00:00:02Z',
+    SystemAddress: 1, Body: 1, Species: 'Test species', Genus: 'Test genus', ScanType: 'Log' };
+  model.applyEvents([fsdJump('A', 1), scan(1, 1, { WasDiscovered: false }), organic, organic,
+    { event: 'ScanBaryCentre', BodyID: 5, SystemAddress: 1, timestamp: organic.timestamp },
+    { event: 'SAASignalsFound', BodyID: 1, SystemAddress: 1, timestamp: organic.timestamp,
+      Signals: [{ Type: '$SAA_SignalType_Biological;', Count: 2 }], Genuses: [{ Genus: 'Test genus' }] },
+    { event: 'Bounty', TotalReward: 5000 }]);
+  model.applyEvents([fsdJump('B', 2), scan(2, 2), fsdJump('A', 1)]);
+  let snapshot = model.snapshot();
+  assert.equal(snapshot.nodes.some((n) => n.id === 2), false);
+  assert.equal(snapshot.nodes.find((n) => n.id === 5).kind, 'Barycentre');
+  const body = snapshot.nodes.find((n) => n.id === 1);
+  assert.equal(body.bio.samples[0].scansLogged, 1, 'duplicate samples are not counted twice');
+  assert.equal(body.bio.signalCount, 2);
+  assert.deepEqual(snapshot.sessionStats, { scans: 2, firstDiscoveries: 1 });
+  assert.equal(snapshot.bountyTally, 5000);
+  model.applyEvents([scan(1, 1, { timestamp: '2026-01-02T00:00:00Z', MeanAnomaly: 123 }), scan(1, 1)]);
+  snapshot = model.snapshot();
+  assert.equal(snapshot.nodes.find((n) => n.id === 1).elements.meanAnomalyDeg, 123);
+});
+
+test('session cache evicts least recently visited systems and a new model starts empty', () => {
+  const model = createSystemModel({ maxSystems: 2 });
+  model.applyEvents([fsdJump('A', 1), scan(1, 1), fsdJump('B', 2), scan(2, 2),
+    fsdJump('A', 1), fsdJump('C', 3), fsdJump('A', 1)]);
+  assert.ok(model.snapshot().nodes.some((n) => n.id === 1));
+  model.applyEvents([fsdJump('B', 2)]);
+  assert.equal(model.snapshot().nodes.length, 1, 'B was evicted');
+  const restarted = createSystemModel();
+  restarted.applyEvents([fsdJump('A', 1)]);
+  assert.equal(restarted.snapshot().nodes.length, 1);
+});
+
+test('repeated scans compact before the per-system event bound is reached', () => {
+  const model = createSystemModel({ maxEventsPerSystem: 2 });
+  model.applyEvents([fsdJump('A', 1), scan(1, 1), scan(2, 1), scan(1, 1), scan(3, 1)]);
+  assert.deepEqual(model.snapshot().nodes.map((n) => n.id).sort(), [0, 1, 3]);
+});
+
+test('same-commander relogs preserve scans; a different FID clears personal data and stats', () => {
+  const model = createSystemModel();
+  model.applyEvents([{ event: 'Commander', FID: 'F1', Name: 'Pilot' }, fsdJump('A', 1), scan(1, 1),
+    { event: 'Bounty', TotalReward: 5000 }]);
+  model.applyEvents([{ event: 'LoadGame', Commander: 'Pilot' }, fsdJump('A', 1)]);
+  assert.ok(model.snapshot().nodes.some((n) => n.id === 1));
+  assert.equal(model.snapshot().commanderKey, 'fid:F1');
+  model.applyEvents([{ event: 'Commander', FID: 'F2', Name: 'Pilot' }, fsdJump('A', 1)]);
+  assert.equal(model.snapshot().nodes.length, 1);
+  assert.deepEqual(model.snapshot().sessionStats, { scans: 0, firstDiscoveries: 0 });
+  assert.equal(model.snapshot().bountyTally, 0);
+  assert.equal(model.snapshot().commanderKey, 'fid:F2');
+  model.applyEvents([{ event: 'Commander', FID: 'F1', Name: 'Pilot' }, fsdJump('A', 1)]);
+  assert.equal(model.snapshot().nodes.length, 1, 'changing back does not resurrect cleared data');
 });
 
 test('re-arriving at the same system (same SystemAddress) does not reset — switched is false and earlier scans survive', () => {

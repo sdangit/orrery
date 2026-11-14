@@ -1,7 +1,8 @@
 /** Only contacts the local watcher. Provider selection is explicit and opt-in. */
-export async function fetchCommunityBodies({ systemName, systemAddress, providers }, { signal } = {}) {
+export async function fetchCommunityBodies({ systemName, systemAddress, providers, refresh = false }, { signal } = {}) {
   if (!providers.length) return {};
   const params = new URLSearchParams({ systemName, providers: providers.join(',') });
+  if (refresh) params.set('refresh', '1');
   if (systemAddress !== null && systemAddress !== undefined) params.set('systemAddress', String(systemAddress));
   try {
     const response = await fetch(`/api/community-bodies?${params}`, {
