@@ -30,7 +30,7 @@ It also pays attention to what you've been doing lately. A few `ScanOrganic` eve
 
 The naming problem is the part this was really built for. Procedural names are impossible to hold in your head, so the map leans on position, colour and icon, keeps the text short (the system prefix is stripped, since you already know which system you're in), and lets you rename anything you like. Call something "money moon" and it stays "money moon" in that system forever.
 
-There's reference-orbit playback to watch even very slow systems move at a useful speed, orbit ellipses so the structure reads even when the bodies themselves are small, and two scale modes: a compressed one where everything is visible at once, and a true-distance one that shows you how much emptiness is really out there. EDSM and Spansh can optionally fill in bodies you haven't scanned yourself, drawn as dim wireframes so you can tell at a glance what's yours and what's borrowed.
+There's reference-orbit playback to watch even very slow systems move at a useful speed, orbit ellipses so the structure reads even when the bodies themselves are small, and three scale modes: Compact, True distances, and Fully to scale. EDSM and Spansh can optionally fill in bodies you haven't scanned yourself, drawn as dim wireframes so you can tell at a glance what's yours and what's borrowed.
 
 Smaller things: four colour schemes, a legend you can hide, quiet audio pings for first discoveries and bio signals (silent unless you ask for them). It renders on demand and caps at 30fps, so it isn't quietly stealing frames from the game.
 
@@ -38,7 +38,21 @@ Smaller things: four colour schemes, a legend you can hide, quiet audio pings fo
 
 The orbits are real. Every `Scan` event carries a full Keplerian element set and ORRERY uses all of it, solved properly and propagated from the timestamp on the scan itself, so warping forward a year puts things where they would actually be instead of accumulating drift. Binaries and co-orbiting moon pairs orbit their real barycentres.
 
-Scale is the part that isn't honest, and the panel says so while it's happening. A real system spans about seven orders of magnitude between a tight moon orbit and a wide binary separation, so the default view compresses distances logarithmically, per orbit rather than globally, which keeps a moon visible beside its planet however far that planet sits from its star. Ordering always survives: further away is always drawn further away. Switch on true distances for an honest linear scale. Body sizes are exaggerated in both modes.
+Scale is the part that isn't honest, and the panel says so while it's happening. A real system spans about seven orders of magnitude between a tight moon orbit and a wide binary separation, so the default view compresses distances logarithmically, per orbit rather than globally, which keeps a moon visible beside its planet however far that planet sits from its star. Ordering always survives: further away is always drawn further away. The **Scale mode** selector offers:
+
+- **Compact:** compressed distances and exaggerated body sizes (the default).
+- **True distances:** proportional distances with exaggerated body sizes.
+- **Fully to scale:** distances, body radii, and ring radii all use the same linear scale.
+
+In Fully to scale, a small open diamond marks bodies that are too small to see;
+markers, labels, and click targets are screen aids, not physical sizes. The actual
+sphere stays at its physical radius. Bodies with an unknown radius get only a
+location marker. Select a body and choose **Zoom to body** to inspect it and its
+rings; **Center selection** retains the current viewing distance. Zoom to body
+requires a known radius in Fully to scale. Body effects and community wireframes
+remain enabled. Fit system still frames bodies at their current positions, not
+entire orbital paths. The selected scale mode persists across launches, and the
+old True scale setting migrates to True distances.
 
 Community bodies are drawn as wireframes to distinguish them from personal scans. Their position quality is shown separately: a complete Spansh orbit can be propagated from its mean-anomaly timestamp, while EDSM-only orbits use an illustrative phase and remain approximate. An approximate ancestor also makes a child's absolute position approximate. Bodies with unresolved parent links are not placed at the origin; they are omitted with a diagnostic count.
 
@@ -67,7 +81,7 @@ Camera controls: left-drag to orbit; right-drag or Shift-drag to pan; scroll or
 pinch to zoom. Arrow keys pan while the map has focus. On a touchscreen, use
 one finger to orbit and two fingers to pan/zoom. Dragging does not select a body.
 
-**Center main star** and the detail panel's **Center selected body** move the
+**Center main star** and the detail panel's **Center selection** move the
 orbit pivot while preserving angle and zoom. The centered body stays under the
 pivot as simulated time advances; panning releases it. **Fit system** frames the
 known bodies at the current angle, while **Reset view** also restores the default
@@ -75,6 +89,23 @@ orientation. The **Orbiting** indicator names the current target. Main-star
 centering is disabled until the available data identifies the arrival star. The
 selected body's orbit line is slightly brighter; selecting another body or
 closing details restores the previous line.
+
+**Browse bodies** opens the system hierarchy. In the detail panel, **← / →**
+cycle through siblings, ordered by orbital size (unknown sizes last), and wrap
+at either end. **↑ Up** selects the parent; breadcrumb buttons jump to ancestors.
+The scrollable **Children** list enters a body or orbital group. Navigation
+centers the selection while preserving the current viewing distance and angle,
+including when returning to the System breadcrumb. Use **Zoom to body** or
+**Fit system** to change framing. Barycentres appear as **Orbital group**,
+including groups whose positions are unavailable. Keyboard arrows still pan.
+
+**Find system (EDSM)** accepts a system name and opens its community-data orrery.
+Submitting a name explicitly queries EDSM, even when automatic EDSM backfill is
+off; if Spansh backfill is enabled, the resolved system address is also queried
+there. The source indicator reads **BROWSING**. Journal updates continue in the
+background; **Return to live system** displays the latest journal snapshot (or
+the demo if none has arrived). Failed searches leave the current view intact.
+Name lookup requires a working local watcher and an EDSM result with an ID64.
 
 **Time controls:** select a body, then choose **Use as time reference** in its
 detail panel. At **1× playback speed**, that body's orbital period takes 30 real
@@ -141,6 +172,9 @@ are chosen as a complete group: journal first, then Spansh, with an approximate
 provider orbit as the last resort. Conflicting parent chains are diagnosed;
 community conflicts cannot overwrite a journal parent link. Barycentre parent
 links can be recovered from the ancestor chains of their children.
+Referenced but absent barycentres remain navigable placeholders. Only the system
+root is treated as the origin; other missing groups still require orbital data
+before their descendants can be positioned.
 
 Spansh's `timestamps.meanAnomaly` supplies the orbital epoch. **`updateTime` is
 record freshness, not an orbital epoch**, and appears separately in the detail
@@ -168,6 +202,11 @@ Spansh ring radii in metres versus EDSM ring radii in kilometres), which differ
 from some labels in the [Spansh OpenAPI docs](https://docs.spansh.co.uk/).
 Unsafe JSON integer IDs are retained as decimal strings before they can be
 rounded by JavaScript.
+
+Captured EDSM and Spansh fixtures also cover Bleia Dryiae XJ-R e4-1 (173 bodies)
+and HIP 97950 (40 bodies). Spansh supplies 11 and 4 additional barycentres,
+respectively. Regression checks cover complete hierarchy traversal, missing
+groups with EDSM alone, and finite animated positions in every scale mode.
 
 
 ## License

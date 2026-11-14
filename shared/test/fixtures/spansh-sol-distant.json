@@ -1,0 +1,84 @@
+{
+  "sourceURL": "https://spansh.co.uk/api/dump/10477373803",
+  "name": "Sol",
+  "id64": "10477373803",
+  "bodies": [
+    {
+      "bodyId": 0,
+      "name": "Sol",
+      "type": "Star",
+      "subType": "G (White-Yellow) Star",
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T15:28:28Z"
+      },
+      "updateTime": "2026-11-14T03:09:05Z",
+      "mainStar": true,
+      "distanceToArrival": 0,
+      "solarRadius": 0.999999953989935,
+      "surfaceTemperature": 5778,
+      "solarMasses": 1
+    },
+    {
+      "bodyId": 45,
+      "name": "Sedna",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 4160999.97582259,
+      "semiMajorAxis": 506.200371803526,
+      "orbitalEccentricity": 0.854,
+      "orbitalInclination": 11.82872,
+      "argOfPeriapsis": 311.290007,
+      "meanAnomaly": 52.105628,
+      "ascendingNode": 144.546002,
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T18:24:14Z",
+        "meanAnomaly": "2026-11-13T18:24:14Z"
+      },
+      "updateTime": "2026-11-13T18:24:14Z",
+      "distanceToArrival": 290999.036202,
+      "radius": 995,
+      "gravity": 0.0178711124706842,
+      "surfaceTemperature": 20,
+      "earthMasses": 0.000435,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 46,
+      "name": "Persephone",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 5474999.96092584,
+      "semiMajorAxis": 700.000496880403,
+      "orbitalEccentricity": 0.6,
+      "orbitalInclination": 30,
+      "argOfPeriapsis": 121.143654,
+      "meanAnomaly": 256.241157,
+      "ascendingNode": 63.876414,
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T18:24:14Z",
+        "meanAnomaly": "2026-11-13T18:24:14Z"
+      },
+      "updateTime": "2026-11-13T18:24:14Z",
+      "distanceToArrival": 484209.387647,
+      "radius": 14427.148,
+      "gravity": 1.95253665748955,
+      "surfaceTemperature": 20,
+      "earthMasses": 9.9997,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    }
+  ]
+}

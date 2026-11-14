@@ -1,0 +1,1540 @@
+{
+  "sourceURL": "https://spansh.co.uk/api/dump/2557619442410",
+  "capturedAt": "2026-11-14T07:40:00Z",
+  "systemName": "HIP 97950",
+  "systemAddress": "2557619442410",
+  "bodies": [
+    {
+      "bodyId": 1,
+      "name": "HIP 97950 A",
+      "type": "Star",
+      "subType": "K (Yellow-Orange) Star",
+      "parents": [
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 851.943992354248,
+      "semiMajorAxis": 0.666453429642101,
+      "orbitalEccentricity": 0.217775,
+      "orbitalInclination": 26.852469,
+      "argOfPeriapsis": 226.888994,
+      "meanAnomaly": 157.350632,
+      "ascendingNode": -49.271161,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-14T02:24:42Z",
+      "mainStar": true,
+      "distanceToArrival": 0,
+      "solarRadius": 0.761169345794392,
+      "surfaceTemperature": 4260,
+      "solarMasses": 0.621094
+    },
+    {
+      "bodyId": 2,
+      "name": "HIP 97950 barycentre 2",
+      "type": "Barycentre",
+      "orbitalPeriod": 851.943992354248,
+      "semiMajorAxis": 1.09243812326769,
+      "orbitalEccentricity": 0.217775,
+      "orbitalInclination": 26.852469,
+      "argOfPeriapsis": 46.888999,
+      "meanAnomaly": 157.350632,
+      "ascendingNode": -49.271161,
+      "timestamps": {
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z"
+    },
+    {
+      "bodyId": 3,
+      "name": "HIP 97950 B",
+      "type": "Star",
+      "subType": "M (Red dwarf) Star",
+      "parents": [
+        {
+          "Null": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 8.54094933581019,
+      "semiMajorAxis": 0.0140314303198969,
+      "orbitalEccentricity": 0.139027,
+      "orbitalInclination": -3.592892,
+      "argOfPeriapsis": 87.249438,
+      "meanAnomaly": 324.011721,
+      "ascendingNode": -91.08883,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 1053.265362,
+      "solarRadius": 0.506195048166787,
+      "surfaceTemperature": 2792,
+      "solarMasses": 0.289063
+    },
+    {
+      "bodyId": 4,
+      "name": "HIP 97950 C",
+      "type": "Star",
+      "subType": "T (Brown dwarf) Star",
+      "parents": [
+        {
+          "Null": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 8.54094933581019,
+      "semiMajorAxis": 0.045144613626571,
+      "orbitalEccentricity": 0.139027,
+      "orbitalInclination": -3.592892,
+      "argOfPeriapsis": 267.249432,
+      "meanAnomaly": 324.011721,
+      "ascendingNode": -91.08883,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 1076.622076,
+      "solarRadius": 0.210540744787922,
+      "surfaceTemperature": 1214,
+      "solarMasses": 0.089844
+    },
+    {
+      "bodyId": 5,
+      "name": "HIP 97950 A 1",
+      "type": "Planet",
+      "subType": "Metal-rich body",
+      "parents": [
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.67119002011574,
+      "semiMajorAxis": 0.0321480223230268,
+      "orbitalEccentricity": 0.000279,
+      "orbitalInclination": 0.226392,
+      "argOfPeriapsis": 190.149229,
+      "meanAnomaly": 326.1008,
+      "ascendingNode": 7.786611,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 16.038307,
+      "radius": 2538.65975,
+      "gravity": 0.759695319669624,
+      "surfaceTemperature": 1138.569946,
+      "earthMasses": 0.120469,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 6,
+      "name": "HIP 97950 A 1 a",
+      "type": "Planet",
+      "subType": "Metal-rich body",
+      "parents": [
+        {
+          "Planet": 5
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.387643988206019,
+      "semiMajorAxis": 0.0000743043512059293,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": -13.152934,
+      "argOfPeriapsis": 86.58137,
+      "meanAnomaly": 159.922021,
+      "ascendingNode": 87.1337,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 16.061187,
+      "radius": 497.001,
+      "gravity": 0.132372081166514,
+      "surfaceTemperature": 1138.569946,
+      "earthMasses": 0.000805,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 7,
+      "name": "HIP 97950 A 2",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.7796602033912,
+      "semiMajorAxis": 0.0537798379258819,
+      "orbitalEccentricity": 0.000763,
+      "orbitalInclination": -0.421001,
+      "argOfPeriapsis": 112.440678,
+      "meanAnomaly": 59.713713,
+      "ascendingNode": -66.719788,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 26.826082,
+      "radius": 2625.72,
+      "gravity": 0.396770368104415,
+      "surfaceTemperature": 895.020935,
+      "earthMasses": 0.067307,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 8,
+      "name": "HIP 97950 barycentre 8",
+      "type": "Barycentre",
+      "orbitalPeriod": 14.5902995158102,
+      "semiMajorAxis": 0.0997071684966951,
+      "orbitalEccentricity": 0.004476,
+      "orbitalInclination": -0.110199,
+      "argOfPeriapsis": 333.232827,
+      "meanAnomaly": 245.995205,
+      "ascendingNode": 44.214581,
+      "timestamps": {
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z"
+    },
+    {
+      "bodyId": 9,
+      "name": "HIP 97950 A 3",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Null": 8
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.3101052630787,
+      "semiMajorAxis": 0.000103007093548932,
+      "orbitalEccentricity": 0.045894,
+      "orbitalInclination": -2.06223,
+      "argOfPeriapsis": 142.193801,
+      "meanAnomaly": 312.097713,
+      "ascendingNode": 175.250032,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 49.832818,
+      "radius": 3147.37,
+      "gravity": 0.486716121137963,
+      "surfaceTemperature": 674.564087,
+      "earthMasses": 0.118631,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 10,
+      "name": "HIP 97950 A 4",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Null": 8
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.3101052630787,
+      "semiMajorAxis": 0.000105467047313595,
+      "orbitalEccentricity": 0.045894,
+      "orbitalInclination": -2.06223,
+      "argOfPeriapsis": 322.193796,
+      "meanAnomaly": 312.097713,
+      "ascendingNode": 175.250032,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 49.859084,
+      "radius": 3123.83,
+      "gravity": 0.4825551136943,
+      "surfaceTemperature": 674.564087,
+      "earthMasses": 0.115864,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 11,
+      "name": "HIP 97950 A 5",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 31.8313003690162,
+      "semiMajorAxis": 0.167721124106345,
+      "orbitalEccentricity": 0.010364,
+      "orbitalInclination": -0.030448,
+      "argOfPeriapsis": 325.280738,
+      "meanAnomaly": 159.867867,
+      "ascendingNode": -70.665178,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 84.509081,
+      "radius": 4649.2,
+      "gravity": 0.773399408585704,
+      "surfaceTemperature": 534.969971,
+      "earthMasses": 0.411327,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 12,
+      "name": "HIP 97950 ABC 1",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2209.71996033633,
+      "semiMajorAxis": 3.33220242286048,
+      "orbitalEccentricity": 0.000252,
+      "orbitalInclination": -0.682725,
+      "argOfPeriapsis": 125.176385,
+      "meanAnomaly": 155.092726,
+      "ascendingNode": 9.222214,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-12T06:21:52Z",
+      "distanceToArrival": 2002.665716,
+      "radius": 69745.896,
+      "gravity": 23.4061568267564,
+      "surfaceTemperature": 718.609131,
+      "earthMasses": 2801.523193,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "468376918865973994",
+          "innerRadius": 127400000,
+          "mass": 2801200000000,
+          "name": "HIP 97950 ABC 1 A Ring",
+          "outerRadius": 490750000,
+          "signals": {
+            "signals": {
+              "Monazite": 1
+            },
+            "updateTime": "2026-11-13T21:20:59Z"
+          },
+          "type": "Rocky"
+        }
+      ]
+    },
+    {
+      "bodyId": 14,
+      "name": "HIP 97950 ABC 1 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.04581999282407,
+      "semiMajorAxis": 0.00410106280320309,
+      "orbitalEccentricity": 0.000386,
+      "orbitalInclination": -0.005825,
+      "argOfPeriapsis": 172.392117,
+      "meanAnomaly": 213.722977,
+      "ascendingNode": 179.257864,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2004.256834,
+      "radius": 647.075,
+      "gravity": 0.0752770470072397,
+      "surfaceTemperature": 237.964981,
+      "earthMasses": 0.000776,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 15,
+      "name": "HIP 97950 ABC 1 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.92001993181713,
+      "semiMajorAxis": 0.00614887446511986,
+      "orbitalEccentricity": 0.000054,
+      "orbitalInclination": -0.000385,
+      "argOfPeriapsis": 333.680313,
+      "meanAnomaly": 182.864377,
+      "ascendingNode": 5.936072,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2005.32886,
+      "radius": 778.241,
+      "gravity": 0.0911251147139798,
+      "surfaceTemperature": 213.863998,
+      "earthMasses": 0.001358,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 16,
+      "name": "HIP 97950 ABC 1 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.20467994444444,
+      "semiMajorAxis": 0.00865195646966625,
+      "orbitalEccentricity": 0.000256,
+      "orbitalInclination": 0.060039,
+      "argOfPeriapsis": 288.113553,
+      "meanAnomaly": 256.345211,
+      "ascendingNode": 146.637085,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-12T17:48:48Z",
+      "distanceToArrival": 2006.369264,
+      "radius": 987.416,
+      "gravity": 0.11602335066789,
+      "surfaceTemperature": 197.01001,
+      "earthMasses": 0.002783,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 17,
+      "name": "HIP 97950 ABC 1 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 6.52202984525463,
+      "semiMajorAxis": 0.0138946094165591,
+      "orbitalEccentricity": 0.000195,
+      "orbitalInclination": -0.002246,
+      "argOfPeriapsis": 329.670746,
+      "meanAnomaly": 168.963799,
+      "ascendingNode": -110.372872,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2000.0583,
+      "radius": 825.951,
+      "gravity": 0.0965825430814724,
+      "surfaceTemperature": 177.921005,
+      "earthMasses": 0.001621,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 18,
+      "name": "HIP 97950 ABC 1 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 23.7493989644213,
+      "semiMajorAxis": 0.0328871248601267,
+      "orbitalEccentricity": 0.004021,
+      "orbitalInclination": -0.010452,
+      "argOfPeriapsis": 84.74103,
+      "meanAnomaly": 338.046767,
+      "ascendingNode": -112.28999,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 1988.485538,
+      "radius": 1613.17,
+      "gravity": 0.193420312022025,
+      "surfaceTemperature": 152.921997,
+      "earthMasses": 0.012385,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Pristine"
+    },
+    {
+      "bodyId": 19,
+      "name": "HIP 97950 ABC 1 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 30.4556996734028,
+      "semiMajorAxis": 0.0388183276344514,
+      "orbitalEccentricity": 0.000175,
+      "orbitalInclination": 1.47449,
+      "argOfPeriapsis": 90.712398,
+      "meanAnomaly": 321.837655,
+      "ascendingNode": -68.356731,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-10T15:38:13Z",
+      "distanceToArrival": 1998.469768,
+      "radius": 1322.42,
+      "gravity": 0.157586825736719,
+      "surfaceTemperature": 187.255005,
+      "earthMasses": 0.006781,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Carbon dioxide"
+    },
+    {
+      "bodyId": 20,
+      "name": "HIP 97950 ABC 1 f a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 19
+        },
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.58404000103009,
+      "semiMajorAxis": 0.0000745259553452254,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 13.209198,
+      "argOfPeriapsis": 78.626426,
+      "meanAnomaly": 157.223259,
+      "ascendingNode": -54.259675,
+      "timestamps": {
+        "distanceToArrival": "2026-11-08T16:01:45Z",
+        "meanAnomaly": "2026-11-08T16:01:45Z"
+      },
+      "updateTime": "2026-11-08T16:01:45Z",
+      "distanceToArrival": 1992.37969,
+      "radius": 584.551,
+      "gravity": 0.0650675028041195,
+      "surfaceTemperature": 246.390015,
+      "earthMasses": 0.000547,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 21,
+      "name": "HIP 97950 ABC 1 g",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 59.3110001473495,
+      "semiMajorAxis": 0.0605361448796733,
+      "orbitalEccentricity": 0.005486,
+      "orbitalInclination": -2.325573,
+      "argOfPeriapsis": 320.293142,
+      "meanAnomaly": 49.661539,
+      "ascendingNode": -53.578773,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T09:34:55Z",
+        "meanAnomaly": "2026-11-06T09:34:55Z"
+      },
+      "updateTime": "2026-11-06T22:59:41Z",
+      "distanceToArrival": 2020.18339,
+      "radius": 1144.86,
+      "gravity": 0.135179871520343,
+      "surfaceTemperature": 172.847015,
+      "earthMasses": 0.00436,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Carbon dioxide"
+    },
+    {
+      "bodyId": 22,
+      "name": "HIP 97950 ABC 1 h",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 12
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 203.05700600147,
+      "semiMajorAxis": 0.137510099821045,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": -6.616402,
+      "argOfPeriapsis": 31.948698,
+      "meanAnomaly": 351.741434,
+      "ascendingNode": 26.448419,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-12T23:38:01Z",
+      "distanceToArrival": 1991.6504,
+      "radius": 3887.77,
+      "gravity": 0.239763026409707,
+      "surfaceTemperature": 114.862991,
+      "earthMasses": 0.089168,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Argon"
+    },
+    {
+      "bodyId": 25,
+      "name": "HIP 97950 ABC 2",
+      "type": "Planet",
+      "subType": "Gas giant with water-based life",
+      "parents": [
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3317.45993483949,
+      "semiMajorAxis": 4.3689429978806,
+      "orbitalEccentricity": 0.00111,
+      "orbitalInclination": -0.775195,
+      "argOfPeriapsis": 236.059179,
+      "meanAnomaly": 243.974389,
+      "ascendingNode": 89.465069,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2368.918471,
+      "radius": 71586.296,
+      "gravity": 3.46720485367595,
+      "surfaceTemperature": 150.851334,
+      "earthMasses": 437.185822,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "936751280112505578",
+          "innerRadius": 123620000,
+          "mass": 1685000000000,
+          "name": "HIP 97950 ABC 2 A Ring",
+          "outerRadius": 264210000,
+          "signals": {
+            "signals": {
+              "Bromellite": 1,
+              "LowTemperatureDiamond": 3,
+              "Opal": 2,
+              "Tritium": 1
+            },
+            "updateTime": "2026-10-31T14:54:32Z"
+          },
+          "type": "Icy"
+        }
+      ]
+    },
+    {
+      "bodyId": 27,
+      "name": "HIP 97950 barycentre 27",
+      "type": "Barycentre",
+      "orbitalPeriod": 4.18880981979167,
+      "semiMajorAxis": 0.00556939400433919,
+      "orbitalEccentricity": 0.000365,
+      "orbitalInclination": 0.651201,
+      "argOfPeriapsis": 100.46013,
+      "meanAnomaly": 317.726929,
+      "ascendingNode": -74.137872,
+      "timestamps": {
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z"
+    },
+    {
+      "bodyId": 28,
+      "name": "HIP 97950 ABC 2 a",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 27
+        },
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.539953454780093,
+      "semiMajorAxis": 0.000011395363041434,
+      "orbitalEccentricity": 0.095749,
+      "orbitalInclination": 6.465657,
+      "argOfPeriapsis": 92.818016,
+      "meanAnomaly": 248.42954,
+      "ascendingNode": 165.822008,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2368.806981,
+      "radius": 1118.11,
+      "gravity": 0.0663879881717141,
+      "surfaceTemperature": 92.212997,
+      "earthMasses": 0.002042,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 29,
+      "name": "HIP 97950 ABC 2 b",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 27
+        },
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.539953454780093,
+      "semiMajorAxis": 0.0000168272562573178,
+      "orbitalEccentricity": 0.095749,
+      "orbitalInclination": 6.465657,
+      "argOfPeriapsis": 272.81801,
+      "meanAnomaly": 248.42954,
+      "ascendingNode": 165.822008,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2368.80839,
+      "radius": 982.873,
+      "gravity": 0.058180687264199,
+      "surfaceTemperature": 92.212997,
+      "earthMasses": 0.001383,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 30,
+      "name": "HIP 97950 ABC 2 c",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.41159004414352,
+      "semiMajorAxis": 0.00576515398273389,
+      "orbitalEccentricity": 0.000435,
+      "orbitalInclination": -0.014085,
+      "argOfPeriapsis": 173.154721,
+      "meanAnomaly": 33.39335,
+      "ascendingNode": 39.573679,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-13T14:47:08Z",
+      "distanceToArrival": 2369.773342,
+      "radius": 1066.699875,
+      "gravity": 0.0632617518099317,
+      "surfaceTemperature": 92.044601,
+      "earthMasses": 0.001771,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 31,
+      "name": "HIP 97950 ABC 2 d",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.98099993334491,
+      "semiMajorAxis": 0.00706203492336445,
+      "orbitalEccentricity": 0.00173,
+      "orbitalInclination": -0.57737,
+      "argOfPeriapsis": 290.364128,
+      "meanAnomaly": 115.864415,
+      "ascendingNode": -70.60788,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2369.443012,
+      "radius": 984.621,
+      "gravity": 0.0582865300295707,
+      "surfaceTemperature": 91.111801,
+      "earthMasses": 0.00139,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 32,
+      "name": "HIP 97950 ABC 2 e",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 8.38906952628472,
+      "semiMajorAxis": 0.00884891636719995,
+      "orbitalEccentricity": 0.000011,
+      "orbitalInclination": 0.587568,
+      "argOfPeriapsis": 223.552665,
+      "meanAnomaly": 265.955794,
+      "ascendingNode": -25.367362,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2368.133786,
+      "radius": 1360.87,
+      "gravity": 0.0812582848985419,
+      "surfaceTemperature": 90.180099,
+      "earthMasses": 0.003703,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 33,
+      "name": "HIP 97950 ABC 2 f",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 12.3077996627083,
+      "semiMajorAxis": 0.01142530723153,
+      "orbitalEccentricity": 0.000524,
+      "orbitalInclination": -0.483381,
+      "argOfPeriapsis": 54.904482,
+      "meanAnomaly": 139.351118,
+      "ascendingNode": 97.303701,
+      "timestamps": {
+        "distanceToArrival": "2026-11-07T14:51:35Z",
+        "meanAnomaly": "2026-11-07T14:51:35Z"
+      },
+      "updateTime": "2026-11-07T14:51:35Z",
+      "distanceToArrival": 2366.038526,
+      "radius": 1648.99,
+      "gravity": 0.0991508106454573,
+      "surfaceTemperature": 89.244003,
+      "earthMasses": 0.006634,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 34,
+      "name": "HIP 97950 ABC 2 g",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 17.3840002605208,
+      "semiMajorAxis": 0.0143829094897928,
+      "orbitalEccentricity": 0.000012,
+      "orbitalInclination": 0.002977,
+      "argOfPeriapsis": 321.263166,
+      "meanAnomaly": 51.705659,
+      "ascendingNode": 109.728294,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2367.114155,
+      "radius": 1367.13,
+      "gravity": 0.0816446415825431,
+      "surfaceTemperature": 88.497299,
+      "earthMasses": 0.003755,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 35,
+      "name": "HIP 97950 ABC 2 h",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 25.07970013,
+      "semiMajorAxis": 0.0183638125593525,
+      "orbitalEccentricity": 0.000013,
+      "orbitalInclination": 0.279511,
+      "argOfPeriapsis": 58.321947,
+      "meanAnomaly": 161.25052,
+      "ascendingNode": 92.556747,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-11T16:26:41Z",
+      "distanceToArrival": 2366.180649,
+      "radius": 1594.59,
+      "gravity": 0.0957515040277353,
+      "surfaceTemperature": 87.793411,
+      "earthMasses": 0.005991,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 36,
+      "name": "HIP 97950 ABC 2 i",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 33.9136003620139,
+      "semiMajorAxis": 0.0224559169278681,
+      "orbitalEccentricity": 0.001797,
+      "orbitalInclination": -0.101125,
+      "argOfPeriapsis": 35.527106,
+      "meanAnomaly": 171.940937,
+      "ascendingNode": 43.901171,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 2368.190554,
+      "radius": 2131.47,
+      "gravity": 0.130122565514428,
+      "surfaceTemperature": 87.274902,
+      "earthMasses": 0.014546,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 37,
+      "name": "HIP 97950 ABC 2 i a",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 36
+        },
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.70261999247685,
+      "semiMajorAxis": 0.0000995027686701894,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": -58.479513,
+      "argOfPeriapsis": 159.493113,
+      "meanAnomaly": 237.273263,
+      "ascendingNode": 71.968085,
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T21:14:46Z",
+        "meanAnomaly": "2026-11-13T21:14:46Z"
+      },
+      "updateTime": "2026-11-13T21:14:46Z",
+      "distanceToArrival": 2364.510122,
+      "radius": 742.388,
+      "gravity": 0.0405616396451514,
+      "surfaceTemperature": 87.274902,
+      "earthMasses": 0.00055,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 38,
+      "name": "HIP 97950 ABC 2 j",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 48.2299992883681,
+      "semiMajorAxis": 0.0283983196381063,
+      "orbitalEccentricity": 0.003384,
+      "orbitalInclination": 0.02563,
+      "argOfPeriapsis": 114.527963,
+      "meanAnomaly": 45.693983,
+      "ascendingNode": -116.571125,
+      "timestamps": {
+        "distanceToArrival": "2026-11-07T23:54:18Z",
+        "meanAnomaly": "2026-11-07T23:54:18Z"
+      },
+      "updateTime": "2026-11-08T00:11:28Z",
+      "distanceToArrival": 2363.679891,
+      "radius": 1486.819875,
+      "gravity": 0.0890470072397267,
+      "surfaceTemperature": 86.7323,
+      "earthMasses": 0.004844,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 39,
+      "name": "HIP 97950 ABC 2 k",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 149.96400309934,
+      "semiMajorAxis": 0.0604976439544774,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": -63.110729,
+      "argOfPeriapsis": 178.411604,
+      "meanAnomaly": 187.86353,
+      "ascendingNode": -153.829425,
+      "timestamps": {
+        "distanceToArrival": "2026-11-08T15:17:06Z",
+        "meanAnomaly": "2026-11-08T15:17:06Z"
+      },
+      "updateTime": "2026-11-14T01:25:33Z",
+      "distanceToArrival": 2369.764208,
+      "radius": 4639.26,
+      "gravity": 0.292757724074641,
+      "surfaceTemperature": 85.760895,
+      "earthMasses": 0.155036,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Argon-rich",
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "1441154438378001130",
+          "innerRadius": 8242100,
+          "mass": 47418,
+          "name": "HIP 97950 ABC 2 k A Ring",
+          "outerRadius": 18702000,
+          "signals": {
+            "signals": {
+              "Grandidierite": 3,
+              "LowTemperatureDiamond": 1
+            },
+            "updateTime": "2026-11-13T21:09:11Z"
+          },
+          "type": "Icy"
+        }
+      ]
+    },
+    {
+      "bodyId": 43,
+      "name": "HIP 97950 barycentre 43",
+      "type": "Barycentre",
+      "orbitalPeriod": 5059.20989369905,
+      "semiMajorAxis": 5.78842434975776,
+      "orbitalEccentricity": 0.003547,
+      "orbitalInclination": 0.656747,
+      "argOfPeriapsis": 138.09715,
+      "meanAnomaly": 255.190381,
+      "ascendingNode": 86.199207,
+      "timestamps": {
+        "meanAnomaly": "2026-11-12T06:32:56Z"
+      },
+      "updateTime": "2026-11-12T06:32:56Z"
+    },
+    {
+      "bodyId": 44,
+      "name": "HIP 97950 ABC 3",
+      "type": "Planet",
+      "subType": "Gas giant with ammonia-based life",
+      "parents": [
+        {
+          "Null": 43
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 588.563001818125,
+      "semiMajorAxis": 0.00838750689783457,
+      "orbitalEccentricity": 0.176013,
+      "orbitalInclination": 7.905958,
+      "argOfPeriapsis": 175.093607,
+      "meanAnomaly": 104.355973,
+      "ascendingNode": -41.244712,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 3186.396887,
+      "radius": 69773.104,
+      "gravity": 2.2905539920465,
+      "surfaceTemperature": 112.485573,
+      "earthMasses": 274.374237,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "1621298423472820970",
+          "innerRadius": 135740000,
+          "mass": 1024300000000,
+          "name": "HIP 97950 ABC 3 A Ring",
+          "outerRadius": 226210000,
+          "type": "Icy"
+        }
+      ]
+    },
+    {
+      "bodyId": 46,
+      "name": "HIP 97950 ABC 3 a",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 44
+        },
+        {
+          "Null": 43
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.43315001494213,
+      "semiMajorAxis": 0.00233219170099328,
+      "orbitalEccentricity": 0.000518,
+      "orbitalInclination": 0.607244,
+      "argOfPeriapsis": 295.443958,
+      "meanAnomaly": 237.297882,
+      "ascendingNode": 15.690334,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 3186.55271,
+      "radius": 999.491,
+      "gravity": 0.0593412868359335,
+      "surfaceTemperature": 79.948997,
+      "earthMasses": 0.001459,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 47,
+      "name": "HIP 97950 ABC 3 b",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 44
+        },
+        {
+          "Null": 43
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.13858002313657,
+      "semiMajorAxis": 0.00304547211050162,
+      "orbitalEccentricity": 0.000339,
+      "orbitalInclination": -0.064673,
+      "argOfPeriapsis": 342.392138,
+      "meanAnomaly": 255.878993,
+      "ascendingNode": 82.416539,
+      "timestamps": {
+        "distanceToArrival": "2026-11-12T06:32:56Z",
+        "meanAnomaly": "2026-11-12T06:32:56Z"
+      },
+      "updateTime": "2026-11-12T06:32:56Z",
+      "distanceToArrival": 3191.000353,
+      "radius": 707.227,
+      "gravity": 0.0416079331090038,
+      "surfaceTemperature": 78.904297,
+      "earthMasses": 0.000512,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 48,
+      "name": "HIP 97950 ABC 3 c",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 44
+        },
+        {
+          "Null": 43
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.25684020033565,
+      "semiMajorAxis": 0.00554695377130592,
+      "orbitalEccentricity": 0.004852,
+      "orbitalInclination": 0.073603,
+      "argOfPeriapsis": 129.780097,
+      "meanAnomaly": 135.80113,
+      "ascendingNode": 178.16696,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 3183.822404,
+      "radius": 1035.1999375,
+      "gravity": 0.0616310798409299,
+      "surfaceTemperature": 77.008499,
+      "earthMasses": 0.001625,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 49,
+      "name": "HIP 97950 ABC 3 d",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 44
+        },
+        {
+          "Null": 43
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 6.73592994334491,
+      "semiMajorAxis": 0.00654389477043226,
+      "orbitalEccentricity": 0.002337,
+      "orbitalInclination": -0.023728,
+      "argOfPeriapsis": 76.689828,
+      "meanAnomaly": 82.336193,
+      "ascendingNode": -110.56825,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 3185.419739,
+      "radius": 1207.29,
+      "gravity": 0.0718149281125727,
+      "surfaceTemperature": 76.5783,
+      "earthMasses": 0.002576,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 50,
+      "name": "HIP 97950 ABC 3 e",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 44
+        },
+        {
+          "Null": 43
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 12.8943003990046,
+      "semiMajorAxis": 0.0100887066405534,
+      "orbitalEccentricity": 0.000155,
+      "orbitalInclination": -9.684705,
+      "argOfPeriapsis": 177.360806,
+      "meanAnomaly": 210.374884,
+      "ascendingNode": -48.490105,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 3187.547156,
+      "radius": 1003.39,
+      "gravity": 0.0594098093198736,
+      "surfaceTemperature": 75.606598,
+      "earthMasses": 0.001472,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 51,
+      "name": "HIP 97950 ABC 4",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 43
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 588.563001818125,
+      "semiMajorAxis": 0.123329590425333,
+      "orbitalEccentricity": 0.176013,
+      "orbitalInclination": 7.905958,
+      "argOfPeriapsis": 355.093602,
+      "meanAnomaly": 104.355973,
+      "ascendingNode": -41.244712,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 3198.864622,
+      "radius": 17251.698,
+      "gravity": 2.54818405220761,
+      "surfaceTemperature": 498.021973,
+      "earthMasses": 18.660414,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thick Methane-rich",
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "1873500002605568746",
+          "innerRadius": 31497000,
+          "mass": 2341.3,
+          "name": "HIP 97950 ABC 4 A Ring",
+          "outerRadius": 92338000,
+          "type": "Icy"
+        }
+      ]
+    },
+    {
+      "bodyId": 53,
+      "name": "HIP 97950 ABC 5",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 8873.95993426994,
+      "semiMajorAxis": 8.41881571903994,
+      "orbitalEccentricity": 0.013995,
+      "orbitalInclination": -1.126865,
+      "argOfPeriapsis": 123.314844,
+      "meanAnomaly": 186.204778,
+      "ascendingNode": -132.494195,
+      "timestamps": {
+        "distanceToArrival": "2026-11-06T06:14:45Z",
+        "meanAnomaly": "2026-11-06T06:14:45Z"
+      },
+      "updateTime": "2026-11-06T06:14:45Z",
+      "distanceToArrival": 3918.054436,
+      "radius": 18662,
+      "gravity": 3.10315366574895,
+      "surfaceTemperature": 63.111401,
+      "earthMasses": 26.591719,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thick Helium",
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "1945557596643496682",
+          "innerRadius": 35470000,
+          "mass": 1847000,
+          "name": "HIP 97950 ABC 5 A Ring",
+          "outerRadius": 103910000,
+          "signals": {
+            "signals": {
+              "LowTemperatureDiamond": 1
+            },
+            "updateTime": "2026-10-30T23:12:14Z"
+          },
+          "type": "Icy"
+        }
+      ]
+    }
+  ]
+}

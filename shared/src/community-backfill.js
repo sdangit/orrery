@@ -120,6 +120,7 @@ export function normalizeCommunityBodies(source, bodies, receivedAt = Date.now()
 export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.now() } = {}) {
   const candidates = new Map();
   const links = new Map();
+  const inferredGroups = new Map();
   const diagnostics = [];
   const addLink = (id, parentId, source) => {
     if (!links.has(id)) links.set(id, []);
@@ -129,6 +130,9 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
     if (!candidates.has(node.id)) candidates.set(node.id, []);
     candidates.get(node.id).push(node);
     const chain = [{ id: node.id }, ...node.chain];
+    for (const ancestor of node.chain) {
+      if (ancestor.type === 'Null') inferredGroups.set(ancestor.id, node.source);
+    }
     for (let i = 0; i < chain.length - 1; i++) addLink(chain[i].id, chain[i + 1].id, node.source);
     if (!node.invalidParents && !node.chain.length && node.id === 0) addLink(node.id, null, node.source);
   };
@@ -148,6 +152,14 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
       recordUpdatedAt: timestamp(original.raw?.timestamp) };
     add(node);
     if (original.parentId != null) addLink(node.id, original.parentId, 'journal');
+  }
+
+  // Parent chains can name barycentres without supplying their records (EDSM).
+  // Preserve those groups for navigation, but never invent their orbital data.
+  for (const [id, source] of inferredGroups) {
+    if (candidates.has(id)) continue;
+    add({ id, kind: id === 0 ? 'SystemBarycentre' : 'Barycentre', raw: {},
+      elements: null, orbitQuality: 'missing', chain: [], source, inferred: true });
   }
 
   const nodes = new Map();

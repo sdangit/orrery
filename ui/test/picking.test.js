@@ -34,6 +34,38 @@ function pointer(canvas, type, values = {}) {
   canvas.dispatchEvent(event);
 }
 
+test('subpixel bodies have CSS-pixel click targets without enlarging geometry or picking behind the camera', () => {
+  const rect = { left: 20, top: 30, width: 800, height: 800, right: 820, bottom: 830 };
+  const canvas = { width: 1600, height: 1600, getBoundingClientRect: () => rect };
+  const camera = new THREE.PerspectiveCamera(60, 1, 0.001, 1e6);
+  camera.position.z = 1000;
+  camera.lookAt(0, 0, 0);
+  const scene = new THREE.Scene();
+  const body = new THREE.Mesh(new THREE.SphereGeometry(0.001), new THREE.MeshBasicMaterial());
+  body.userData.minPickPixels = 10;
+  scene.add(body);
+  const pickables = new Map([[body, 0]]);
+  assert.equal(pickBody(428, 430, canvas, camera, scene, pickables), 0);
+  assert.equal(pickBody(431, 430, canvas, camera, scene, pickables), null);
+  assert.equal(body.geometry.parameters.radius, 0.001);
+  body.position.z = 2000;
+  assert.equal(pickBody(428, 430, canvas, camera, scene, pickables), null);
+});
+
+test('a visible foreground sphere takes precedence over a small body marker behind it', () => {
+  const canvas = { getBoundingClientRect: () => ({ left: 0, top: 0, width: 800, height: 800, right: 800, bottom: 800 }) };
+  const camera = new THREE.PerspectiveCamera(60, 1, 0.001, 10000);
+  camera.position.z = 100;
+  camera.lookAt(0, 0, 0);
+  const scene = new THREE.Scene();
+  const small = new THREE.Mesh(new THREE.SphereGeometry(0.001), new THREE.MeshBasicMaterial());
+  small.userData.minPickPixels = 10;
+  const foreground = new THREE.Mesh(new THREE.SphereGeometry(5), new THREE.MeshBasicMaterial());
+  foreground.position.z = 20;
+  scene.add(small, foreground);
+  assert.equal(pickBody(406, 400, canvas, camera, scene, new Map([[small, 0], [foreground, 1]])), 1);
+});
+
 test('only a primary click selects; dragging back to start, pan, cancel, and multitouch do not', () => {
   const canvas = new EventTarget();
   const selected = [];

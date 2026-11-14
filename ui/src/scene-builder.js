@@ -3,6 +3,8 @@ import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighl
 import { makeLabel } from './labels.js';
 import { bodyColor, bodyDisplayRadius, bodyIcon } from './body-visuals.js';
 import { shortDesignator } from './naming.js';
+import { METRES_PER_UNIT, scaleSettings } from './scale-modes.js';
+import { makeBodyMarker } from './body-markers.js';
 
 const RING_CLASS_COLORS = {
   eRingClass_Icy: 0xcfe8f5,
@@ -13,22 +15,13 @@ const RING_CLASS_COLORS = {
 
 const RENDERABLE_KINDS = new Set(['Star', 'Planet']);
 
-// True-scale mode: honest *distances* (1 display unit = 1e9 m, ~0.0067 AU),
-// exaggerated body sizes — the standard planetarium convention. Reworked
-// after real-browser feedback: fully-honest radii made every body an
-// invisible sub-pixel dot, which taught nothing. The distances are the part
-// that teaches ("space is mostly nothing"); body sizes and ring bands keep
-// the same exaggerated display sizing as compressed mode so there's still
-// something to see and click, and the scale badge says so.
-const TRUE_SCALE_METRES_PER_UNIT = 1e9;
-
-function scenePosition(nodes, id, atEpochMs, trueScale) {
-  if (!trueScale) return displayPosition(nodes, id, atEpochMs);
+export function scenePosition(nodes, id, atEpochMs, trueDistances) {
+  if (!trueDistances) return displayPosition(nodes, id, atEpochMs);
   const p = absolutePosition(nodes, id, atEpochMs);
   return {
-    x: p.x / TRUE_SCALE_METRES_PER_UNIT,
-    y: p.y / TRUE_SCALE_METRES_PER_UNIT,
-    z: p.z / TRUE_SCALE_METRES_PER_UNIT,
+    x: p.x / METRES_PER_UNIT,
+    y: p.y / METRES_PER_UNIT,
+    z: p.z / METRES_PER_UNIT,
   };
 }
 
@@ -39,27 +32,56 @@ function scenePosition(nodes, id, atEpochMs, trueScale) {
  * time through keplerianOffset naturally spaces points by real motion, and
  * in compressed mode each sample is compressed exactly the way the body's own
  * position is, so the path always passes through the body.
- * @returns {THREE.Line|null} Positioned relative to the parent — the caller places it at the parent's current position.
+ * @returns {THREE.Line|null} Parent-relative, or body-relative at true body sizes for GPU precision.
  */
-function buildOrbitPath(node, trueScale) {
+function buildOrbitPath(node, trueDistances, trueSizes, atEpochMs) {
   if (!node.elements) return null;
   const samples = 96;
   const periodMs = node.elements.orbitalPeriodSec * 1000;
   const points = [];
   for (let i = 0; i <= samples; i++) {
     const offset = keplerianOffset(node.elements, node.elements.epochMs + (i / samples) * periodMs);
-    const p = trueScale
-      ? { x: offset.x / TRUE_SCALE_METRES_PER_UNIT, y: offset.y / TRUE_SCALE_METRES_PER_UNIT, z: offset.z / TRUE_SCALE_METRES_PER_UNIT }
+    const p = trueDistances
+      ? { x: offset.x / METRES_PER_UNIT, y: offset.y / METRES_PER_UNIT, z: offset.z / METRES_PER_UNIT }
       : compressOffset(offset);
     points.push(new THREE.Vector3(p.x, p.y, p.z));
   }
   const line = new THREE.Line(
-    new THREE.BufferGeometry().setFromPoints(points),
+    new THREE.BufferGeometry().setFromPoints(trueSizes ? [...points, points.at(-1)] : points),
     new THREE.LineBasicMaterial({ color: 0x7a4a1e, transparent: true, opacity: node.isBackfill ? 0.18 : 0.35 }),
   );
   line.userData.baseOpacity = line.material.opacity;
   line.userData.orbitBodyId = node.id; // stashed for testability
+  if (trueSizes) {
+    // Retain precision until after subtracting the body's current offset.
+    // At Sedna's distance, absolute Float32 vertices can miss it by several radii.
+    line.userData.orbitSamples = new Float64Array(points.flatMap((p) => p.toArray()));
+    updateOrbitPhase(line, node, atEpochMs);
+  }
   return line;
+}
+
+// At close physical zoom, even a small chord error is larger than a planet.
+// Insert its exact current position between the surrounding fixed samples,
+// and express the whole line relative to that body. Three.js then subtracts
+// camera translation in double precision when computing the model-view matrix,
+// before sending the small local coordinates to the GPU. Increasing the number
+// of samples or using logarithmic depth alone cannot fix coordinate rounding.
+function updateOrbitPhase(line, node, atEpochMs) {
+  const samples = line.userData.orbitSamples;
+  if (!samples) return;
+  const turns = (atEpochMs - node.elements.epochMs) / (node.elements.orbitalPeriodSec * 1000);
+  const phase = ((turns % 1) + 1) % 1;
+  const index = (Math.floor(phase * 96) + 1) * 3;
+  const point = keplerianOffset(node.elements, atEpochMs);
+  const attribute = line.geometry.attributes.position;
+  const offset = [point.x / METRES_PER_UNIT, point.y / METRES_PER_UNIT, point.z / METRES_PER_UNIT];
+  for (let i = 0; i < samples.length; i++) {
+    attribute.array[i < index ? i : i + 3] = samples[i] - offset[i % 3];
+  }
+  attribute.array.set([0, 0, 0], index);
+  attribute.needsUpdate = true;
+  line.geometry.computeBoundingSphere();
 }
 
 /**
@@ -74,13 +96,14 @@ function buildOrbitPath(node, trueScale) {
  * @param {string} [mode] The active activity mode (see mode-detect.js's MODES) — drives per-mode highlighting (see mode-highlight.js). Defaults to 'exploration', which has no per-body highlight beyond the always-on spotlight treatment.
  * @param {Record<number, string>} [nicknames] bodyId -> nickname (see nicknames.js) — stands in for the designator wherever a body is pinned.
  * @param {object} [options]
- * @param {boolean} [options.trueScale] Honest distances/radii instead of the default log-compressed display scale.
+ * @param {'compact'|'distances'|'realistic'} [options.scaleMode] Distances and sizes share one linear scale only in realistic mode.
  * @param {string} [options.labelColor] CSS color for ordinary body labels (the active HUD color scheme's accent). Spotlighted/backfill labels keep their own fixed colors.
  * @returns {{ group: THREE.Group, pickables: Map<THREE.Object3D, number>, updatables: Map<number, {bodyGroup: THREE.Group, rings: THREE.Mesh[]}> }}
  *   `updatables` lets updateSystemScene() move bodies as simulated time advances (the warp slider) without a full scene rebuild.
  */
 export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'exploration', nicknames = {}, options = {}) {
-  const { trueScale = false, labelColor = '#ff8a2a' } = options;
+  const { scaleMode = 'compact', labelColor = '#ff8a2a' } = options;
+  const { trueDistances, trueSizes } = scaleSettings(scaleMode);
   const group = new THREE.Group();
   const pickables = new Map();
   const updatables = new Map();
@@ -97,12 +120,15 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     // the chain. It reappears on its own once the missing parent is scanned.
     let pos;
     try {
-      pos = scenePosition(nodes, node.id, atEpochMs, trueScale);
+      pos = scenePosition(nodes, node.id, atEpochMs, trueDistances);
     } catch (err) {
       console.warn(`orrery: skipping body ${node.id} (${node.name ?? 'unnamed'}) — ${err.message}`);
       continue;
     }
-    const radius = bodyDisplayRadius(node);
+    // Unknown physical sizes get a location marker, not an invented radius.
+    const realRadius = node.raw?.Radius;
+    const radius = trueSizes ? (Number.isFinite(realRadius) && realRadius > 0 ? realRadius / METRES_PER_UNIT : 0)
+      : bodyDisplayRadius(node);
     const color = bodyColor(node);
     const { spotlighted } = classifySpotlight(node);
     const modeHighlight = classifyModeHighlight(node, mode);
@@ -119,6 +145,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
         : new THREE.MeshBasicMaterial({ color }),
     );
     bodyGroup.add(mesh);
+    if (trueSizes) mesh.userData.minPickPixels = 10;
     pickables.set(mesh, node.id);
 
     if (spotlighted) {
@@ -164,24 +191,27 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     const finalLabelColor = spotlighted ? '#ffd24d' : (node.isBackfill ? '#7a4a1e' : labelColor);
     const label = makeLabel(labelText, finalLabelColor);
     label.userData.text = labelText; // stashed for testability — canvas-texture text isn't otherwise inspectable
+    label.userData.aspect = label.scale.x / label.scale.y;
     label.position.set(0, 0, radius + 1.1);
     bodyGroup.add(label);
 
     group.add(bodyGroup);
 
-    const updatable = { bodyGroup, rings: [], orbit: null, parentId: node.parentId ?? null };
+    const marker = trueSizes ? makeBodyMarker(labelColor) : null;
+    if (marker) bodyGroup.add(marker);
+    const updatable = { bodyGroup, mesh, radius, label, marker, rings: [], orbit: null, parentId: node.parentId ?? null };
     updatables.set(node.id, updatable);
 
-    // Orbit path ellipse, centred on the body's parent. Kept out of bodyGroup
-    // (which sits at the body itself) and repositioned alongside the parent
-    // during warp updates.
-    const orbitLine = buildOrbitPath(node, trueScale);
+    // The physical orbit is still around the parent. At true body sizes its
+    // vertices use a body-local origin to retain close-up GPU precision.
+    const orbitLine = buildOrbitPath(node, trueDistances, trueSizes, atEpochMs);
     if (orbitLine) {
       try {
         const parentPos = node.parentId != null
-          ? scenePosition(nodes, node.parentId, atEpochMs, trueScale)
+          ? scenePosition(nodes, node.parentId, atEpochMs, trueDistances)
           : { x: 0, y: 0, z: 0 };
-        orbitLine.position.set(parentPos.x, parentPos.y, parentPos.z);
+        const origin = trueSizes ? pos : parentPos;
+        orbitLine.position.set(origin.x, origin.y, origin.z);
         group.add(orbitLine);
         updatable.orbit = orbitLine;
       } catch {
@@ -191,15 +221,16 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
 
     // Ring band(s), drawn once per owning body regardless of how many belt
     // clusters reference it — the journal never gives individual cluster
-    // angles, only that they exist somewhere in the band. Ring radii stay on
-    // the compressed display scale even in true-distance mode, consistent
-    // with the exaggerated body sizes they belong to.
+    // angles, only that they exist somewhere in the band. Fully-to-scale mode
+    // uses the same physical units for ring radii as for bodies and distances.
     const rawRings = node.raw?.Rings;
     if (Array.isArray(rawRings) && !ringsAddedFor.has(node.id)) {
       ringsAddedFor.add(node.id);
       for (const ring of rawRings) {
-        const innerR = compressDistance(ring.InnerRad);
-        const outerR = compressDistance(ring.OuterRad);
+        if (!Number.isFinite(ring.InnerRad) || !Number.isFinite(ring.OuterRad)
+            || ring.InnerRad < 0 || ring.OuterRad <= ring.InnerRad) continue;
+        const innerR = trueSizes ? ring.InnerRad / METRES_PER_UNIT : compressDistance(ring.InnerRad);
+        const outerR = trueSizes ? ring.OuterRad / METRES_PER_UNIT : compressDistance(ring.OuterRad);
         // In mining mode, a Pristine/Major reserve ring gets FDev's own
         // amber "this is good" color and a brighter band ("Pristine glows",
         // per the design brief's mode table) instead of its natural ring-class tint.
@@ -232,14 +263,14 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
  * @param {Map<number, object>} nodes
  * @param {Map<number, {bodyGroup: THREE.Group, rings: THREE.Mesh[], orbit: THREE.Line|null, parentId: number|null}>} updatables From buildSystemScene.
  * @param {number} atEpochMs
- * @param {{trueScale?: boolean}} [options] Must match what the scene was built with.
+ * @param {{scaleMode?: string}} [options] Must match what the scene was built with.
  */
 export function updateSystemScene(nodes, updatables, atEpochMs, options = {}) {
-  const { trueScale = false } = options;
+  const { trueDistances } = scaleSettings(options.scaleMode);
   for (const [id, entry] of updatables) {
     let pos;
     try {
-      pos = scenePosition(nodes, id, atEpochMs, trueScale);
+      pos = scenePosition(nodes, id, atEpochMs, trueDistances);
     } catch {
       continue;
     }
@@ -248,9 +279,11 @@ export function updateSystemScene(nodes, updatables, atEpochMs, options = {}) {
     if (entry.orbit) {
       try {
         const parentPos = entry.parentId != null
-          ? scenePosition(nodes, entry.parentId, atEpochMs, trueScale)
+          ? scenePosition(nodes, entry.parentId, atEpochMs, trueDistances)
           : { x: 0, y: 0, z: 0 };
-        entry.orbit.position.set(parentPos.x, parentPos.y, parentPos.z);
+        const origin = entry.orbit.userData.orbitSamples ? pos : parentPos;
+        entry.orbit.position.set(origin.x, origin.y, origin.z);
+        updateOrbitPhase(entry.orbit, nodes.get(id), atEpochMs);
       } catch {
         // parent unresolvable this tick — leave the path where it was
       }

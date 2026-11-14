@@ -20,6 +20,14 @@
     <div id="systemPanel" class="panel">
       <h2><span class="tick">&#9656;</span> System</h2>
       <div class="stat big"><span>Name</span><span id="sysName">&mdash;</span></div>
+      <form id="systemSearchForm">
+        <div class="row"><label for="systemSearchInput">Find system (EDSM)</label></div>
+        <input id="systemSearchInput" type="text" maxlength="128" placeholder="System name" required autocomplete="off" />
+        <button class="act ghost" type="submit" id="systemSearchButton">Show system</button>
+      </form>
+      <button class="act ghost" id="returnLiveButton" hidden>Return to live system</button>
+      <p id="systemSearchStatus" class="time-note" role="status"></p>
+      <button class="act ghost" id="browseBodiesButton">Browse bodies</button>
       <section id="timeControls" aria-label="Simulation time">
         <div class="row"><span class="time-label">ED date / time</span><span class="val" id="timeStatus">Live</span></div>
         <div id="edClock" role="timer" aria-label="Elite Dangerous simulation date and UTC time">&mdash;</div>
@@ -58,7 +66,12 @@
         <div class="stat"><span>Bounty (session)</span><span id="sysBountyTally">&mdash;</span></div>
       </div>
       <div class="stat"><span>Scale</span><span id="sysScale" class="val-warn">compressed &mdash; not to scale</span></div>
-      <label class="chk"><input type="checkbox" id="trueScaleToggle"> True scale</label>
+      <div class="row"><label for="scaleSelect">Scale mode</label></div>
+      <select id="scaleSelect">
+        <option value="compact">Compact</option>
+        <option value="distances">True distances</option>
+        <option value="realistic">Fully to scale</option>
+      </select>
       <label class="chk"><input type="checkbox" id="edsmToggle"> EDSM backfill (network)</label>
       <label class="chk"><input type="checkbox" id="spanshToggle"> Spansh backfill (network)</label>
       <button class="act ghost" id="refreshCommunityButton" disabled title="Fetch fresh data from enabled providers">Refresh community data</button>
@@ -76,7 +89,19 @@
 
     <div id="detail" class="panel" hidden>
       <h2><span class="tick">&#9656;</span> <span id="detailName">&mdash;</span></h2>
-      <button class="act ghost" id="centerSelectedButton" disabled>Center selected body</button>
+      <nav aria-label="Body hierarchy">
+        <div id="bodyBreadcrumbs" aria-label="Ancestors"></div>
+        <div class="body-navigation-buttons">
+          <button class="act ghost" id="previousBodyButton" aria-label="Previous sibling">←</button>
+          <button class="act ghost" id="parentBodyButton" aria-label="Parent group">↑ Up</button>
+          <button class="act ghost" id="nextBodyButton" aria-label="Next sibling">→</button>
+        </div>
+        <p class="time-note" id="bodySiblingStatus"></p>
+        <p class="time-note" id="bodyChildrenLabel"></p>
+        <div id="bodyChildren"></div>
+      </nav>
+      <button class="act ghost" id="centerSelectedButton" disabled>Center selection</button>
+      <button class="act ghost" id="zoomSelectedButton" disabled>Zoom to body</button>
       <button class="act ghost" id="useTimeReferenceButton" disabled>Use as time reference</button>
       <button class="act ghost" id="closeDetailButton">Close details</button>
       <div id="detailBackfillNotice" class="val-warn" hidden style="margin-bottom:8px;">COMMUNITY DATA &mdash; NOT YET SCANNED</div>
