@@ -14,3 +14,4 @@ export { classifySpotlight } from './spotlight.js';
 export { classifyModeHighlight, reserveLevelLabel } from './mode-highlight.js';
 export { mapEdsmPlanetClass, mapEdsmTerraformState } from './edsm-mapping.js';
 export { buildBackfillNodes } from './edsm-backfill.js';
+export { mergeCommunityBodies, normalizeCommunityBodies, completeElements, EARTH_GRAVITY } from './community-backfill.js';

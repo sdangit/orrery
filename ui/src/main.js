@@ -1,13 +1,16 @@
 import * as THREE from 'three';
 import demoSystem from './data/demo-system.json';
 import { createOrbitCamera } from './camera.js';
-import { buildSystemScene, updateSystemScene, disposeSystemScene } from './scene-builder.js';
+import { bindBodySelection, pickBody } from './picking.js';
+import { primaryStarId } from './primary-star.js';
+import { buildSystemScene, updateSystemScene, disposeSystemScene, highlightSelectedOrbit } from './scene-builder.js';
 import { renderDetailPanel } from './data-panel.js';
 import { connectLive } from './live-connection.js';
 import { getNickname, getNicknames, setNickname } from './nicknames.js';
-import { buildBackfillNodes } from '@orrery/shared';
-import { fetchEdsmBodies } from './edsm-client.js';
-import { createTimeControl, advance, resetToNow, warpFromSlider, formatWarp } from './time-control.js';
+import { mergeCommunityBodies } from '@orrery/shared';
+import { fetchCommunityBodies } from './community-client.js';
+import { createTimeControl, advance, resetToNow } from './time-control.js';
+import { bindTimePanel } from './time-panel.js';
 import { applyColorScheme, DEFAULT_SCHEME } from './color-schemes.js';
 import { createAudioCues } from './audio-cues.js';
 
@@ -55,27 +58,19 @@ schemeSelect.addEventListener('change', () => {
   rebuildSceneVisuals(); // 3D labels are canvas textures — they need a redraw to recolor
 });
 
-// ---------- simulated time: warp slider + "now" reset (milestone 7) ----------
+// ---------- shared simulation clock and reference-orbit playback ----------
 const timeControl = createTimeControl();
-const warpSlider = document.getElementById('warpSlider');
-const warpValue = document.getElementById('warpValue');
-
-warpSlider.addEventListener('input', () => {
-  timeControl.warp = warpFromSlider(Number(warpSlider.value));
-  warpValue.textContent = formatWarp(timeControl.warp);
-  requestRender();
-});
-document.getElementById('nowButton').addEventListener('click', () => {
-  resetToNow(timeControl);
-  requestRender();
+const timePanel = bindTimePanel(timeControl, {
+  getSelectedNode: () => renderedNodes.get(selectedId),
+  onChange: () => { lastFrameTime = null; requestRender(); },
 });
 
 // ---------- GPU-polite render-on-demand, FPS-capped ----------
 // Only camera input, a selection change, a new live snapshot, or active time
 // warping should trigger a redraw — and even then, never faster than the FPS
 // cap. See the design brief's GPU-politeness principle: this shares a card
-// with the game. At warp 1× (real time) bodies move imperceptibly, so no
-// continuous rendering happens; above 1× the scene animates at the cap.
+// with the game. Live time needs no continuous GPU rendering; playback in
+// either direction animates at the cap. The text clock updates independently.
 const FPS_CAP = 30;
 const MIN_FRAME_INTERVAL_MS = 1000 / FPS_CAP;
 let needsRender = true;
@@ -87,23 +82,44 @@ function loop(now) {
   requestAnimationFrame(loop);
   const realDt = lastFrameTime === null ? 0 : now - lastFrameTime;
   lastFrameTime = now;
-  advance(timeControl, realDt);
-  if (timeControl.warp > 1) needsRender = true;
+  const wasPlaying = !timeControl.live && !timeControl.paused;
+  advance(timeControl, realDt, Date.now());
+  timePanel.tick(now);
+  // Include the final frame if advance() pauses at the supported date limit.
+  if (wasPlaying) needsRender = true;
   if (!needsRender) return;
   if (now - lastRenderTime < MIN_FRAME_INTERVAL_MS) return; // stays dirty; picked up on the next eligible frame
   needsRender = false;
   lastRenderTime = now;
   updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { trueScale });
+  if (focusedBodyId !== null) {
+    const body = updatables.get(focusedBodyId);
+    if (body) orbitCamera.focus(body.bodyGroup.position);
+  }
+  // A programmatic focus above is already included in this render.
+  needsRender = false;
   renderer.render(scene, camera);
 }
 requestAnimationFrame(loop);
 
-const orbitCamera = createOrbitCamera(canvas, camera, { initialRadius: 70, onDirty: requestRender });
-document.getElementById('resetViewButton').addEventListener('click', () => orbitCamera.reset());
+const orbitCamera = createOrbitCamera(canvas, camera, {
+  initialRadius: 70,
+  onDirty: requestRender,
+  onPan() {
+    focusedBodyId = null;
+    document.getElementById('orbitTarget').textContent = 'Custom point';
+  },
+});
+document.getElementById('resetViewButton').addEventListener('click', () => fitCameraToBodies(true));
+document.getElementById('fitSystemButton').addEventListener('click', () => fitCameraToBodies());
+document.getElementById('centerMainStarButton').addEventListener('click', () => centerBody(primaryStarId(renderedNodes)));
+document.getElementById('centerSelectedButton').addEventListener('click', () => centerBody(selectedId));
+document.getElementById('closeDetailButton').addEventListener('click', () => selectNode(null));
 
 function resize() {
-  const w = innerWidth;
-  const h = innerHeight;
+  const { width: w, height: h } = canvas.getBoundingClientRect();
+  if (!w || !h) return;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.setSize(w, h, false);
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
@@ -113,9 +129,9 @@ addEventListener('resize', resize);
 resize();
 
 // ---------- selection ----------
-const raycaster = new THREE.Raycaster();
-const pointerNdc = new THREE.Vector2();
 let selectedId = null;
+let focusedBodyId = null;
+let needsInitialFit = false;
 let scannedNodes = new Map(); // the real, authoritative tree — never mutated by EDSM backfill
 let renderedNodes = new Map(); // scannedNodes, merged with EDSM backfill bodies when enabled — what's actually shown/selectable
 let systemName = '';
@@ -141,6 +157,9 @@ function selectNode(id) {
   selectedId = id;
   renderDetailPanel(id === null ? null : renderedNodes.get(id), systemName, currentNickname(id));
   nicknameInput.value = currentNickname(id) ?? '';
+  document.getElementById('centerSelectedButton').disabled = !updatables.has(id);
+  timePanel.refresh();
+  highlightSelectedOrbit(updatables, selectedId);
   requestRender();
 }
 
@@ -158,14 +177,9 @@ nicknameInput.addEventListener('keydown', (event) => {
   }
 });
 
-canvas.addEventListener('click', (event) => {
-  pointerNdc.x = (event.clientX / innerWidth) * 2 - 1;
-  pointerNdc.y = -(event.clientY / innerHeight) * 2 + 1;
-  raycaster.setFromCamera(pointerNdc, camera);
-  const hits = raycaster.intersectObjects([...pickables.keys()], false);
-  if (hits.length > 0) {
-    selectNode(pickables.get(hits[0].object));
-  }
+bindBodySelection(canvas, (x, y) => {
+  const id = pickBody(x, y, canvas, camera, scene, pickables);
+  if (id !== null) selectNode(id);
 });
 
 document.getElementById('copyName').addEventListener('click', () => {
@@ -191,13 +205,29 @@ trueScaleToggle.addEventListener('change', () => {
 
 // Zooms out (or in) so the whole system fits the view — used when toggling
 // scale modes, where the layout size jumps by orders of magnitude.
-function fitCameraToBodies() {
-  let maxDistance = 0;
-  for (const { bodyGroup } of updatables.values()) {
-    maxDistance = Math.max(maxDistance, bodyGroup.position.length());
-  }
-  const radius = Math.min(Math.max(maxDistance * 1.4, 40), 18000);
-  orbitCamera.focus(new THREE.Vector3(0, 0, 0), radius);
+function fitCameraToBodies(resetDirection = false) {
+  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { trueScale });
+  scene.updateMatrixWorld(true);
+  const bounds = new THREE.Box3();
+  for (const mesh of pickables.keys()) bounds.expandByObject(mesh);
+  const { width, height } = canvas.getBoundingClientRect();
+  const left = document.getElementById('systemPanel').getBoundingClientRect().right;
+  const detail = document.getElementById('detail');
+  const right = detail.hidden ? 0 : width - detail.getBoundingClientRect().left;
+  focusedBodyId = null;
+  orbitCamera.fit(bounds, {
+    widthFraction: Math.max(0.2, 1 - 2 * (Math.max(left, right) + 24) / width),
+    heightFraction: Math.max(0.3, 1 - 120 / height),
+  }, resetDirection);
+  document.getElementById('orbitTarget').textContent = 'System center';
+}
+
+function centerBody(id) {
+  if (id === null || !updatables.has(id)) return;
+  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { trueScale });
+  focusedBodyId = id;
+  orbitCamera.focus(updatables.get(id).bodyGroup.position);
+  document.getElementById('orbitTarget').textContent = renderedNodes.get(id).name ?? `Body ${id}`;
 }
 
 function updateScaleBadge() {
@@ -319,45 +349,73 @@ function updateSystemLevelPanel() {
   document.getElementById('sysBountyTally').textContent = `${bountyTally.toLocaleString()} CR`;
 }
 
-// ---------- EDSM backfill (opt-in, off by default) ----------
-// The one and only network call this app ever makes — see edsm-client.js and
-// the README's privacy note. Bodies EDSM knows about that the player hasn't
-// personally scanned are shown dim/wireframe ("known, not yours yet"); real
-// Scan data always wins and is never overwritten (see edsm-backfill.js).
-let edsmEnabled = localStorage.getItem('orrery.edsmEnabled') === 'true';
-let edsmBodies = null; // raw EDSM response for the current system, or null (disabled/not fetched/failed)
-let edsmFetchToken = 0; // guards against a stale response landing after the system has already changed again
+// ---------- community backfill: providers are independently opt-in ----------
+const providerNames = { edsm: 'EDSM', spansh: 'Spansh' };
+const enabledProviders = new Set(Object.keys(providerNames)
+  .filter((source) => localStorage.getItem(`orrery.${source}Enabled`) === 'true'));
+let communityData = null;
+let communityFetchToken = 0;
+let communityAbort = null;
+let communityDiagnostics = [];
 
-const edsmToggle = document.getElementById('edsmToggle');
-edsmToggle.checked = edsmEnabled;
-edsmToggle.addEventListener('change', () => {
-  edsmEnabled = edsmToggle.checked;
-  localStorage.setItem('orrery.edsmEnabled', String(edsmEnabled));
-  refreshEdsmBackfill();
-});
-
-function recomputeRenderedNodes() {
-  renderedNodes = (edsmEnabled && edsmBodies) ? buildBackfillNodes(scannedNodes, edsmBodies) : scannedNodes;
+for (const source of Object.keys(providerNames)) {
+  const toggle = document.getElementById(`${source}Toggle`);
+  toggle.checked = enabledProviders.has(source);
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) enabledProviders.add(source);
+    else enabledProviders.delete(source);
+    localStorage.setItem(`orrery.${source}Enabled`, String(toggle.checked));
+    refreshCommunityBackfill();
+  });
 }
 
-async function refreshEdsmBackfill() {
-  const token = ++edsmFetchToken;
-  if (!edsmEnabled) {
-    edsmBodies = null;
-    recomputeRenderedNodes();
-    rebuildSceneVisuals();
-    return;
-  }
-  const bodies = await fetchEdsmBodies(systemName);
-  if (token !== edsmFetchToken) return; // the system (or toggle) changed again while this was in flight — discard
-  edsmBodies = bodies;
+function recomputeRenderedNodes() {
+  const active = Object.fromEntries([...enabledProviders]
+    .filter((source) => communityData?.[source]).map((source) => [source, communityData[source]]));
+  const merged = mergeCommunityBodies(scannedNodes, active);
+  renderedNodes = merged.nodes;
+  communityDiagnostics = merged.diagnostics;
+}
+
+function updateCommunityStatus(loading = false) {
+  const messages = { ready: 'loaded', empty: 'no data', unavailable: 'unavailable',
+    'identity-mismatch': 'system mismatch', 'missing-address': 'system address needed' };
+  document.getElementById('communityStatus').textContent = !enabledProviders.size ? 'Community data off'
+    : [...enabledProviders].map((source) => `${providerNames[source]}: ${loading ? 'loading' : messages[communityData?.[source]?.status] ?? 'watcher unavailable'}`).join(' · ');
+  const unresolved = [...renderedNodes.values()].filter((n) => ['Star', 'Planet'].includes(n.kind) && n.positionIssue).length;
+  const issue = document.getElementById('communityIssues');
+  issue.hidden = !communityDiagnostics.length;
+  issue.textContent = unresolved ? `${unresolved} bodies cannot be positioned from the available data.` : 'Data conflicts resolved using source priority.';
+  issue.title = communityDiagnostics.join('\n');
+}
+
+async function refreshCommunityBackfill() {
+  const token = ++communityFetchToken;
+  communityAbort?.abort();
+  // Immediately remove disabled sources, keeping enabled cached data visible.
   recomputeRenderedNodes();
   rebuildSceneVisuals();
+  if (!enabledProviders.size) { updateCommunityStatus(); return; }
+  communityAbort = new AbortController();
+  const controller = communityAbort;
+  const timeout = setTimeout(() => controller.abort(), 10000);
+  updateCommunityStatus(true);
+  const result = await fetchCommunityBodies({ systemName, systemAddress, providers: [...enabledProviders] }, { signal: controller.signal });
+  clearTimeout(timeout);
+  if (token !== communityFetchToken) return;
+  communityData = result;
+  recomputeRenderedNodes();
+  rebuildSceneVisuals();
+  updateCommunityStatus();
+  if (needsInitialFit && updatables.size > 0) {
+    fitCameraToBodies(true);
+    needsInitialFit = false;
+  }
 }
 
 // Rebuilds just the 3D scene for the current renderedNodes/systemName at the
 // current effective mode/scale/scheme — used by loadSystem (new data), a
-// manual mode pin change, a scale or scheme change, and an EDSM backfill
+// manual mode pin change, a scale or scheme change, and a community backfill
 // refresh (each changes what should render without touching selection).
 function rebuildSceneVisuals() {
   if (systemGroup) disposeSystemScene(systemGroup);
@@ -370,15 +428,41 @@ function rebuildSceneVisuals() {
   pickables = built.pickables;
   updatables = built.updatables;
   systemGroup = built.group;
+  if (selectedId !== null && !renderedNodes.has(selectedId)) selectNode(null);
+  const mainStarButton = document.getElementById('centerMainStarButton');
+  mainStarButton.disabled = !updatables.has(primaryStarId(renderedNodes));
+  mainStarButton.title = mainStarButton.disabled ? 'Main star is not yet identified in the available data' : 'Orbit around the main star';
+  document.getElementById('centerSelectedButton').disabled = !updatables.has(selectedId);
+  timePanel.refresh();
+  highlightSelectedOrbit(updatables, selectedId);
+  if (selectedId !== null) renderDetailPanel(renderedNodes.get(selectedId), systemName, currentNickname(selectedId));
+  updateCommunityStatus();
+  const knownCount = [...renderedNodes.values()].filter((n) => ['Star', 'Planet'].includes(n.kind)).length;
+  const scannedCount = [...scannedNodes.values()].filter((n) => ['Star', 'Planet'].includes(n.kind)).length;
+  document.getElementById('sysBodyCount').textContent = `${knownCount} known / ${scannedCount} scanned`;
+  if (focusedBodyId !== null && !updatables.has(focusedBodyId)) {
+    focusedBodyId = null;
+    document.getElementById('orbitTarget').textContent = 'Custom point';
+  }
   requestRender();
 }
 
 // ---------- loading a system (shared by the demo data and live snapshots) ----------
 function loadSystem(payload) {
+  const changedSystem = systemAddress !== (payload.systemAddress ?? null) || systemName !== payload.systemName;
+  const hadBodies = updatables.size > 0;
+  if (changedSystem) {
+    resetToNow(timeControl);
+    lastFrameTime = null;
+    selectedId = null;
+    focusedBodyId = null;
+    needsInitialFit = true;
+  }
   scannedNodes = new Map(payload.nodes.map((node) => [node.id, node]));
   systemName = payload.systemName;
   systemAddress = payload.systemAddress ?? null;
-  edsmBodies = null; // that was for the previous system — cleared until refetched below
+  // Same-system scans must retain backfill parents and the current camera target.
+  if (changedSystem) communityData = null;
   recomputeRenderedNodes();
   // The demo snapshot has no live event stream to detect a mode from — default
   // to exploration, ED's own baseline activity, per the design brief's mode table.
@@ -394,19 +478,20 @@ function loadSystem(payload) {
   detectAudioCues(payload);
 
   rebuildSceneVisuals();
-  refreshEdsmBackfill(); // no-op if disabled; otherwise fetches in the background and re-renders once it lands
+  if (changedSystem) refreshCommunityBackfill();
 
   document.getElementById('sysName').textContent = systemName;
-  const renderableCount = [...scannedNodes.values()].filter((n) => n.kind === 'Star' || n.kind === 'Planet').length;
-  document.getElementById('sysBodyCount').textContent = String(renderableCount);
 
   // Keep the current selection if it still exists in the new tree (a rescan
   // shouldn't yank the view away); otherwise fall back to the primary star.
   if (selectedId !== null && renderedNodes.has(selectedId)) {
     selectNode(selectedId);
   } else {
-    const primaryStar = [...renderedNodes.values()].find((n) => n.kind === 'Star');
-    selectNode(primaryStar ? primaryStar.id : null);
+    selectNode(changedSystem || !hadBodies ? primaryStarId(renderedNodes) : null);
+  }
+  if (updatables.size > 0 && (needsInitialFit || !hadBodies)) {
+    fitCameraToBodies(true);
+    needsInitialFit = false;
   }
 }
 

@@ -1,81 +1,67 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// Manual spherical-orbit camera, ported from the original prototype — no
-// OrbitControls dependency, per the design brief. Calls onDirty() whenever
-// user input changes the view, so the caller can drive a render-on-demand
-// loop instead of a continuous requestAnimationFrame tick (GPU-polite: this
-// project shares a card with the game).
-export function createOrbitCamera(canvas, camera, { initialRadius = 60, onDirty } = {}) {
-  const initial = { theta: 0.9, phi: 1.15, r: initialRadius };
-  const state = {
-    theta: initial.theta,
-    phi: initial.phi,
-    r: initial.r,
-    target: new THREE.Vector3(0, 0, 0),
-  };
-  let dragging = false;
-  let lastX = 0;
-  let lastY = 0;
+const DEFAULT_DIRECTION = new THREE.Vector3(0.57, -0.71, 0.41).normalize();
 
-  function apply() {
-    state.phi = Math.max(0.08, Math.min(Math.PI - 0.08, state.phi));
-    camera.position.set(
-      state.target.x + state.r * Math.sin(state.phi) * Math.cos(state.theta),
-      state.target.y + state.r * Math.cos(state.phi),
-      state.target.z + state.r * Math.sin(state.phi) * Math.sin(state.theta),
-    );
-    camera.lookAt(state.target);
+// Fit a bounding sphere against the narrower visible field of view, including
+// space reserved for HUD panels. This also works in portrait windows.
+export function fitDistance(camera, radius, { widthFraction = 1, heightFraction = 1 } = {}) {
+  const vertical = Math.tan(THREE.MathUtils.degToRad(camera.getEffectiveFOV()) / 2);
+  const halfAngle = Math.atan(Math.min(vertical * heightFraction, vertical * camera.aspect * widthFraction));
+  return Math.max(2, radius * 1.1 / Math.sin(halfAngle));
+}
+
+export function createOrbitCamera(canvas, camera, { initialRadius = 70, onDirty, onPan } = {}) {
+  // Journal orbital coordinates use XY as the reference plane and Z as up.
+  camera.up.set(0, 0, 1);
+  camera.position.copy(DEFAULT_DIRECTION).multiplyScalar(initialRadius);
+  const controls = new OrbitControls(camera, canvas);
+  controls.minDistance = 0.5;
+  controls.maxDistance = 1e12;
+  controls.screenSpacePanning = true;
+  // Immediate updates keep render-on-demand idle when the user stops moving.
+  controls.enableDamping = false;
+  controls.listenToKeyEvents(canvas);
+  let programmatic = false;
+  let sceneRadius = 1;
+  const lastTarget = controls.target.clone();
+
+  function updateClipping() {
+    const distance = camera.position.distanceTo(controls.target);
+    camera.near = Math.max(0.01, distance / 1e6);
+    camera.far = Math.max(60000, distance + sceneRadius * 3);
+    camera.updateProjectionMatrix();
   }
+  controls.addEventListener('change', () => {
+    if (!programmatic && controls.target.distanceToSquared(lastTarget) > 1e-12) onPan?.();
+    lastTarget.copy(controls.target);
+    updateClipping();
+    onDirty?.();
+  });
+  canvas.addEventListener('pointerdown', () => canvas.focus({ preventScroll: true }));
 
-  function markDirty() {
+  function focus(target, distance, resetDirection = false) {
+    const offset = resetDirection ? DEFAULT_DIRECTION.clone() : camera.position.clone().sub(controls.target);
+    if (distance !== undefined) offset.setLength(distance);
+    camera.position.copy(target).add(offset);
+    controls.target.copy(target);
+    programmatic = true;
+    controls.update();
+    programmatic = false;
+    lastTarget.copy(controls.target);
+    updateClipping();
     onDirty?.();
   }
 
-  canvas.addEventListener('pointerdown', (e) => {
-    dragging = true;
-    lastX = e.clientX;
-    lastY = e.clientY;
-  });
-  addEventListener('pointerup', () => { dragging = false; });
-  addEventListener('pointermove', (e) => {
-    if (!dragging) return;
-    state.theta += (e.clientX - lastX) * 0.006;
-    state.phi += (e.clientY - lastY) * 0.006;
-    lastX = e.clientX;
-    lastY = e.clientY;
-    apply();
-    markDirty();
-  });
-  canvas.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    state.r *= 1 + Math.sign(e.deltaY) * 0.09;
-    // Max zoom-out accommodates true-distance mode, where outer bodies can sit
-    // ~10,000 units from the origin (e.g. Eris at ~68 AU with 1 unit = 1e9 m).
-    state.r = Math.max(1, Math.min(20000, state.r));
-    apply();
-    markDirty();
-  }, { passive: false });
-
-  apply();
-
   return {
-    state,
-    apply,
-    isDragging: () => dragging,
-    focus(target, radius) {
-      state.target.copy(target);
-      if (radius !== undefined) state.r = radius;
-      apply();
-      markDirty();
-    },
-    /** Restores the default view: initial angles/zoom, target back at the system origin. */
-    reset() {
-      state.theta = initial.theta;
-      state.phi = initial.phi;
-      state.r = initial.r;
-      state.target.set(0, 0, 0);
-      apply();
-      markDirty();
+    controls,
+    focus,
+    fit(bounds, visibleArea, resetDirection = false) {
+      const sphere = bounds.isEmpty()
+        ? new THREE.Sphere(new THREE.Vector3(), 10)
+        : bounds.getBoundingSphere(new THREE.Sphere());
+      sceneRadius = Math.max(sphere.radius, 1);
+      focus(sphere.center, fitDistance(camera, sceneRadius, visibleArea), resetDirection);
     },
   };
 }

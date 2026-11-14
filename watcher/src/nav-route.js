@@ -1,3 +1,4 @@
+import { parseJsonPreservingIntegers } from './json-integers.js';
 // Reads NavRoute.json — a separate snapshot file next to the journal, not
 // part of the append-only log — to find "the next system after this one" on
 // a plotted multi-jump route. The journal's own bare `NavRoute` event carries
@@ -23,7 +24,7 @@ export function readNavRouteFile(journalDir) {
   const filePath = join(journalDir, 'NavRoute.json');
   if (!existsSync(filePath)) return null;
   try {
-    const raw = JSON.parse(readFileSync(filePath, 'utf8'));
+    const raw = parseJsonPreservingIntegers(readFileSync(filePath, 'utf8'));
     return {
       event: raw.event,
       route: (raw.Route ?? []).map((hop) => ({

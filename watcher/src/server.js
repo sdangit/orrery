@@ -14,6 +14,7 @@ import { existsSync } from 'node:fs';
 import { resolve, extname, sep } from 'node:path';
 import { WebSocketServer } from 'ws';
 import { createLiveWatcher } from './live-watcher.js';
+import { createCommunityDataService, parseCommunityRequest } from './community-data.js';
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -46,11 +47,35 @@ export function startWatcherServer({
   logError = console.error,
   onError,
   onReady,
+  communityData = createCommunityDataService(),
 } = {}) {
   // Static file serving with a strict containment check: the resolved path
   // must stay inside distDir, so no crafted URL (`..%2f` etc.) can read
   // outside it.
   async function serveStatic(req, res) {
+    if (req.url?.split('?')[0] === '/api/community-bodies') {
+      // Same-origin UI / local Vite proxy only. The custom header prevents
+      // cross-site image/navigation requests from triggering provider lookups.
+      let allowed = false;
+      try {
+        const host = new URL(`http://${req.headers.host}`).hostname;
+        const origin = req.headers.origin ? new URL(req.headers.origin) : null;
+        allowed = ['127.0.0.1', 'localhost', '[::1]'].includes(host)
+          && (!origin || (origin.protocol === 'http:' && ['127.0.0.1', 'localhost', '[::1]'].includes(origin.hostname)));
+      } catch { /* malformed origin/host */ }
+      if (!allowed || req.headers['x-orrery-community'] !== '1') { res.writeHead(403).end(); return; }
+      if (req.method !== 'GET') { res.writeHead(405).end(); return; }
+      try {
+        const input = parseCommunityRequest(new URL(req.url, 'http://localhost').searchParams);
+        const result = await communityData.get(input);
+        res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+        res.end(JSON.stringify(result));
+      } catch {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid community data request' }));
+      }
+      return;
+    }
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       res.writeHead(405).end();
       return;
@@ -168,6 +193,7 @@ export function startWatcherServer({
 
   function close() {
     clearInterval(interval);
+    communityData.close();
     wss.close();
     httpServer.close();
   }

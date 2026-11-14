@@ -33,6 +33,8 @@ export function absolutePosition(nodes, bodyId, atEpochMs) {
       throw new Error(`Body tree is missing node ${currentId} while resolving position of body ${bodyId}`);
     }
 
+    if (node.positionIssue) throw new Error(node.positionIssue);
+
     if (node.elements) {
       const offset = keplerianOffset(node.elements, atEpochMs);
       x += offset.x;

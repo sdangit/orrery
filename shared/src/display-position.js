@@ -31,6 +31,8 @@ export function displayPosition(nodes, bodyId, atEpochMs, scaleOptions = {}) {
       throw new Error(`Body tree is missing node ${currentId} while resolving display position of body ${bodyId}`);
     }
 
+    if (node.positionIssue) throw new Error(node.positionIssue);
+
     if (node.elements) {
       const realOffset = keplerianOffset(node.elements, atEpochMs);
       const displayOffset = compressOffset(realOffset, scaleOptions);

@@ -1,0 +1,140 @@
+{
+  "name": "Sol",
+  "id64": 10477373803,
+  "bodies": [
+    {
+      "bodyId": 0,
+      "name": "Sol",
+      "type": "Star",
+      "subType": "G (White-Yellow) Star",
+      "parents": null,
+      "orbitalPeriod": null,
+      "semiMajorAxis": null,
+      "orbitalEccentricity": null,
+      "orbitalInclination": null,
+      "argOfPeriapsis": null,
+      "updateTime": "2021-01-11 03:07:05",
+      "isMainStar": true,
+      "distanceToArrival": 0,
+      "solarRadius": 0.9999999539899354,
+      "surfaceTemperature": 5778,
+      "solarMasses": 1
+    },
+    {
+      "bodyId": 3,
+      "name": "Earth",
+      "type": "Planet",
+      "subType": "Earth-like world",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 365.2563732531366,
+      "semiMajorAxis": 1.0000007212129391,
+      "orbitalEccentricity": 0.0167,
+      "orbitalInclination": 0,
+      "argOfPeriapsis": 114.207832,
+      "updateTime": "2026-11-13 18:24:14",
+      "distanceToArrival": 507,
+      "radius": 6378.1,
+      "gravity": 0.9999686429450564,
+      "surfaceTemperature": 288,
+      "earthMasses": 1,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Suitable for water-based life"
+    },
+    {
+      "bodyId": 7,
+      "name": "Jupiter",
+      "type": "Planet",
+      "subType": "Class I gas giant",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 4332.589813404629,
+      "semiMajorAxis": 5.204265814002057,
+      "orbitalEccentricity": 0.048775,
+      "orbitalInclination": 1.305,
+      "argOfPeriapsis": 275.066007,
+      "updateTime": "2026-11-13 18:24:14",
+      "distanceToArrival": 2610,
+      "radius": 71492,
+      "gravity": 2.5293417504360067,
+      "surfaceTemperature": 147,
+      "earthMasses": 317.799622,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Common",
+      "rings": [
+        {
+          "name": "Jupiter Halo Ring",
+          "type": "Rocky",
+          "mass": 10000,
+          "innerRadius": 92000,
+          "outerRadius": 182000
+        }
+      ]
+    },
+    {
+      "bodyId": 32,
+      "name": "Pluto",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 31
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 6.393943533854167,
+      "semiMajorAxis": 1.3596588724120123e-05,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 0.001,
+      "argOfPeriapsis": 0,
+      "updateTime": "2026-11-07 07:29:18",
+      "distanceToArrival": 20447,
+      "radius": 1153,
+      "gravity": 0.06670630868303133,
+      "surfaceTemperature": 55,
+      "earthMasses": 0.00218,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Methane"
+    },
+    {
+      "bodyId": 33,
+      "name": "Charon",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 31
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 6.393943533854167,
+      "semiMajorAxis": 0.0001172274501730525,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 0.001,
+      "argOfPeriapsis": 179.999995,
+      "updateTime": "2026-11-13 18:24:14",
+      "distanceToArrival": 20447,
+      "radius": 603.5,
+      "gravity": 0.02825758236303145,
+      "surfaceTemperature": 39,
+      "earthMasses": 0.000253,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    }
+  ]
+}

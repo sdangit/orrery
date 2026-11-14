@@ -1,0 +1,177 @@
+{
+  "name": "Sol",
+  "id64": 10477373803,
+  "bodies": [
+    {
+      "bodyId": 0,
+      "name": "Sol",
+      "type": "Star",
+      "subType": "G (White-Yellow) Star",
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T15:28:28Z"
+      },
+      "updateTime": "2026-11-14T03:09:05Z",
+      "mainStar": true,
+      "distanceToArrival": 0.0,
+      "solarRadius": 0.999999953989935,
+      "surfaceTemperature": 5778.0,
+      "solarMasses": 1.0
+    },
+    {
+      "bodyId": 3,
+      "name": "Earth",
+      "type": "Planet",
+      "subType": "Earth-like world",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 365.256373253137,
+      "semiMajorAxis": 1.00000072121293,
+      "orbitalEccentricity": 0.0167,
+      "orbitalInclination": 0.0,
+      "argOfPeriapsis": 114.207832,
+      "meanAnomaly": 162.248968,
+      "ascendingNode": -11.260999,
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T18:24:14Z",
+        "meanAnomaly": "2026-11-13T18:24:14Z"
+      },
+      "updateTime": "2026-11-13T22:30:25Z",
+      "distanceToArrival": 506.954413,
+      "radius": 6378.1,
+      "gravity": 0.999057713877842,
+      "surfaceTemperature": 288.0,
+      "earthMasses": 1.0,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    },
+    {
+      "bodyId": 7,
+      "name": "Jupiter",
+      "type": "Planet",
+      "subType": "Class I gas giant",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 4332.58981340462,
+      "semiMajorAxis": 5.20426581400207,
+      "orbitalEccentricity": 0.048775,
+      "orbitalInclination": 1.305,
+      "argOfPeriapsis": 275.066007,
+      "meanAnomaly": 267.396447,
+      "ascendingNode": 100.491996,
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T18:24:14Z",
+        "meanAnomaly": "2026-11-13T18:24:14Z"
+      },
+      "updateTime": "2026-11-13T18:24:14Z",
+      "distanceToArrival": 2608.842684,
+      "radius": 71492.0,
+      "gravity": 2.52703803405731,
+      "surfaceTemperature": 147.454529,
+      "earthMasses": 317.799622,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Common",
+      "rings": [
+        {
+          "innerRadius": 92000000.0,
+          "mass": 10000.0,
+          "name": "Jupiter Halo Ring",
+          "outerRadius": 182000000.0,
+          "type": "Rocky"
+        }
+      ]
+    },
+    {
+      "bodyId": 31,
+      "name": "Sol barycentre 31",
+      "type": "Barycentre",
+      "orbitalPeriod": 90464.999968255,
+      "semiMajorAxis": 39.2652576704823,
+      "orbitalEccentricity": 0.248,
+      "orbitalInclination": 17.150999,
+      "argOfPeriapsis": 113.762999,
+      "meanAnomaly": 273.896767,
+      "ascendingNode": 110.286825,
+      "timestamps": {
+        "meanAnomaly": "2026-11-13T18:24:14Z"
+      },
+      "updateTime": "2026-11-13T18:24:14Z"
+    },
+    {
+      "bodyId": 32,
+      "name": "Pluto",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 31
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 6.39394353385417,
+      "semiMajorAxis": 1.35965887241201e-05,
+      "orbitalEccentricity": 0.0,
+      "orbitalInclination": 0.001,
+      "argOfPeriapsis": 0.0,
+      "meanAnomaly": 189.920353,
+      "ascendingNode": -136.953995,
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T18:24:14Z",
+        "meanAnomaly": "2026-11-13T18:24:14Z"
+      },
+      "updateTime": "2026-11-13T18:24:14Z",
+      "distanceToArrival": 20445.085371,
+      "radius": 1153.0,
+      "gravity": 0.0666455592943816,
+      "surfaceTemperature": 55.0,
+      "earthMasses": 0.00218,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Methane"
+    },
+    {
+      "bodyId": 33,
+      "name": "Charon",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 31
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 6.39394353385417,
+      "semiMajorAxis": 0.000117227450173053,
+      "orbitalEccentricity": 0.0,
+      "orbitalInclination": 0.001,
+      "argOfPeriapsis": 179.999995,
+      "meanAnomaly": 189.920353,
+      "ascendingNode": -136.953995,
+      "timestamps": {
+        "distanceToArrival": "2026-11-13T18:24:14Z",
+        "meanAnomaly": "2026-11-13T18:24:14Z"
+      },
+      "updateTime": "2026-11-13T18:24:14Z",
+      "distanceToArrival": 20445.074938,
+      "radius": 603.5,
+      "gravity": 0.028214744570205,
+      "surfaceTemperature": 39.911217,
+      "earthMasses": 0.000253,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null
+    }
+  ]
+}

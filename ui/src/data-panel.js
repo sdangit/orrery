@@ -1,4 +1,4 @@
-import { classifySpotlight, reserveLevelLabel } from '@orrery/shared';
+import { classifySpotlight, reserveLevelLabel, EARTH_GRAVITY } from '@orrery/shared';
 import { shortDesignator } from './naming.js';
 import { bodyIcon } from './body-visuals.js';
 
@@ -32,7 +32,7 @@ function fmtMass(node) {
 
 function fmtGravity(g) {
   if (typeof g !== 'number') return '—';
-  return `${g.toFixed(2)} G`;
+  return `${(g / EARTH_GRAVITY).toFixed(2)} G`;
 }
 
 function fmtTemp(kelvin) {
@@ -49,10 +49,10 @@ function fmtAtmosphere(node) {
 
 function fmtPeriod(seconds) {
   if (typeof seconds !== 'number') return '—';
-  const days = seconds / 86400;
-  if (days < 2) return `${(seconds / 3600).toFixed(1)} h`;
-  if (days < 1000) return `${days.toFixed(1)} d`;
-  return `${(days / 365.25).toFixed(1)} yr`;
+  const days = Math.abs(seconds) / 86400;
+  const period = days < 2 ? `${(Math.abs(seconds) / 3600).toFixed(1)} h`
+    : days < 1000 ? `${days.toFixed(1)} d` : `${(days / 365.25).toFixed(1)} yr`;
+  return seconds < 0 ? `${period} (retrograde)` : period;
 }
 
 function fmtDiscovery(wasDiscovered) {
@@ -138,6 +138,18 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   const icon = bodyIcon(node);
   setText('detailName', icon ? `${icon} ${designator}` : designator);
   document.getElementById('detailBackfillNotice').hidden = !node.isBackfill;
+  const sourceNames = { journal: 'Journal', edsm: 'EDSM', spansh: 'Spansh' };
+  const sources = node.sources ?? ['journal'];
+  setText('detailSources', sources.map((s) => sourceNames[s]).join(' + '));
+  const quality = node.positionQuality ?? 'propagated';
+  setText('detailPosition', quality === 'unresolved' ? 'Unresolved' : quality === 'approximate' ? 'Approximate phase / orientation' : 'Propagated from orbital data');
+  document.getElementById('detailPosition').title = node.positionIssue ?? `Position sources: ${(node.positionSources ?? []).map((s) => sourceNames[s]).join(' + ') || 'System origin'}`;
+  const orbitSource = node.orbitSource ?? (node.elements ? 'journal' : null);
+  setText('detailOrbitSource', sourceNames[orbitSource] ?? 'System origin');
+  const utc = (ms) => Number.isFinite(ms) ? new Date(ms).toISOString().replace('T', ' ').replace('.000Z', '') : '—';
+  setText('detailOrbitEpoch', node.orbitQuality === 'approximate' ? 'Unknown (illustrative phase)' : utc(node.elements?.epochMs));
+  setText('detailRecordUpdated', Object.entries(node.recordUpdates ?? {})
+    .filter(([, ms]) => Number.isFinite(ms)).map(([source, ms]) => `${sourceNames[source]}: ${utc(ms)}`).join('\n') || '—');
   setText('detailKind', fmtKind(node));
   setText('detailDist', fmtDistanceLs(raw.DistanceFromArrivalLS));
   setText('detailRadius', fmtRadius(raw.Radius));
