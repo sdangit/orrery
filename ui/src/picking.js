@@ -17,7 +17,27 @@ export function pickBody(clientX, clientY, canvas, camera, scene, pickables) {
   const raycaster = new THREE.Raycaster();
   raycaster.setFromCamera(pointerToNdc(clientX, clientY, rect), camera);
   const hit = raycaster.intersectObjects([...pickables.keys()], false)[0];
-  return hit ? pickables.get(hit.object) : null;
+  if (hit) return pickables.get(hit.object);
+  // Give tiny/unknown-radius bodies a generous screen-space click target.
+  // Physical geometry wins above; markers behind visible bodies cannot steal hits.
+  let closest = null;
+  for (const [mesh, id] of pickables) {
+    const minimum = mesh.userData.minPickPixels;
+    if (!minimum) continue;
+    const world = mesh.getWorldPosition(new THREE.Vector3());
+    const depth = -world.clone().applyMatrix4(camera.matrixWorldInverse).z;
+    const projected = world.project(camera);
+    if (depth <= camera.near || depth >= camera.far || Math.abs(projected.z) > 1) continue;
+    const x = rect.left + (projected.x + 1) * rect.width / 2;
+    const y = rect.top + (1 - projected.y) * rect.height / 2;
+    const distance = Math.hypot(clientX - x, clientY - y);
+    if (distance > minimum) continue;
+    if (!closest || distance < closest.distance - 0.01
+        || (Math.abs(distance - closest.distance) <= 0.01 && depth < closest.depth)) {
+      closest = { id, distance, depth };
+    }
+  }
+  return closest?.id ?? null;
 }
 
 // Select on a primary click/tap only, never at the end of an orbit/pan/pinch.

@@ -1,5 +1,5 @@
 import { classifySpotlight, reserveLevelLabel, EARTH_GRAVITY } from '@orrery/shared';
-import { shortDesignator } from './naming.js';
+import { navigationLabel } from './body-navigation.js';
 import { bodyIcon } from './body-visuals.js';
 
 const SPOTLIGHT_LABELS = {
@@ -43,7 +43,7 @@ function fmtTemp(kelvin) {
 function fmtAtmosphere(node) {
   const raw = node.raw ?? {};
   if (raw.AtmosphereType && raw.AtmosphereType !== 'None') return raw.Atmosphere || raw.AtmosphereType;
-  if (node.kind === 'Star') return '—';
+  if (node.kind !== 'Planet') return '—';
   return 'None';
 }
 
@@ -87,7 +87,7 @@ function fmtKind(node) {
   const raw = node.raw ?? {};
   if (node.kind === 'Star') return `Star (${raw.StarType ?? '?'})`;
   if (node.kind === 'Planet') return `${raw.PlanetClass ?? 'Planet'}${node.isMoon ? ' (moon)' : ''}`;
-  return node.kind;
+  return 'Orbital group';
 }
 
 /**
@@ -134,7 +134,7 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   const raw = node.raw ?? {};
   const { spotlighted, reasons } = classifySpotlight(node);
 
-  const designator = nickname ?? (node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`);
+  const designator = nickname ?? navigationLabel(node, systemName);
   const icon = bodyIcon(node);
   setText('detailName', icon ? `${icon} ${designator}` : designator);
   document.getElementById('detailBackfillNotice').hidden = !node.isBackfill;
@@ -145,7 +145,7 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   setText('detailPosition', quality === 'unresolved' ? 'Unresolved' : quality === 'approximate' ? 'Approximate phase / orientation' : 'Propagated from orbital data');
   document.getElementById('detailPosition').title = node.positionIssue ?? `Position sources: ${(node.positionSources ?? []).map((s) => sourceNames[s]).join(' + ') || 'System origin'}`;
   const orbitSource = node.orbitSource ?? (node.elements ? 'journal' : null);
-  setText('detailOrbitSource', sourceNames[orbitSource] ?? 'System origin');
+  setText('detailOrbitSource', sourceNames[orbitSource] ?? (node.positionIssue ? 'Missing orbital data' : 'System origin'));
   const utc = (ms) => Number.isFinite(ms) ? new Date(ms).toISOString().replace('T', ' ').replace('.000Z', '') : '—';
   setText('detailOrbitEpoch', node.orbitQuality === 'approximate' ? 'Unknown (illustrative phase)' : utc(node.elements?.epochMs));
   setText('detailRecordUpdated', Object.entries(node.recordUpdates ?? {})

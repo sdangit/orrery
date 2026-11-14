@@ -68,7 +68,7 @@ test('EDSM-only data stays approximate and a missing barycentre is not attached 
   assert.equal(first.nodes.get(3).positionQuality, 'approximate');
   assert.deepEqual(first.nodes.get(3).elements, second.nodes.get(3).elements);
   assert.equal(first.nodes.get(32).positionQuality, 'unresolved');
-  assert.throws(() => absolutePosition(first.nodes, 32, receivedAt), /Missing parent/);
+  assert.throws(() => absolutePosition(first.nodes, 32, receivedAt), /Orbital elements missing for body 31/);
 });
 
 test('journal fields and complete orbital group win; community only fills missing metadata', () => {

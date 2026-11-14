@@ -1,0 +1,6206 @@
+{
+  "sourceURL": "https://www.edsm.net/api-system-v1/bodies?systemName=Bleia%20Dryiae%20XJ-R%20e4-1",
+  "capturedAt": "2026-11-14T07:40:00Z",
+  "systemName": "Bleia Dryiae XJ-R e4-1",
+  "systemAddress": "5593048492",
+  "bodies": [
+    {
+      "bodyId": 2,
+      "name": "Bleia Dryiae XJ-R e4-1 A",
+      "type": "Star",
+      "subType": "B (Blue-White) Star",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 153873.6124833449,
+      "semiMajorAxis": 29.69653644302439,
+      "orbitalEccentricity": 0.06873,
+      "orbitalInclination": 14.432692,
+      "argOfPeriapsis": 333.178701,
+      "updateTime": "2026-10-30 02:34:43",
+      "isMainStar": true,
+      "distanceToArrival": 0,
+      "solarRadius": 1.7941893429187634,
+      "surfaceTemperature": 11780,
+      "solarMasses": 2.859375
+    },
+    {
+      "bodyId": 7,
+      "name": "Bleia Dryiae XJ-R e4-1 A 1",
+      "type": "Planet",
+      "subType": "Metal-rich body",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 16.115319535682872,
+      "semiMajorAxis": 0.1780538797808905,
+      "orbitalEccentricity": 0.000067,
+      "orbitalInclination": -0.002855,
+      "argOfPeriapsis": 320.829585,
+      "updateTime": "2026-10-30 02:45:30",
+      "distanceToArrival": 89,
+      "radius": 6622.519,
+      "gravity": 2.8047131393563536,
+      "surfaceTemperature": 2165,
+      "earthMasses": 3.023889,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Silicate vapour"
+    },
+    {
+      "bodyId": 8,
+      "name": "Bleia Dryiae XJ-R e4-1 A 2",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 35.84332488201389,
+      "semiMajorAxis": 0.3033875176504033,
+      "orbitalEccentricity": 0.000918,
+      "orbitalInclination": 0.016452,
+      "argOfPeriapsis": 126.099212,
+      "updateTime": "2026-10-30 02:45:55",
+      "distanceToArrival": 152,
+      "radius": 13550.408,
+      "gravity": 4.528721601709657,
+      "surfaceTemperature": 6685,
+      "earthMasses": 20.441433,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Silicate vapour"
+    },
+    {
+      "bodyId": 9,
+      "name": "Bleia Dryiae XJ-R e4-1 A 3",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 111.56789406582176,
+      "semiMajorAxis": 0.6467726321177043,
+      "orbitalEccentricity": 0.000039,
+      "orbitalInclination": -0.000589,
+      "argOfPeriapsis": 137.480008,
+      "updateTime": "2026-10-30 02:45:02",
+      "distanceToArrival": 323,
+      "radius": 10493.242,
+      "gravity": 2.544897779959431,
+      "surfaceTemperature": 4185,
+      "earthMasses": 6.888437,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide-rich",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 3 A Ring",
+          "type": "Rocky",
+          "mass": 9607500000,
+          "innerRadius": 30890,
+          "outerRadius": 35497
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 3 B Ring",
+          "type": "Rocky",
+          "mass": 135690000000,
+          "innerRadius": 35597,
+          "outerRadius": 74695
+        }
+      ]
+    },
+    {
+      "bodyId": 12,
+      "name": "Bleia Dryiae XJ-R e4-1 A 3 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 9
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.968854124351852,
+      "semiMajorAxis": 0.0013475888397343346,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 28.347785,
+      "argOfPeriapsis": 98.896706,
+      "updateTime": "2026-10-30 02:44:59",
+      "distanceToArrival": 323,
+      "radius": 1444.2485,
+      "gravity": 0.179245369658978,
+      "surfaceTemperature": 901,
+      "earthMasses": 0.009191,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 13,
+      "name": "Bleia Dryiae XJ-R e4-1 A 4",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 163.41641959216435,
+      "semiMajorAxis": 0.8341726611943682,
+      "orbitalEccentricity": 0.001227,
+      "orbitalInclination": 0.306673,
+      "argOfPeriapsis": 185.699613,
+      "updateTime": "2026-10-30 02:46:36",
+      "distanceToArrival": 417,
+      "radius": 10029.202,
+      "gravity": 2.37406563648276,
+      "surfaceTemperature": 2992,
+      "earthMasses": 5.870248,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 4 A Ring",
+          "type": "Rocky",
+          "mass": 126340000000,
+          "innerRadius": 35755,
+          "outerRadius": 73522
+        }
+      ]
+    },
+    {
+      "bodyId": 15,
+      "name": "Bleia Dryiae XJ-R e4-1 A 4 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 13
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.7505100049305553,
+      "semiMajorAxis": 0.001000000721212939,
+      "orbitalEccentricity": 0.002439,
+      "orbitalInclination": 2.375268,
+      "argOfPeriapsis": 294.166153,
+      "updateTime": "2026-10-30 02:46:39",
+      "distanceToArrival": 417,
+      "radius": 584.5434375,
+      "gravity": 0.06809754890526347,
+      "surfaceTemperature": 799,
+      "earthMasses": 0.000572,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 16,
+      "name": "Bleia Dryiae XJ-R e4-1 A 4 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 13
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.607901296134259,
+      "semiMajorAxis": 0.0011982881956396723,
+      "orbitalEccentricity": 0.000337,
+      "orbitalInclination": 0.021355,
+      "argOfPeriapsis": 144.975878,
+      "updateTime": "2026-10-30 02:46:37",
+      "distanceToArrival": 416,
+      "radius": 510.48878125,
+      "gravity": 0.05931714255857341,
+      "surfaceTemperature": 799,
+      "earthMasses": 0.00038,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 17,
+      "name": "Bleia Dryiae XJ-R e4-1 A 4 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 13
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 7.868137072638889,
+      "semiMajorAxis": 0.0020151441462447233,
+      "orbitalEccentricity": 0.001553,
+      "orbitalInclination": 0.020214,
+      "argOfPeriapsis": 230.845774,
+      "updateTime": "2026-10-30 02:46:41",
+      "distanceToArrival": 417,
+      "radius": 428.58115625,
+      "gravity": 0.049607906958165936,
+      "surfaceTemperature": 799,
+      "earthMasses": 0.000224,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 18,
+      "name": "Bleia Dryiae XJ-R e4-1 A 5",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 311.14718704312503,
+      "semiMajorAxis": 1.2814532380867638,
+      "orbitalEccentricity": 0.000091,
+      "orbitalInclination": 0.067374,
+      "argOfPeriapsis": 78.909473,
+      "updateTime": "2026-10-30 02:45:38",
+      "distanceToArrival": 639,
+      "radius": 28121.358,
+      "gravity": 1.2151692680756905,
+      "surfaceTemperature": 646,
+      "earthMasses": 23.623287,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 5 A Ring",
+          "type": "Metal Rich",
+          "mass": 25520000000,
+          "innerRadius": 77588,
+          "outerRadius": 82963
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 5 B Ring",
+          "type": "Metal Rich",
+          "mass": 277170000000,
+          "innerRadius": 83063,
+          "outerRadius": 127500
+        }
+      ]
+    },
+    {
+      "bodyId": 21,
+      "name": "Bleia Dryiae XJ-R e4-1 A 5 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 18
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.651198870601852,
+      "semiMajorAxis": 0.0015520851665740318,
+      "orbitalEccentricity": 0.000725,
+      "orbitalInclination": -0.013184,
+      "argOfPeriapsis": 87.330898,
+      "updateTime": "2026-10-30 02:45:43",
+      "distanceToArrival": 639,
+      "radius": 840.5823125,
+      "gravity": 0.09850506108057207,
+      "surfaceTemperature": 655,
+      "earthMasses": 0.001711,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 22,
+      "name": "Bleia Dryiae XJ-R e4-1 A 5 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 18
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.8538167460069443,
+      "semiMajorAxis": 0.0019916577491513724,
+      "orbitalEccentricity": 0.000014,
+      "orbitalInclination": -1.012895,
+      "argOfPeriapsis": 52.7356,
+      "updateTime": "2026-10-30 02:45:44",
+      "distanceToArrival": 639,
+      "radius": 768.48525,
+      "gravity": 0.08988939739811944,
+      "surfaceTemperature": 655,
+      "earthMasses": 0.001305,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 23,
+      "name": "Bleia Dryiae XJ-R e4-1 A 5 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 18
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.150399895173611,
+      "semiMajorAxis": 0.002416469366031558,
+      "orbitalEccentricity": 0.000896,
+      "orbitalInclination": -1.783135,
+      "argOfPeriapsis": 213.161362,
+      "updateTime": "2026-10-30 02:45:46",
+      "distanceToArrival": 639,
+      "radius": 759.46875,
+      "gravity": 0.0887922257943287,
+      "surfaceTemperature": 655,
+      "earthMasses": 0.001259,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 24,
+      "name": "Bleia Dryiae XJ-R e4-1 A 5 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 18
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 10.698284470925927,
+      "semiMajorAxis": 0.0039339613929466844,
+      "orbitalEccentricity": 0.004227,
+      "orbitalInclination": -0.029139,
+      "argOfPeriapsis": 130.574697,
+      "updateTime": "2026-10-30 02:45:48",
+      "distanceToArrival": 639,
+      "radius": 651.551875,
+      "gravity": 0.07589203766450754,
+      "surfaceTemperature": 655,
+      "earthMasses": 0.000792,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 25,
+      "name": "Bleia Dryiae XJ-R e4-1 A 5 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 18
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 17.040739594791667,
+      "semiMajorAxis": 0.005365534013950841,
+      "orbitalEccentricity": 0.003036,
+      "orbitalInclination": 0.670514,
+      "argOfPeriapsis": 89.385606,
+      "updateTime": "2026-10-30 02:45:49",
+      "distanceToArrival": 638,
+      "radius": 622.3666875,
+      "gravity": 0.07246452387170133,
+      "surfaceTemperature": 655,
+      "earthMasses": 0.00069,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 26,
+      "name": "Bleia Dryiae XJ-R e4-1 A 6",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 459.13913873611114,
+      "semiMajorAxis": 1.6609442007396835,
+      "orbitalEccentricity": 0.001734,
+      "orbitalInclination": 0.011387,
+      "argOfPeriapsis": 349.484784,
+      "updateTime": "2026-10-30 02:46:49",
+      "distanceToArrival": 830,
+      "radius": 28049.446,
+      "gravity": 1.0453310624486596,
+      "surfaceTemperature": 573,
+      "earthMasses": 20.217777,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 6 A Ring",
+          "type": "Metal Rich",
+          "mass": 266350000000,
+          "innerRadius": 76302,
+          "outerRadius": 122650
+        }
+      ]
+    },
+    {
+      "bodyId": 28,
+      "name": "Bleia Dryiae XJ-R e4-1 A 6 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.4820329293055556,
+      "semiMajorAxis": 0.001000000721212939,
+      "orbitalEccentricity": 0.00057,
+      "orbitalInclination": -0.03193,
+      "argOfPeriapsis": 88.922021,
+      "updateTime": "2026-10-30 02:46:56",
+      "distanceToArrival": 830,
+      "radius": 689.244125,
+      "gravity": 0.0804060034478289,
+      "surfaceTemperature": 582,
+      "earthMasses": 0.000939,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 29,
+      "name": "Bleia Dryiae XJ-R e4-1 A 6 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.691211316875,
+      "semiMajorAxis": 0.0014884249858384516,
+      "orbitalEccentricity": 0.001093,
+      "orbitalInclination": -0.032904,
+      "argOfPeriapsis": 345.766661,
+      "updateTime": "2026-10-30 02:46:55",
+      "distanceToArrival": 830,
+      "radius": 663.995625,
+      "gravity": 0.07741062162103972,
+      "surfaceTemperature": 582,
+      "earthMasses": 0.000839,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 30,
+      "name": "Bleia Dryiae XJ-R e4-1 A 6 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.559765535370371,
+      "semiMajorAxis": 0.0021153882343301297,
+      "orbitalEccentricity": 0.002817,
+      "orbitalInclination": -0.960743,
+      "argOfPeriapsis": 30.506575,
+      "updateTime": "2026-10-30 02:46:54",
+      "distanceToArrival": 831,
+      "radius": 820.61375,
+      "gravity": 0.09610846262334889,
+      "surfaceTemperature": 582,
+      "earthMasses": 0.001591,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 31,
+      "name": "Bleia Dryiae XJ-R e4-1 A 6 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 9.297433619699074,
+      "semiMajorAxis": 0.003401499944515788,
+      "orbitalEccentricity": 0.011479,
+      "orbitalInclination": -0.879524,
+      "argOfPeriapsis": 84.597593,
+      "updateTime": "2026-10-30 02:46:53",
+      "distanceToArrival": 827,
+      "radius": 750.6305625,
+      "gravity": 0.0877188282253588,
+      "surfaceTemperature": 582,
+      "earthMasses": 0.001215,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 32,
+      "name": "Bleia Dryiae XJ-R e4-1 A 6 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 17.56125164252315,
+      "semiMajorAxis": 0.005197550514113501,
+      "orbitalEccentricity": 0.000122,
+      "orbitalInclination": -0.047667,
+      "argOfPeriapsis": 71.023821,
+      "updateTime": "2026-10-30 02:46:59",
+      "distanceToArrival": 829,
+      "radius": 654.50525,
+      "gravity": 0.07625324078542868,
+      "surfaceTemperature": 582,
+      "earthMasses": 0.000803,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 33,
+      "name": "Bleia Dryiae XJ-R e4-1 A 6 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 27.433059143796292,
+      "semiMajorAxis": 0.00699752791431877,
+      "orbitalEccentricity": 0.050044,
+      "orbitalInclination": -3.720908,
+      "argOfPeriapsis": 124.402139,
+      "updateTime": "2026-10-30 02:47:01",
+      "distanceToArrival": 831,
+      "radius": 651.5211875,
+      "gravity": 0.07589918706132996,
+      "surfaceTemperature": 582,
+      "earthMasses": 0.000792,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 35,
+      "name": "Bleia Dryiae XJ-R e4-1 A 7",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 34
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 103.96399293784722,
+      "semiMajorAxis": 0.00021886850216108725,
+      "orbitalEccentricity": 0.159284,
+      "orbitalInclination": 6.314358,
+      "argOfPeriapsis": 83.070045,
+      "updateTime": "2022-03-02 15:08:14",
+      "distanceToArrival": 1203,
+      "radius": 75629.584,
+      "gravity": 7.268039568709753,
+      "surfaceTemperature": 655,
+      "earthMasses": 1021.954773,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 7 A Ring",
+          "type": "Rocky",
+          "mass": 194380000000,
+          "innerRadius": 128800,
+          "outerRadius": 151690
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 7 B Ring",
+          "type": "Metal Rich",
+          "mass": 3025800000000,
+          "innerRadius": 151790,
+          "outerRadius": 350660
+        }
+      ]
+    },
+    {
+      "bodyId": 38,
+      "name": "Bleia Dryiae XJ-R e4-1 A 7 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 35
+        },
+        {
+          "Null": 34
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.152485698738426,
+      "semiMajorAxis": 0.0031263698333005084,
+      "orbitalEccentricity": 0.000879,
+      "orbitalInclination": -0.241494,
+      "argOfPeriapsis": 340.164516,
+      "updateTime": "2026-10-30 02:45:16",
+      "distanceToArrival": 1203,
+      "radius": 1248.268125,
+      "gravity": 0.14812985568074202,
+      "surfaceTemperature": 536,
+      "earthMasses": 0.005674,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 39,
+      "name": "Bleia Dryiae XJ-R e4-1 A 7 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 35
+        },
+        {
+          "Null": 34
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.9588134752430557,
+      "semiMajorAxis": 0.005861765323196207,
+      "orbitalEccentricity": 0.009305,
+      "orbitalInclination": 0.004417,
+      "argOfPeriapsis": 215.345288,
+      "updateTime": "2026-10-30 02:45:15",
+      "distanceToArrival": 1204,
+      "radius": 953.3275,
+      "gravity": 0.11207767479643545,
+      "surfaceTemperature": 524,
+      "earthMasses": 0.002504,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 40,
+      "name": "Bleia Dryiae XJ-R e4-1 A 7 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 35
+        },
+        {
+          "Null": 34
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.072550063333333,
+      "semiMajorAxis": 0.007253166152720514,
+      "orbitalEccentricity": 0.007215,
+      "orbitalInclination": -0.479057,
+      "argOfPeriapsis": 280.480759,
+      "updateTime": "2026-10-30 02:45:11",
+      "distanceToArrival": 1203,
+      "radius": 1057.66975,
+      "gravity": 0.1247640835877206,
+      "surfaceTemperature": 521,
+      "earthMasses": 0.003431,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 41,
+      "name": "Bleia Dryiae XJ-R e4-1 A 7 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 35
+        },
+        {
+          "Null": 34
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.741302613854167,
+      "semiMajorAxis": 0.009119203771155682,
+      "orbitalEccentricity": 0.007369,
+      "orbitalInclination": 0.25158,
+      "argOfPeriapsis": 85.192014,
+      "updateTime": "2026-10-30 02:45:19",
+      "distanceToArrival": 1199,
+      "radius": 878.095125,
+      "gravity": 0.10303579847473018,
+      "surfaceTemperature": 517,
+      "earthMasses": 0.001953,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 42,
+      "name": "Bleia Dryiae XJ-R e4-1 A 8",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Null": 34
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 103.96399293784722,
+      "semiMajorAxis": 0.06273794789096822,
+      "orbitalEccentricity": 0.159284,
+      "orbitalInclination": 6.314358,
+      "argOfPeriapsis": 263.07004,
+      "updateTime": "2026-10-30 02:45:21",
+      "distanceToArrival": 1238,
+      "radius": 8765.876,
+      "gravity": 1.8872392230323054,
+      "surfaceTemperature": 1767,
+      "earthMasses": 3.56491,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 8 A Ring",
+          "type": "Rocky",
+          "mass": 6279100000,
+          "innerRadius": 48890,
+          "outerRadius": 50897
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 8 B Ring",
+          "type": "Metal Rich",
+          "mass": 77197000000,
+          "innerRadius": 50997,
+          "outerRadius": 71083
+        }
+      ]
+    },
+    {
+      "bodyId": 45,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1432.2006178122685,
+      "semiMajorAxis": 3.545912978014733,
+      "orbitalEccentricity": 0.000397,
+      "orbitalInclination": 0.289574,
+      "argOfPeriapsis": 76.345122,
+      "updateTime": "2026-10-30 02:35:39",
+      "distanceToArrival": 1770,
+      "radius": 72674.04,
+      "gravity": 4.430260964194837,
+      "surfaceTemperature": 490,
+      "earthMasses": 575.200012,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 A Ring",
+          "type": "Rocky",
+          "mass": 2268000000000,
+          "innerRadius": 119910,
+          "outerRadius": 309460
+        }
+      ]
+    },
+    {
+      "bodyId": 47,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 45
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.3435778330902775,
+      "semiMajorAxis": 0.0062522787599534335,
+      "orbitalEccentricity": 0.000307,
+      "orbitalInclination": -0.833786,
+      "argOfPeriapsis": 239.671553,
+      "updateTime": "2026-10-30 02:35:51",
+      "distanceToArrival": 1771,
+      "radius": 848.7738125,
+      "gravity": 0.09949264817696213,
+      "surfaceTemperature": 429,
+      "earthMasses": 0.001762,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 48,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 45
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.270751883032407,
+      "semiMajorAxis": 0.007113035072663638,
+      "orbitalEccentricity": 0.000036,
+      "orbitalInclination": 0.20552,
+      "argOfPeriapsis": 174.298795,
+      "updateTime": "2026-10-30 02:35:52",
+      "distanceToArrival": 1767,
+      "radius": 947.9195625,
+      "gravity": 0.11145873413566015,
+      "surfaceTemperature": 428,
+      "earthMasses": 0.002462,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 49,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 45
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 6.513371373773149,
+      "semiMajorAxis": 0.008191129508529162,
+      "orbitalEccentricity": 0.000136,
+      "orbitalInclination": 0.13644,
+      "argOfPeriapsis": 324.235934,
+      "updateTime": "2026-10-30 02:35:44",
+      "distanceToArrival": 1768,
+      "radius": 1072.6975,
+      "gravity": 0.12691382737804874,
+      "surfaceTemperature": 427,
+      "earthMasses": 0.00359,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 50,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9 c a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 49
+        },
+        {
+          "Planet": 45
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.39426061428240744,
+      "semiMajorAxis": 0.000023612822097407033,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 69.175319,
+      "argOfPeriapsis": 233.079919,
+      "updateTime": "2026-10-30 02:35:45",
+      "distanceToArrival": 1768,
+      "radius": 398.7450625,
+      "gravity": 0.04426133370128509,
+      "surfaceTemperature": 427,
+      "earthMasses": 0.000173,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 51,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 45
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 9.318742763113425,
+      "semiMajorAxis": 0.010400274035979979,
+      "orbitalEccentricity": 0.000505,
+      "orbitalInclination": 0.051183,
+      "argOfPeriapsis": 97.357161,
+      "updateTime": "2026-10-30 02:35:46",
+      "distanceToArrival": 1770,
+      "radius": 1455.44975,
+      "gravity": 0.1749799585060045,
+      "surfaceTemperature": 426,
+      "earthMasses": 0.009112,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 52,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 45
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 10.02791082417824,
+      "semiMajorAxis": 0.010921447574614444,
+      "orbitalEccentricity": 0.00054,
+      "orbitalInclination": -0.059533,
+      "argOfPeriapsis": 154.389517,
+      "updateTime": "2026-10-30 02:35:54",
+      "distanceToArrival": 1768,
+      "radius": 1363.0935,
+      "gravity": 0.16240693307439683,
+      "surfaceTemperature": 426,
+      "earthMasses": 0.007418,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 53,
+      "name": "Bleia Dryiae XJ-R e4-1 A 9 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 45
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 54.95367295763889,
+      "semiMajorAxis": 0.033947234055610793,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 12.169976,
+      "argOfPeriapsis": 8.963725,
+      "updateTime": "2026-10-30 02:56:02",
+      "distanceToArrival": 1761,
+      "radius": 3955.994,
+      "gravity": 0.5094878062340188,
+      "surfaceTemperature": 422,
+      "earthMasses": 0.196009,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Sulphur dioxide",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 f A Ring",
+          "type": "Rocky",
+          "mass": 3755900000,
+          "innerRadius": 8699.4,
+          "outerRadius": 26129
+        }
+      ]
+    },
+    {
+      "bodyId": 56,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10",
+      "type": "Star",
+      "subType": "T Tauri Star",
+      "parents": [
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 340.1901710916435,
+      "semiMajorAxis": 0.006478380006214085,
+      "orbitalEccentricity": 0.048959,
+      "orbitalInclination": -1.788623,
+      "argOfPeriapsis": 100.882256,
+      "updateTime": "2026-10-30 02:34:45",
+      "isMainStar": false,
+      "distanceToArrival": 2973,
+      "solarRadius": 0.12240599281092739,
+      "surfaceTemperature": 690,
+      "solarMasses": 0.03125,
+      "reserveLevel": null,
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 A Ring",
+          "type": "Rocky",
+          "mass": 17259000000000,
+          "innerRadius": 196190,
+          "outerRadius": 777530
+        }
+      ]
+    },
+    {
+      "bodyId": 58,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 56
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.0098660157754629,
+      "semiMajorAxis": 0.00634779496900874,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 0.269616,
+      "argOfPeriapsis": 314.851838,
+      "updateTime": "2026-10-30 02:46:15",
+      "distanceToArrival": 2972,
+      "radius": 1237.030125,
+      "gravity": 0.14676625918547878,
+      "surfaceTemperature": 462,
+      "earthMasses": 0.005521,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 59,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 56
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.1132338637499997,
+      "semiMajorAxis": 0.013445850177192395,
+      "orbitalEccentricity": 0.002169,
+      "orbitalInclination": 0.295667,
+      "argOfPeriapsis": 348.691638,
+      "updateTime": "2026-10-30 02:46:25",
+      "distanceToArrival": 2974,
+      "radius": 818.341625,
+      "gravity": 0.09585322830995942,
+      "surfaceTemperature": 421,
+      "earthMasses": 0.001578,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 60,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 56
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.938196157962963,
+      "semiMajorAxis": 0.015726978696873926,
+      "orbitalEccentricity": 0.001266,
+      "orbitalInclination": -0.006375,
+      "argOfPeriapsis": 197.95719,
+      "updateTime": "2026-10-30 02:46:23",
+      "distanceToArrival": 2977,
+      "radius": 1118.35125,
+      "gravity": 0.13231025884155537,
+      "surfaceTemperature": 414,
+      "earthMasses": 0.004068,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 61,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 56
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.651912453553241,
+      "semiMajorAxis": 0.01757389833149811,
+      "orbitalEccentricity": 0.000404,
+      "orbitalInclination": -0.278983,
+      "argOfPeriapsis": 14.14259,
+      "updateTime": "2026-10-30 02:46:28",
+      "distanceToArrival": 2965,
+      "radius": 1011.7720625,
+      "gravity": 0.11917361927350559,
+      "surfaceTemperature": 410,
+      "earthMasses": 0.002999,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 62,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 56
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 7.2613481984143515,
+      "semiMajorAxis": 0.023647863035286504,
+      "orbitalEccentricity": 0.010445,
+      "orbitalInclination": -0.901528,
+      "argOfPeriapsis": 128.762258,
+      "updateTime": "2026-10-30 02:46:17",
+      "distanceToArrival": 2966,
+      "radius": 1160.196875,
+      "gravity": 0.13729299651783303,
+      "surfaceTemperature": 399,
+      "earthMasses": 0.004543,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 63,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 56
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 9.701383196643517,
+      "semiMajorAxis": 0.02868596754037623,
+      "orbitalEccentricity": 0.000278,
+      "orbitalInclination": -0.067921,
+      "argOfPeriapsis": 72.415807,
+      "updateTime": "2026-10-30 02:46:16",
+      "distanceToArrival": 2956,
+      "radius": 1119.350375,
+      "gravity": 0.13230143193464394,
+      "surfaceTemperature": 393,
+      "earthMasses": 0.004075,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 64,
+      "name": "Bleia Dryiae XJ-R e4-1 A 10 g",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 56
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 13.572449485462963,
+      "semiMajorAxis": 0.0358827642682243,
+      "orbitalEccentricity": 0.004985,
+      "orbitalInclination": -0.916897,
+      "argOfPeriapsis": 304.563015,
+      "updateTime": "2026-10-30 02:46:29",
+      "distanceToArrival": 2963,
+      "radius": 1203.23225,
+      "gravity": 0.14259560789738207,
+      "surfaceTemperature": 386,
+      "earthMasses": 0.005075,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 65,
+      "name": "Bleia Dryiae XJ-R e4-1 A 11",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 340.1901710916435,
+      "semiMajorAxis": 0.30301922662366476,
+      "orbitalEccentricity": 0.048959,
+      "orbitalInclination": -1.788623,
+      "argOfPeriapsis": 280.882251,
+      "updateTime": "2026-10-30 02:46:01",
+      "distanceToArrival": 2938,
+      "radius": 68594.896,
+      "gravity": 2.05905049668451,
+      "surfaceTemperature": 370,
+      "earthMasses": 238.166992,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 11 A Ring",
+          "type": "Metallic",
+          "mass": 88518000000,
+          "innerRadius": 113180,
+          "outerRadius": 127410
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 A 11 B Ring",
+          "type": "Metal Rich",
+          "mass": 1106200000000,
+          "innerRadius": 127510,
+          "outerRadius": 236720
+        }
+      ]
+    },
+    {
+      "bodyId": 68,
+      "name": "Bleia Dryiae XJ-R e4-1 A 11 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 65
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.7730398448495372,
+      "semiMajorAxis": 0.0025640402555273134,
+      "orbitalEccentricity": 0.000115,
+      "orbitalInclination": 0.300696,
+      "argOfPeriapsis": 30.00956,
+      "updateTime": "2026-10-30 02:46:10",
+      "distanceToArrival": 2937,
+      "radius": 1345.097875,
+      "gravity": 0.1602614056704071,
+      "surfaceTemperature": 357,
+      "earthMasses": 0.007128,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Sulphur dioxide"
+    },
+    {
+      "bodyId": 69,
+      "name": "Bleia Dryiae XJ-R e4-1 A 11 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 65
+        },
+        {
+          "Null": 55
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.3071656210532407,
+      "semiMajorAxis": 0.00305608240624584,
+      "orbitalEccentricity": 0.005883,
+      "orbitalInclination": 0.000118,
+      "argOfPeriapsis": 326.249423,
+      "updateTime": "2026-10-30 02:46:09",
+      "distanceToArrival": 2937,
+      "radius": 1612.306625,
+      "gravity": 0.19358805644529178,
+      "surfaceTemperature": 357,
+      "earthMasses": 0.012371,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 70,
+      "name": "Bleia Dryiae XJ-R e4-1 A 12",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5533.825330160301,
+      "semiMajorAxis": 8.731237353620301,
+      "orbitalEccentricity": 0.003507,
+      "orbitalInclination": 0.181954,
+      "argOfPeriapsis": 14.634415,
+      "updateTime": "2026-10-30 02:35:11",
+      "distanceToArrival": 4344,
+      "radius": 58831.008,
+      "gravity": 2.178572815585919,
+      "surfaceTemperature": 297,
+      "earthMasses": 185.359833,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 71,
+      "name": "Bleia Dryiae XJ-R e4-1 A 12 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 70
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 6.927039543240741,
+      "semiMajorAxis": 0.005850319315407208,
+      "orbitalEccentricity": 0.000108,
+      "orbitalInclination": -0.071984,
+      "argOfPeriapsis": 277.418874,
+      "updateTime": "2026-10-30 02:35:16",
+      "distanceToArrival": 4341,
+      "radius": 672.288625,
+      "gravity": 0.07839270647761705,
+      "surfaceTemperature": 286,
+      "earthMasses": 0.000871,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 72,
+      "name": "Bleia Dryiae XJ-R e4-1 A 12 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 70
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 9.67254441369213,
+      "semiMajorAxis": 0.007308725166007995,
+      "orbitalEccentricity": 0.002278,
+      "orbitalInclination": 0.003964,
+      "argOfPeriapsis": 283.391044,
+      "updateTime": "2026-10-30 02:35:18",
+      "distanceToArrival": 4340,
+      "radius": 657.7241875,
+      "gravity": 0.07663709116121238,
+      "surfaceTemperature": 286,
+      "earthMasses": 0.000815,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 73,
+      "name": "Bleia Dryiae XJ-R e4-1 A 12 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 70
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 25.972065826261577,
+      "semiMajorAxis": 0.01411948388933453,
+      "orbitalEccentricity": 0.000415,
+      "orbitalInclination": -0.008797,
+      "argOfPeriapsis": 317.798549,
+      "updateTime": "2026-10-30 02:35:22",
+      "distanceToArrival": 4337,
+      "radius": 855.1640625,
+      "gravity": 0.10023627823312455,
+      "surfaceTemperature": 285,
+      "earthMasses": 0.001802,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 74,
+      "name": "Bleia Dryiae XJ-R e4-1 A 12 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 70
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 48.420133276122684,
+      "semiMajorAxis": 0.021387751428429254,
+      "orbitalEccentricity": 0.001738,
+      "orbitalInclination": -0.114257,
+      "argOfPeriapsis": 179.873291,
+      "updateTime": "2026-10-30 02:35:26",
+      "distanceToArrival": 4332,
+      "radius": 615.817125,
+      "gravity": 0.07165425230329797,
+      "surfaceTemperature": 284,
+      "earthMasses": 0.000668,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 75,
+      "name": "Bleia Dryiae XJ-R e4-1 A 12 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 70
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 70.27681365056712,
+      "semiMajorAxis": 0.02741716261981261,
+      "orbitalEccentricity": 0.007157,
+      "orbitalInclination": 2.954748,
+      "argOfPeriapsis": 288.586346,
+      "updateTime": "2026-10-30 02:35:29",
+      "distanceToArrival": 4332,
+      "radius": 581.7976875,
+      "gravity": 0.06766022587014497,
+      "surfaceTemperature": 284,
+      "earthMasses": 0.000563,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 3,
+      "name": "Bleia Dryiae XJ-R e4-1 B",
+      "type": "Star",
+      "subType": "F (White) Star",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 153873.6124833449,
+      "semiMajorAxis": 61.66135275637716,
+      "orbitalEccentricity": 0.06873,
+      "orbitalInclination": 14.432692,
+      "argOfPeriapsis": 153.178706,
+      "updateTime": "2026-10-30 02:34:45",
+      "isMainStar": false,
+      "distanceToArrival": 44565,
+      "solarRadius": 1.3054808339324226,
+      "surfaceTemperature": 6847,
+      "solarMasses": 1.390625
+    },
+    {
+      "bodyId": 76,
+      "name": "Bleia Dryiae XJ-R e4-1 B 1",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 23.581731236643517,
+      "semiMajorAxis": 0.17988998795123223,
+      "orbitalEccentricity": 0.000063,
+      "orbitalInclination": 0.016118,
+      "argOfPeriapsis": 217.99938,
+      "updateTime": "2026-10-30 02:38:09",
+      "distanceToArrival": 44632,
+      "radius": 8231.7625,
+      "gravity": 1.7298464977406498,
+      "surfaceTemperature": 886,
+      "earthMasses": 2.881537,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 77,
+      "name": "Bleia Dryiae XJ-R e4-1 B 1 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 76
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.0446780793055557,
+      "semiMajorAxis": 0.0006628494209509762,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 88.55971,
+      "argOfPeriapsis": 273.928691,
+      "updateTime": "2026-10-30 02:38:07",
+      "distanceToArrival": 44632,
+      "radius": 3982.35775,
+      "gravity": 0.5461463345576545,
+      "surfaceTemperature": 886,
+      "earthMasses": 0.212922,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Sulphur dioxide"
+    },
+    {
+      "bodyId": 78,
+      "name": "Bleia Dryiae XJ-R e4-1 B 2",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 43.211022598877314,
+      "semiMajorAxis": 0.2693722365135107,
+      "orbitalEccentricity": 0.000002,
+      "orbitalInclination": 0.004597,
+      "argOfPeriapsis": 139.961805,
+      "updateTime": "2026-10-30 02:37:57",
+      "distanceToArrival": 44589,
+      "radius": 7806.739,
+      "gravity": 1.5704020192073087,
+      "surfaceTemperature": 740,
+      "earthMasses": 2.352779,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 79,
+      "name": "Bleia Dryiae XJ-R e4-1 B 3",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 56.44880511142361,
+      "semiMajorAxis": 0.3219039521468336,
+      "orbitalEccentricity": 0.000535,
+      "orbitalInclination": 0.002205,
+      "argOfPeriapsis": 125.062178,
+      "updateTime": "2026-10-30 02:36:41",
+      "distanceToArrival": 44407,
+      "radius": 7372.501,
+      "gravity": 1.4414945168252267,
+      "surfaceTemperature": 684,
+      "earthMasses": 1.926077,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 80,
+      "name": "Bleia Dryiae XJ-R e4-1 B 4",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 72.27092015521991,
+      "semiMajorAxis": 0.3795469583481511,
+      "orbitalEccentricity": 0.000902,
+      "orbitalInclination": -0.002854,
+      "argOfPeriapsis": 9.50929,
+      "updateTime": "2026-10-30 02:38:18",
+      "distanceToArrival": 44670,
+      "radius": 8504.112,
+      "gravity": 1.794401421676232,
+      "surfaceTemperature": 637,
+      "earthMasses": 3.190131,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 81,
+      "name": "Bleia Dryiae XJ-R e4-1 B 5",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 145.9815159991898,
+      "semiMajorAxis": 0.6064872873919923,
+      "orbitalEccentricity": 0.000024,
+      "orbitalInclination": 0.000648,
+      "argOfPeriapsis": 164.111738,
+      "updateTime": "2026-10-30 02:37:56",
+      "distanceToArrival": 44453,
+      "radius": 7888.1945,
+      "gravity": 1.5954473513370229,
+      "surfaceTemperature": 1766,
+      "earthMasses": 2.440443,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide"
+    },
+    {
+      "bodyId": 82,
+      "name": "Bleia Dryiae XJ-R e4-1 B 6",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 193.38737345403936,
+      "semiMajorAxis": 0.7315463853880909,
+      "orbitalEccentricity": 0.001094,
+      "orbitalInclination": -0.004288,
+      "argOfPeriapsis": 320.378933,
+      "updateTime": "2026-10-30 02:37:56",
+      "distanceToArrival": 44620,
+      "radius": 9094.531,
+      "gravity": 2.0026034463036297,
+      "surfaceTemperature": 1730,
+      "earthMasses": 4.071801,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide"
+    },
+    {
+      "bodyId": 83,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 971.8718904036111,
+      "semiMajorAxis": 2.1463265532086884,
+      "orbitalEccentricity": 0.007685,
+      "orbitalInclination": 0.194554,
+      "argOfPeriapsis": 206.627207,
+      "updateTime": "2026-10-30 02:37:19",
+      "distanceToArrival": 43865,
+      "radius": 76360.24,
+      "gravity": 5.932994748688551,
+      "surfaceTemperature": 450,
+      "earthMasses": 850.431824,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 A Ring",
+          "type": "Metallic",
+          "mass": 324090000000,
+          "innerRadius": 139820,
+          "outerRadius": 173820
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 B Ring",
+          "type": "Metal Rich",
+          "mass": 2387900000000,
+          "innerRadius": 173920,
+          "outerRadius": 329830
+        }
+      ]
+    },
+    {
+      "bodyId": 86,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 83
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.8161984659953704,
+      "semiMajorAxis": 0.002336419786369526,
+      "orbitalEccentricity": 0.000286,
+      "orbitalInclination": -0.202709,
+      "argOfPeriapsis": 293.613064,
+      "updateTime": "2026-10-30 02:37:10",
+      "distanceToArrival": 43865,
+      "radius": 573.222125,
+      "gravity": 0.06660478272901114,
+      "surfaceTemperature": 360,
+      "earthMasses": 0.000538,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 87,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 83
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.0939830638194443,
+      "semiMajorAxis": 0.0028402773714362767,
+      "orbitalEccentricity": 0.000178,
+      "orbitalInclination": 0.342184,
+      "argOfPeriapsis": 200.854908,
+      "updateTime": "2026-10-30 02:37:23",
+      "distanceToArrival": 43866,
+      "radius": 704.2305,
+      "gravity": 0.08218774991169969,
+      "surfaceTemperature": 356,
+      "earthMasses": 0.001002,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 88,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 83
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.4711287286574075,
+      "semiMajorAxis": 0.00346035634484121,
+      "orbitalEccentricity": 0.001801,
+      "orbitalInclination": 0.001262,
+      "argOfPeriapsis": 168.048899,
+      "updateTime": "2026-10-30 02:37:32",
+      "distanceToArrival": 43864,
+      "radius": 621.06925,
+      "gravity": 0.07234576128226027,
+      "surfaceTemperature": 352,
+      "earthMasses": 0.000686,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 89,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 83
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.9697936734722221,
+      "semiMajorAxis": 0.0042037238621614285,
+      "orbitalEccentricity": 0.002801,
+      "orbitalInclination": 0.004355,
+      "argOfPeriapsis": 249.014518,
+      "updateTime": "2026-10-30 02:37:29",
+      "distanceToArrival": 43865,
+      "radius": 584.843125,
+      "gravity": 0.06802777718512988,
+      "surfaceTemperature": 349,
+      "earthMasses": 0.000572,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Sulphur dioxide"
+    },
+    {
+      "bodyId": 90,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 83
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.540744573981482,
+      "semiMajorAxis": 0.008376561958683013,
+      "orbitalEccentricity": 0.007136,
+      "orbitalInclination": -1.008274,
+      "argOfPeriapsis": 42.597247,
+      "updateTime": "2026-10-30 02:36:57",
+      "distanceToArrival": 43863,
+      "radius": 992.6551875,
+      "gravity": 0.11687242791122664,
+      "surfaceTemperature": 340,
+      "earthMasses": 0.002831,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 91,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 83
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 8.188817857037037,
+      "semiMajorAxis": 0.010868455661543718,
+      "orbitalEccentricity": 0.000304,
+      "orbitalInclination": 0.584258,
+      "argOfPeriapsis": 38.610281,
+      "updateTime": "2026-10-30 02:37:33",
+      "distanceToArrival": 43860,
+      "radius": 937.3378125,
+      "gravity": 0.11014662587693502,
+      "surfaceTemperature": 338,
+      "earthMasses": 0.002379,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 92,
+      "name": "Bleia Dryiae XJ-R e4-1 B 7 g",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 83
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 13.202297742719907,
+      "semiMajorAxis": 0.014943536207156723,
+      "orbitalEccentricity": 0.000049,
+      "orbitalInclination": 0.219146,
+      "argOfPeriapsis": 108.323648,
+      "updateTime": "2026-10-30 02:37:36",
+      "distanceToArrival": 43862,
+      "radius": 1396.794125,
+      "gravity": 0.1665490986314519,
+      "surfaceTemperature": 335,
+      "earthMasses": 0.007988,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 93,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1713.4331304717591,
+      "semiMajorAxis": 3.1323328528974175,
+      "orbitalEccentricity": 0.00081,
+      "orbitalInclination": 0.000381,
+      "argOfPeriapsis": 346.368059,
+      "updateTime": "2026-10-30 02:36:08",
+      "distanceToArrival": 45735,
+      "radius": 76113.576,
+      "gravity": 4.952686792340023,
+      "surfaceTemperature": 382,
+      "earthMasses": 705.33606,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 A Ring",
+          "type": "Rocky",
+          "mass": 2239500000000,
+          "innerRadius": 125590,
+          "outerRadius": 325800
+        }
+      ]
+    },
+    {
+      "bodyId": 95,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 93
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.6654972676851854,
+      "semiMajorAxis": 0.003531587220072712,
+      "orbitalEccentricity": 0.000155,
+      "orbitalInclination": 0.014973,
+      "argOfPeriapsis": 176.483718,
+      "updateTime": "2026-10-30 02:36:28",
+      "distanceToArrival": 45735,
+      "radius": 750.882,
+      "gravity": 0.087732239896182,
+      "surfaceTemperature": 306,
+      "earthMasses": 0.001216,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 96,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 93
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.2286669247685187,
+      "semiMajorAxis": 0.004288486937442419,
+      "orbitalEccentricity": 0.000158,
+      "orbitalInclination": 0.446042,
+      "argOfPeriapsis": 102.483068,
+      "updateTime": "2026-10-30 02:36:27",
+      "distanceToArrival": 45735,
+      "radius": 866.131125,
+      "gravity": 0.10156393435474628,
+      "surfaceTemperature": 303,
+      "earthMasses": 0.001873,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 97,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 93
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.839149062280093,
+      "semiMajorAxis": 0.007190956505128919,
+      "orbitalEccentricity": 0.000149,
+      "orbitalInclination": -0.001655,
+      "argOfPeriapsis": 349.532397,
+      "updateTime": "2026-10-30 02:36:20",
+      "distanceToArrival": 45737,
+      "radius": 1054.166,
+      "gravity": 0.12489931101916643,
+      "surfaceTemperature": 297,
+      "earthMasses": 0.003412,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 98,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8 c a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 97
+        },
+        {
+          "Planet": 93
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.4808838651736111,
+      "semiMajorAxis": 0.000026926710214532488,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 48.433855,
+      "argOfPeriapsis": 19.188686,
+      "updateTime": "2026-10-30 02:36:20",
+      "distanceToArrival": 45737,
+      "radius": 498.531125,
+      "gravity": 0.055486096397561205,
+      "surfaceTemperature": 297,
+      "earthMasses": 0.000339,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 99,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 93
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 9.55408659798611,
+      "semiMajorAxis": 0.011317055129501919,
+      "orbitalEccentricity": 0.00439,
+      "orbitalInclination": -0.294349,
+      "argOfPeriapsis": 303.087582,
+      "updateTime": "2026-10-30 02:36:25",
+      "distanceToArrival": 45738,
+      "radius": 896.057125,
+      "gravity": 0.1051780183471605,
+      "surfaceTemperature": 294,
+      "earthMasses": 0.002076,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 100,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 93
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 21.514813933101852,
+      "semiMajorAxis": 0.019443108667459796,
+      "orbitalEccentricity": 0.005765,
+      "orbitalInclination": 3.455453,
+      "argOfPeriapsis": 343.350659,
+      "updateTime": "2026-10-30 02:36:23",
+      "distanceToArrival": 45739,
+      "radius": 1202.90975,
+      "gravity": 0.14255962698828337,
+      "surfaceTemperature": 290,
+      "earthMasses": 0.005071,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 101,
+      "name": "Bleia Dryiae XJ-R e4-1 B 8 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 93
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 29.81097471935185,
+      "semiMajorAxis": 0.024165258239084015,
+      "orbitalEccentricity": 0.023124,
+      "orbitalInclination": -0.065358,
+      "argOfPeriapsis": 78.966074,
+      "updateTime": "2026-10-30 02:36:32",
+      "distanceToArrival": 45735,
+      "radius": 1114.448375,
+      "gravity": 0.13169921681408128,
+      "surfaceTemperature": 289,
+      "earthMasses": 0.004021,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 103,
+      "name": "Bleia Dryiae XJ-R e4-1 B 9",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 102
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 123.9861051241551,
+      "semiMajorAxis": 0.0015101519052728067,
+      "orbitalEccentricity": 0.124098,
+      "orbitalInclination": -1.89365,
+      "argOfPeriapsis": 292.874396,
+      "updateTime": "2026-10-30 02:36:51",
+      "distanceToArrival": 42799,
+      "radius": 70149.832,
+      "gravity": 2.291393270714101,
+      "surfaceTemperature": 288,
+      "earthMasses": 277.194031,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 B 9 A Ring",
+          "type": "Metallic",
+          "mass": 58965000000,
+          "innerRadius": 112130,
+          "outerRadius": 121930
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 B 9 B Ring",
+          "type": "Metal Rich",
+          "mass": 941640000000,
+          "innerRadius": 122030,
+          "outerRadius": 226990
+        }
+      ]
+    },
+    {
+      "bodyId": 106,
+      "name": "Bleia Dryiae XJ-R e4-1 B 9 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 103
+        },
+        {
+          "Null": 102
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.737001662453704,
+      "semiMajorAxis": 0.0026603583098698475,
+      "orbitalEccentricity": 0.001798,
+      "orbitalInclination": -2.226486,
+      "argOfPeriapsis": 85.002852,
+      "updateTime": "2026-10-30 02:37:00",
+      "distanceToArrival": 42800,
+      "radius": 1303.20625,
+      "gravity": 0.15492187080686554,
+      "surfaceTemperature": 998,
+      "earthMasses": 0.006468,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Sulphur dioxide"
+    },
+    {
+      "bodyId": 107,
+      "name": "Bleia Dryiae XJ-R e4-1 B 9 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 103
+        },
+        {
+          "Null": 102
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.7843430224421297,
+      "semiMajorAxis": 0.0036438053584610277,
+      "orbitalEccentricity": 0.000883,
+      "orbitalInclination": -0.041971,
+      "argOfPeriapsis": 149.539472,
+      "updateTime": "2026-10-30 02:37:07",
+      "distanceToArrival": 42799,
+      "radius": 1144.515625,
+      "gravity": 0.13536688856983484,
+      "surfaceTemperature": 896,
+      "earthMasses": 0.004359,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Water"
+    },
+    {
+      "bodyId": 108,
+      "name": "Bleia Dryiae XJ-R e4-1 B 9 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 103
+        },
+        {
+          "Null": 102
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.5338067037037035,
+      "semiMajorAxis": 0.005760002251273153,
+      "orbitalEccentricity": 0.001604,
+      "orbitalInclination": -0.502095,
+      "argOfPeriapsis": 322.628026,
+      "updateTime": "2026-10-30 02:37:04",
+      "distanceToArrival": 42804,
+      "radius": 980.49275,
+      "gravity": 0.11538926161621747,
+      "surfaceTemperature": 524,
+      "earthMasses": 0.002727,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 109,
+      "name": "Bleia Dryiae XJ-R e4-1 B 10",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 102
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 123.9861051241551,
+      "semiMajorAxis": 0.0447766540956221,
+      "orbitalEccentricity": 0.124098,
+      "orbitalInclination": -1.89365,
+      "argOfPeriapsis": 112.874402,
+      "updateTime": "2026-10-30 02:37:42",
+      "distanceToArrival": 42774,
+      "radius": 29410.946,
+      "gravity": 0.4396460224792398,
+      "surfaceTemperature": 258,
+      "earthMasses": 9.348719,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 B 10 A Ring",
+          "type": "Rocky",
+          "mass": 19843000000,
+          "innerRadius": 64493,
+          "outerRadius": 69280
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 B 10 B Ring",
+          "type": "Rocky",
+          "mass": 190830000000,
+          "innerRadius": 69380,
+          "outerRadius": 104680
+        }
+      ]
+    },
+    {
+      "bodyId": 112,
+      "name": "Bleia Dryiae XJ-R e4-1 B 10 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 109
+        },
+        {
+          "Null": 102
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.586776735601852,
+      "semiMajorAxis": 0.0011209053641478735,
+      "orbitalEccentricity": 0.001883,
+      "orbitalInclination": 0.901966,
+      "argOfPeriapsis": 123.287076,
+      "updateTime": "2026-10-30 02:37:47",
+      "distanceToArrival": 42774,
+      "radius": 478.9005,
+      "gravity": 0.05551659049295573,
+      "surfaceTemperature": 725,
+      "earthMasses": 0.000313,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Water"
+    },
+    {
+      "bodyId": 113,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11",
+      "type": "Planet",
+      "subType": "Gas giant with water-based life",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3823.0365349186345,
+      "semiMajorAxis": 5.348460108091031,
+      "orbitalEccentricity": 0.002263,
+      "orbitalInclination": -0.030242,
+      "argOfPeriapsis": 47.69224,
+      "updateTime": "2026-10-30 02:38:32",
+      "distanceToArrival": 44155,
+      "radius": 16977.452,
+      "gravity": 1.6586422166872818,
+      "surfaceTemperature": 230,
+      "earthMasses": 11.752458,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 114,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 113
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 7.715370299085649,
+      "semiMajorAxis": 0.0025067381003105417,
+      "orbitalEccentricity": 0.000476,
+      "orbitalInclination": 0.073735,
+      "argOfPeriapsis": 241.013658,
+      "updateTime": "2026-10-30 02:38:36",
+      "distanceToArrival": 44156,
+      "radius": 430.36475,
+      "gravity": 0.04985646732836091,
+      "surfaceTemperature": 234,
+      "earthMasses": 0.000227,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 115,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 113
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 14.124359521597222,
+      "semiMajorAxis": 0.0037513158581872113,
+      "orbitalEccentricity": 0.000991,
+      "orbitalInclination": 0.180802,
+      "argOfPeriapsis": 248.274825,
+      "updateTime": "2026-10-30 02:38:45",
+      "distanceToArrival": 44156,
+      "radius": 419.6675625,
+      "gravity": 0.04850399602736111,
+      "surfaceTemperature": 234,
+      "earthMasses": 0.00021,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 116,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 113
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 37.949757857453704,
+      "semiMajorAxis": 0.007250097027628349,
+      "orbitalEccentricity": 0.00001,
+      "orbitalInclination": 0.069669,
+      "argOfPeriapsis": 235.076998,
+      "updateTime": "2026-10-30 02:38:43",
+      "distanceToArrival": 44158,
+      "radius": 421.686125,
+      "gravity": 0.04895580321254481,
+      "surfaceTemperature": 234,
+      "earthMasses": 0.000214,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 117,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 113
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 39.41705795349537,
+      "semiMajorAxis": 0.007435792841625652,
+      "orbitalEccentricity": 0.003001,
+      "orbitalInclination": -0.113107,
+      "argOfPeriapsis": 89.191636,
+      "updateTime": "2026-10-30 02:38:37",
+      "distanceToArrival": 44151,
+      "radius": 441.77015625,
+      "gravity": 0.05127567537040915,
+      "surfaceTemperature": 234,
+      "earthMasses": 0.000246,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 118,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 113
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 57.204156700104164,
+      "semiMajorAxis": 0.009531388506178117,
+      "orbitalEccentricity": 0.000172,
+      "orbitalInclination": 0.08871,
+      "argOfPeriapsis": 1.265941,
+      "updateTime": "2026-10-30 02:38:40",
+      "distanceToArrival": 44155,
+      "radius": 460.97528125,
+      "gravity": 0.05340943173161287,
+      "surfaceTemperature": 234,
+      "earthMasses": 0.000279,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 119,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 113
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 71.42641547101852,
+      "semiMajorAxis": 0.011052071658199075,
+      "orbitalEccentricity": 0.001577,
+      "orbitalInclination": -0.100129,
+      "argOfPeriapsis": 264.645156,
+      "updateTime": "2026-10-30 02:38:41",
+      "distanceToArrival": 44153,
+      "radius": 399.9231875,
+      "gravity": 0.04629000709886105,
+      "surfaceTemperature": 234,
+      "earthMasses": 0.000182,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 120,
+      "name": "Bleia Dryiae XJ-R e4-1 B 11 g",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 113
+        },
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 96.60697162703704,
+      "semiMajorAxis": 0.013516889087673357,
+      "orbitalEccentricity": 0.000403,
+      "orbitalInclination": 0.845244,
+      "argOfPeriapsis": 232.96331,
+      "updateTime": "2026-10-30 02:38:48",
+      "distanceToArrival": 44153,
+      "radius": 443.341,
+      "gravity": 0.05132688613372968,
+      "surfaceTemperature": 234,
+      "earthMasses": 0.000248,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 5,
+      "name": "Bleia Dryiae XJ-R e4-1 C",
+      "type": "Star",
+      "subType": "A (Blue-White) Star",
+      "parents": [
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 106044.98218055091,
+      "semiMajorAxis": 15.170339092946062,
+      "orbitalEccentricity": 0.084521,
+      "orbitalInclination": 37.191425,
+      "argOfPeriapsis": 304.001984,
+      "updateTime": "2026-10-30 02:34:45",
+      "isMainStar": false,
+      "distanceToArrival": 322198,
+      "solarRadius": 1.305328264557872,
+      "surfaceTemperature": 7612,
+      "solarMasses": 1.382813
+    },
+    {
+      "bodyId": 121,
+      "name": "Bleia Dryiae XJ-R e4-1 C 1",
+      "type": "Planet",
+      "subType": "Metal-rich body",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 13.612919935474538,
+      "semiMajorAxis": 0.12480429248151055,
+      "orbitalEccentricity": 0.000028,
+      "orbitalInclination": -0.000144,
+      "argOfPeriapsis": 14.853647,
+      "updateTime": "2026-10-30 02:39:32",
+      "distanceToArrival": 322142,
+      "radius": 3292.408,
+      "gravity": 1.0393277221201398,
+      "surfaceTemperature": 1115,
+      "earthMasses": 0.276956,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 122,
+      "name": "Bleia Dryiae XJ-R e4-1 C 2",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 23.65261454273148,
+      "semiMajorAxis": 0.18037713137509248,
+      "orbitalEccentricity": 0.000565,
+      "orbitalInclination": -0.007112,
+      "argOfPeriapsis": 353.10504,
+      "updateTime": "2026-10-30 02:39:49",
+      "distanceToArrival": 322262,
+      "radius": 9824.715,
+      "gravity": 2.287549323472096,
+      "surfaceTemperature": 936,
+      "earthMasses": 5.428019,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 123,
+      "name": "Bleia Dryiae XJ-R e4-1 C 3",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 39.69708043667824,
+      "semiMajorAxis": 0.2547422953244682,
+      "orbitalEccentricity": 0.000035,
+      "orbitalInclination": -0.004834,
+      "argOfPeriapsis": 266.442182,
+      "updateTime": "2026-10-30 02:39:48",
+      "distanceToArrival": 322314,
+      "radius": 11484.267,
+      "gravity": 3.0804065720604874,
+      "surfaceTemperature": 795,
+      "earthMasses": 9.987242,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 124,
+      "name": "Bleia Dryiae XJ-R e4-1 C 4",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 111.60745112983797,
+      "semiMajorAxis": 0.5074471187072986,
+      "orbitalEccentricity": 0.000006,
+      "orbitalInclination": 0.05335,
+      "argOfPeriapsis": 205.206012,
+      "updateTime": "2026-10-30 02:39:37",
+      "distanceToArrival": 322404,
+      "radius": 9869.87,
+      "gravity": 2.306870334574539,
+      "surfaceTemperature": 578,
+      "earthMasses": 5.524297,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 4 A Ring",
+          "type": "Rocky",
+          "mass": 107860000000,
+          "innerRadius": 32262,
+          "outerRadius": 72837
+        }
+      ]
+    },
+    {
+      "bodyId": 126,
+      "name": "Bleia Dryiae XJ-R e4-1 C 4 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 124
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 6.328242244548612,
+      "semiMajorAxis": 0.001707767503074494,
+      "orbitalEccentricity": 0.014785,
+      "orbitalInclination": 0.06043,
+      "argOfPeriapsis": 283.56659,
+      "updateTime": "2026-10-30 02:39:40",
+      "distanceToArrival": 322404,
+      "radius": 483.6500625,
+      "gravity": 0.056170599063419084,
+      "surfaceTemperature": 578,
+      "earthMasses": 0.000323,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 127,
+      "name": "Bleia Dryiae XJ-R e4-1 C 5",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 266.982580500625,
+      "semiMajorAxis": 0.90764770714915,
+      "orbitalEccentricity": 0.000979,
+      "orbitalInclination": -0.269842,
+      "argOfPeriapsis": 320.744393,
+      "updateTime": "2026-10-30 02:39:22",
+      "distanceToArrival": 321798,
+      "radius": 8123.739,
+      "gravity": 1.670016550272021,
+      "surfaceTemperature": 1521,
+      "earthMasses": 2.709341,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 5 A Ring",
+          "type": "Rocky",
+          "mass": 74350000000,
+          "innerRadius": 42458,
+          "outerRadius": 66466
+        }
+      ]
+    },
+    {
+      "bodyId": 129,
+      "name": "Bleia Dryiae XJ-R e4-1 C 5 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 127
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 9.400303785995371,
+      "semiMajorAxis": 0.0017534051103084316,
+      "orbitalEccentricity": 0.003338,
+      "orbitalInclination": 0.178829,
+      "argOfPeriapsis": 164.262925,
+      "updateTime": "2026-10-30 02:39:24",
+      "distanceToArrival": 321798,
+      "radius": 455.8401875,
+      "gravity": 0.05285761616417039,
+      "surfaceTemperature": 445,
+      "earthMasses": 0.00027,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 130,
+      "name": "Bleia Dryiae XJ-R e4-1 C 5 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 127
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 21.248372892534725,
+      "semiMajorAxis": 0.0030199850247496205,
+      "orbitalEccentricity": 0.000754,
+      "orbitalInclination": 2.062222,
+      "argOfPeriapsis": 81.938979,
+      "updateTime": "2026-10-30 02:39:26",
+      "distanceToArrival": 321797,
+      "radius": 425.72675,
+      "gravity": 0.04937758347674952,
+      "surfaceTemperature": 445,
+      "earthMasses": 0.00022,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 131,
+      "name": "Bleia Dryiae XJ-R e4-1 C 6",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 508.56825654153937,
+      "semiMajorAxis": 1.3947450722167933,
+      "orbitalEccentricity": 0.000075,
+      "orbitalInclination": -1.34367,
+      "argOfPeriapsis": 238.100616,
+      "updateTime": "2026-10-30 02:39:00",
+      "distanceToArrival": 321953,
+      "radius": 74357.48,
+      "gravity": 11.8243841672535,
+      "surfaceTemperature": 667,
+      "earthMasses": 1607.158936,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 A Ring",
+          "type": "Rocky",
+          "mass": 207400000000,
+          "innerRadius": 122690,
+          "outerRadius": 153410
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 B Ring",
+          "type": "Rocky",
+          "mass": 4067500000000,
+          "innerRadius": 153510,
+          "outerRadius": 423400
+        }
+      ]
+    },
+    {
+      "bodyId": 134,
+      "name": "Bleia Dryiae XJ-R e4-1 C 6 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 131
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.8569582261921296,
+      "semiMajorAxis": 0.0029840127510398448,
+      "orbitalEccentricity": 0.000108,
+      "orbitalInclination": 0.02218,
+      "argOfPeriapsis": 38.712884,
+      "updateTime": "2026-10-30 02:39:03",
+      "distanceToArrival": 321952,
+      "radius": 1164.731875,
+      "gravity": 0.13784518855393998,
+      "surfaceTemperature": 449,
+      "earthMasses": 0.004597,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 135,
+      "name": "Bleia Dryiae XJ-R e4-1 C 6 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 131
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.2404306757175927,
+      "semiMajorAxis": 0.0038183517976214747,
+      "orbitalEccentricity": 0.000097,
+      "orbitalInclination": -0.000084,
+      "argOfPeriapsis": 0.599902,
+      "updateTime": "2026-10-30 02:39:06",
+      "distanceToArrival": 321951,
+      "radius": 1116.063125,
+      "gravity": 0.13187358906070062,
+      "surfaceTemperature": 439,
+      "earthMasses": 0.004038,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 136,
+      "name": "Bleia Dryiae XJ-R e4-1 C 6 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 131
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.9621038034027776,
+      "semiMajorAxis": 0.006821729162153777,
+      "orbitalEccentricity": 0.001281,
+      "orbitalInclination": -0.004428,
+      "argOfPeriapsis": 283.698573,
+      "updateTime": "2026-10-30 02:39:10",
+      "distanceToArrival": 321956,
+      "radius": 1250.037125,
+      "gravity": 0.14836172152911276,
+      "surfaceTemperature": 421,
+      "earthMasses": 0.005699,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 137,
+      "name": "Bleia Dryiae XJ-R e4-1 C 6 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 131
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.0470475968402777,
+      "semiMajorAxis": 0.006951530482747706,
+      "orbitalEccentricity": 0.001983,
+      "orbitalInclination": -0.180724,
+      "argOfPeriapsis": 80.866195,
+      "updateTime": "2026-10-30 02:39:13",
+      "distanceToArrival": 321951,
+      "radius": 1296.436,
+      "gravity": 0.15407546946321277,
+      "surfaceTemperature": 421,
+      "earthMasses": 0.006366,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 138,
+      "name": "Bleia Dryiae XJ-R e4-1 C 6 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 131
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.746029429409722,
+      "semiMajorAxis": 0.009340738583210998,
+      "orbitalEccentricity": 0.000284,
+      "orbitalInclination": -1.86736,
+      "argOfPeriapsis": 190.706815,
+      "updateTime": "2026-10-30 02:39:11",
+      "distanceToArrival": 321958,
+      "radius": 1127.316125,
+      "gravity": 0.13325514997639076,
+      "surfaceTemperature": 413,
+      "earthMasses": 0.004163,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 139,
+      "name": "Bleia Dryiae XJ-R e4-1 C 6 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 131
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 14.313918158958334,
+      "semiMajorAxis": 0.01949844296485097,
+      "orbitalEccentricity": 0.017793,
+      "orbitalInclination": 0.064885,
+      "argOfPeriapsis": 181.484171,
+      "updateTime": "2026-10-30 02:39:16",
+      "distanceToArrival": 321953,
+      "radius": 1372.96325,
+      "gravity": 0.16359789115017337,
+      "surfaceTemperature": 399,
+      "earthMasses": 0.007581,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 141,
+      "name": "Bleia Dryiae XJ-R e4-1 C 7",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 140
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 54.71139180439814,
+      "semiMajorAxis": 0.022352887478274783,
+      "orbitalEccentricity": 0.197836,
+      "orbitalInclination": 2.136623,
+      "argOfPeriapsis": 51.715607,
+      "updateTime": "2026-10-30 02:41:28",
+      "distanceToArrival": 321124,
+      "radius": 76488.648,
+      "gravity": 6.032353321582,
+      "surfaceTemperature": 424,
+      "earthMasses": 867.584351,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 7 A Ring",
+          "type": "Rocky",
+          "mass": 2980800000000,
+          "innerRadius": 126210,
+          "outerRadius": 346760
+        }
+      ]
+    },
+    {
+      "bodyId": 143,
+      "name": "Bleia Dryiae XJ-R e4-1 C 8",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 140
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 54.71139180439814,
+      "semiMajorAxis": 0.02551488159439157,
+      "orbitalEccentricity": 0.197836,
+      "orbitalInclination": 2.136623,
+      "argOfPeriapsis": 231.715581,
+      "updateTime": "2026-10-30 02:41:15",
+      "distanceToArrival": 321104,
+      "radius": 76486.568,
+      "gravity": 5.28505300076955,
+      "surfaceTemperature": 404,
+      "earthMasses": 760.06488,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 8 A Ring",
+          "type": "Metallic",
+          "mass": 205620000000,
+          "innerRadius": 133470,
+          "outerRadius": 159090
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 8 B Ring",
+          "type": "Rocky",
+          "mass": 2074900000000,
+          "innerRadius": 159190,
+          "outerRadius": 317710
+        }
+      ]
+    },
+    {
+      "bodyId": 146,
+      "name": "Bleia Dryiae XJ-R e4-1 C 8 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 143
+        },
+        {
+          "Null": 140
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.8206664964004629,
+      "semiMajorAxis": 0.002258738489136263,
+      "orbitalEccentricity": 0.004576,
+      "orbitalInclination": -0.26303,
+      "argOfPeriapsis": 312.543579,
+      "updateTime": "2026-10-30 02:41:17",
+      "distanceToArrival": 321103,
+      "radius": 717.4319375,
+      "gravity": 0.08377481608278844,
+      "surfaceTemperature": 326,
+      "earthMasses": 0.00106,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 147,
+      "name": "Bleia Dryiae XJ-R e4-1 C 8 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 143
+        },
+        {
+          "Null": 140
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.6310852434953704,
+      "semiMajorAxis": 0.0035705839944413058,
+      "orbitalEccentricity": 0.000199,
+      "orbitalInclination": 6.927631,
+      "argOfPeriapsis": 311.462562,
+      "updateTime": "2026-10-30 02:41:19",
+      "distanceToArrival": 321105,
+      "radius": 853.367875,
+      "gravity": 0.10004422770023536,
+      "surfaceTemperature": 319,
+      "earthMasses": 0.001791,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Sulphur dioxide"
+    },
+    {
+      "bodyId": 148,
+      "name": "Bleia Dryiae XJ-R e4-1 C 8 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 143
+        },
+        {
+          "Null": 140
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.2115231388194445,
+      "semiMajorAxis": 0.004374037116010369,
+      "orbitalEccentricity": 0.033566,
+      "orbitalInclination": -1.426839,
+      "argOfPeriapsis": 84.722493,
+      "updateTime": "2026-10-30 02:41:22",
+      "distanceToArrival": 321105,
+      "radius": 830.8346875,
+      "gravity": 0.09735311060689218,
+      "surfaceTemperature": 316,
+      "earthMasses": 0.001652,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 149,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1965.9116450283566,
+      "semiMajorAxis": 3.43535271701297,
+      "orbitalEccentricity": 0.004033,
+      "orbitalInclination": -0.008198,
+      "argOfPeriapsis": 217.861226,
+      "updateTime": "2026-10-30 02:40:28",
+      "distanceToArrival": 320622,
+      "radius": 76097.136,
+      "gravity": 4.765152479950672,
+      "surfaceTemperature": 351,
+      "earthMasses": 678.335266,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 150,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.569728160347222,
+      "semiMajorAxis": 0.007795550242345795,
+      "orbitalEccentricity": 0.000242,
+      "orbitalInclination": -0.594984,
+      "argOfPeriapsis": 238.615466,
+      "updateTime": "2026-10-30 02:40:52",
+      "distanceToArrival": 320622,
+      "radius": 839.205125,
+      "gravity": 0.09836654620687593,
+      "surfaceTemperature": 512,
+      "earthMasses": 0.001703,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 152,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 151
+        },
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.9954761023842593,
+      "semiMajorAxis": 0.00002154031917869403,
+      "orbitalEccentricity": 0.084174,
+      "orbitalInclination": 8.829626,
+      "argOfPeriapsis": 158.941907,
+      "updateTime": "2026-10-30 02:40:42",
+      "distanceToArrival": 320626,
+      "radius": 914.7655625,
+      "gravity": 0.10743398624175181,
+      "surfaceTemperature": 902,
+      "earthMasses": 0.00221,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Water"
+    },
+    {
+      "bodyId": 153,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 151
+        },
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.9954761023842593,
+      "semiMajorAxis": 0.000023888890357648654,
+      "orbitalEccentricity": 0.084174,
+      "orbitalInclination": 8.829626,
+      "argOfPeriapsis": 338.941902,
+      "updateTime": "2026-10-30 02:40:44",
+      "distanceToArrival": 320626,
+      "radius": 884.0196875,
+      "gravity": 0.103741483576939,
+      "surfaceTemperature": 894,
+      "earthMasses": 0.001993,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Water"
+    },
+    {
+      "bodyId": 154,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 12.454762364976853,
+      "semiMajorAxis": 0.0133305398444732,
+      "orbitalEccentricity": 0.001717,
+      "orbitalInclination": 0.023685,
+      "argOfPeriapsis": 201.331423,
+      "updateTime": "2026-10-30 02:40:47",
+      "distanceToArrival": 320625,
+      "radius": 929.850375,
+      "gravity": 0.10924588924307242,
+      "surfaceTemperature": 517,
+      "earthMasses": 0.002322,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 156,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 155
+        },
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.658975759039352,
+      "semiMajorAxis": 0.00004216694033409795,
+      "orbitalEccentricity": 0.106478,
+      "orbitalInclination": 5.000207,
+      "argOfPeriapsis": 39.51748,
+      "updateTime": "2026-10-30 02:40:36",
+      "distanceToArrival": 320631,
+      "radius": 997.47,
+      "gravity": 0.11742316444616431,
+      "surfaceTemperature": 517,
+      "earthMasses": 0.002872,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 157,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 155
+        },
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.658975759039352,
+      "semiMajorAxis": 0.00005178942802729344,
+      "orbitalEccentricity": 0.106478,
+      "orbitalInclination": 5.000207,
+      "argOfPeriapsis": 219.517458,
+      "updateTime": "2026-10-30 02:40:34",
+      "distanceToArrival": 320631,
+      "radius": 932.03325,
+      "gravity": 0.10953084539705421,
+      "surfaceTemperature": 661,
+      "earthMasses": 0.002339,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 158,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 g",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 43.840033726562496,
+      "semiMajorAxis": 0.030846415654901434,
+      "orbitalEccentricity": 0.005643,
+      "orbitalInclination": 0.118779,
+      "argOfPeriapsis": 297.465049,
+      "updateTime": "2026-10-30 02:40:55",
+      "distanceToArrival": 320616,
+      "radius": 1032.90575,
+      "gravity": 0.12174371727948041,
+      "surfaceTemperature": 521,
+      "earthMasses": 0.003193,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 159,
+      "name": "Bleia Dryiae XJ-R e4-1 C 9 h",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 149
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 57.20087499530092,
+      "semiMajorAxis": 0.03683205187086864,
+      "orbitalEccentricity": 0.005851,
+      "orbitalInclination": -0.040731,
+      "argOfPeriapsis": 169.72836,
+      "updateTime": "2026-10-30 02:40:54",
+      "distanceToArrival": 320616,
+      "radius": 870.904375,
+      "gravity": 0.10216992282749819,
+      "surfaceTemperature": 499,
+      "earthMasses": 0.001905,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Water"
+    },
+    {
+      "bodyId": 161,
+      "name": "Bleia Dryiae XJ-R e4-1 C 10",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 275.7396273039005,
+      "semiMajorAxis": 0.0022971808049201065,
+      "orbitalEccentricity": 0.164508,
+      "orbitalInclination": 2.60488,
+      "argOfPeriapsis": 195.470267,
+      "updateTime": "2026-10-30 02:42:11",
+      "distanceToArrival": 323874,
+      "radius": 75398,
+      "gravity": 9.189817317512064,
+      "surfaceTemperature": 450,
+      "earthMasses": 1284.273438,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 A Ring",
+          "type": "Metal Rich",
+          "mass": 328190000000,
+          "innerRadius": 124410,
+          "outerRadius": 164750
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 B Ring",
+          "type": "Rocky",
+          "mass": 3793900000000,
+          "innerRadius": 164850,
+          "outerRadius": 393340
+        }
+      ]
+    },
+    {
+      "bodyId": 164,
+      "name": "Bleia Dryiae XJ-R e4-1 C 10 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 161
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.0753250301388888,
+      "semiMajorAxis": 0.0032214884466230573,
+      "orbitalEccentricity": 0.00135,
+      "orbitalInclination": 0.012947,
+      "argOfPeriapsis": 19.253914,
+      "updateTime": "2026-10-30 02:42:21",
+      "distanceToArrival": 323873,
+      "radius": 1375.597875,
+      "gravity": 0.1639177127008532,
+      "surfaceTemperature": 282,
+      "earthMasses": 0.007625,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 165,
+      "name": "Bleia Dryiae XJ-R e4-1 C 10 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 161
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.4327184331597222,
+      "semiMajorAxis": 0.003900652799477246,
+      "orbitalEccentricity": 0.000054,
+      "orbitalInclination": 0.035167,
+      "argOfPeriapsis": 151.752733,
+      "updateTime": "2026-10-30 02:42:19",
+      "distanceToArrival": 323873,
+      "radius": 1437.2295,
+      "gravity": 0.1716264327178866,
+      "surfaceTemperature": 277,
+      "earthMasses": 0.008715,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 166,
+      "name": "Bleia Dryiae XJ-R e4-1 C 10 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 161
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.029346078078704,
+      "semiMajorAxis": 0.007771767411516373,
+      "orbitalEccentricity": 0.007209,
+      "orbitalInclination": 0.658143,
+      "argOfPeriapsis": 327.543484,
+      "updateTime": "2026-10-30 02:41:57",
+      "distanceToArrival": 323872,
+      "radius": 1490.93325,
+      "gravity": 0.17835243225660763,
+      "surfaceTemperature": 570,
+      "earthMasses": 0.009746,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 167,
+      "name": "Bleia Dryiae XJ-R e4-1 C 10 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 161
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 6.220872755405092,
+      "semiMajorAxis": 0.010381599507475477,
+      "orbitalEccentricity": 0.010032,
+      "orbitalInclination": 0.150663,
+      "argOfPeriapsis": 321.74607,
+      "updateTime": "2026-10-30 02:41:58",
+      "distanceToArrival": 323871,
+      "radius": 1605.03625,
+      "gravity": 0.19274037716970469,
+      "surfaceTemperature": 569,
+      "earthMasses": 0.012206,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Water"
+    },
+    {
+      "bodyId": 168,
+      "name": "Bleia Dryiae XJ-R e4-1 C 10 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 161
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 15.791179267349538,
+      "semiMajorAxis": 0.019318486968597608,
+      "orbitalEccentricity": 0.001282,
+      "orbitalInclination": 0.414671,
+      "argOfPeriapsis": 120.826986,
+      "updateTime": "2026-10-30 02:41:54",
+      "distanceToArrival": 323876,
+      "radius": 1710.2615,
+      "gravity": 0.20610674031151277,
+      "surfaceTemperature": 247,
+      "earthMasses": 0.01482,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 169,
+      "name": "Bleia Dryiae XJ-R e4-1 C 10 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 161
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 21.255447494768518,
+      "semiMajorAxis": 0.023551046741176643,
+      "orbitalEccentricity": 0.06511,
+      "orbitalInclination": 0.783811,
+      "argOfPeriapsis": 120.045837,
+      "updateTime": "2026-10-30 02:42:01",
+      "distanceToArrival": 323866,
+      "radius": 1500.4575,
+      "gravity": 0.17954649118606414,
+      "surfaceTemperature": 245,
+      "earthMasses": 0.009937,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 170,
+      "name": "Bleia Dryiae XJ-R e4-1 C 11",
+      "type": "Planet",
+      "subType": "Class II gas giant",
+      "parents": [
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 275.7396273039005,
+      "semiMajorAxis": 0.12849887283509978,
+      "orbitalEccentricity": 0.164508,
+      "orbitalInclination": 2.60488,
+      "argOfPeriapsis": 15.470273,
+      "updateTime": "2026-10-30 02:41:47",
+      "distanceToArrival": 323906,
+      "radius": 38665.708,
+      "gravity": 0.6246387458711922,
+      "surfaceTemperature": 230,
+      "earthMasses": 22.956825,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 11 A Ring",
+          "type": "Metal Rich",
+          "mass": 12116000000,
+          "innerRadius": 78398,
+          "outerRadius": 80838
+        },
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 11 B Ring",
+          "type": "Rocky",
+          "mass": 185250000000,
+          "innerRadius": 80938,
+          "outerRadius": 111700
+        }
+      ]
+    },
+    {
+      "bodyId": 173,
+      "name": "Bleia Dryiae XJ-R e4-1 C 11 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 170
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.3909368879282409,
+      "semiMajorAxis": 0.001000000721212939,
+      "orbitalEccentricity": 0.000096,
+      "orbitalInclination": 0.829783,
+      "argOfPeriapsis": 151.999839,
+      "updateTime": "2026-10-30 02:41:48",
+      "distanceToArrival": 323906,
+      "radius": 855.80875,
+      "gravity": 0.10058518872749898,
+      "surfaceTemperature": 233,
+      "earthMasses": 0.001811,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 174,
+      "name": "Bleia Dryiae XJ-R e4-1 C 11 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 170
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.6002876306018514,
+      "semiMajorAxis": 0.0018851829745553323,
+      "orbitalEccentricity": 0.010551,
+      "orbitalInclination": -1.468959,
+      "argOfPeriapsis": 27.427997,
+      "updateTime": "2026-10-30 02:41:47",
+      "distanceToArrival": 323906,
+      "radius": 597.335375,
+      "gravity": 0.06954443686906862,
+      "surfaceTemperature": 233,
+      "earthMasses": 0.00061,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 175,
+      "name": "Bleia Dryiae XJ-R e4-1 C 11 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 170
+        },
+        {
+          "Null": 160
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.790434544837963,
+      "semiMajorAxis": 0.002280579918054074,
+      "orbitalEccentricity": 0.000311,
+      "orbitalInclination": -0.101263,
+      "argOfPeriapsis": 151.305223,
+      "updateTime": "2026-10-30 02:41:49",
+      "distanceToArrival": 323907,
+      "radius": 579.4864375,
+      "gravity": 0.06735305035953021,
+      "surfaceTemperature": 233,
+      "earthMasses": 0.000556,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 176,
+      "name": "Bleia Dryiae XJ-R e4-1 C 12",
+      "type": "Planet",
+      "subType": "Gas giant with water-based life",
+      "parents": [
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4675.52851747581,
+      "semiMajorAxis": 6.120907535855722,
+      "orbitalEccentricity": 0.014288,
+      "orbitalInclination": -3.29785,
+      "argOfPeriapsis": 229.957665,
+      "updateTime": "2026-10-30 02:40:06",
+      "distanceToArrival": 320699,
+      "radius": 66460.64,
+      "gravity": 1.9271054932890808,
+      "surfaceTemperature": 221,
+      "earthMasses": 209.250015,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 C 12 A Ring",
+          "type": "Rocky",
+          "mass": 40651000000,
+          "innerRadius": 111750,
+          "outerRadius": 206680
+        }
+      ]
+    },
+    {
+      "bodyId": 178,
+      "name": "Bleia Dryiae XJ-R e4-1 C 12 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 176
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 8.43271682107639,
+      "semiMajorAxis": 0.006945342428508242,
+      "orbitalEccentricity": 0.000153,
+      "orbitalInclination": -0.245364,
+      "argOfPeriapsis": 120.294511,
+      "updateTime": "2026-10-30 02:40:09",
+      "distanceToArrival": 320703,
+      "radius": 412.0648125,
+      "gravity": 0.04767503774216012,
+      "surfaceTemperature": 205,
+      "earthMasses": 0.000199,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 179,
+      "name": "Bleia Dryiae XJ-R e4-1 C 12 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 176
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 13.758180042106483,
+      "semiMajorAxis": 0.009625485100446687,
+      "orbitalEccentricity": 0.001475,
+      "orbitalInclination": -0.125377,
+      "argOfPeriapsis": 180.179321,
+      "updateTime": "2026-10-30 02:40:14",
+      "distanceToArrival": 320695,
+      "radius": 407.45084375,
+      "gravity": 0.04729071669797575,
+      "surfaceTemperature": 205,
+      "earthMasses": 0.000193,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 180,
+      "name": "Bleia Dryiae XJ-R e4-1 C 12 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 176
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 24.40582891857639,
+      "semiMajorAxis": 0.014105152274435413,
+      "orbitalEccentricity": 0.00001,
+      "orbitalInclination": 1.214514,
+      "argOfPeriapsis": 258.6907,
+      "updateTime": "2026-10-30 02:40:10",
+      "distanceToArrival": 320701,
+      "radius": 437.8331875,
+      "gravity": 0.050716535090497825,
+      "surfaceTemperature": 204,
+      "earthMasses": 0.000239,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 181,
+      "name": "Bleia Dryiae XJ-R e4-1 C 12 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 176
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 57.77589976787037,
+      "semiMajorAxis": 0.02505415543666224,
+      "orbitalEccentricity": 0.000665,
+      "orbitalInclination": -0.008758,
+      "argOfPeriapsis": 119.375126,
+      "updateTime": "2026-10-30 02:40:13",
+      "distanceToArrival": 320707,
+      "radius": 542.392125,
+      "gravity": 0.06305319847083002,
+      "surfaceTemperature": 204,
+      "earthMasses": 0.000456,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 182,
+      "name": "Bleia Dryiae XJ-R e4-1 C 12 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 176
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 78.15502377019675,
+      "semiMajorAxis": 0.030644548264992785,
+      "orbitalEccentricity": 0.000342,
+      "orbitalInclination": 0.153334,
+      "argOfPeriapsis": 187.553118,
+      "updateTime": "2026-10-30 02:40:11",
+      "distanceToArrival": 320686,
+      "radius": 581.240875,
+      "gravity": 0.0676695127845355,
+      "surfaceTemperature": 203,
+      "earthMasses": 0.000562,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 183,
+      "name": "Bleia Dryiae XJ-R e4-1 C 12 f",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 176
+        },
+        {
+          "Star": 5
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 243.10702251063657,
+      "semiMajorAxis": 0.06530007168645482,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 31.757941,
+      "argOfPeriapsis": 201.571447,
+      "updateTime": "2026-10-30 02:40:18",
+      "distanceToArrival": 320671,
+      "radius": 2499.837,
+      "gravity": 0.197887895516346,
+      "surfaceTemperature": 180,
+      "earthMasses": 0.0304,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 6,
+      "name": "Bleia Dryiae XJ-R e4-1 D",
+      "type": "Star",
+      "subType": "T Tauri Star",
+      "parents": [
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 106044.98218055091,
+      "semiMajorAxis": 39.48756464460828,
+      "orbitalEccentricity": 0.084521,
+      "orbitalInclination": 37.191425,
+      "argOfPeriapsis": 124.001989,
+      "updateTime": "2026-10-30 02:34:45",
+      "isMainStar": false,
+      "distanceToArrival": 307919,
+      "solarRadius": 0.7149353040977714,
+      "surfaceTemperature": 3947,
+      "solarMasses": 0.535156
+    },
+    {
+      "bodyId": 188,
+      "name": "Bleia Dryiae XJ-R e4-1 D 1",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.179095590555556,
+      "semiMajorAxis": 0.026747992944737817,
+      "orbitalEccentricity": 0.000002,
+      "orbitalInclination": 0.01983,
+      "argOfPeriapsis": 294.761072,
+      "updateTime": "2026-10-30 02:43:03",
+      "distanceToArrival": 307921,
+      "radius": 395.805625,
+      "gravity": 0.055307586782189416,
+      "surfaceTemperature": 964,
+      "earthMasses": 0.000213,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 189,
+      "name": "Bleia Dryiae XJ-R e4-1 D 2",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.1286667066550926,
+      "semiMajorAxis": 0.03404185857286337,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": -0.00599,
+      "argOfPeriapsis": 250.191755,
+      "updateTime": "2026-10-30 02:43:13",
+      "distanceToArrival": 307921,
+      "radius": 1266.93325,
+      "gravity": 0.1820149087782692,
+      "surfaceTemperature": 864,
+      "earthMasses": 0.007182,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 190,
+      "name": "Bleia Dryiae XJ-R e4-1 D 3",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.709033019560185,
+      "semiMajorAxis": 0.044708990306347986,
+      "orbitalEccentricity": 0.000046,
+      "orbitalInclination": 0.011973,
+      "argOfPeriapsis": 62.681049,
+      "updateTime": "2026-10-30 02:43:12",
+      "distanceToArrival": 307933,
+      "radius": 1182.064625,
+      "gravity": 0.16929195005542735,
+      "surfaceTemperature": 764,
+      "earthMasses": 0.005815,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 191,
+      "name": "Bleia Dryiae XJ-R e4-1 D 4",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 7.042895243680556,
+      "semiMajorAxis": 0.05847108706955279,
+      "orbitalEccentricity": 0.000144,
+      "orbitalInclination": 0.000433,
+      "argOfPeriapsis": 132.802937,
+      "updateTime": "2026-10-30 02:43:01",
+      "distanceToArrival": 307913,
+      "radius": 4115.008,
+      "gravity": 0.6688538186712674,
+      "surfaceTemperature": 678,
+      "earthMasses": 0.278422,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 192,
+      "name": "Bleia Dryiae XJ-R e4-1 D 5",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 23.26390740496528,
+      "semiMajorAxis": 0.12968671947113483,
+      "orbitalEccentricity": 0.000465,
+      "orbitalInclination": -0.000167,
+      "argOfPeriapsis": 26.228111,
+      "updateTime": "2026-10-30 02:42:58",
+      "distanceToArrival": 307877,
+      "radius": 7147.965,
+      "gravity": 1.3777280525481994,
+      "surfaceTemperature": 523,
+      "earthMasses": 1.730451,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot Sulphur dioxide"
+    },
+    {
+      "bodyId": 193,
+      "name": "Bleia Dryiae XJ-R e4-1 D 6",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 61.836088835092596,
+      "semiMajorAxis": 0.24884850336418593,
+      "orbitalEccentricity": 0.000495,
+      "orbitalInclination": 0.001015,
+      "argOfPeriapsis": 202.894721,
+      "updateTime": "2026-10-30 02:42:29",
+      "distanceToArrival": 307996,
+      "radius": 6428.635,
+      "gravity": 1.1855156405771146,
+      "surfaceTemperature": 1163,
+      "earthMasses": 1.204414,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide"
+    },
+    {
+      "bodyId": 194,
+      "name": "Bleia Dryiae XJ-R e4-1 D 7",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 133.3281328832639,
+      "semiMajorAxis": 0.4153251436630241,
+      "orbitalEccentricity": 0.000032,
+      "orbitalInclination": 0.004334,
+      "argOfPeriapsis": 64.139673,
+      "updateTime": "2026-10-30 02:43:56",
+      "distanceToArrival": 307975,
+      "radius": 5861.2945,
+      "gravity": 1.0456608424410585,
+      "surfaceTemperature": 929,
+      "earthMasses": 0.883098,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Hot thick Carbon dioxide"
+    },
+    {
+      "bodyId": 195,
+      "name": "Bleia Dryiae XJ-R e4-1 D 8",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 287.24432405498845,
+      "semiMajorAxis": 0.6928003047112888,
+      "orbitalEccentricity": 0.000303,
+      "orbitalInclination": -0.221088,
+      "argOfPeriapsis": 69.813576,
+      "updateTime": "2026-10-30 02:42:33",
+      "distanceToArrival": 308204,
+      "radius": 8663.467,
+      "gravity": 1.8738072120209706,
+      "surfaceTemperature": 1068,
+      "earthMasses": 3.457318,
+      "isLandable": false,
+      "terraformingState": "Candidate for terraforming",
+      "atmosphereType": "Hot thick Carbon dioxide"
+    },
+    {
+      "bodyId": 196,
+      "name": "Bleia Dryiae XJ-R e4-1 D 8 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 195
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 23.12943615295139,
+      "semiMajorAxis": 0.0035398411066749898,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": -10.326997,
+      "argOfPeriapsis": 111.330687,
+      "updateTime": "2026-10-30 02:42:36",
+      "distanceToArrival": 308204,
+      "radius": 4056.396,
+      "gravity": 0.5581274863623769,
+      "surfaceTemperature": 406,
+      "earthMasses": 0.225759,
+      "isLandable": false,
+      "terraformingState": "Candidate for terraforming",
+      "atmosphereType": "Carbon dioxide"
+    },
+    {
+      "bodyId": 197,
+      "name": "Bleia Dryiae XJ-R e4-1 D 9",
+      "type": "Planet",
+      "subType": "Earth-like world",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 384.1770123000463,
+      "semiMajorAxis": 0.8409973706311583,
+      "orbitalEccentricity": 0.000572,
+      "orbitalInclination": -0.025255,
+      "argOfPeriapsis": 55.818683,
+      "updateTime": "2026-10-30 02:42:45",
+      "distanceToArrival": 307675,
+      "radius": 7641.9295,
+      "gravity": 1.5205781796353108,
+      "surfaceTemperature": 265,
+      "earthMasses": 2.18296,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Suitable for water-based life"
+    },
+    {
+      "bodyId": 199,
+      "name": "Bleia Dryiae XJ-R e4-1 D 10",
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 180.72086903783563,
+      "semiMajorAxis": 0.004289962053868324,
+      "orbitalEccentricity": 0.184219,
+      "orbitalInclination": -4.410225,
+      "argOfPeriapsis": 17.675676,
+      "updateTime": "2026-10-30 02:43:35",
+      "distanceToArrival": 308895,
+      "radius": 75971.08,
+      "gravity": 4.427420262756595,
+      "surfaceTemperature": 270,
+      "earthMasses": 628.171631,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 D 10 A Ring",
+          "type": "Rocky",
+          "mass": 1499600000000,
+          "innerRadius": 143550,
+          "outerRadius": 298150
+        }
+      ]
+    },
+    {
+      "bodyId": 201,
+      "name": "Bleia Dryiae XJ-R e4-1 D 10 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 199
+        },
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.3713512431712962,
+      "semiMajorAxis": 0.0029848981874532124,
+      "orbitalEccentricity": 0.000597,
+      "orbitalInclination": 0.01582,
+      "argOfPeriapsis": 230.321301,
+      "updateTime": "2026-10-30 02:43:39",
+      "distanceToArrival": 308900,
+      "radius": 586.7913125,
+      "gravity": 0.06828566094253445,
+      "surfaceTemperature": 204,
+      "earthMasses": 0.000578,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 202,
+      "name": "Bleia Dryiae XJ-R e4-1 D 10 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 199
+        },
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.364862227326389,
+      "semiMajorAxis": 0.004292407672033797,
+      "orbitalEccentricity": 0.002522,
+      "orbitalInclination": 0.504369,
+      "argOfPeriapsis": 147.860519,
+      "updateTime": "2026-10-30 02:43:40",
+      "distanceToArrival": 308897,
+      "radius": 569.9115,
+      "gravity": 0.06625365789051818,
+      "surfaceTemperature": 200,
+      "earthMasses": 0.000529,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 203,
+      "name": "Bleia Dryiae XJ-R e4-1 D 10 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 199
+        },
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.134370126111111,
+      "semiMajorAxis": 0.005179215330518805,
+      "orbitalEccentricity": 0.003677,
+      "orbitalInclination": 3.522005,
+      "argOfPeriapsis": 240.370848,
+      "updateTime": "2026-10-30 02:43:44",
+      "distanceToArrival": 308896,
+      "radius": 650.01025,
+      "gravity": 0.07577105810814204,
+      "surfaceTemperature": 199,
+      "earthMasses": 0.000787,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 204,
+      "name": "Bleia Dryiae XJ-R e4-1 D 10 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 199
+        },
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.7728772947106486,
+      "semiMajorAxis": 0.005860646325685971,
+      "orbitalEccentricity": 0.002358,
+      "orbitalInclination": -0.008459,
+      "argOfPeriapsis": 61.229238,
+      "updateTime": "2026-10-30 02:43:43",
+      "distanceToArrival": 308894,
+      "radius": 569.2091875,
+      "gravity": 0.06616614652717476,
+      "surfaceTemperature": 197,
+      "earthMasses": 0.000527,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 205,
+      "name": "Bleia Dryiae XJ-R e4-1 D 11",
+      "type": "Planet",
+      "subType": "Class II gas giant",
+      "parents": [
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 180.72086903783563,
+      "semiMajorAxis": 0.0744649911974449,
+      "orbitalEccentricity": 0.184219,
+      "orbitalInclination": -4.410225,
+      "argOfPeriapsis": 197.675664,
+      "updateTime": "2026-10-30 02:43:23",
+      "distanceToArrival": 308872,
+      "radius": 47155.116,
+      "gravity": 0.6619867321494111,
+      "surfaceTemperature": 183,
+      "earthMasses": 36.185776,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 D 11 A Ring",
+          "type": "Metal Rich",
+          "mass": 250200000000,
+          "innerRadius": 72765,
+          "outerRadius": 115150
+        }
+      ]
+    },
+    {
+      "bodyId": 207,
+      "name": "Bleia Dryiae XJ-R e4-1 D 11 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 205
+        },
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.5327677958564814,
+      "semiMajorAxis": 0.0012416001128729302,
+      "orbitalEccentricity": 0.000076,
+      "orbitalInclination": -1.750683,
+      "argOfPeriapsis": 352.606757,
+      "updateTime": "2026-10-30 02:43:25",
+      "distanceToArrival": 308873,
+      "radius": 723.172,
+      "gravity": 0.08447255879417633,
+      "surfaceTemperature": 185,
+      "earthMasses": 0.001086,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 208,
+      "name": "Bleia Dryiae XJ-R e4-1 D 11 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 205
+        },
+        {
+          "Null": 198
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.0830614009375,
+      "semiMajorAxis": 0.0015233471510070096,
+      "orbitalEccentricity": 0.01449,
+      "orbitalInclination": 1.236629,
+      "argOfPeriapsis": 180.700618,
+      "updateTime": "2026-10-30 02:43:51",
+      "distanceToArrival": 308873,
+      "radius": 786.0378125,
+      "gravity": 0.0919768557860748,
+      "surfaceTemperature": 185,
+      "earthMasses": 0.001397,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 209,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12",
+      "type": "Planet",
+      "subType": "Gas giant with water-based life",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2632.472181209838,
+      "semiMajorAxis": 3.0340049857932905,
+      "orbitalEccentricity": 0.007474,
+      "orbitalInclination": -0.166671,
+      "argOfPeriapsis": 66.740326,
+      "updateTime": "2026-10-30 02:44:31",
+      "distanceToArrival": 308210,
+      "radius": 59602.36,
+      "gravity": 1.1904610915492855,
+      "surfaceTemperature": 170,
+      "earthMasses": 103.961632,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere",
+      "reserveLevel": "Pristine",
+      "rings": [
+        {
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 A Ring",
+          "type": "Rocky",
+          "mass": 357970000000,
+          "innerRadius": 104640,
+          "outerRadius": 163690
+        }
+      ]
+    },
+    {
+      "bodyId": 211,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 209
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 9.07455681375,
+      "semiMajorAxis": 0.005776292440521749,
+      "orbitalEccentricity": 0.000708,
+      "orbitalInclination": 0.585907,
+      "argOfPeriapsis": 355.754952,
+      "updateTime": "2026-10-30 02:44:42",
+      "distanceToArrival": 308211,
+      "radius": 490.846125,
+      "gravity": 0.05689946685523129,
+      "surfaceTemperature": 166,
+      "earthMasses": 0.000337,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 212,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 209
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 22.805098582199076,
+      "semiMajorAxis": 0.010677105294344942,
+      "orbitalEccentricity": 0.004384,
+      "orbitalInclination": 0.081154,
+      "argOfPeriapsis": 96.556796,
+      "updateTime": "2026-10-30 02:44:43",
+      "distanceToArrival": 308214,
+      "radius": 510.23003125,
+      "gravity": 0.05922106402561526,
+      "surfaceTemperature": 165,
+      "earthMasses": 0.000379,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 213,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 209
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 32.64097358893518,
+      "semiMajorAxis": 0.013560457276652935,
+      "orbitalEccentricity": 0.004551,
+      "orbitalInclination": 0.236333,
+      "argOfPeriapsis": 294.679052,
+      "updateTime": "2026-10-30 02:44:47",
+      "distanceToArrival": 308205,
+      "radius": 459.15190625,
+      "gravity": 0.0532556056987274,
+      "surfaceTemperature": 165,
+      "earthMasses": 0.000276,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 214,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 209
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 46.14646374075232,
+      "semiMajorAxis": 0.01708144220947324,
+      "orbitalEccentricity": 0.000047,
+      "orbitalInclination": 1.712244,
+      "argOfPeriapsis": 242.113896,
+      "updateTime": "2026-10-30 02:44:45",
+      "distanceToArrival": 308207,
+      "radius": 448.00475,
+      "gravity": 0.05188523138195839,
+      "surfaceTemperature": 165,
+      "earthMasses": 0.000256,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 215,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 209
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 65.50206561331018,
+      "semiMajorAxis": 0.021574243310443723,
+      "orbitalEccentricity": 0.010586,
+      "orbitalInclination": 0.093448,
+      "argOfPeriapsis": 226.629122,
+      "updateTime": "2026-10-30 02:44:50",
+      "distanceToArrival": 308207,
+      "radius": 456.4285,
+      "gravity": 0.0529167071695912,
+      "surfaceTemperature": 165,
+      "earthMasses": 0.000271,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 216,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 209
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 86.80646549219907,
+      "semiMajorAxis": 0.026029566660725874,
+      "orbitalEccentricity": 0.002364,
+      "orbitalInclination": 5.614305,
+      "argOfPeriapsis": 95.094583,
+      "updateTime": "2026-10-30 02:44:51",
+      "distanceToArrival": 308207,
+      "radius": 462.8619375,
+      "gravity": 0.05373441528903388,
+      "surfaceTemperature": 165,
+      "earthMasses": 0.000283,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 217,
+      "name": "Bleia Dryiae XJ-R e4-1 D 12 g",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 209
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 113.41126635670138,
+      "semiMajorAxis": 0.03110782837466817,
+      "orbitalEccentricity": 0.021131,
+      "orbitalInclination": -5.771163,
+      "argOfPeriapsis": 191.981441,
+      "updateTime": "2026-10-30 02:44:49",
+      "distanceToArrival": 308200,
+      "radius": 428.07565625,
+      "gravity": 0.04950314950027486,
+      "surfaceTemperature": 165,
+      "earthMasses": 0.000223,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 218,
+      "name": "Bleia Dryiae XJ-R e4-1 D 13",
+      "type": "Planet",
+      "subType": "Class I gas giant",
+      "parents": [
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4220.67409036331,
+      "semiMajorAxis": 4.1561853735952266,
+      "orbitalEccentricity": 0.001688,
+      "orbitalInclination": -0.689746,
+      "argOfPeriapsis": 211.716634,
+      "updateTime": "2026-10-30 02:44:03",
+      "distanceToArrival": 306198,
+      "radius": 15144.387,
+      "gravity": 1.203718290332424,
+      "surfaceTemperature": 149,
+      "earthMasses": 6.786709,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 220,
+      "name": "Bleia Dryiae XJ-R e4-1 D 13 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 219
+        },
+        {
+          "Planet": 218
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.5269704248611111,
+      "semiMajorAxis": 0.00000768882453500055,
+      "orbitalEccentricity": 0.066667,
+      "orbitalInclination": -9.755681,
+      "argOfPeriapsis": 273.914655,
+      "updateTime": "2026-10-30 01:43:03",
+      "distanceToArrival": 306199,
+      "radius": 481.079,
+      "gravity": 0.055893763205341195,
+      "surfaceTemperature": 152,
+      "earthMasses": 0.000318,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 221,
+      "name": "Bleia Dryiae XJ-R e4-1 D 13 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 219
+        },
+        {
+          "Planet": 218
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.5269704248611111,
+      "semiMajorAxis": 0.00000803175334471522,
+      "orbitalEccentricity": 0.066667,
+      "orbitalInclination": -9.755681,
+      "argOfPeriapsis": 93.914661,
+      "updateTime": "2026-10-30 02:44:15",
+      "distanceToArrival": 306199,
+      "radius": 474.16146875,
+      "gravity": 0.0550034707313766,
+      "surfaceTemperature": 152,
+      "earthMasses": 0.000304,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 222,
+      "name": "Bleia Dryiae XJ-R e4-1 D 13 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 218
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 13.800080589675927,
+      "semiMajorAxis": 0.0030760668610864124,
+      "orbitalEccentricity": 0.000189,
+      "orbitalInclination": 0.209007,
+      "argOfPeriapsis": 190.395809,
+      "updateTime": "2026-10-30 02:44:06",
+      "distanceToArrival": 306198,
+      "radius": 616.2226875,
+      "gravity": 0.07177421728066312,
+      "surfaceTemperature": 152,
+      "earthMasses": 0.00067,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 223,
+      "name": "Bleia Dryiae XJ-R e4-1 D 13 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 218
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 32.43859236438657,
+      "semiMajorAxis": 0.005438127368757194,
+      "orbitalEccentricity": 0.002352,
+      "orbitalInclination": 3.051559,
+      "argOfPeriapsis": 43.30428,
+      "updateTime": "2026-10-30 02:44:08",
+      "distanceToArrival": 306197,
+      "radius": 425.204125,
+      "gravity": 0.04927404394911942,
+      "surfaceTemperature": 152,
+      "earthMasses": 0.000219,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 224,
+      "name": "Bleia Dryiae XJ-R e4-1 D 13 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 218
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 43.75357663741898,
+      "semiMajorAxis": 0.006638710933688912,
+      "orbitalEccentricity": 0.00102,
+      "orbitalInclination": 1.245818,
+      "argOfPeriapsis": 36.633586,
+      "updateTime": "2026-10-30 02:44:19",
+      "distanceToArrival": 306201,
+      "radius": 467.84303125,
+      "gravity": 0.054268966582048515,
+      "surfaceTemperature": 152,
+      "earthMasses": 0.000292,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    },
+    {
+      "bodyId": 225,
+      "name": "Bleia Dryiae XJ-R e4-1 D 13 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 218
+        },
+        {
+          "Star": 6
+        },
+        {
+          "Null": 4
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 59.15662549711806,
+      "semiMajorAxis": 0.008117275672852876,
+      "orbitalEccentricity": 0.002229,
+      "orbitalInclination": -0.16014,
+      "argOfPeriapsis": 63.370393,
+      "updateTime": "2026-10-30 02:44:10",
+      "distanceToArrival": 306196,
+      "radius": 424.42796875,
+      "gravity": 0.049228605447925816,
+      "surfaceTemperature": 152,
+      "earthMasses": 0.000218,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "No atmosphere"
+    }
+  ]
+}

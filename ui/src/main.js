@@ -1,9 +1,12 @@
 import * as THREE from 'three';
 import demoSystem from './data/demo-system.json';
-import { createOrbitCamera } from './camera.js';
+import { createStarfield } from './starfield.js';
+import { updateBodyAnnotations } from './body-markers.js';
+import { SCALE_MODES, resolveScaleMode } from './scale-modes.js';
+import { createOrbitCamera, fitDistance } from './camera.js';
 import { bindBodySelection, pickBody } from './picking.js';
 import { primaryStarId } from './primary-star.js';
-import { buildSystemScene, updateSystemScene, disposeSystemScene, highlightSelectedOrbit } from './scene-builder.js';
+import { buildSystemScene, updateSystemScene, disposeSystemScene, highlightSelectedOrbit, scenePosition } from './scene-builder.js';
 import { renderDetailPanel } from './data-panel.js';
 import { connectLive } from './live-connection.js';
 import { getNickname, getNicknames, setNickname } from './nicknames.js';
@@ -12,33 +15,19 @@ import { fetchCommunityBodies } from './community-client.js';
 import { createTimeControl, advance, resetToNow } from './time-control.js';
 import { bindTimePanel } from './time-panel.js';
 import { applyColorScheme, DEFAULT_SCHEME } from './color-schemes.js';
+import { SYSTEM, isBody, navigationLabel, renderBodyNavigation } from './body-navigation.js';
+import { createSystemBrowser } from './system-browser.js';
 import { createAudioCues } from './audio-cues.js';
 
 // ---------- renderer & scene ----------
 const canvas = document.getElementById('c');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, logarithmicDepthBuffer: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(0x060402);
+renderer.autoClear = false;
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x060402);
 const camera = new THREE.PerspectiveCamera(55, 1, 0.05, 60000);
-
-// starfield backdrop, ported from the original prototype — pushed far enough out
-// that even true-distance mode's widest zoom stays inside the star sphere
-(function addStarfield() {
-  const count = 1200;
-  const positions = new Float32Array(count * 3);
-  for (let i = 0; i < count; i++) {
-    const r = 25000 + Math.random() * 15000;
-    const theta = Math.random() * Math.PI * 2;
-    const phi = Math.acos(2 * Math.random() - 1);
-    positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-    positions[i * 3 + 1] = r * Math.cos(phi);
-    positions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x554433, size: 2.5, sizeAttenuation: false })));
-})();
+const starfield = createStarfield();
 
 // ---------- HUD color scheme (milestone 7) ----------
 // Applied before the first scene build so the 3D labels pick up the accent.
@@ -91,13 +80,17 @@ function loop(now) {
   if (now - lastRenderTime < MIN_FRAME_INTERVAL_MS) return; // stays dirty; picked up on the next eligible frame
   needsRender = false;
   lastRenderTime = now;
-  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { trueScale });
+  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { scaleMode });
   if (focusedBodyId !== null) {
-    const body = updatables.get(focusedBodyId);
-    if (body) orbitCamera.focus(body.bodyGroup.position);
+    const position = navigationPosition(focusedBodyId);
+    if (position) orbitCamera.focus(position);
   }
   // A programmatic focus above is already included in this render.
   needsRender = false;
+  updateBodyAnnotations(updatables, camera, canvas.getBoundingClientRect().height);
+  renderer.clear();
+  starfield.render(renderer, camera);
+  renderer.clearDepth();
   renderer.render(scene, camera);
 }
 requestAnimationFrame(loop);
@@ -114,6 +107,7 @@ document.getElementById('resetViewButton').addEventListener('click', () => fitCa
 document.getElementById('fitSystemButton').addEventListener('click', () => fitCameraToBodies());
 document.getElementById('centerMainStarButton').addEventListener('click', () => centerBody(primaryStarId(renderedNodes)));
 document.getElementById('centerSelectedButton').addEventListener('click', () => centerBody(selectedId));
+document.getElementById('zoomSelectedButton').addEventListener('click', () => zoomToBody(selectedId));
 document.getElementById('closeDetailButton').addEventListener('click', () => selectNode(null));
 
 function resize() {
@@ -146,9 +140,30 @@ let factions = [];
 let navBeaconDetected = false;
 let bountyTally = 0;
 let nextSystem = null;
-let trueScale = false;
+let scaleMode = 'compact';
+let displayBrowsing = false;
 
 const nicknameInput = document.getElementById('nicknameInput');
+document.getElementById('browseBodiesButton').addEventListener('click', () => navigateTo(SYSTEM));
+function selectedNode() {
+  return selectedId === SYSTEM ? { id: SYSTEM, kind: 'SystemBarycentre', name: systemName, sources: [] } : renderedNodes.get(selectedId);
+}
+function refreshNavigation() {
+  renderBodyNavigation(renderedNodes, selectedId, systemName, navigateTo);
+}
+function navigateTo(id) {
+  selectNode(id);
+  // Navigation changes the pivot only; framing is an explicit camera action.
+  centerBody(id);
+}
+function navigationPosition(id) {
+  if (updatables.has(id)) return updatables.get(id).bodyGroup.position;
+  if (id === SYSTEM || !renderedNodes.has(id) || renderedNodes.get(id).positionIssue) return null;
+  try {
+    const p = scenePosition(renderedNodes, id, timeControl.simTimeMs, SCALE_MODES[scaleMode].trueDistances);
+    return new THREE.Vector3(p.x, p.y, p.z);
+  } catch { return null; }
+}
 
 function currentNickname(id) {
   return id !== null && systemAddress !== null ? getNickname(systemAddress, id) : null;
@@ -156,16 +171,24 @@ function currentNickname(id) {
 
 function selectNode(id) {
   selectedId = id;
-  renderDetailPanel(id === null ? null : renderedNodes.get(id), systemName, currentNickname(id));
+  renderDetailPanel(id === null ? null : selectedNode(), systemName, currentNickname(id));
+  refreshNavigation();
   nicknameInput.value = currentNickname(id) ?? '';
-  document.getElementById('centerSelectedButton').disabled = !updatables.has(id);
+  updateSelectionControls();
   timePanel.refresh();
   highlightSelectedOrbit(updatables, selectedId);
   requestRender();
 }
 
+function updateSelectionControls() {
+  nicknameInput.disabled = !isBody(selectedNode());
+  document.getElementById('copyName').disabled = !selectedNode()?.name;
+  document.getElementById('centerSelectedButton').disabled = selectedId !== SYSTEM && !navigationPosition(selectedId);
+  updateZoomButton();
+}
+
 function saveNicknameFromInput() {
-  if (selectedId === null || systemAddress === null) return;
+  if (!isBody(selectedNode()) || systemAddress === null) return;
   setNickname(systemAddress, selectedId, nicknameInput.value);
   renderDetailPanel(renderedNodes.get(selectedId), systemName, currentNickname(selectedId));
   rebuildSceneVisuals(); // the in-scene label needs to pick up the new nickname too
@@ -185,61 +208,82 @@ bindBodySelection(canvas, (x, y) => {
 
 document.getElementById('copyName').addEventListener('click', () => {
   if (selectedId === null) return;
-  const node = renderedNodes.get(selectedId);
-  navigator.clipboard?.writeText(node.name ?? '');
+  const node = selectedNode();
+  navigator.clipboard?.writeText(node?.name ?? '');
 });
 
-// ---------- true scale toggle (milestone 7) ----------
-// Honest distances and radii — see scene-builder.js's TRUE_SCALE notes. Moons
-// collapsing into their planets and near-invisible bodies are the honest
-// point, per the design brief: "flag it in the UI so it teaches rather than lies."
-const trueScaleToggle = document.getElementById('trueScaleToggle');
-trueScale = localStorage.getItem('orrery.trueScale') === 'true';
-trueScaleToggle.checked = trueScale;
-trueScaleToggle.addEventListener('change', () => {
-  trueScale = trueScaleToggle.checked;
-  localStorage.setItem('orrery.trueScale', String(trueScale));
+// ---------- scale modes ----------
+const scaleSelect = document.getElementById('scaleSelect');
+scaleMode = resolveScaleMode(localStorage.getItem('orrery.scaleMode'), localStorage.getItem('orrery.trueScale'));
+scaleSelect.value = scaleMode;
+scaleSelect.addEventListener('change', () => {
+  scaleMode = resolveScaleMode(scaleSelect.value);
+  localStorage.setItem('orrery.scaleMode', scaleMode);
   updateScaleBadge();
   rebuildSceneVisuals();
-  fitCameraToBodies(); // the two scales differ by orders of magnitude — never leave the camera staring at empty space
+  fitCameraToBodies();
 });
 
-// Zooms out (or in) so the whole system fits the view — used when toggling
-// scale modes, where the layout size jumps by orders of magnitude.
-function fitCameraToBodies(resetDirection = false) {
-  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { trueScale });
-  scene.updateMatrixWorld(true);
-  const bounds = new THREE.Box3();
-  for (const mesh of pickables.keys()) bounds.expandByObject(mesh);
+function visibleCameraArea() {
   const { width, height } = canvas.getBoundingClientRect();
   const left = document.getElementById('systemPanel').getBoundingClientRect().right;
   const detail = document.getElementById('detail');
   const right = detail.hidden ? 0 : width - detail.getBoundingClientRect().left;
-  focusedBodyId = null;
-  orbitCamera.fit(bounds, {
+  return {
     widthFraction: Math.max(0.2, 1 - 2 * (Math.max(left, right) + 24) / width),
     heightFraction: Math.max(0.3, 1 - 120 / height),
-  }, resetDirection);
+  };
+}
+
+function currentBodyBounds() {
+  scene.updateMatrixWorld(true);
+  const bounds = new THREE.Box3();
+  for (const mesh of pickables.keys()) bounds.expandByObject(mesh);
+  return bounds;
+}
+
+// Also used after scale changes, where layout size can change by orders of magnitude.
+function fitCameraToBodies(resetDirection = false) {
+  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { scaleMode });
+  focusedBodyId = null;
+  orbitCamera.fit(currentBodyBounds(), visibleCameraArea(), resetDirection);
   document.getElementById('orbitTarget').textContent = 'System center';
 }
 
 function centerBody(id) {
-  if (id === null || !updatables.has(id)) return;
-  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { trueScale });
+  if (id === null) return;
+  updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { scaleMode });
+  if (id === SYSTEM) {
+    focusedBodyId = null;
+    orbitCamera.focus(currentBodyBounds().getCenter(new THREE.Vector3()));
+    document.getElementById('orbitTarget').textContent = 'System center';
+    return;
+  }
+  const position = navigationPosition(id);
+  if (!position) return;
   focusedBodyId = id;
-  orbitCamera.focus(updatables.get(id).bodyGroup.position);
-  document.getElementById('orbitTarget').textContent = renderedNodes.get(id).name ?? `Body ${id}`;
+  orbitCamera.focus(position);
+  document.getElementById('orbitTarget').textContent = navigationLabel(renderedNodes.get(id), systemName);
+}
+
+function updateZoomButton() {
+  const button = document.getElementById('zoomSelectedButton');
+  button.disabled = !(updatables.get(selectedId)?.radius > 0);
+  button.title = button.disabled ? 'A known body radius is needed to zoom in' : 'Frame this body and its rings';
+}
+
+function zoomToBody(id) {
+  const entry = updatables.get(id);
+  if (!(entry?.radius > 0)) return;
+  centerBody(id);
+  const radius = Math.max(entry.radius * 2.3, ...entry.rings.map((ring) => ring.geometry.parameters.outerRadius));
+  orbitCamera.focus(entry.bodyGroup.position, fitDistance(camera, radius, visibleCameraArea()));
 }
 
 function updateScaleBadge() {
   const el = document.getElementById('sysScale');
-  if (trueScale) {
-    el.textContent = 'true distances — body sizes exaggerated';
-    el.className = 'val-live';
-  } else {
-    el.textContent = 'compressed — not to scale';
-    el.className = 'val-warn';
-  }
+  el.textContent = SCALE_MODES[scaleMode].description;
+  el.className = scaleMode === 'realistic' ? 'val-live' : 'val-warn';
 }
 updateScaleBadge();
 
@@ -374,8 +418,12 @@ for (const source of Object.keys(providerNames)) {
   });
 }
 
+function activeProviders() {
+  return displayBrowsing ? new Set(['edsm', ...enabledProviders]) : enabledProviders;
+}
+
 function recomputeRenderedNodes() {
-  const active = Object.fromEntries([...enabledProviders]
+  const active = Object.fromEntries([...activeProviders()]
     .filter((source) => communityData?.[source]).map((source) => [source, communityData[source]]));
   const merged = mergeCommunityBodies(scannedNodes, active);
   renderedNodes = merged.nodes;
@@ -386,10 +434,10 @@ function updateCommunityStatus() {
   const messages = { ready: 'loaded', empty: 'no data', unavailable: 'unavailable',
     'rate-limited': 'rate limited; try later',
     'identity-mismatch': 'system mismatch', 'missing-address': 'system address needed' };
-  refreshCommunityButton.disabled = communityLoading || !enabledProviders.size || !systemName;
+  refreshCommunityButton.disabled = communityLoading || !activeProviders().size || !systemName;
   refreshCommunityButton.textContent = communityLoading ? 'Refreshing…' : 'Refresh community data';
-  document.getElementById('communityStatus').textContent = !enabledProviders.size ? 'Community data off'
-    : [...enabledProviders].map((source) => `${providerNames[source]}: ${communityLoading ? 'loading' : messages[communityRefreshStatuses[source] ?? communityData?.[source]?.status] ?? 'watcher unavailable'}`).join(' · ');
+  document.getElementById('communityStatus').textContent = !activeProviders().size ? 'Community data off'
+    : [...activeProviders()].map((source) => `${providerNames[source]}: ${communityLoading ? 'loading' : messages[communityRefreshStatuses[source] ?? communityData?.[source]?.status] ?? 'watcher unavailable'}`).join(' · ');
   const unresolved = [...renderedNodes.values()].filter((n) => ['Star', 'Planet'].includes(n.kind) && n.positionIssue).length;
   const issue = document.getElementById('communityIssues');
   issue.hidden = !communityDiagnostics.length;
@@ -400,7 +448,7 @@ function updateCommunityStatus() {
 async function refreshCommunityBackfill({ refresh = false } = {}) {
   const token = ++communityFetchToken;
   communityAbort?.abort();
-  communityLoading = enabledProviders.size > 0 && Boolean(systemName);
+  communityLoading = activeProviders().size > 0 && Boolean(systemName);
   communityRefreshStatuses = {};
   // Immediately remove disabled sources, keeping enabled cached data visible.
   recomputeRenderedNodes();
@@ -410,13 +458,13 @@ async function refreshCommunityBackfill({ refresh = false } = {}) {
   const controller = communityAbort;
   const timeout = setTimeout(() => controller.abort(), 10000);
   updateCommunityStatus();
-  const result = await fetchCommunityBodies({ systemName, systemAddress, providers: [...enabledProviders], refresh }, { signal: controller.signal });
+  const result = await fetchCommunityBodies({ systemName, systemAddress, providers: [...activeProviders()], refresh }, { signal: controller.signal });
   clearTimeout(timeout);
   if (token !== communityFetchToken) return;
   communityLoading = false;
   // Keep already loaded bodies when a provider fails during refresh.
   communityData = { ...communityData };
-  for (const source of enabledProviders) {
+  for (const source of activeProviders()) {
     const next = result?.[source];
     communityRefreshStatuses[source] = next?.status ?? 'unavailable';
     if (next?.status === 'ready' || next?.status === 'empty' || !communityData[source]) {
@@ -440,26 +488,27 @@ function rebuildSceneVisuals() {
   if (systemGroup) disposeSystemScene(systemGroup);
   const nicknames = systemAddress !== null ? getNicknames(systemAddress) : {};
   const built = buildSystemScene(renderedNodes, timeControl.simTimeMs, systemName, effectiveMode(), nicknames, {
-    trueScale,
+    scaleMode,
     labelColor: labelAccent,
   });
   scene.add(built.group);
   pickables = built.pickables;
   updatables = built.updatables;
   systemGroup = built.group;
-  if (selectedId !== null && !renderedNodes.has(selectedId)) selectNode(null);
+  if (selectedId !== null && selectedId !== SYSTEM && !renderedNodes.has(selectedId)) selectNode(SYSTEM);
   const mainStarButton = document.getElementById('centerMainStarButton');
   mainStarButton.disabled = !updatables.has(primaryStarId(renderedNodes));
   mainStarButton.title = mainStarButton.disabled ? 'Main star is not yet identified in the available data' : 'Orbit around the main star';
-  document.getElementById('centerSelectedButton').disabled = !updatables.has(selectedId);
+  updateSelectionControls();
   timePanel.refresh();
   highlightSelectedOrbit(updatables, selectedId);
-  if (selectedId !== null) renderDetailPanel(renderedNodes.get(selectedId), systemName, currentNickname(selectedId));
+  if (selectedId !== null) renderDetailPanel(selectedNode(), systemName, currentNickname(selectedId));
+  refreshNavigation();
   updateCommunityStatus();
   const knownCount = [...renderedNodes.values()].filter((n) => ['Star', 'Planet'].includes(n.kind)).length;
   const scannedCount = [...scannedNodes.values()].filter((n) => ['Star', 'Planet'].includes(n.kind)).length;
   document.getElementById('sysBodyCount').textContent = `${knownCount} known / ${scannedCount} scanned`;
-  if (focusedBodyId !== null && !updatables.has(focusedBodyId)) {
+  if (focusedBodyId !== null && !navigationPosition(focusedBodyId)) {
     focusedBodyId = null;
     document.getElementById('orbitTarget').textContent = 'Custom point';
   }
@@ -467,9 +516,14 @@ function rebuildSceneVisuals() {
 }
 
 // ---------- loading a system (shared by the demo data and live snapshots) ----------
-function loadSystem(payload) {
+function loadSystem(payload, { community = null, browsing = false } = {}) {
   const changedSystem = systemAddress !== (payload.systemAddress ?? null) || systemName !== payload.systemName
-    || commanderKey !== (payload.commanderKey ?? null);
+    || commanderKey !== (payload.commanderKey ?? null) || displayBrowsing !== browsing;
+  displayBrowsing = browsing;
+  const edsmToggle = document.getElementById('edsmToggle');
+  edsmToggle.checked = browsing || enabledProviders.has('edsm');
+  edsmToggle.disabled = browsing;
+  edsmToggle.title = browsing ? 'EDSM supplies the system-name lookup' : '';
   const hadBodies = updatables.size > 0;
   if (changedSystem) {
     resetToNow(timeControl);
@@ -478,12 +532,17 @@ function loadSystem(payload) {
     focusedBodyId = null;
     needsInitialFit = true;
   }
+  if (changedSystem || community) {
+    communityFetchToken++;
+    communityAbort?.abort();
+    communityLoading = false;
+  }
   scannedNodes = new Map(payload.nodes.map((node) => [node.id, node]));
   systemName = payload.systemName;
   systemAddress = payload.systemAddress ?? null;
   commanderKey = payload.commanderKey ?? null;
   // Same-system scans must retain backfill parents and the current camera target.
-  if (changedSystem) { communityData = null; communityRefreshStatuses = {}; }
+  if (changedSystem || community) { communityData = community; communityRefreshStatuses = {}; }
   recomputeRenderedNodes();
   // The demo snapshot has no live event stream to detect a mode from — default
   // to exploration, ED's own baseline activity, per the design brief's mode table.
@@ -496,19 +555,19 @@ function loadSystem(payload) {
   updateModeDisplay();
   updateSystemLevelPanel();
   updateSessionStrip(payload);
-  detectAudioCues(payload);
+  if (!browsing) detectAudioCues(payload);
 
   rebuildSceneVisuals();
-  if (changedSystem) refreshCommunityBackfill();
+  if (changedSystem && !community) refreshCommunityBackfill();
 
   document.getElementById('sysName').textContent = systemName;
 
   // Keep the current selection if it still exists in the new tree (a rescan
   // shouldn't yank the view away); otherwise fall back to the primary star.
-  if (selectedId !== null && renderedNodes.has(selectedId)) {
+  if (selectedId !== null && (selectedId === SYSTEM || renderedNodes.has(selectedId))) {
     selectNode(selectedId);
   } else {
-    selectNode(changedSystem || !hadBodies ? primaryStarId(renderedNodes) : null);
+    selectNode(changedSystem || !hadBodies ? primaryStarId(renderedNodes) ?? SYSTEM : null);
   }
   if (updatables.size > 0 && (needsInitialFit || !hadBodies)) {
     fitCameraToBodies(true);
@@ -520,7 +579,10 @@ function loadSystem(payload) {
 let hasReceivedLiveSnapshot = false;
 function setSourceBadge(state) {
   const el = document.getElementById('sysSource');
-  if (state === 'live') {
+  if (displayBrowsing) {
+    el.textContent = 'BROWSING';
+    el.className = 'val-warn';
+  } else if (state === 'live') {
     el.textContent = 'LIVE';
     el.className = 'val-live';
   } else if (state === 'live-disconnected') {
@@ -540,14 +602,37 @@ function setSourceBadge(state) {
 loadSystem(demoSystem);
 setSourceBadge('demo');
 
+let liveStatus = 'demo';
+const systemBrowser = createSystemBrowser({
+  demo: demoSystem,
+  fetchBodies: fetchCommunityBodies,
+  getProviders: () => [...enabledProviders],
+  onDisplay(payload, community) {
+    loadSystem(payload, { community, browsing: community !== null });
+    setSourceBadge(liveStatus);
+  },
+  onState({ loading, browsing, message }) {
+    document.getElementById('systemSearchStatus').textContent = message;
+    document.getElementById('systemSearchButton').textContent = loading ? 'Searching…' : 'Show system';
+    document.getElementById('returnLiveButton').hidden = !browsing && !loading;
+  },
+});
+document.getElementById('systemSearchForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  systemBrowser.search(document.getElementById('systemSearchInput').value);
+});
+document.getElementById('returnLiveButton').addEventListener('click', () => systemBrowser.returnToLive());
+
 connectLive({
   onSnapshot(snapshot) {
     hasReceivedLiveSnapshot = true;
-    loadSystem(snapshot);
-    setSourceBadge('live');
+    liveStatus = 'live';
+    systemBrowser.live(snapshot);
+    setSourceBadge(liveStatus);
   },
   onStatusChange(status) {
     if (!hasReceivedLiveSnapshot) return; // still on demo data; no watcher data to be "disconnected" from yet
-    setSourceBadge(status === 'connected' ? 'live' : 'live-disconnected');
+    liveStatus = status === 'connected' ? 'live' : 'live-disconnected';
+    setSourceBadge(liveStatus);
   },
 });

@@ -172,3 +172,13 @@ button.act:active { background: var(--hud-amber); }
 .provenance summary { cursor: pointer; color: var(--hud-orange); }
 .provenance .timestamp { flex-direction: column; gap: 3px; margin: 8px 0; }
 .provenance .timestamp span:last-child { text-align: left; white-space: pre-line; }
+
+/* Hierarchy remains bounded even in systems with hundreds of bodies. */
+#bodyBreadcrumbs { line-height: 1.8; overflow-wrap: anywhere; }
+#bodyBreadcrumbs button.act { display: inline; width: auto; padding: 2px 4px; margin: 2px 0; font-size: 10px; letter-spacing: 0; text-transform: none; }
+#bodyBreadcrumbs [aria-current] { color: var(--hud-cyan); border-color: var(--hud-cyan); }
+.body-navigation-buttons { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 6px; }
+#bodyChildren { max-height: 160px; overflow: auto; margin: 6px 0 12px; }
+#bodyChildren button.act { margin: 2px 0; text-align: left; text-transform: none; letter-spacing: 0; overflow-wrap: anywhere; }
+#systemSearchForm { margin-top: 10px; }
+#systemSearchForm button { margin-top: 0; }

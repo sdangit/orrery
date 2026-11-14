@@ -232,8 +232,8 @@ test('updateSystemScene keeps a body\'s ring band moving with it', () => {
 
 test('true-scale mode uses honest distances: the wide binary separation dwarfs the compressed layout', () => {
   const now = Date.now();
-  const compressed = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: false });
-  const honest = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: true });
+  const compressed = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { scaleMode: 'compact' });
+  const honest = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { scaleMode: 'distances' });
 
   const starDistance = (built) => {
     const a = built.updatables.get(1).bodyGroup.position;
@@ -247,8 +247,8 @@ test('true-scale mode uses honest distances: the wide binary separation dwarfs t
 
 test('true-scale mode keeps exaggerated body sizes (honest radii made everything invisible — reworked per real-browser feedback)', () => {
   const now = Date.now();
-  const compressed = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: false });
-  const honest = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { trueScale: true });
+  const compressed = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { scaleMode: 'compact' });
+  const honest = buildSystemScene(nodes, now, demoSystem.systemName, 'exploration', {}, { scaleMode: 'distances' });
   const starRadius = (built) => [...built.pickables.entries()].find(([, id]) => id === 1)[0].geometry.parameters.radius;
   assert.equal(starRadius(honest), starRadius(compressed), 'body sizes must be identical across scale modes');
   assert.ok(starRadius(honest) > 1, 'and visibly large, not a sub-pixel dot');
