@@ -1,0 +1,54 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [macos]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'sdangit/orrery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: macos
+          fetch-depth: 0
+
+      - name: Fast-forward main and merge it into macos
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote add upstream https://github.com/TerjeRu/orrery.git
+          git fetch upstream main
+          git fetch origin main macos
+
+          # main must remain an exact mirror, with no fork-specific commits.
+          git switch --create upstream-sync-main origin/main
+          git merge --ff-only upstream/main
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse upstream/main)" ]; then
+            echo '::error::Fork main contains local commits; restore the upstream mirror manually.'
+            exit 1
+          fi
+          git push origin HEAD:main
+
+          # Preserve macOS changes and stop safely if upstream conflicts.
+          git switch --create upstream-sync-macos origin/macos
+          if ! git merge --no-edit upstream-sync-main; then
+            git merge --abort
+            echo '::error::Upstream conflicts with macos. Merge origin/main into a sub-branch of macos and open a PR targeting macos.'
+            exit 1
+          fi
+          git push origin HEAD:macos
