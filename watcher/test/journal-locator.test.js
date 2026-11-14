@@ -23,13 +23,12 @@ test('newestJournalFilename returns null when there are no journal files', () =>
   assert.equal(newestJournalFilename(['Status.json', 'notes.txt']), null);
 });
 
-test('newestJournalFilename handles same-day, different-part-number files correctly', () => {
-  // Same timestamp prefix (game briefly failed to write, retried) with different trailing part numbers.
-  const names = ['Journal.2025-11-09T081859.01.log', 'Journal.2025-11-09T081859.02.log'];
-  // Both share the same embedded timestamp — either is an acceptable pick since
-  // the part number isn't part of what we sort on; just confirm it doesn't throw
-  // and returns one of them.
-  assert.ok(names.includes(newestJournalFilename(names)));
+test('rotation chooses the highest numeric part, independent of directory order', () => {
+  const names = [1, 2, 9, 10].map((part) => `Journal.2025-11-09T081859.${part}.log`);
+  assert.equal(newestJournalFilename(names), names[3]);
+  assert.equal(newestJournalFilename([...names].reverse()), names[3]);
+  assert.equal(newestJournalFilename([...names, 'Journal.2025-11-10T081859.01.log']),
+    'Journal.2025-11-10T081859.01.log');
 });
 
 test('findNewestJournalPath finds the newest journal in a real directory', () => {

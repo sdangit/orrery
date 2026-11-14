@@ -7,7 +7,7 @@ import { readdirSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
-const JOURNAL_FILENAME_RE = /^Journal\.(\d{4}-\d{2}-\d{2}T\d{6})\.\d+\.log$/;
+const JOURNAL_FILENAME_RE = /^Journal\.(\d{4}-\d{2}-\d{2}T\d{6})\.(\d+)\.log$/;
 
 /**
  * The default journal directory: the Elite Dangerous CrossOver bottle on
@@ -35,12 +35,16 @@ export function defaultJournalDir() {
 export function newestJournalFilename(filenames) {
   let bestName = null;
   let bestTimestamp = null;
+  let bestPart = -1n;
   for (const name of filenames) {
     const match = JOURNAL_FILENAME_RE.exec(name);
     if (!match) continue;
-    const [, timestamp] = match;
-    if (bestTimestamp === null || timestamp > bestTimestamp) {
+    const [, timestamp, partText] = match;
+    const part = BigInt(partText);
+    if (bestTimestamp === null || timestamp > bestTimestamp
+        || (timestamp === bestTimestamp && part > bestPart)) {
       bestTimestamp = timestamp;
+      bestPart = part;
       bestName = name;
     }
   }

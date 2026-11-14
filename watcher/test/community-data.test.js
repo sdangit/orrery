@@ -44,6 +44,72 @@ test('provider failure is isolated; successful data is cached and concurrent cal
   service.close();
 });
 
+test('manual refresh bypasses success and failure caches and coalesces concurrent refreshes', async () => {
+  let calls = 0;
+  const service = createCommunityDataService({ fetchImpl: async (url) => {
+    calls++;
+    if (calls === 1) throw new Error('offline');
+    return response(url.includes('spansh') ? 'spansh' : 'edsm', {
+      ...system, bodies: [...system.bodies, { bodyId: calls, name: `New body ${calls}` }],
+    });
+  } });
+  const first = await service.get(input);
+  assert.equal(first.edsm.status, 'unavailable');
+  await service.get(input);
+  assert.equal(calls, 2);
+  const [fresh, duplicate] = await Promise.all([
+    service.get({ ...input, refresh: true }), service.get({ ...input, refresh: true }),
+  ]);
+  assert.equal(calls, 4);
+  assert.equal(fresh.edsm.status, 'ready');
+  assert.notDeepEqual(fresh.spansh.bodies, first.spansh.bodies);
+  assert.deepEqual(fresh, duplicate);
+  assert.deepEqual(await service.get(input), fresh);
+  assert.equal(calls, 4);
+  service.close();
+});
+
+test('default cache expires after one minute without periodic requests', async () => {
+  let now = 0;
+  let calls = 0;
+  const service = createCommunityDataService({ now: () => now, fetchImpl: async () => {
+    calls++; return response('edsm');
+  } });
+  const request = { ...input, providers: ['edsm'] };
+  await service.get(request);
+  now = 59999;
+  await service.get(request);
+  assert.equal(calls, 1);
+  now = 60000;
+  await service.get(request);
+  assert.equal(calls, 2);
+  service.close();
+});
+
+for (const retryHeader of ['120', 'Thu, 01 Jan 2026 00:02:00 GMT', null]) {
+  test(`429 honors Retry-After ${retryHeader} across systems and manual refreshes`, async () => {
+    const start = Date.parse('2026-01-01T00:00:00Z');
+    let now = start;
+    let edsmCalls = 0;
+    const service = createCommunityDataService({ now: () => now, fetchImpl: async (url) => {
+      if (url.includes('spansh')) return response('spansh');
+      if (++edsmCalls === 1) return { ok: false, status: 429, headers: new Headers(
+        retryHeader === null ? {} : { 'Retry-After': retryHeader }) };
+      return response('edsm');
+    } });
+    const first = await service.get(input);
+    assert.equal(first.edsm.status, 'rate-limited');
+    assert.equal(first.spansh.status, 'ready');
+    await service.get({ ...input, refresh: true });
+    await service.get({ systemName: 'Other', systemAddress: '123', providers: ['edsm'], refresh: true });
+    assert.equal(edsmCalls, 1);
+    now = start + (retryHeader === null ? 60000 : 120000);
+    assert.equal((await service.get({ ...input, refresh: true })).edsm.status, 'ready');
+    assert.equal(edsmCalls, 2);
+    service.close();
+  });
+}
+
 test('timeouts abort providers independently and return a usable result', async () => {
   const service = createCommunityDataService({ timeoutMs: 10, fetchImpl: async (url, { signal }) => {
     if (url.includes('edsm')) return response('edsm');

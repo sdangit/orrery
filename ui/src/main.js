@@ -136,6 +136,7 @@ let scannedNodes = new Map(); // the real, authoritative tree — never mutated 
 let renderedNodes = new Map(); // scannedNodes, merged with EDSM backfill bodies when enabled — what's actually shown/selectable
 let systemName = '';
 let systemAddress = null;
+let commanderKey = null;
 let pickables = new Map();
 let updatables = new Map();
 let systemGroup = null;
@@ -357,6 +358,10 @@ let communityData = null;
 let communityFetchToken = 0;
 let communityAbort = null;
 let communityDiagnostics = [];
+let communityLoading = false;
+let communityRefreshStatuses = {};
+const refreshCommunityButton = document.getElementById('refreshCommunityButton');
+refreshCommunityButton.addEventListener('click', () => refreshCommunityBackfill({ refresh: true }));
 
 for (const source of Object.keys(providerNames)) {
   const toggle = document.getElementById(`${source}Toggle`);
@@ -377,11 +382,14 @@ function recomputeRenderedNodes() {
   communityDiagnostics = merged.diagnostics;
 }
 
-function updateCommunityStatus(loading = false) {
+function updateCommunityStatus() {
   const messages = { ready: 'loaded', empty: 'no data', unavailable: 'unavailable',
+    'rate-limited': 'rate limited; try later',
     'identity-mismatch': 'system mismatch', 'missing-address': 'system address needed' };
+  refreshCommunityButton.disabled = communityLoading || !enabledProviders.size || !systemName;
+  refreshCommunityButton.textContent = communityLoading ? 'Refreshing…' : 'Refresh community data';
   document.getElementById('communityStatus').textContent = !enabledProviders.size ? 'Community data off'
-    : [...enabledProviders].map((source) => `${providerNames[source]}: ${loading ? 'loading' : messages[communityData?.[source]?.status] ?? 'watcher unavailable'}`).join(' · ');
+    : [...enabledProviders].map((source) => `${providerNames[source]}: ${communityLoading ? 'loading' : messages[communityRefreshStatuses[source] ?? communityData?.[source]?.status] ?? 'watcher unavailable'}`).join(' · ');
   const unresolved = [...renderedNodes.values()].filter((n) => ['Star', 'Planet'].includes(n.kind) && n.positionIssue).length;
   const issue = document.getElementById('communityIssues');
   issue.hidden = !communityDiagnostics.length;
@@ -389,21 +397,32 @@ function updateCommunityStatus(loading = false) {
   issue.title = communityDiagnostics.join('\n');
 }
 
-async function refreshCommunityBackfill() {
+async function refreshCommunityBackfill({ refresh = false } = {}) {
   const token = ++communityFetchToken;
   communityAbort?.abort();
+  communityLoading = enabledProviders.size > 0 && Boolean(systemName);
+  communityRefreshStatuses = {};
   // Immediately remove disabled sources, keeping enabled cached data visible.
   recomputeRenderedNodes();
   rebuildSceneVisuals();
-  if (!enabledProviders.size) { updateCommunityStatus(); return; }
+  if (!communityLoading) { updateCommunityStatus(); return; }
   communityAbort = new AbortController();
   const controller = communityAbort;
   const timeout = setTimeout(() => controller.abort(), 10000);
-  updateCommunityStatus(true);
-  const result = await fetchCommunityBodies({ systemName, systemAddress, providers: [...enabledProviders] }, { signal: controller.signal });
+  updateCommunityStatus();
+  const result = await fetchCommunityBodies({ systemName, systemAddress, providers: [...enabledProviders], refresh }, { signal: controller.signal });
   clearTimeout(timeout);
   if (token !== communityFetchToken) return;
-  communityData = result;
+  communityLoading = false;
+  // Keep already loaded bodies when a provider fails during refresh.
+  communityData = { ...communityData };
+  for (const source of enabledProviders) {
+    const next = result?.[source];
+    communityRefreshStatuses[source] = next?.status ?? 'unavailable';
+    if (next?.status === 'ready' || next?.status === 'empty' || !communityData[source]) {
+      communityData[source] = next;
+    }
+  }
   recomputeRenderedNodes();
   rebuildSceneVisuals();
   updateCommunityStatus();
@@ -449,7 +468,8 @@ function rebuildSceneVisuals() {
 
 // ---------- loading a system (shared by the demo data and live snapshots) ----------
 function loadSystem(payload) {
-  const changedSystem = systemAddress !== (payload.systemAddress ?? null) || systemName !== payload.systemName;
+  const changedSystem = systemAddress !== (payload.systemAddress ?? null) || systemName !== payload.systemName
+    || commanderKey !== (payload.commanderKey ?? null);
   const hadBodies = updatables.size > 0;
   if (changedSystem) {
     resetToNow(timeControl);
@@ -461,8 +481,9 @@ function loadSystem(payload) {
   scannedNodes = new Map(payload.nodes.map((node) => [node.id, node]));
   systemName = payload.systemName;
   systemAddress = payload.systemAddress ?? null;
+  commanderKey = payload.commanderKey ?? null;
   // Same-system scans must retain backfill parents and the current camera target.
-  if (changedSystem) communityData = null;
+  if (changedSystem) { communityData = null; communityRefreshStatuses = {}; }
   recomputeRenderedNodes();
   // The demo snapshot has no live event stream to detect a mode from — default
   // to exploration, ED's own baseline activity, per the design brief's mode table.

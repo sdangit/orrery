@@ -100,6 +100,9 @@ test('community route validates origin, method and input before fixed-provider s
     assert.equal(result.status, 200);
     assert.equal((await result.json()).spansh.bodies[0].bodyId, 0);
     assert.deepEqual(calls[0], { systemName: 'Sol', systemAddress: '10477373803', providers: ['spansh'] });
+    assert.equal((await fetch(`${url}&refresh=1`, { headers })).status, 200);
+    assert.equal(calls[1].refresh, true);
+    assert.equal((await fetch(`${url}&refresh=bogus`, { headers })).status, 400);
   } finally {
     server?.close();
     rmSync(journalDir, { recursive: true, force: true });

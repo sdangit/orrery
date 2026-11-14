@@ -5,8 +5,8 @@
 // bounty tally) piracy mode needs.
 //
 // System-switch detection: an FSDJump/Location for a *different*
-// SystemAddress than the current one resets accumulated Scan data and starts
-// fresh. Arriving at (or re-arriving at) the *same* system does not reset —
+// SystemAddress than the current one restores its cached journal body data.
+// Arriving at (or re-arriving at) the *same* system does not reset —
 // bodies scanned earlier in the session, then revisited later, should stay
 // known rather than disappearing. Security/government/faction info *does*
 // refresh on every FSDJump/Location regardless of switch, though — those are
@@ -14,6 +14,7 @@
 // to a system you never left the tree data for.
 
 import { buildBodyTree } from './body-tree.js';
+import { createSessionBodyCache } from './session-body-cache.js';
 
 const SYSTEM_CONTEXT_EVENTS = new Set(['FSDJump', 'Location']);
 // Everything buildBodyTree/bio-signals.js can turn into per-body data on the
@@ -28,9 +29,11 @@ function extractFactions(evt) {
   return evt.Factions.map((f) => ({ name: f.Name, state: f.FactionState ?? 'None' }));
 }
 
-export function createSystemModel() {
+export function createSystemModel(cacheOptions = {}) {
+  const bodyCache = createSessionBodyCache(cacheOptions);
+  let commander = null;
   let systemContext = null; // { starSystem, systemAddress, starPos, timestamp, security, government, population, factions }
-  let bodyEvents = []; // Scan/ScanBaryCentre/FSSBodySignals/SAASignalsFound/ScanOrganic for the current system
+  let bodyEvents = new Map();
   let bountyTally = 0;
   // Session tracker (design brief's "thin, v1.5" strip): watcher-lifetime,
   // like bountyTally — survives system switches, resets only on restart.
@@ -50,20 +53,43 @@ export function createSystemModel() {
     let updated = false;
 
     for (const evt of newEvents) {
+      if (evt.event === 'Commander' || evt.event === 'LoadGame') {
+        const name = evt.event === 'Commander' ? evt.Name : evt.Commander;
+        const identity = evt.FID ? `fid:${evt.FID}` : name ? `name:${name}` : null;
+        // Prefer FID, but tolerate a name-only LoadGame for the same commander.
+        const sameCommander = commander && (identity === commander.key
+          || ((!evt.FID || !commander.fid) && name && name === commander.name));
+        if (identity && !sameCommander) {
+          bodyCache.clear();
+          bodyEvents = new Map();
+          systemContext = null;
+          bountyTally = 0;
+          sessionScanKeys.clear();
+          sessionFirstDiscoveryKeys.clear();
+          updated = true;
+        }
+        if (identity) commander = {
+          key: sameCommander && !evt.FID ? commander.key : identity,
+          fid: evt.FID ?? (sameCommander ? commander.fid : null),
+          name: name ?? (sameCommander ? commander.name : null),
+        };
+        continue;
+      }
       if (SYSTEM_CONTEXT_EVENTS.has(evt.event)) {
         const isNewSystem = !systemContext || systemContext.systemAddress !== evt.SystemAddress;
         if (isNewSystem) {
-          bodyEvents = [];
+          bodyEvents = bodyCache.visit(evt.SystemAddress);
           switched = true;
         }
+        const previous = isNewSystem ? null : systemContext;
         systemContext = {
           starSystem: evt.StarSystem,
           systemAddress: evt.SystemAddress,
-          starPos: evt.StarPos ?? systemContext?.starPos ?? null,
+          starPos: evt.StarPos ?? previous?.starPos ?? null,
           timestamp: evt.timestamp,
-          security: evt.SystemSecurity_Localised ?? systemContext?.security ?? null,
-          government: evt.SystemGovernment_Localised ?? systemContext?.government ?? null,
-          population: evt.Population ?? systemContext?.population ?? null,
+          security: evt.SystemSecurity_Localised ?? previous?.security ?? null,
+          government: evt.SystemGovernment_Localised ?? previous?.government ?? null,
+          population: evt.Population ?? previous?.population ?? null,
           factions: extractFactions(evt),
           // Reset on a real system switch; a same-system re-arrival keeps
           // whatever was already found (the beacon doesn't move).
@@ -73,7 +99,7 @@ export function createSystemModel() {
         continue;
       }
       if (BODY_EVENTS.has(evt.event) && systemContext && evt.SystemAddress === systemContext.systemAddress) {
-        bodyEvents.push(evt);
+        bodyCache.add(bodyEvents, evt);
         if (evt.event === 'Scan' && typeof evt.BodyID === 'number') {
           const key = `${evt.SystemAddress}:${evt.BodyID}`;
           sessionScanKeys.add(key);
@@ -105,12 +131,13 @@ export function createSystemModel() {
   /** @returns {object|null} A JSON-serializable snapshot, or null if no system context has been seen yet. */
   function snapshot() {
     if (!systemContext) return null;
-    const { rootId, nodes, orphans } = buildBodyTree(bodyEvents, {
+    const { rootId, nodes, orphans } = buildBodyTree([...bodyEvents.values()], {
       systemAddress: systemContext.systemAddress,
       systemName: systemContext.starSystem,
     });
     return {
       generatedAt: new Date().toISOString(),
+      commanderKey: commander?.key ?? null,
       systemName: systemContext.starSystem,
       systemAddress: systemContext.systemAddress,
       systemSecurity: systemContext.security,
