@@ -59,6 +59,19 @@ npm start
 
 Leave it running while you play. Drag to orbit, scroll to zoom, click a body for its details.
 
+On macOS, the watcher and Electron app default to journals in the CrossOver
+bottle named `Elite Dangerous`:
+
+```text
+~/Library/Application Support/CrossOver/Bottles/Elite Dangerous/drive_c/users/crossover/Saved Games/Frontier Developments/Elite Dangerous
+```
+
+For a different bottle or journal location, set `ORRERY_JOURNAL_DIR` to its path:
+
+```sh
+ORRERY_JOURNAL_DIR="$HOME/path/to/journals" npm start
+```
+
 To build your own installer instead of using the release, `npm run electron:build` does the same packaging locally (NSIS installer and a portable exe, both land in `dist-installer/`).
 
 To hack on it, `npm run dev --workspace=ui` gives you Vite with hot reload on port 5173, and `npm run watch --workspace=watcher` runs the journal watcher separately alongside it. `npm run electron:dev` runs the Electron shell against the built UI. `npm test` runs the test suite.
