@@ -1,0 +1,96 @@
+{
+  "warning": "Synthetic demonstration of observability, not an Elite calibration or validated HUD precision model.",
+  "assumedKnownInputs": [
+    "Body positions at the capture time",
+    "Four centre-to-centre observer ranges",
+    "Body bearings in a known galactic frame"
+  ],
+  "captureResults": [
+    {
+      "truePositionLs": [
+        120,
+        -90,
+        150
+      ],
+      "recoveredPositionLs": [
+        119.99999999999994,
+        -90.00000000000014,
+        150.00000000000003
+      ],
+      "positionErrorLs": 1.5567211377889584e-13,
+      "heldOutAngularErrorsDeg": [
+        2.1335809421722845e-14,
+        5.2273942582233885e-14
+      ]
+    },
+    {
+      "truePositionLs": [
+        -80,
+        60,
+        -110
+      ],
+      "recoveredPositionLs": [
+        -80,
+        60,
+        -110
+      ],
+      "positionErrorLs": 0,
+      "heldOutAngularErrorsDeg": [
+        7.287566289876361e-15,
+        6.556881449863406e-15
+      ]
+    }
+  ],
+  "geometrySensitivity": [
+    {
+      "fourthAnchorHeightLs": 400,
+      "assumedRangeErrorsLs": [
+        0.01,
+        -0.01,
+        0.01,
+        -0.01
+      ],
+      "positionErrorLs": 0.023117856194900255
+    },
+    {
+      "fourthAnchorHeightLs": 0.1,
+      "assumedRangeErrorsLs": [
+        0.01,
+        -0.01,
+        0.01,
+        -0.01
+      ],
+      "positionErrorLs": 64.72388102790924
+    }
+  ],
+  "coplanarRangeGeometry": "Rejected as singular; four coplanar centres cannot distinguish mirrored observer heights using ranges alone.",
+  "nearMoonBounds": [
+    {
+      "observerOffsetKm": 1000,
+      "targetDistanceKm": 1000000,
+      "angularBoundDeg": 0.0572957890623832
+    },
+    {
+      "observerOffsetKm": 1000,
+      "targetDistanceKm": 149597870.7,
+      "angularBoundDeg": 0.00038299862989633464
+    }
+  ],
+  "farSkyParallaxBounds": [
+    {
+      "observerOffsetAu": 1,
+      "targetDistanceLy": 1,
+      "angularBoundDeg": 0.0009059899381398197
+    },
+    {
+      "observerOffsetAu": 100,
+      "targetDistanceLy": 1,
+      "angularBoundDeg": 0.09059903156517364
+    },
+    {
+      "observerOffsetAu": 100,
+      "targetDistanceLy": 4,
+      "angularBoundDeg": 0.02264974904247236
+    }
+  ]
+}

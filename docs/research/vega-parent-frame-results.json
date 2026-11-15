@@ -1,0 +1,422 @@
+{
+  "warning": "XY azimuth is not a measured screen clock angle. Scalar distances do not establish the full 3D or galactic orientation.",
+  "capturedAt": "2026-11-15T07:14:37.603Z",
+  "models": [
+    {
+      "model": "common",
+      "rows": [
+        {
+          "id": 11,
+          "name": "Tracy's Havan",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3752.019494,
+          "predictedLs": 3752.0194938664913,
+          "errorKm": -0.040024937312301515,
+          "systemXYAzimuthDeg": 81.0500745533979
+        },
+        {
+          "id": 6,
+          "name": "Vega 2 c",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1805.714103,
+          "predictedLs": 1805.8583833917842,
+          "errorKm": 43254.17329417339,
+          "systemXYAzimuthDeg": 101.39125204841704
+        },
+        {
+          "id": 9,
+          "name": "Vega 2 e",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1793.06392,
+          "predictedLs": 1791.5071614444018,
+          "errorKm": -466704.47389531636,
+          "systemXYAzimuthDeg": 150.71566200239374
+        },
+        {
+          "id": 12,
+          "name": "Trikora",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3743.604735,
+          "predictedLs": 3743.0342735686772,
+          "errorKm": -171020.03469041715,
+          "systemXYAzimuthDeg": -126.74973309380255
+        },
+        {
+          "id": 19,
+          "name": "Vega 4",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 8844.451926,
+          "predictedLs": 8844.452570218993,
+          "errorKm": 193.1319955005542,
+          "systemXYAzimuthDeg": -23.48897223370632
+        },
+        {
+          "id": 1,
+          "name": "Popov Reward",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1083.340161,
+          "predictedLs": 1083.3401611416075,
+          "errorKm": 0.04245283518516044,
+          "systemXYAzimuthDeg": -5.179345856986384
+        },
+        {
+          "id": 7,
+          "name": "Vega 2 d",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.628435,
+          "predictedLs": 1817.8660924490484,
+          "errorKm": 371040.36881221645,
+          "systemXYAzimuthDeg": -5.948009665313492
+        },
+        {
+          "id": 4,
+          "name": "Vega 2 a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.702311,
+          "predictedLs": 1804.4912699730705,
+          "errorKm": -63268.508202032666,
+          "systemXYAzimuthDeg": -143.6650946052289
+        },
+        {
+          "id": 5,
+          "name": "Vega 2 b",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.810599,
+          "predictedLs": 1804.3864916749233,
+          "errorKm": -127144.17744053323,
+          "systemXYAzimuthDeg": -105.39127123126264
+        },
+        {
+          "id": 8,
+          "name": "Vega 2 d a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.605866,
+          "predictedLs": 1817.8340848761518,
+          "errorKm": 368210.7558435116,
+          "systemXYAzimuthDeg": -53.809084548883256
+        },
+        {
+          "id": 2,
+          "name": "Vega 2",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1806.740722,
+          "predictedLs": 1806.7412262609494,
+          "errorKm": 151.1736294807706,
+          "systemXYAzimuthDeg": -15.2800360345775
+        }
+      ]
+    },
+    {
+      "model": "orbit-only",
+      "rows": [
+        {
+          "id": 11,
+          "name": "Tracy's Havan",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3752.019494,
+          "predictedLs": 3752.0194938664913,
+          "errorKm": -0.040024937312301515,
+          "systemXYAzimuthDeg": 81.0500745533979
+        },
+        {
+          "id": 6,
+          "name": "Vega 2 c",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1805.714103,
+          "predictedLs": 1804.082035532528,
+          "errorKm": -489281.51769529516,
+          "systemXYAzimuthDeg": 118.21934121614775
+        },
+        {
+          "id": 9,
+          "name": "Vega 2 e",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1793.06392,
+          "predictedLs": 1790.672049065731,
+          "errorKm": -717064.8666032708,
+          "systemXYAzimuthDeg": 167.540665740238
+        },
+        {
+          "id": 12,
+          "name": "Trikora",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3743.604735,
+          "predictedLs": 3743.4889388682823,
+          "errorKm": -34714.80695451584,
+          "systemXYAzimuthDeg": -66.00314838249584
+        },
+        {
+          "id": 19,
+          "name": "Vega 4",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 8844.451926,
+          "predictedLs": 8844.452570218993,
+          "errorKm": 193.1319955005542,
+          "systemXYAzimuthDeg": -23.48897223370632
+        },
+        {
+          "id": 1,
+          "name": "Popov Reward",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1083.340161,
+          "predictedLs": 1083.3401611416075,
+          "errorKm": 0.04245283518516044,
+          "systemXYAzimuthDeg": -5.179345856986384
+        },
+        {
+          "id": 7,
+          "name": "Vega 2 d",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.628435,
+          "predictedLs": 1817.3139441465178,
+          "errorKm": 205510.47201601992,
+          "systemXYAzimuthDeg": 10.879353600998003
+        },
+        {
+          "id": 4,
+          "name": "Vega 2 a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.702311,
+          "predictedLs": 1804.2907168730974,
+          "errorKm": -123392.81500250276,
+          "systemXYAzimuthDeg": -126.83761784656718
+        },
+        {
+          "id": 5,
+          "name": "Vega 2 b",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.810599,
+          "predictedLs": 1805.5275725566162,
+          "errorKm": 214943.2648589929,
+          "systemXYAzimuthDeg": -88.56162839101046
+        },
+        {
+          "id": 8,
+          "name": "Vega 2 d a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.605866,
+          "predictedLs": 1817.2775360861508,
+          "errorKm": 201361.62609218946,
+          "systemXYAzimuthDeg": 0.47261717374028267
+        },
+        {
+          "id": 2,
+          "name": "Vega 2",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1806.740722,
+          "predictedLs": 1806.7412262609494,
+          "errorKm": 151.1736294807706,
+          "systemXYAzimuthDeg": -15.2800360345775
+        }
+      ]
+    },
+    {
+      "model": "planet-only",
+      "rows": [
+        {
+          "id": 11,
+          "name": "Tracy's Havan",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3752.019494,
+          "predictedLs": 3752.0194938664913,
+          "errorKm": -0.040024937312301515,
+          "systemXYAzimuthDeg": 81.0500745533979
+        },
+        {
+          "id": 6,
+          "name": "Vega 2 c",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1805.714103,
+          "predictedLs": 1805.8583833917842,
+          "errorKm": 43254.17329417339,
+          "systemXYAzimuthDeg": 101.39125204841704
+        },
+        {
+          "id": 9,
+          "name": "Vega 2 e",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1793.06392,
+          "predictedLs": 1791.5071614444018,
+          "errorKm": -466704.47389531636,
+          "systemXYAzimuthDeg": 150.71566200239374
+        },
+        {
+          "id": 12,
+          "name": "Trikora",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3743.604735,
+          "predictedLs": 3743.604729065549,
+          "errorKm": -1.779103685171398,
+          "systemXYAzimuthDeg": -67.44948571292512
+        },
+        {
+          "id": 19,
+          "name": "Vega 4",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 8844.451926,
+          "predictedLs": 8844.452570218993,
+          "errorKm": 193.1319955005542,
+          "systemXYAzimuthDeg": -23.48897223370632
+        },
+        {
+          "id": 1,
+          "name": "Popov Reward",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1083.340161,
+          "predictedLs": 1083.3401611416075,
+          "errorKm": 0.04245283518516044,
+          "systemXYAzimuthDeg": -5.179345856986384
+        },
+        {
+          "id": 7,
+          "name": "Vega 2 d",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.628435,
+          "predictedLs": 1817.8660924490484,
+          "errorKm": 371040.36881221645,
+          "systemXYAzimuthDeg": -5.948009665313492
+        },
+        {
+          "id": 4,
+          "name": "Vega 2 a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.702311,
+          "predictedLs": 1804.4912699730705,
+          "errorKm": -63268.508202032666,
+          "systemXYAzimuthDeg": -143.6650946052289
+        },
+        {
+          "id": 5,
+          "name": "Vega 2 b",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.810599,
+          "predictedLs": 1804.3864916749233,
+          "errorKm": -127144.17744053323,
+          "systemXYAzimuthDeg": -105.39127123126264
+        },
+        {
+          "id": 8,
+          "name": "Vega 2 d a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.605866,
+          "predictedLs": 1817.8251897634943,
+          "errorKm": 365544.06815574603,
+          "systemXYAzimuthDeg": -9.78031597047814
+        },
+        {
+          "id": 2,
+          "name": "Vega 2",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1806.740722,
+          "predictedLs": 1806.7412262609494,
+          "errorKm": 151.1736294807706,
+          "systemXYAzimuthDeg": -15.2800360345775
+        }
+      ]
+    },
+    {
+      "model": "orbit-and-tilt",
+      "rows": [
+        {
+          "id": 11,
+          "name": "Tracy's Havan",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3752.019494,
+          "predictedLs": 3752.0194938664913,
+          "errorKm": -0.040024937312301515,
+          "systemXYAzimuthDeg": 81.0500745533979
+        },
+        {
+          "id": 6,
+          "name": "Vega 2 c",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1805.714103,
+          "predictedLs": 1805.7146107464198,
+          "errorKm": 152.2185472238892,
+          "systemXYAzimuthDeg": 127.8252450676335
+        },
+        {
+          "id": 9,
+          "name": "Vega 2 e",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1793.06392,
+          "predictedLs": 1793.06442172958,
+          "errorKm": 150.41474405064065,
+          "systemXYAzimuthDeg": -178.93928935918916
+        },
+        {
+          "id": 12,
+          "name": "Trikora",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3743.604735,
+          "predictedLs": 3743.604729065549,
+          "errorKm": -1.779103685171398,
+          "systemXYAzimuthDeg": -67.44948571292512
+        },
+        {
+          "id": 19,
+          "name": "Vega 4",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 8844.451926,
+          "predictedLs": 8844.452570218993,
+          "errorKm": 193.1319955005542,
+          "systemXYAzimuthDeg": -23.48897223370632
+        },
+        {
+          "id": 1,
+          "name": "Popov Reward",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1083.340161,
+          "predictedLs": 1083.3401611416075,
+          "errorKm": 0.04245283518516044,
+          "systemXYAzimuthDeg": -5.179345856986384
+        },
+        {
+          "id": 7,
+          "name": "Vega 2 d",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.628435,
+          "predictedLs": 1816.6289433259913,
+          "errorKm": 152.39229836027405,
+          "systemXYAzimuthDeg": 13.697686963593219
+        },
+        {
+          "id": 4,
+          "name": "Vega 2 a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.702311,
+          "predictedLs": 1804.702814776689,
+          "errorKm": 151.02845184896603,
+          "systemXYAzimuthDeg": -142.48753041381687
+        },
+        {
+          "id": 5,
+          "name": "Vega 2 b",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.810599,
+          "predictedLs": 1804.8111033271532,
+          "errorKm": 151.19347692217227,
+          "systemXYAzimuthDeg": -101.27199858131549
+        },
+        {
+          "id": 8,
+          "name": "Vega 2 d a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.605866,
+          "predictedLs": 1816.6063747867313,
+          "errorKm": 152.53042474081354,
+          "systemXYAzimuthDeg": -47.66390660052996
+        },
+        {
+          "id": 2,
+          "name": "Vega 2",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1806.740722,
+          "predictedLs": 1806.7412262609494,
+          "errorKm": 151.1736294807706,
+          "systemXYAzimuthDeg": -15.2800360345775
+        }
+      ]
+    }
+  ]
+}

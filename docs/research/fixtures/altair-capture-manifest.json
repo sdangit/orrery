@@ -1,0 +1,100 @@
+{
+  "localSourceDirectory": "/Users/sd/Desktop",
+  "observer": "Darkes Hollow",
+  "approximateAltitudeMeters": 330,
+  "approximateLatitudeDeg": -25.7147,
+  "approximateLongitudeDeg": 21.2599,
+  "intrinsicsSource": "vega-capture-projection-results.json",
+  "images": [
+    {
+      "filename": "Screenshot 2026-11-14 at 10.20.13\u202fPM.png",
+      "sha256": "a1411cb197a1141f50a7630e9376c2b235ec8403ee074496883afa2b3e5de238",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4026549,
+      "hudTimestamp": "2026-11-15T06:20:13Z",
+      "selectedTarget": "Biggs Colony"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.20.34\u202fPM.png",
+      "sha256": "7f8bb7ed393ff11f4e79f5a23f81cd2548c89bbe45aa62b2a16d6485ecdf6dfe",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4030489,
+      "hudTimestamp": "2026-11-15T06:20:34Z",
+      "selectedTarget": "Sol"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.20.57\u202fPM.png",
+      "sha256": "a15dfbd981b252503c6fda9af72955e4e745470f816eb01307f4640f05d43a69",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 3992833,
+      "hudTimestamp": "2026-11-15T06:20:57Z",
+      "selectedTarget": "Sirius"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.21.35\u202fPM.png",
+      "sha256": "aa6f1139ddaaf77c4658847d3665e66a9984dd38752f84be80e263402b6976d5",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4079283,
+      "hudTimestamp": "2026-11-15T06:21:36Z",
+      "selectedTarget": "Epsilon Indi"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.21.39\u202fPM.png",
+      "sha256": "d35031b432105ca6103000c5d00707d613a249079284b2f792b653b8b1522cad",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4623159,
+      "hudTimestamp": "2026-11-15T06:21:39Z",
+      "selectedTarget": "Epsilon Indi"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.21.52\u202fPM.png",
+      "sha256": "2251ac2858d7f74d4c3d42d9adffce6005ad4caae29a2bc1dcd3ed8541251717",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4056492,
+      "hudTimestamp": "2026-11-15T06:21:52Z",
+      "selectedTarget": "Epsilon Indi"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.21.58\u202fPM.png",
+      "sha256": "3f493dd81829aa0f60c64d5ffef643ac97cf8b9bc8b01933fab9b69e9365b857",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4080864,
+      "hudTimestamp": "2026-11-15T06:21:58Z",
+      "selectedTarget": "Epsilon Indi"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.22.22\u202fPM.png",
+      "sha256": "bde235df341904125bf90a07457860f307d5c483ae3d066a5c853e84367e7785",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4498950,
+      "hudTimestamp": "2026-11-15T06:22:22Z",
+      "selectedTarget": "Altair"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.22.28\u202fPM.png",
+      "sha256": "6502da0a0184771fda3b9f6113a023058046ab9b1e146f1cbe46c54a2be46db7",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 5228883,
+      "hudTimestamp": "2026-11-15T06:22:28Z",
+      "selectedTarget": "Altair"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.22.34\u202fPM.png",
+      "sha256": "4dca157648a484fe0f25f847fb8164070e3c0f69470fb9ec3f56a500f4c905af",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 5735393,
+      "hudTimestamp": "2026-11-15T06:22:34Z",
+      "selectedTarget": "Altair"
+    }
+  ]
+}

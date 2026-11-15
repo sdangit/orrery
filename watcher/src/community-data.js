@@ -1,10 +1,11 @@
 import { parseJsonPreservingIntegers, systemAddressString } from './json-integers.js';
+import { mapEdgisBodies } from '@orrery/shared';
 
 const BODY_FIELDS = ['bodyId', 'name', 'type', 'subType', 'parents', 'orbitalPeriod', 'semiMajorAxis',
   'orbitalEccentricity', 'orbitalInclination', 'argOfPeriapsis', 'meanAnomaly', 'ascendingNode',
   'timestamps', 'updateTime', 'mainStar', 'isMainStar', 'distanceToArrival', 'solarRadius', 'radius',
   'gravity', 'surfaceTemperature', 'earthMasses', 'solarMasses', 'isLandable', 'terraformingState',
-  'atmosphereType', 'reserveLevel', 'rings'];
+  'atmosphereType', 'reserveLevel', 'rings', 'axialTilt'];
 
 export function parseCommunityRequest(params) {
   const systemName = params.get('systemName');
@@ -15,7 +16,7 @@ export function parseCommunityRequest(params) {
   if (!systemName || systemName.length > 128 || /[\x00-\x1f]/.test(systemName)
       || (addressInput !== null && systemAddress === null)
       || (refresh !== null && refresh !== '1')
-      || !providers.length || providers.some((p) => !['edsm', 'spansh'].includes(p))) {
+      || !providers.length || providers.some((p) => !['edsm', 'spansh', 'edgis'].includes(p))) {
     throw new Error('Invalid community data request');
   }
   return { systemName, systemAddress, providers, ...(refresh === '1' ? { refresh: true } : {}) };
@@ -31,7 +32,7 @@ export function createCommunityDataService({ fetchImpl = globalThis.fetch, now =
   let closed = false;
 
   async function request(source, systemName, systemAddress, refresh) {
-    if (source === 'spansh' && systemAddress === null) return { status: 'missing-address', bodies: [] };
+    if (source !== 'edsm' && systemAddress === null) return { status: 'missing-address', bodies: [] };
     const key = JSON.stringify([source, systemAddress, systemName.toLowerCase()]);
     const cached = cache.get(key);
     if (pending.has(key)) return pending.get(key);
@@ -48,6 +49,8 @@ export function createCommunityDataService({ fetchImpl = globalThis.fetch, now =
       try {
         const url = source === 'spansh'
           ? `https://spansh.co.uk/api/dump/${systemAddress}`
+          : source === 'edgis'
+          ? `https://edgis.elitedangereuse.fr/system-map?name_or_id=${systemAddress}`
           : `https://www.edsm.net/api-system-v1/bodies?systemName=${encodeURIComponent(systemName)}`;
         const response = await fetchImpl(url, {
           signal: controller.signal, redirect: 'error',
@@ -64,14 +67,19 @@ export function createCommunityDataService({ fetchImpl = globalThis.fetch, now =
         } else {
           if (!response.ok) throw new Error('Provider unavailable');
           const data = parseJsonPreservingIntegers(await response.text());
-          const system = source === 'spansh' ? data.system : data;
+          // system-map supplies system identity as well as native body records.
+          const system = source === 'edgis' ? { ...data.system, bodies: data.bodies }
+            : source === 'spansh' ? data.system : data;
           if (!system || !Array.isArray(system.bodies)) throw new Error('Invalid provider response');
           if (system.name?.toLowerCase() !== systemName.toLowerCase()
-              || (systemAddress !== null && systemAddressString(system.id64) !== systemAddress)) {
+              || (systemAddress !== null && systemAddressString(system.id64) !== systemAddress)
+              || (source === 'edgis' && system.bodies.some((b) => !b
+                || systemAddressString(b.system_id64) !== systemAddress))) {
             result = { status: 'identity-mismatch', bodies: [] };
           } else {
             // Exclude station lists and unrelated system data (Sol's dump is ~2 MB).
-            const bodies = system.bodies.filter((b) => b && typeof b === 'object').map((body) =>
+            const providerBodies = source === 'edgis' ? mapEdgisBodies(system.bodies) : system.bodies;
+            const bodies = providerBodies.filter((b) => b && typeof b === 'object').map((body) =>
               Object.fromEntries(BODY_FIELDS.filter((k) => body[k] !== undefined).map((k) => [k, body[k]])));
             result = { status: bodies.length ? 'ready' : 'empty', bodies, receivedAt: now(),
               systemAddress: systemAddressString(system.id64), systemName: system.name };

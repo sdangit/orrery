@@ -1,0 +1,43 @@
+{
+  "sourceURL": "https://www.edsm.net/api-system-v1/bodies?systemName=Vega",
+  "name": "Vega",
+  "id64": "301958431924",
+  "bodies": [
+    {
+      "bodyId": 0,
+      "name": "Vega",
+      "type": "Star",
+      "subType": "A (Blue-White) Star",
+      "parents": null,
+      "orbitalPeriod": null,
+      "semiMajorAxis": null,
+      "orbitalEccentricity": null,
+      "orbitalInclination": null,
+      "argOfPeriapsis": null,
+      "updateTime": "2021-01-10 20:20:23",
+      "isMainStar": true,
+      "distanceToArrival": 0,
+      "solarRadius": 2.0854185132997842,
+      "solarMasses": 3.191406
+    },
+    {
+      "bodyId": 11,
+      "name": "Tracy's Havan",
+      "type": "Planet",
+      "subType": "Earth-like world",
+      "parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "orbitalPeriod": 747.9999973266204,
+      "semiMajorAxis": 7.519005058473736,
+      "orbitalEccentricity": null,
+      "orbitalInclination": 2.7,
+      "argOfPeriapsis": 299.320616,
+      "updateTime": "2026-11-10 11:06:38",
+      "distanceToArrival": 3752,
+      "radius": 7207.324
+    }
+  ]
+}

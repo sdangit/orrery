@@ -1,0 +1,187 @@
+{
+  "localSourceDirectory": "/Users/sd/Desktop",
+  "configuredFov": 56.249001,
+  "cameraConfirmation": "User confirms ship cockpit, no headset or VR, no headlook.",
+  "configuredDisplaySize": [
+    2560,
+    1600
+  ],
+  "warning": "Configured display dimensions differ from PNG dimensions. Empirical focal lengths are fitted independently; cause of effective projection difference is unresolved.",
+  "images": [
+    {
+      "filename": "Screenshot 2026-11-14 at 9.19.52\u202fPM.png",
+      "sha256": "a36bad5532f3eea7cf2a6981fac9cf02867457db397dee6abf9db11f5a7d9790",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4326151
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.20.05\u202fPM.png",
+      "sha256": "93d89518474dd45e2d06892784e68ac9b65ba1f5aa638246435f847def8e6682",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4374255
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.20.15\u202fPM.png",
+      "sha256": "709ee17c4c00203b3bd5101561b2ca75a6ca97ad30c07c9eaf2602ff264d53a5",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4349436
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.20.42\u202fPM.png",
+      "sha256": "3097cd5ff31351bc02a623a1cf6974bfb6ebf850a6a494b375703543090de26e",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4274468
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.22.12\u202fPM.png",
+      "sha256": "2e89cf63f4491cf69f60083120e438d0af122115f3a7c4c495a6e3f3c3e142a9",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4376952
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.22.33\u202fPM.png",
+      "sha256": "2cc74fc5eb65bc97349c98ddcdee31474cb788faef5ce1b4d79ccad9c9488292",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4355352
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.22.54\u202fPM.png",
+      "sha256": "f44004bb0a26ea8583ec4afebd71e337af19a022aaa67dcc37f64ea4b9d2fdad",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4318979
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.32.17\u202fPM.png",
+      "sha256": "1928cad9513c80fe81ea78d8d915a794f417fa8457bc86208111b0c163b9d570",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 3845844
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.33.17\u202fPM.png",
+      "sha256": "2b6ba5f9623789ece27a370d5aea255afdc1f9258334e205434cdf4a2ffdcab9",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4280162
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.33.59\u202fPM.png",
+      "sha256": "97abfb75abeaca93fb21494be70e2a2c97735a3dc302b7d7557e7a8ec06971f0",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4325734
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.34.37\u202fPM.png",
+      "sha256": "2b5f3f1b107ef4b62439ac46e1153cf67eccb6f09aaffd0ab6285e2b545a3814",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4208058
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.36.36\u202fPM.png",
+      "sha256": "4542f4bc8a89166b666f46fca31efd861711c8d82d7b5559a8ab89bb2c891ebc",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4847174
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.42.04\u202fPM.png",
+      "sha256": "e5e04f7f887229e050609284de146d5f46eba8666d8f3b0ac51ae3508dd2af49",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4403500
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.42.18\u202fPM.png",
+      "sha256": "31141f06feed9ffa2ba4d07f8ac3ad9a47d760d51d4203ea77432317d1955c65",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4470810
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.42.33\u202fPM.png",
+      "sha256": "fc2bda3bb8b92f54d5470a54ca3dfad1769b4d37c6e011499b786974bf53a09c",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4366750
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.42.42\u202fPM.png",
+      "sha256": "3fb4d153586630279d585eca7f4fc695ed78e55672b266a98e69e1326ae79115",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4184344
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.43.12\u202fPM.png",
+      "sha256": "2162835f844d1dfbdb961548463e15a1f6dec24625adaa9562231807fc8a1bbc",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4428809
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.43.23\u202fPM.png",
+      "sha256": "d2ab12cdb6a7393270db97a47fec7c6f172af66ae817f502035ff7dfb7deb258",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 3955553
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.43.51\u202fPM.png",
+      "sha256": "a269010f7a4b5cb98a8bd1d1624ba44d2c3b5c8c6a530c5c0a7a8f71a5d39ab1",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4667123
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.44.08\u202fPM.png",
+      "sha256": "fd325c426b372dbdd9ebe599fc3cb626a3783c29464e9f5c66f0e3a26542f67a",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4091925
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.44.58\u202fPM.png",
+      "sha256": "3b98e74297d3191197b773208f1e884bb54744b112dc28c5f80448bcfaa7a942",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4397624
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.45.53\u202fPM.png",
+      "sha256": "30d6381cb8f4bfb848fe852e930b7db35f6a940fa5e805ac1020f49761c97eb1",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4466019
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.46.13\u202fPM.png",
+      "sha256": "a3e463a411f087aa48f9300e2f8033b247423c54de3f9e8c5f8b962caf952733",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4185995
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.46.56\u202fPM.png",
+      "sha256": "6df603bd0ab90fbc4cf9e254cf611bf1ead969a9a7582ae89037c1482a85c889",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 4018114
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 9.50.29\u202fPM.png",
+      "sha256": "c47b7f6bf8f9b3ee2d11e6fe31025267247271fb586cb6bec4d47cb0f3bd88bd",
+      "width": 4112,
+      "height": 2658,
+      "bytes": 6232131
+    }
+  ]
+}

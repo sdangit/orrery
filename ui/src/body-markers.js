@@ -20,17 +20,21 @@ export function updateBodyAnnotations(updatables, camera, viewportHeight) {
   const up = new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion);
   const fovFactor = 2 * Math.tan(THREE.MathUtils.degToRad(camera.getEffectiveFOV()) / 2);
   for (const entry of updatables.values()) {
-    if (!entry.marker) continue;
+    if (!entry.label) continue; // Orbital groups have paths but no annotations.
     const view = entry.bodyGroup.position.clone().applyMatrix4(camera.matrixWorldInverse);
     const depth = -view.z;
     const inFront = depth > camera.near && depth < camera.far;
     entry.label.visible = inFront;
-    entry.marker.visible = false;
+    if (entry.marker) entry.marker.visible = false;
     if (!inFront) continue;
     const unitsPerPixel = depth * fovFactor / viewportHeight;
-    entry.marker.visible = entry.radius / unitsPerPixel < 3;
-    entry.marker.scale.setScalar(4 * unitsPerPixel);
-    entry.marker.quaternion.copy(camera.quaternion);
+    if (entry.marker) {
+      entry.marker.visible = entry.radius / unitsPerPixel < 3;
+      entry.marker.scale.setScalar(4 * unitsPerPixel);
+      entry.marker.quaternion.copy(camera.quaternion);
+    }
+    // Readability is independent of body scaling; only physical-size bodies
+    // need a location marker, but all modes need screen-sized labels.
     const labelHeight = 18 * unitsPerPixel;
     entry.label.scale.set(labelHeight * entry.label.userData.aspect, labelHeight, 1);
     entry.label.position.copy(up).multiplyScalar(entry.radius + 16 * unitsPerPixel);

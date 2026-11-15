@@ -1,0 +1,1095 @@
+{
+  "warning": "Near-body centre approximation. HUD clock plus local screenshot date identifies UTC date. No global orientation is inferred.",
+  "rows": [
+    {
+      "timestamp": "2026-11-15T05:19:52Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7319994316595,
+              "direction": [
+                -0.7606544974984081,
+                0.6484361709828561,
+                0.030582145061074456
+              ],
+              "observerOffsetBoundDeg": 0.00008697897431770519
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2590689695073,
+              "direction": [
+                -0.8400486742106318,
+                0.5388243581116569,
+                0.06313902171019647
+              ],
+              "observerOffsetBoundDeg": 0.0001645286527309508
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163333710973415,
+              "direction": [
+                0.908942486207406,
+                0.4164111747978585,
+                0.020622567021763204
+              ],
+              "observerOffsetBoundDeg": 0.03207352150612079
+            }
+          ],
+          "vegaSeparationDeg": 7.982334169281971
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.60797201284,
+              "direction": [
+                -0.15743461099978198,
+                -0.9798759623017956,
+                0.12270876807497307
+              ],
+              "observerOffsetBoundDeg": 0.00008707479195609815
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.766467630142,
+              "direction": [
+                0.26637134677905283,
+                -0.9558227616452849,
+                0.12429462553101231
+              ],
+              "observerOffsetBoundDeg": 0.00007528671298214282
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.16333371097352,
+              "direction": [
+                -0.37571766152053154,
+                0.8619233919819229,
+                -0.3404765853563498
+              ],
+              "observerOffsetBoundDeg": 0.03207352150612046
+            }
+          ],
+          "vegaSeparationDeg": 24.507950349836214
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:20:05Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.732006535736,
+              "direction": [
+                -0.7606553174474124,
+                0.6484352112662938,
+                0.03058209981366789
+              ],
+              "observerOffsetBoundDeg": 0.00008697897415283073
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.259368197423,
+              "direction": [
+                -0.8400496377545414,
+                0.5388228671074818,
+                0.06313892611168576
+              ],
+              "observerOffsetBoundDeg": 0.00016452862788232845
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163333396833128,
+              "direction": [
+                0.9089416439979826,
+                0.4164130086701395,
+                0.02062265784342311
+              ],
+              "observerOffsetBoundDeg": 0.0320735224974871
+            }
+          ],
+          "vegaSeparationDeg": 7.982362224223952
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.607977042763,
+              "direction": [
+                -0.15743336444517672,
+                -0.9798761595890446,
+                0.1227087919771749
+              ],
+              "observerOffsetBoundDeg": 0.00008707479183910419
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.767387551442,
+              "direction": [
+                0.2663724419614277,
+                -0.955822463414074,
+                0.12429457187084716
+              ],
+              "observerOffsetBoundDeg": 0.00007528669698639878
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163333396833034,
+              "direction": [
+                -0.3757194638649304,
+                0.8619225117244315,
+                -0.3404768248437718
+              ],
+              "observerOffsetBoundDeg": 0.0320735224974874
+            }
+          ],
+          "vegaSeparationDeg": 24.507943118238746
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:20:15Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7320120004124,
+              "direction": [
+                -0.7606559481765912,
+                0.6484344730220789,
+                0.030582065007937257
+              ],
+              "observerOffsetBoundDeg": 0.00008697897402600416
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2595983735139,
+              "direction": [
+                -0.840050378940268,
+                0.5388217201801656,
+                0.06313885257430012
+              ],
+              "observerOffsetBoundDeg": 0.00016452860876794463
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163333155186018,
+              "direction": [
+                0.9089409961420307,
+                0.41641441934002393,
+                0.02062272770618431
+              ],
+              "observerOffsetBoundDeg": 0.03207352326007892
+            }
+          ],
+          "vegaSeparationDeg": 7.982383804946904
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.60798091194,
+              "direction": [
+                -0.15743240555684718,
+                -0.9798763113474042,
+                0.12270881036335209
+              ],
+              "observerOffsetBoundDeg": 0.00008707479174910871
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.768095183044,
+              "direction": [
+                0.26637328440912783,
+                -0.955822234004622,
+                0.12429453059369777
+              ],
+              "observerOffsetBoundDeg": 0.00007528668468198782
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163333155186168,
+              "direction": [
+                -0.3757208502827253,
+                0.8619218346008596,
+                -0.3404770090639224
+              ],
+              "observerOffsetBoundDeg": 0.03207352326007845
+            }
+          ],
+          "vegaSeparationDeg": 24.50793755546868
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:20:42Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7320267550504,
+              "direction": [
+                -0.7606576511417895,
+                0.6484324797596384,
+                0.03058197103232018
+              ],
+              "observerOffsetBoundDeg": 0.0000869789736835722
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.260219852307,
+              "direction": [
+                -0.8400523801334978,
+                0.5388186234719453,
+                0.06313865402305661
+              ],
+              "observerOffsetBoundDeg": 0.0001645285571588525
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163332502736433,
+              "direction": [
+                0.9089392469198149,
+                0.41641822814408913,
+                0.020622916335408473
+              ],
+              "observerOffsetBoundDeg": 0.03207352531908459
+            }
+          ],
+          "vegaSeparationDeg": 7.982442072890546
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.607991358735,
+              "direction": [
+                -0.15742981655761631,
+                -0.9798767210903606,
+                0.1227088600054573
+              ],
+              "observerOffsetBoundDeg": 0.00008707479150612053
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.770005787652,
+              "direction": [
+                0.2663755590166958,
+                -0.9558216145955056,
+                0.12429441914496327
+              ],
+              "observerOffsetBoundDeg": 0.0000752866514601108
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.16333250273656,
+              "direction": [
+                -0.3757245936065891,
+                0.8619200063566422,
+                -0.340477506454287
+              ],
+              "observerOffsetBoundDeg": 0.03207352531908419
+            }
+          ],
+          "vegaSeparationDeg": 24.507922535977237
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:22:12Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.732075937282,
+              "direction": [
+                -0.7606633276546736,
+                0.6484258355192387,
+                0.03058165777874137
+              ],
+              "observerOffsetBoundDeg": 0.00008732472325768494
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2622914835638,
+              "direction": [
+                -0.840059050690797,
+                0.5388083010641663,
+                0.06313799218239158
+              ],
+              "observerOffsetBoundDeg": 0.0001651824030479277
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163330327880272,
+              "direction": [
+                0.9089334160619436,
+                0.4164309241081839,
+                0.020623545097044206
+              ],
+              "observerOffsetBoundDeg": 0.03220102791560577
+            }
+          ],
+          "vegaSeparationDeg": 7.982636299283284
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.608026181587,
+              "direction": [
+                -0.15742118655236031,
+                -0.9798780868515679,
+                0.12270902547309974
+              ],
+              "observerOffsetBoundDeg": 0.00008742092229911733
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.776374462055,
+              "direction": [
+                0.26638314102904725,
+                -0.9558195498605431,
+                0.12429404764463689
+              ],
+              "observerOffsetBoundDeg": 0.00007558581276978801
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163330327880477,
+              "direction": [
+                -0.37573707130850803,
+                0.861913912097978,
+                -0.34047916437935594
+              ],
+              "observerOffsetBoundDeg": 0.03220102791560513
+            }
+          ],
+          "vegaSeparationDeg": 24.507872470877775
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:22:33Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7320874131606,
+              "direction": [
+                -0.7606646521659834,
+                0.6484242851893368,
+                0.030581584685902764
+              ],
+              "observerOffsetBoundDeg": 0.0000873247229902891
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2627748720015,
+              "direction": [
+                -0.840060607134953,
+                0.5388058924919357,
+                0.06313783775219764
+              ],
+              "observerOffsetBoundDeg": 0.00016518236274672954
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.16332982040875,
+              "direction": [
+                0.9089320555024902,
+                0.41643388648889446,
+                0.020623691807549596
+              ],
+              "observerOffsetBoundDeg": 0.03220102952345543
+            }
+          ],
+          "vegaSeparationDeg": 7.9826816187560885
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.6080343069634,
+              "direction": [
+                -0.1574191728827369,
+                -0.9798784055184141,
+                0.12270906408087894
+              ],
+              "observerOffsetBoundDeg": 0.00008742092210937314
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.777860484394,
+              "direction": [
+                0.26638491016241184,
+                -0.9558190680806606,
+                0.12429396096022147
+              ],
+              "observerOffsetBoundDeg": 0.0000755857868279938
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163329820409029,
+              "direction": [
+                -0.3757399827624786,
+                0.8619124900796641,
+                -0.3404795512190493
+              ],
+              "observerOffsetBoundDeg": 0.03220102952345455
+            }
+          ],
+          "vegaSeparationDeg": 24.507860788992843
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:22:54Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.732098889048,
+              "direction": [
+                -0.7606659766741296,
+                0.6484227348567317,
+                0.03058151159293665
+              ],
+              "observerOffsetBoundDeg": 0.00008732472272289308
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2632582633948,
+              "direction": [
+                -0.8400621635718399,
+                0.5388034839157626,
+                0.06313768332173669
+              ],
+              "observerOffsetBoundDeg": 0.0001651823224453046
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163329312935033,
+              "direction": [
+                0.9089306949332419,
+                0.4164368488654236,
+                0.020623838517849984
+              ],
+              "observerOffsetBoundDeg": 0.03220103113131221
+            }
+          ],
+          "vegaSeparationDeg": 7.982726938221763
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.608042432358,
+              "direction": [
+                -0.1574171592124575,
+                -0.9798787241811855,
+                0.122709102688152
+              ],
+              "observerOffsetBoundDeg": 0.0000874209219196285
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.7793465061,
+              "direction": [
+                0.2663866792946983,
+                -0.9558185862976029,
+                0.12429387427542532
+              ],
+              "observerOffsetBoundDeg": 0.00007558576088622842
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.16332931293458,
+              "direction": [
+                -0.3757428942127643,
+                0.8619110680520076,
+                -0.340479938055186
+              ],
+              "observerOffsetBoundDeg": 0.03220103113131364
+            }
+          ],
+          "vegaSeparationDeg": 24.50784910709721
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:32:17Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7324065555313,
+              "direction": [
+                -0.7607014849272236,
+                0.6483811701704307,
+                0.03057955195780207
+              ],
+              "observerOffsetBoundDeg": 0.0000872492419531869
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2762188581855,
+              "direction": [
+                -0.8401038881934274,
+                0.5387389096664946,
+                0.06313354301511721
+              ],
+              "observerOffsetBoundDeg": 0.00016503847792819726
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163315707038198,
+              "direction": [
+                0.9088942150607415,
+                0.41651626722716684,
+                0.020627771674757087
+              ],
+              "observerOffsetBoundDeg": 0.03217324327264198
+            }
+          ],
+          "vegaSeparationDeg": 7.983941928842937
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.608260276613,
+              "direction": [
+                -0.15736317342703768,
+                -0.9798872658593778,
+                0.12271013754211595
+              ],
+              "observerOffsetBoundDeg": 0.00008734536008615452
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.819185802576,
+              "direction": [
+                0.26643410848677934,
+                -0.955805668739633,
+                0.12429155015542258
+              ],
+              "observerOffsetBoundDeg": 0.00007551973823468587
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163315707038556,
+              "direction": [
+                -0.37582094742471567,
+                0.8618729406939286,
+                -0.34049030761005333
+              ],
+              "observerOffsetBoundDeg": 0.032173243272640845
+            }
+          ],
+          "vegaSeparationDeg": 24.507535917035554
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:33:17Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.732439344531,
+              "direction": [
+                -0.7607052689763937,
+                0.6483767404268106,
+                0.030579343110289505
+              ],
+              "observerOffsetBoundDeg": 0.00008724924118984122
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2776002191174,
+              "direction": [
+                -0.8401083345590102,
+                0.5387320276967291,
+                0.06313310176331348
+              ],
+              "observerOffsetBoundDeg": 0.0001650383628621885
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.16331425694496,
+              "direction": [
+                0.9088903269141666,
+                0.41652473082031033,
+                0.02062819083021512
+              ],
+              "observerOffsetBoundDeg": 0.032173247863094105
+            }
+          ],
+          "vegaSeparationDeg": 7.984071412441594
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.6082834934145,
+              "direction": [
+                -0.15735742002961456,
+                -0.9798881759898695,
+                0.12271024780705965
+              ],
+              "observerOffsetBoundDeg": 0.00008734535954446325
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.8234315265,
+              "direction": [
+                0.2664391630618915,
+                -0.9558042919559083,
+                0.12429130245332227
+              ],
+              "observerOffsetBoundDeg": 0.00007551966418179101
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163314256945018,
+              "direction": [
+                -0.37582926554936236,
+                0.8618688769925807,
+                -0.34049141256157217
+              ],
+              "observerOffsetBoundDeg": 0.03217324786309392
+            }
+          ],
+          "vegaSeparationDeg": 24.50750253930939
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:33:59Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7324622968754,
+              "direction": [
+                -0.7607079177954427,
+                0.6483736395931511,
+                0.030579196916411585
+              ],
+              "observerOffsetBoundDeg": 0.00008724873069874319
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2785671861254,
+              "direction": [
+                -0.8401114469796056,
+                0.5387272102987538,
+                0.06313279288575453
+              ],
+              "observerOffsetBoundDeg": 0.0001650373176946026
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.16331324186925,
+              "direction": [
+                0.9088876051638894,
+                0.4165306553154167,
+                0.020628484238041003
+              ],
+              "observerOffsetBoundDeg": 0.03217306302932425
+            }
+          ],
+          "vegaSeparationDeg": 7.984162050925947
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.608299745259,
+              "direction": [
+                -0.1573533926482386,
+                -0.979888813061422,
+                0.12271032499006222
+              ],
+              "observerOffsetBoundDeg": 0.0000873448486467263
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.826403530151,
+              "direction": [
+                0.26644270125923025,
+                -0.9558033281918796,
+                0.12429112906000327
+              ],
+              "observerOffsetBoundDeg": 0.00007551917094580328
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163313241869602,
+              "direction": [
+                -0.37583508821858025,
+                0.8618660323563735,
+                -0.34049218601021436
+              ],
+              "observerOffsetBoundDeg": 0.032173063029323136
+            }
+          ],
+          "vegaSeparationDeg": 24.50747917484892
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:34:37Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.732483063313,
+              "direction": [
+                -0.7607103143351044,
+                0.6483708340676686,
+                0.03057906464532079
+              ],
+              "observerOffsetBoundDeg": 0.0000872487302152921
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2794420712225,
+              "direction": [
+                -0.8401142629541323,
+                0.5387228516870061,
+                0.06313251342418613
+              ],
+              "observerOffsetBoundDeg": 0.00016503724481811344
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163312323460563,
+              "direction": [
+                0.908885142594106,
+                0.41653601555860975,
+                0.020628749701557064
+              ],
+              "observerOffsetBoundDeg": 0.03217306593664646
+            }
+          ],
+          "vegaSeparationDeg": 7.984244057148809
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.6083144493673,
+              "direction": [
+                -0.15734974882473682,
+                -0.979889389445449,
+                0.12271039482055847
+              ],
+              "observerOffsetBoundDeg": 0.00008734484830365407
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.829092483635,
+              "direction": [
+                0.26644590248167627,
+                -0.9558024562039578,
+                0.12429097217902171
+              ],
+              "observerOffsetBoundDeg": 0.00007551912404613738
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163312323460413,
+              "direction": [
+                -0.37584035633510615,
+                0.8618634586057616,
+                -0.3404928857847325
+              ],
+              "observerOffsetBoundDeg": 0.032173065936646934
+            }
+          ],
+          "vegaSeparationDeg": 24.50745803553815
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:36:36Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7325480952463,
+              "direction": [
+                -0.7607178192212237,
+                0.6483620482858906,
+                0.03057865042525747
+              ],
+              "observerOffsetBoundDeg": 0.00008724872870132238
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2821819055773,
+              "direction": [
+                -0.8401230812466708,
+                0.5387092022667552,
+                0.06313163826256885
+              ],
+              "observerOffsetBoundDeg": 0.00016503701659483598
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163309447348013,
+              "direction": [
+                0.9088774306545172,
+                0.41655280149567947,
+                0.020629581017173198
+              ],
+              "observerOffsetBoundDeg": 0.03217307504129578
+            }
+          ],
+          "vegaSeparationDeg": 7.9845008659578856
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.6083604967985,
+              "direction": [
+                -0.1573383378899039,
+                -0.9798911943512202,
+                0.12271061348955098
+              ],
+              "observerOffsetBoundDeg": 0.00008734484722928797
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.837513140242,
+              "direction": [
+                0.26645592733964385,
+                -0.955799725437684,
+                0.12429048088577976
+              ],
+              "observerOffsetBoundDeg": 0.00007551897717674357
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163309447347846,
+              "direction": [
+                -0.37585685377923256,
+                0.8618553985051671,
+                -0.34049507710784294
+              ],
+              "observerOffsetBoundDeg": 0.03217307504129631
+            }
+          ],
+          "vegaSeparationDeg": 24.507391835890243
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:43:12Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.732764506144,
+              "direction": [
+                -0.760742792732403,
+                0.6483328109418758,
+                0.030577271982801125
+              ],
+              "observerOffsetBoundDeg": 0.00008696518773025593
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.2913000208953,
+              "direction": [
+                -0.8401524244718112,
+                0.5386637797556005,
+                0.06312872589833918
+              ],
+              "observerOffsetBoundDeg": 0.0001644999316481091
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163299875944487,
+              "direction": [
+                0.9088517651241096,
+                0.41660865962317306,
+                0.02063234736458919
+              ],
+              "observerOffsetBoundDeg": 0.03206855100439799
+            }
+          ],
+          "vegaSeparationDeg": 7.985355454953673
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.6085137341893,
+              "direction": [
+                -0.15730036521590668,
+                -0.979897199650091,
+                0.12271134104414466
+              ],
+              "observerOffsetBoundDeg": 0.00008706099535579
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.8655346735695,
+              "direction": [
+                0.26648928712176206,
+                -0.9557906374477084,
+                0.12428884590597111
+              ],
+              "observerOffsetBoundDeg": 0.0000752730727589784
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163299875944501,
+              "direction": [
+                -0.37591175197877996,
+                0.8618285745029313,
+                -0.3405023684124526
+              ],
+              "observerOffsetBoundDeg": 0.03206855100439794
+            }
+          ],
+          "vegaSeparationDeg": 24.507171538781584
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T05:50:28Z",
+      "models": [
+        {
+          "convention": "orrery-current",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3747.7330027804833,
+              "direction": [
+                -0.7607702875189356,
+                0.6483006192194479,
+                0.030575754251311545
+              ],
+              "observerOffsetBoundDeg": 0.0000869498835007161
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 1981.3013403734312,
+              "direction": [
+                -0.8401847286687799,
+                0.5386137674917637,
+                0.0631255192461583
+              ],
+              "observerOffsetBoundDeg": 0.0001644701597599768
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.163289336889099,
+              "direction": [
+                0.9088235030796257,
+                0.41667015828287096,
+                0.020635393056704643
+              ],
+              "observerOffsetBoundDeg": 0.03206294283175082
+            }
+          ],
+          "vegaSeparationDeg": 7.98629636310837
+        },
+        {
+          "convention": "candidate-inherit-orbit-and-tilt",
+          "targets": [
+            {
+              "name": "Vega",
+              "distanceLs": 3743.6086824570734,
+              "direction": [
+                -0.1572585566490997,
+                -0.9799038098689211,
+                0.12271214188096961
+              ],
+              "observerOffsetBoundDeg": 0.00008704567587701892
+            },
+            {
+              "name": "Vega 2",
+              "distanceLs": 4329.8963864024645,
+              "direction": [
+                0.26652601613512883,
+                -0.9557806301731346,
+                0.1242870456201403
+              ],
+              "observerOffsetBoundDeg": 0.00007525929465814968
+            },
+            {
+              "name": "Tracy's Havan",
+              "distanceLs": 10.16328933688942,
+              "direction": [
+                -0.3759721939242953,
+                0.861799037172651,
+                -0.3405103947371409
+              ],
+              "observerOffsetBoundDeg": 0.032062942831749805
+            }
+          ],
+          "vegaSeparationDeg": 24.506928985024953
+        }
+      ]
+    }
+  ],
+  "independentRoundedHudCheck": {
+    "vega2": {
+      "heading": 54,
+      "pitch": 33
+    },
+    "vega": {
+      "heading": 26,
+      "pitch": 46
+    },
+    "separationDeg": 25.017785254276642,
+    "caveat": "Integer readouts and slight target centring offsets limit angular precision; views are 37 seconds apart."
+  }
+}

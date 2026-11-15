@@ -1,7 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { absolutePosition, absolutePositions } from '../src/orbit-position.js';
-import { keplerianOffset } from '../src/kepler.js';
+import { eliteKeplerianOffset } from '../src/elite-orbit.js';
+import { parentOrbitFrame, transformVector } from '../src/orbital-frame.js';
+const systemOffset = (nodes, id, time) => transformVector(parentOrbitFrame(nodes, id), eliteKeplerianOffset(nodes.get(id).elements, time));
 import { buildSyntheticTree } from './helpers/synthetic-tree.js';
 
 // Star-scale offsets here run up to ~1e12-1e13 metres, so a fixed absolute
@@ -24,10 +26,10 @@ test('the root sits at the origin', () => {
   assert.equal(pos.z, 0);
 });
 
-test('a body orbiting the root directly equals its own keplerianOffset', () => {
+test('a body orbiting the root directly equals its own eliteKeplerianOffset', () => {
   const nodes = buildSyntheticTree();
   const now = 12345;
-  const expected = keplerianOffset(nodes.get(1).elements, now);
+  const expected = systemOffset(nodes, 1, now);
   const actual = absolutePosition(nodes, 1, now);
   assert.equal(actual.x, expected.x);
   assert.equal(actual.y, expected.y);
@@ -37,9 +39,9 @@ test('a body orbiting the root directly equals its own keplerianOffset', () => {
 test('a moon-of-a-moon position sums every level (star -> planet -> moon)', () => {
   const nodes = buildSyntheticTree();
   const now = 6789;
-  const o1 = keplerianOffset(nodes.get(1).elements, now);
-  const o2 = keplerianOffset(nodes.get(2).elements, now);
-  const o3 = keplerianOffset(nodes.get(3).elements, now);
+  const o1 = systemOffset(nodes, 1, now);
+  const o2 = systemOffset(nodes, 2, now);
+  const o3 = systemOffset(nodes, 3, now);
   const expected = { x: o1.x + o2.x + o3.x, y: o1.y + o2.y + o3.y, z: o1.z + o2.z + o3.z };
   const actual = absolutePosition(nodes, 3, now);
   assertClose(actual.x, expected.x, 'x');
@@ -50,10 +52,10 @@ test('a moon-of-a-moon position sums every level (star -> planet -> moon)', () =
 test('a barycentre-hosted moon pair includes the barycentre\'s own offset', () => {
   const nodes = buildSyntheticTree();
   const now = 999;
-  const o1 = keplerianOffset(nodes.get(1).elements, now);
-  const o2 = keplerianOffset(nodes.get(2).elements, now);
-  const o5 = keplerianOffset(nodes.get(5).elements, now);
-  const o6 = keplerianOffset(nodes.get(6).elements, now);
+  const o1 = systemOffset(nodes, 1, now);
+  const o2 = systemOffset(nodes, 2, now);
+  const o5 = systemOffset(nodes, 5, now);
+  const o6 = systemOffset(nodes, 6, now);
   const expected = {
     x: o1.x + o2.x + o5.x + o6.x,
     y: o1.y + o2.y + o5.y + o6.y,

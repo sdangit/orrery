@@ -1,0 +1,1005 @@
+{
+  "warning": "Frozen Vega transfer test; no local-to-galactic refit is used in these residuals. Target-arc model and projection have systematic uncertainties; operational gates are not confidence intervals.",
+  "registration": [
+    {
+      "a": 0,
+      "b": 1,
+      "count": 228,
+      "rmsPx": 0.7752631538269305,
+      "alternatingHoldoutRmsPx": 0.7824194348360526,
+      "rotation": [
+        [
+          0.9999898131051813,
+          -0.004408346938931659,
+          -0.0009696200960572764
+        ],
+        [
+          0.004448344930183822,
+          0.9989279083768084,
+          0.04607869457045022
+        ],
+        [
+          0.0007654497023150041,
+          -0.04608253837627374,
+          0.9989373422510306
+        ]
+      ]
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "count": 259,
+      "rmsPx": 0.8397686841609161,
+      "alternatingHoldoutRmsPx": 0.8252997158159809,
+      "rotation": [
+        [
+          0.9999992002781791,
+          -0.00042558461109693034,
+          -0.0011909327188309277
+        ],
+        [
+          0.00044806309534051105,
+          0.9998205498436166,
+          0.018938514985886452
+        ],
+        [
+          0.0011826590652332695,
+          -0.018939033453343107,
+          0.9998199409540642
+        ]
+      ]
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "count": 237,
+      "rmsPx": 0.86016221001536,
+      "alternatingHoldoutRmsPx": 0.7755465715722467,
+      "rotation": [
+        [
+          0.9999727807034048,
+          0.0065625307393505986,
+          -0.003372097655107844
+        ],
+        [
+          -0.006196418854229457,
+          0.9950662272284867,
+          0.09901922955996327
+        ],
+        [
+          0.004005277229288261,
+          -0.09899563939669682,
+          0.9950798064149206
+        ]
+      ]
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "count": 257,
+      "rmsPx": 0.8064570996134576,
+      "alternatingHoldoutRmsPx": 0.8047041878048211,
+      "rotation": [
+        [
+          0.9999740201528307,
+          0.006815053061628257,
+          -0.0023482059435770996
+        ],
+        [
+          -0.006604717048007132,
+          0.9967546970225107,
+          0.08022749950159688
+        ],
+        [
+          0.002887339969941788,
+          -0.08020990596759328,
+          0.9967738129849559
+        ]
+      ]
+    },
+    {
+      "a": 3,
+      "b": 4,
+      "count": 187,
+      "rmsPx": 0.7875331736423637,
+      "alternatingHoldoutRmsPx": 0.7935372364003044,
+      "rotation": [
+        [
+          0.9999991337877664,
+          -0.001285940526467242,
+          -0.00028067896108421343
+        ],
+        [
+          0.0013057000956344998,
+          0.942290174410929,
+          0.33479474660735226
+        ],
+        [
+          -0.00016604510551720348,
+          -0.3347948230865933,
+          0.9422910372403208
+        ]
+      ]
+    },
+    {
+      "a": 1,
+      "b": 4,
+      "count": 114,
+      "rmsPx": 0.7377442057025737,
+      "alternatingHoldoutRmsPx": 0.7810046563648896,
+      "rotation": [
+        [
+          0.9999794848233853,
+          0.005163991492292307,
+          -0.003789871267558997
+        ],
+        [
+          -0.0030545891408611772,
+          0.9044950641654669,
+          0.426473150837762
+        ],
+        [
+          0.005630223577946931,
+          -0.426452825166132,
+          0.9044922821618142
+        ]
+      ]
+    },
+    {
+      "a": 4,
+      "b": 5,
+      "count": 78,
+      "rmsPx": 0.6890035636284186,
+      "alternatingHoldoutRmsPx": 0.7370505371744736,
+      "rotation": [
+        [
+          0.7912656871449062,
+          0.33150421360927673,
+          0.5138127759275691
+        ],
+        [
+          -0.08153833897990917,
+          0.8899863889566878,
+          -0.4486376341193777
+        ],
+        [
+          -0.6060116431418597,
+          0.31309612554474414,
+          0.7312459945499687
+        ]
+      ]
+    },
+    {
+      "a": 5,
+      "b": 6,
+      "count": 324,
+      "rmsPx": 0.7588383452163803,
+      "alternatingHoldoutRmsPx": 0.7516742647250539,
+      "rotation": [
+        [
+          0.9999442338315808,
+          0.010557104344878854,
+          0.000277082702739664
+        ],
+        [
+          -0.010560604702265627,
+          0.9997199602314347,
+          0.02117722227254892
+        ],
+        [
+          -5.34349632977239e-05,
+          -0.02117896746089849,
+          0.9997756990855473
+        ]
+      ]
+    },
+    {
+      "a": 4,
+      "b": 6,
+      "count": 106,
+      "rmsPx": 0.8866686780209467,
+      "alternatingHoldoutRmsPx": 0.812859061133532,
+      "rotation": [
+        [
+          0.7901909887976675,
+          0.340986963385014,
+          0.5092407014609414
+        ],
+        [
+          -0.10269746849894909,
+          0.8928475049250507,
+          -0.43849351524625624
+        ],
+        [
+          -0.6041948619335255,
+          0.2941958934971366,
+          0.7405385506930409
+        ]
+      ]
+    },
+    {
+      "a": 6,
+      "b": 7,
+      "count": 95,
+      "rmsPx": 0.7586770619155843,
+      "alternatingHoldoutRmsPx": 0.8023519315175616,
+      "rotation": [
+        [
+          0.9999741834239381,
+          0.007035098725359723,
+          -0.0014628299807981206
+        ],
+        [
+          -0.005462781351491162,
+          0.8765556775521093,
+          0.4812694693942973
+        ],
+        [
+          0.004668030155652407,
+          -0.4812490535440949,
+          0.87657147909191
+        ]
+      ]
+    },
+    {
+      "a": 4,
+      "b": 7,
+      "count": 257,
+      "rmsPx": 0.8831331456283341,
+      "alternatingHoldoutRmsPx": 0.9224029632441068,
+      "rotation": [
+        [
+          0.7904704257955311,
+          0.3464388365715234,
+          0.5051105210323785
+        ],
+        [
+          -0.38476102678175694,
+          0.922509223435497,
+          -0.03058896772178203
+        ],
+        [
+          -0.4765663208961369,
+          -0.17016716837100343,
+          0.8625124211256987
+        ]
+      ]
+    },
+    {
+      "a": 7,
+      "b": 8,
+      "count": 141,
+      "rmsPx": 0.6991821785726475,
+      "alternatingHoldoutRmsPx": 0.7738726840790893,
+      "rotation": [
+        [
+          0.9985339123626903,
+          -0.048658110804240935,
+          -0.023715271759381103
+        ],
+        [
+          0.05412794821173004,
+          0.9011077693352748,
+          0.4302033859304147
+        ],
+        [
+          0.00043713161331399887,
+          -0.4308563290663922,
+          0.9024204300764613
+        ]
+      ]
+    },
+    {
+      "a": 8,
+      "b": 9,
+      "count": 358,
+      "rmsPx": 0.7272867306309427,
+      "alternatingHoldoutRmsPx": 0.7457581060857228,
+      "rotation": [
+        [
+          0.9999999344625821,
+          -0.00019218946932732952,
+          -0.00030681922914022855
+        ],
+        [
+          0.0002611133638967944,
+          0.9699026750130703,
+          0.24349277776209657
+        ],
+        [
+          0.00025078804334542116,
+          -0.24349284191880968,
+          0.9699026616313922
+        ]
+      ]
+    }
+  ],
+  "reticles": [
+    {
+      "index": 0,
+      "pointCount": 614,
+      "centerPx": [
+        2086.1384139149172,
+        414.62375240217426
+      ],
+      "ray": [
+        0.013214197787808812,
+        -0.37812142182120334,
+        0.9256616959433593
+      ],
+      "meanRadiusDeg": 2.645647454777638,
+      "radiusStdDeg": 0.07431281937819632
+    },
+    {
+      "index": 1,
+      "pointCount": 564,
+      "centerPx": [
+        1488.9339776614647,
+        1560.815471099088
+      ],
+      "ray": [
+        -0.252277493254033,
+        0.10050024537532366,
+        0.9624218238781586
+      ],
+      "meanRadiusDeg": 2.6562633785149248,
+      "radiusStdDeg": 0.08034683174940647
+    },
+    {
+      "index": 2,
+      "pointCount": 632,
+      "centerPx": [
+        1239.3014048010189,
+        1538.8941368248804
+      ],
+      "ray": [
+        -0.3519321800051937,
+        0.08816800604409857,
+        0.931863800878111
+      ],
+      "meanRadiusDeg": 2.6437683792000133,
+      "radiusStdDeg": 0.07600881721870956
+    },
+    {
+      "index": 4,
+      "pointCount": 952,
+      "centerPx": [
+        701.9615426625269,
+        946.9630734428994
+      ],
+      "ray": [
+        -0.5253863370540935,
+        -0.14282098938986176,
+        0.8387916081045302
+      ],
+      "meanRadiusDeg": 2.6480723017952292,
+      "radiusStdDeg": 0.06626837866235943
+    },
+    {
+      "index": 9,
+      "pointCount": 1500,
+      "centerPx": [
+        1686.240073277395,
+        424.61641473819697
+      ],
+      "ray": [
+        -0.15642230654568673,
+        -0.3699872867896748,
+        0.9157737000094194
+      ],
+      "meanRadiusDeg": 2.643412685952075,
+      "radiusStdDeg": 0.05256148068337313
+    }
+  ],
+  "externalBranches": [
+    {
+      "determinant": 1,
+      "galacticToCamera1": [
+        [
+          -0.7992989426295791,
+          -0.21024036383667005,
+          -0.5629566499518959
+        ],
+        [
+          -0.18006921411572696,
+          0.9775505933060029,
+          -0.10940710970876674
+        ],
+        [
+          0.5733203977175252,
+          0.013922174431684677,
+          -0.8192129726878794
+        ]
+      ],
+      "fitErrorsDeg": [
+        0.02986578165821976,
+        0.02986578165821976
+      ],
+      "siriusHoldoutErrorDeg": 8.510970722058525
+    },
+    {
+      "determinant": -1,
+      "galacticToCamera1": [
+        [
+          -0.10869854504476063,
+          0.8703957608983245,
+          0.48020396261940523
+        ],
+        [
+          -0.5934313913237859,
+          0.33073066263071743,
+          -0.7337958930025177
+        ],
+        [
+          0.7975110093890038,
+          0.36473065158562334,
+          -0.4805702255625692
+        ]
+      ],
+      "fitErrorsDeg": [
+        0.02986578165821976,
+        0.02986578165821976
+      ],
+      "siriusHoldoutErrorDeg": 0.020602847094648113
+    }
+  ],
+  "externalPairAngles": [
+    {
+      "names": [
+        "Sol",
+        "Epsilon Indi"
+      ],
+      "observedDeg": 40.93085928412176,
+      "catalogueDeg": 40.871127720761784
+    },
+    {
+      "names": [
+        "Sol",
+        "Sirius"
+      ],
+      "observedDeg": 6.124638001206933,
+      "catalogueDeg": 6.1010084474988995
+    },
+    {
+      "names": [
+        "Epsilon Indi",
+        "Sirius"
+      ],
+      "observedDeg": 36.74340225423411,
+      "catalogueDeg": 36.69956431770936
+    }
+  ],
+  "skyLoopClosures": [
+    {
+      "indices": [
+        1,
+        2,
+        3
+      ],
+      "closureDeg": 0.00898478816457343
+    },
+    {
+      "indices": [
+        1,
+        3,
+        4
+      ],
+      "closureDeg": 0.00858712680039435
+    },
+    {
+      "indices": [
+        4,
+        5,
+        6
+      ],
+      "closureDeg": 0.0026405918764353157
+    },
+    {
+      "indices": [
+        4,
+        6,
+        7
+      ],
+      "closureDeg": 0.024146158579467992
+    }
+  ],
+  "visibleCoreValidation": [
+    {
+      "index": 0,
+      "name": "Biggs Colony",
+      "reticleToCoreErrorDeg": 0.046329108352198806,
+      "coreObservedGalacticDirection": [
+        0.9488787595213047,
+        0.24431664166589356,
+        -0.19984613665119821
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Sol",
+      "reticleToCoreErrorDeg": 0.061090479918130054,
+      "coreObservedGalacticDirection": [
+        0.7356132925682136,
+        0.1636579369377987,
+        -0.6573348944596011
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Sirius",
+      "reticleToCoreErrorDeg": 0.03980597593598231,
+      "coreObservedGalacticDirection": [
+        0.7410967679127862,
+        0.05797079436006208,
+        -0.66889084878662
+      ]
+    },
+    {
+      "index": 9,
+      "name": "Altair",
+      "reticleToCoreErrorDeg": 0.05608677653931394,
+      "coreObservedGalacticDirection": [
+        0.5199407960961221,
+        -0.3956487028753496,
+        0.7570493197064403
+      ]
+    }
+  ],
+  "frozenTransfer": [
+    {
+      "index": 0,
+      "timestamp": "2026-11-15T06:20:13Z",
+      "name": "Biggs Colony",
+      "observedGalacticDirection": [
+        0.9486273445725845,
+        0.24499248437885784,
+        -0.2002119969608266
+      ],
+      "candidateLocalDirection": [
+        0.8196685424071224,
+        -0.5642121078170025,
+        0.09903624579354223
+      ],
+      "predictedGalacticDirection": [
+        0.9843547977964933,
+        0.048133535879267025,
+        -0.16949570725768992
+      ],
+      "frozenTransferErrorDeg": 11.617637034775187,
+      "predictedDistanceLs": 2169.0827269965757,
+      "observerOffsetBoundDeg": 0.0002962848528897437,
+      "externalSeparations": [
+        {
+          "name": "Sol",
+          "observedDeg": 29.597744235390817,
+          "predictedDeg": 32.49990622173004
+        },
+        {
+          "name": "Epsilon Indi",
+          "observedDeg": 35.31379903477219,
+          "predictedDeg": 24.18011803550543
+        },
+        {
+          "name": "Sirius",
+          "observedDeg": 31.66232545123538,
+          "predictedDeg": 32.249974308314854
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "timestamp": "2026-11-15T06:22:34Z",
+      "name": "Altair",
+      "observedGalacticDirection": [
+        0.5207081390547984,
+        -0.3957762097420415,
+        0.756455038798944
+      ],
+      "candidateLocalDirection": [
+        -0.3498757825981669,
+        -0.9341495959314408,
+        0.07036667657667418
+      ],
+      "predictedGalacticDirection": [
+        0.09745383288655832,
+        0.7184517359292237,
+        -0.6887160907050188
+      ],
+      "frozenTransferErrorDeg": 138.9890214840567,
+      "predictedDistanceLs": 666.6708454540998,
+      "observerOffsetBoundDeg": 0.0009639934925661426,
+      "externalSeparations": [
+        {
+          "name": "Sol",
+          "observedDeg": 100.34549636631574,
+          "predictedDeg": 50.03328275265205
+        },
+        {
+          "name": "Epsilon Indi",
+          "observedDeg": 63.76737127463585,
+          "predictedDeg": 90.76365860430776
+        },
+        {
+          "name": "Sirius",
+          "observedDeg": 98.2508606801338,
+          "predictedDeg": 54.90332953669739
+        }
+      ]
+    }
+  ],
+  "localPairSeparation": {
+    "observedDeg": 75.785991152067,
+    "candidateAtSeparateCaptureEpochsDeg": 75.6854435298814
+  },
+  "capturePredictions": {
+    "0": {
+      "warning": "Unvalidated transfer hypothesis. Values are predictions using the frozen Vega matrix, not observed Altair alignment. Recompute at each actual capture timestamp without changing that matrix.",
+      "timestamp": "2026-11-15T06:20:13Z",
+      "system": "Altair",
+      "observer": "Darkes Hollow",
+      "maximumAltitudeKm": 10,
+      "frozenMatrix": [
+        [
+          0.8977072457054239,
+          -0.4405920933863004,
+          -0.0005552057808097532
+        ],
+        [
+          -0.33915310896137324,
+          -0.6902196438790925,
+          -0.6391963797498023
+        ],
+        [
+          0.28124165710259996,
+          0.5739995212967482,
+          -0.7690433536942421
+        ]
+      ],
+      "targets": [
+        {
+          "name": "Altair",
+          "distanceLs": 666.6708454540998,
+          "candidateLocalDirection": [
+            -0.34990769511487985,
+            -0.9341377102581833,
+            0.07036578126469241
+          ],
+          "predictedGalacticDirection": [
+            0.09741994855249696,
+            0.7184549277134962,
+            -0.6887175549296125
+          ],
+          "observerOffsetBoundDeg": 0.0009639934925661426,
+          "predictedExternalSeparations": [
+            {
+              "name": "Sol",
+              "degrees": 50.03503495986735
+            },
+            {
+              "name": "Epsilon Indi",
+              "degrees": 90.76546276272448
+            },
+            {
+              "name": "Sirius",
+              "degrees": 54.90500646842518
+            }
+          ]
+        },
+        {
+          "name": "Biggs Colony",
+          "distanceLs": 2169.0827269965757,
+          "candidateLocalDirection": [
+            0.8196685424071224,
+            -0.5642121078170025,
+            0.09903624579354223
+          ],
+          "predictedGalacticDirection": [
+            0.9843547977964933,
+            0.048133535879267025,
+            -0.16949570725768992
+          ],
+          "observerOffsetBoundDeg": 0.0002962848528897437,
+          "predictedExternalSeparations": [
+            {
+              "name": "Sol",
+              "degrees": 32.499906221730065
+            },
+            {
+              "name": "Epsilon Indi",
+              "degrees": 24.180118035505426
+            },
+            {
+              "name": "Sirius",
+              "degrees": 32.24997430831486
+            }
+          ]
+        }
+      ],
+      "localTargetSeparationDeg": 75.68739205068397,
+      "externalReferences": [
+        {
+          "name": "Sol",
+          "role": "fit",
+          "galacticDirection": [
+            0.7356022653741492,
+            0.1642969526723988,
+            -0.6571878106895952
+          ],
+          "distanceLy": 16.737985429853858
+        },
+        {
+          "name": "Epsilon Indi",
+          "role": "fit",
+          "galacticDirection": [
+            0.905199251931742,
+            -0.35914788133324177,
+            -0.2272160065577652
+          ],
+          "distanceLy": 17.054256250273713
+        },
+        {
+          "name": "Sirius",
+          "role": "holdout",
+          "galacticDirection": [
+            0.7411457511702085,
+            0.0586428456313128,
+            -0.6687779842209289
+          ],
+          "distanceLy": 25.045680921318553
+        }
+      ],
+      "externalPairAngles": [
+        {
+          "a": "Sol",
+          "b": "Epsilon Indi",
+          "degrees": 40.871127720761784
+        },
+        {
+          "a": "Sol",
+          "b": "Sirius",
+          "degrees": 6.101008447499138
+        },
+        {
+          "a": "Epsilon Indi",
+          "b": "Sirius",
+          "degrees": 36.69956431770937
+        }
+      ],
+      "siriusMirrorPredictionSeparationDeg": 8.494694140806692
+    },
+    "9": {
+      "warning": "Unvalidated transfer hypothesis. Values are predictions using the frozen Vega matrix, not observed Altair alignment. Recompute at each actual capture timestamp without changing that matrix.",
+      "timestamp": "2026-11-15T06:22:34Z",
+      "system": "Altair",
+      "observer": "Darkes Hollow",
+      "maximumAltitudeKm": 10,
+      "frozenMatrix": [
+        [
+          0.8977072457054239,
+          -0.4405920933863004,
+          -0.0005552057808097532
+        ],
+        [
+          -0.33915310896137324,
+          -0.6902196438790925,
+          -0.6391963797498023
+        ],
+        [
+          0.28124165710259996,
+          0.5739995212967482,
+          -0.7690433536942421
+        ]
+      ],
+      "targets": [
+        {
+          "name": "Altair",
+          "distanceLs": 666.6708454540998,
+          "candidateLocalDirection": [
+            -0.3498757825981669,
+            -0.9341495959314408,
+            0.07036667657667418
+          ],
+          "predictedGalacticDirection": [
+            0.09745383288655832,
+            0.7184517359292237,
+            -0.6887160907050188
+          ],
+          "observerOffsetBoundDeg": 0.0009639934925661426,
+          "predictedExternalSeparations": [
+            {
+              "name": "Sol",
+              "degrees": 50.03328275265205
+            },
+            {
+              "name": "Epsilon Indi",
+              "degrees": 90.76365860430776
+            },
+            {
+              "name": "Sirius",
+              "degrees": 54.90332953669739
+            }
+          ]
+        },
+        {
+          "name": "Biggs Colony",
+          "distanceLs": 2169.099748060323,
+          "candidateLocalDirection": [
+            0.8196741604085428,
+            -0.5642043753828819,
+            0.09903380007534149
+          ],
+          "predictedGalacticDirection": [
+            0.9843564356256154,
+            0.04812785673291395,
+            -0.16948780796484986
+          ],
+          "observerOffsetBoundDeg": 0.0002962825279236498,
+          "predictedExternalSeparations": [
+            {
+              "name": "Sol",
+              "degrees": 32.500430827930074
+            },
+            {
+              "name": "Epsilon Indi",
+              "degrees": 24.17987640985759
+            },
+            {
+              "name": "Sirius",
+              "degrees": 32.25044696617069
+            }
+          ]
+        }
+      ],
+      "localTargetSeparationDeg": 75.68599705754482,
+      "externalReferences": [
+        {
+          "name": "Sol",
+          "role": "fit",
+          "galacticDirection": [
+            0.7356022653741492,
+            0.1642969526723988,
+            -0.6571878106895952
+          ],
+          "distanceLy": 16.737985429853858
+        },
+        {
+          "name": "Epsilon Indi",
+          "role": "fit",
+          "galacticDirection": [
+            0.905199251931742,
+            -0.35914788133324177,
+            -0.2272160065577652
+          ],
+          "distanceLy": 17.054256250273713
+        },
+        {
+          "name": "Sirius",
+          "role": "holdout",
+          "galacticDirection": [
+            0.7411457511702085,
+            0.0586428456313128,
+            -0.6687779842209289
+          ],
+          "distanceLy": 25.045680921318553
+        }
+      ],
+      "externalPairAngles": [
+        {
+          "a": "Sol",
+          "b": "Epsilon Indi",
+          "degrees": 40.871127720761784
+        },
+        {
+          "a": "Sol",
+          "b": "Sirius",
+          "degrees": 6.101008447499138
+        },
+        {
+          "a": "Epsilon Indi",
+          "b": "Sirius",
+          "degrees": 36.69956431770937
+        }
+      ],
+      "siriusMirrorPredictionSeparationDeg": 8.494694140806692
+    }
+  },
+  "alternateRegistrationPaths": {
+    "epsilonBearingDifferenceDeg": 0.0049263064931762265,
+    "altairBearingDifferenceDeg": 0.031049194073927727,
+    "altairFrozenErrorDeg": 138.96774449707888
+  },
+  "visibleCoreSensitivity": {
+    "note": "Visible Sol/Sirius/local cores replace their brackets; Epsilon Indi still uses its bracket.",
+    "siriusHoldoutErrorDeg": 0.006452969709812034,
+    "localTransferErrorsDeg": [
+      {
+        "index": 0,
+        "errorDeg": 11.589182589936916
+      },
+      {
+        "index": 9,
+        "errorDeg": 139.03908505954576
+      }
+    ]
+  },
+  "freshJournalSensitivity": [
+    {
+      "index": 0,
+      "name": "Biggs Colony",
+      "directionChangeDeg": 0.0,
+      "frozenTransferErrorDeg": 11.617636532900216,
+      "distanceLs": 2169.0826226867975
+    },
+    {
+      "index": 9,
+      "name": "Altair",
+      "directionChangeDeg": 9.195423586105984e-06,
+      "frozenTransferErrorDeg": 138.9890297819391,
+      "distanceLs": 666.6708454541013
+    }
+  ],
+  "predictedMotionAcrossSession": [
+    {
+      "name": "Altair",
+      "degrees": 0.0019518272054976657
+    },
+    {
+      "name": "Biggs Colony",
+      "degrees": 0.0005652690822261452
+    }
+  ],
+  "diagnosticAltairLocalFits": {
+    "warning": "Post-test two-body fits, not independent validation. Both parities remain possible in Altair; no third local direction or later epoch is held out.",
+    "branches": [
+      {
+        "determinant": 1,
+        "matrix": [
+          [
+            0.6149279254309075,
+            -0.7885829263968883,
+            -0.0007840411727252361
+          ],
+          [
+            0.42258882182610347,
+            0.32869016392736117,
+            0.844619123513688
+          ],
+          [
+            -0.6657945134896099,
+            -0.5197112124369885,
+            0.5353670903916389
+          ]
+        ],
+        "fitErrorsDeg": [
+          0.05027381108148135,
+          0.05027381109598054
+        ]
+      },
+      {
+        "determinant": -1,
+        "matrix": [
+          [
+            0.6029981590563194,
+            -0.7677272733845144,
+            0.21676728045595167
+          ],
+          [
+            0.5150078945860641,
+            0.16712286640569177,
+            -0.8407358776919032
+          ],
+          [
+            -0.6092290937641763,
+            -0.6185990472235829,
+            -0.49616038746090557
+          ]
+        ],
+        "fitErrorsDeg": [
+          0.05027381109598054,
+          0.05027381108873095
+        ]
+      }
+    ],
+    "properRotationDifferenceFromFrozenDeg": 162.54281265534493
+  }
+}

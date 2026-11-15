@@ -1,0 +1,148 @@
+{
+  "method": "Camera intrinsics and per-pair rotations fitted to star correspondences; alternating matches held out. No orbital-model directions used.",
+  "intrinsics": [
+    [
+      2160.62791598998,
+      0.0,
+      2055.294570259211
+    ],
+    [
+      0.0,
+      2234.675072391997,
+      1327.4610442381825
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "fitPairs": [
+    {
+      "a": 0,
+      "b": 1,
+      "count": 91,
+      "trainingRmsPx": 0.6937943704598637,
+      "heldOutRmsPx": 0.6492021940977257
+    },
+    {
+      "a": 1,
+      "b": 4,
+      "count": 346,
+      "trainingRmsPx": 0.6905812502759422,
+      "heldOutRmsPx": 0.7409828063621321
+    },
+    {
+      "a": 5,
+      "b": 6,
+      "count": 190,
+      "trainingRmsPx": 0.6588374553530036,
+      "heldOutRmsPx": 0.7580174908417396
+    }
+  ],
+  "measurements": [
+    {
+      "index": 0,
+      "centresPx": [
+        [
+          1240.9262244265344,
+          350.8973961562306
+        ],
+        [
+          2058.8586206896553,
+          1015.796551724138
+        ]
+      ],
+      "separationDeg": 24.554417515674576
+    },
+    {
+      "index": 1,
+      "centresPx": [
+        [
+          1279.0048233695652,
+          697.8044836956522
+        ],
+        [
+          2058.209923664122,
+          1324.7985581000848
+        ]
+      ],
+      "separationDeg": 24.56020551617527
+    },
+    {
+      "index": 2,
+      "centresPx": [
+        [
+          1278.1517839477676,
+          697.0876475631471
+        ],
+        [
+          2057.25611814346,
+          1324.0881856540084
+        ]
+      ],
+      "separationDeg": 24.553166304993898
+    },
+    {
+      "index": 3,
+      "centresPx": [
+        [
+          2057.5699499165275,
+          1326.9153589315526
+        ],
+        [
+          2979.9300653594773,
+          1692.5496732026145
+        ]
+      ],
+      "separationDeg": 24.559850536050817
+    },
+    {
+      "index": 4,
+      "centresPx": [
+        [
+          1236.583920076118,
+          754.1715191880749
+        ],
+        [
+          2056.234835355286,
+          1324.0996533795494
+        ]
+      ],
+      "separationDeg": 24.561233407537458
+    },
+    {
+      "index": 5,
+      "centresPx": [
+        [
+          2054.992386600417,
+          1327.336752684725
+        ],
+        [
+          3032.2808599167824,
+          1183.2947295423023
+        ]
+      ],
+      "separationDeg": 24.556317059712445
+    },
+    {
+      "index": 6,
+      "centresPx": [
+        [
+          2057.400498712999,
+          1326.007722007722
+        ],
+        [
+          3043.6269740998105,
+          1383.567593177511
+        ]
+      ],
+      "separationDeg": 24.559625284616093
+    }
+  ],
+  "warnings": [
+    "Centres selected using manually identified local-star regions.",
+    "Pure-rotation pinhole model; model-systematic errors not included in residuals.",
+    "Nominal FOV alone does not match empirical screenshot projection."
+  ]
+}

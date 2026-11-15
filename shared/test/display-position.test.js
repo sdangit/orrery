@@ -1,7 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { displayPosition, displayPositions } from '../src/display-position.js';
-import { keplerianOffset } from '../src/kepler.js';
+import { eliteKeplerianOffset } from '../src/elite-orbit.js';
+import { parentOrbitFrame, transformVector } from '../src/orbital-frame.js';
+const systemOffset = (nodes, id, time) => transformVector(parentOrbitFrame(nodes, id), eliteKeplerianOffset(nodes.get(id).elements, time));
 import { compressOffset } from '../src/display-scale.js';
 import { buildSyntheticTree } from './helpers/synthetic-tree.js';
 
@@ -14,7 +16,7 @@ test('the root sits at the origin', () => {
 test('a body orbiting the root directly equals its own compressed offset', () => {
   const nodes = buildSyntheticTree();
   const now = 12345;
-  const expected = compressOffset(keplerianOffset(nodes.get(1).elements, now));
+  const expected = compressOffset(systemOffset(nodes, 1, now));
   const actual = displayPosition(nodes, 1, now);
   assert.ok(Math.abs(actual.x - expected.x) < 1e-9);
   assert.ok(Math.abs(actual.y - expected.y) < 1e-9);
@@ -25,15 +27,15 @@ test('each level is compressed before summing, not summed then compressed', () =
   const nodes = buildSyntheticTree();
   const now = 6789;
   // Correct: compress(offset1) + compress(offset2) + compress(offset3)
-  const o1 = compressOffset(keplerianOffset(nodes.get(1).elements, now));
-  const o2 = compressOffset(keplerianOffset(nodes.get(2).elements, now));
-  const o3 = compressOffset(keplerianOffset(nodes.get(3).elements, now));
+  const o1 = compressOffset(systemOffset(nodes, 1, now));
+  const o2 = compressOffset(systemOffset(nodes, 2, now));
+  const o3 = compressOffset(systemOffset(nodes, 3, now));
   const perLevelExpected = { x: o1.x + o2.x + o3.x, y: o1.y + o2.y + o3.y, z: o1.z + o2.z + o3.z };
 
   // Wrong (what this test guards against): sum real offsets, then compress once.
-  const r1 = keplerianOffset(nodes.get(1).elements, now);
-  const r2 = keplerianOffset(nodes.get(2).elements, now);
-  const r3 = keplerianOffset(nodes.get(3).elements, now);
+  const r1 = systemOffset(nodes, 1, now);
+  const r2 = systemOffset(nodes, 2, now);
+  const r3 = systemOffset(nodes, 3, now);
   const summedThenCompressed = compressOffset({ x: r1.x + r2.x + r3.x, y: r1.y + r2.y + r3.y, z: r1.z + r2.z + r3.z });
 
   const actual = displayPosition(nodes, 3, now);

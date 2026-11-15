@@ -1,0 +1,79 @@
+{
+  "systemName": "Nusakan",
+  "nodes": [
+    {
+      "id": 0,
+      "name": "Nusakan",
+      "kind": "Star",
+      "parentId": null,
+      "elements": null,
+      "raw": {
+        "Radius": 1311576192
+      },
+      "children": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "name": null,
+      "kind": "Barycentre",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 187908744812.01172,
+        "eccentricity": 0.000405,
+        "inclinationDeg": 0.569563,
+        "periapsisDeg": 135.845489,
+        "ascendingNodeDeg": -39.31502,
+        "meanAnomalyDeg": 255.107805,
+        "orbitalPeriodSec": 26762529.611588,
+        "epochMs": 1794717421000
+      },
+      "raw": {},
+      "children": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Nusakan 2",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 389321130.514145,
+        "eccentricity": 0.0883,
+        "inclinationDeg": -7.868618,
+        "periapsisDeg": 8.776407,
+        "ascendingNodeDeg": -59.125567,
+        "meanAnomalyDeg": 114.270049,
+        "orbitalPeriodSec": 2678087.294102,
+        "epochMs": 1794717549000
+      },
+      "raw": {
+        "Radius": 10142270
+      },
+      "children": []
+    },
+    {
+      "id": 4,
+      "name": "Nusakan 3",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 526782530.546188,
+        "eccentricity": 0.0883,
+        "inclinationDeg": -7.868618,
+        "periapsisDeg": 188.776399,
+        "ascendingNodeDeg": -59.125567,
+        "meanAnomalyDeg": 114.269343,
+        "orbitalPeriodSec": 2678087.294102,
+        "epochMs": 1794717544000
+      },
+      "raw": {
+        "Radius": 9359026
+      },
+      "children": []
+    }
+  ]
+}

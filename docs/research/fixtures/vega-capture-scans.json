@@ -1,0 +1,78 @@
+{
+  "source": "Local journal Journal.2026-11-14T164938.01.log; most recent available scans before captures",
+  "systemName": "Vega",
+  "starPos": [
+    -21.90625,
+    8.125,
+    9
+  ],
+  "scans": [
+    {
+      "timestamp": "2026-11-15T03:00:07Z",
+      "BodyID": 0,
+      "BodyName": "Vega",
+      "Radius": 1450408576,
+      "AxialTilt": -0.172337
+    },
+    {
+      "timestamp": "2026-11-15T03:00:07Z",
+      "BodyID": 2,
+      "BodyName": "Vega 2",
+      "Parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "Radius": 61743452,
+      "SemiMajorAxis": 541700136661.52954,
+      "Eccentricity": 0.000115,
+      "OrbitalInclination": 0.336791,
+      "Periapsis": 131.410914,
+      "OrbitalPeriod": 121267557.144165,
+      "AscendingNode": -148.238478,
+      "MeanAnomaly": 327.85434,
+      "AxialTilt": 1.033939
+    },
+    {
+      "timestamp": "2026-11-15T03:00:07Z",
+      "BodyID": 11,
+      "BodyName": "Tracy's Havan",
+      "Parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "Radius": 7207324,
+      "SemiMajorAxis": 1124827146530.1514,
+      "Eccentricity": 0,
+      "OrbitalInclination": 2.7,
+      "Periapsis": 299.320616,
+      "OrbitalPeriod": 64627199.76902,
+      "AscendingNode": 0,
+      "MeanAnomaly": 20.295402,
+      "AxialTilt": -0.340957
+    },
+    {
+      "timestamp": "2026-11-15T03:00:07Z",
+      "BodyID": 12,
+      "BodyName": "Trikora",
+      "Parents": [
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 0
+        }
+      ],
+      "Radius": 1704644.5,
+      "SemiMajorAxis": 2991959452.629089,
+      "Eccentricity": 0.023897,
+      "OrbitalInclination": 2.83523,
+      "Periapsis": 345.708891,
+      "OrbitalPeriod": 38979117.274284,
+      "AscendingNode": 0,
+      "MeanAnomaly": 220.599059,
+      "AxialTilt": 0.28805
+    }
+  ]
+}

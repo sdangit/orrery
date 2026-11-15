@@ -1,0 +1,229 @@
+{
+  "purpose": "Second-system transfer test. Freeze the Vega matrix before receiving Altair screenshots; fit camera attitude only, not a replacement orbital-to-galactic matrix.",
+  "planningEpoch": "2026-11-15T06:15:00Z",
+  "system": {
+    "name": "Altair",
+    "id64": 306253399220,
+    "coords": {
+      "x": -12.3125,
+      "y": -2.75,
+      "z": 11.0
+    },
+    "source": "https://spansh.co.uk/api/dump/306253399220",
+    "sourceSha256": "f4148db594f174a0e13b637bc2ca92ca9619f2b65891e8e8a7c66d451e4be635",
+    "bodies": [
+      {
+        "name": "Altair",
+        "bodyId": 0,
+        "type": "Star",
+        "mainStar": true,
+        "axialTilt": -0.075185,
+        "rotationalPeriod": 0.747974644918981,
+        "timestamps": {
+          "distanceToArrival": "2026-11-12T10:32:00Z"
+        },
+        "updateTime": "2026-11-14T23:04:43Z"
+      },
+      {
+        "name": "Altair 1",
+        "bodyId": 1,
+        "type": "Planet",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "isLandable": true,
+        "radius": 7732.805,
+        "gravity": 1.54634536555522,
+        "semiMajorAxis": 0.57653905719173,
+        "orbitalEccentricity": 0.000601,
+        "orbitalInclination": 0.010429,
+        "ascendingNode": 32.430319,
+        "argOfPeriapsis": 116.843367,
+        "meanAnomaly": 36.22055,
+        "orbitalPeriod": 113.83092651765,
+        "axialTilt": 0.426645,
+        "rotationalPeriod": 113.833635937708,
+        "timestamps": {
+          "distanceToArrival": "2026-11-12T10:32:00Z",
+          "meanAnomaly": "2026-11-12T10:32:00Z"
+        },
+        "updateTime": "2026-11-12T10:32:00Z"
+      },
+      {
+        "name": "Altair 2",
+        "bodyId": 2,
+        "type": "Planet",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "isLandable": false,
+        "radius": 8906.593,
+        "gravity": 1.93235790761701,
+        "semiMajorAxis": 0.823482519588974,
+        "orbitalEccentricity": 0.001407,
+        "orbitalInclination": 0.005987,
+        "ascendingNode": 96.607077,
+        "argOfPeriapsis": 179.960083,
+        "meanAnomaly": 71.222387,
+        "orbitalPeriod": 194.311604179722,
+        "axialTilt": -0.209325,
+        "rotationalPeriod": 0.528988915648148,
+        "timestamps": {
+          "distanceToArrival": "2026-11-12T10:32:00Z",
+          "meanAnomaly": "2026-11-12T10:32:00Z"
+        },
+        "updateTime": "2026-11-12T10:32:00Z"
+      },
+      {
+        "name": "Darkes Hollow",
+        "bodyId": 3,
+        "type": "Planet",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "isLandable": true,
+        "radius": 3352.66525,
+        "gravity": 0.470041602936678,
+        "semiMajorAxis": 1.3360009103099,
+        "orbitalEccentricity": 0.0,
+        "orbitalInclination": 0.0,
+        "ascendingNode": 0.0,
+        "argOfPeriapsis": 333.115788,
+        "meanAnomaly": 40.991386,
+        "orbitalPeriod": 300.999999874167,
+        "axialTilt": 0.487558,
+        "rotationalPeriod": 0.597978404560185,
+        "timestamps": {
+          "distanceToArrival": "2026-11-13T21:22:22Z",
+          "meanAnomaly": "2026-11-13T21:22:22Z"
+        },
+        "updateTime": "2026-11-13T21:22:22Z"
+      },
+      {
+        "name": "Biggs Colony",
+        "bodyId": 4,
+        "type": "Planet",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "isLandable": false,
+        "radius": 6275.7905,
+        "gravity": 1.11444896502498,
+        "semiMajorAxis": 4.22000281561522,
+        "orbitalEccentricity": 0.0,
+        "orbitalInclination": 348.700008,
+        "ascendingNode": 0.0,
+        "argOfPeriapsis": 50.697154,
+        "meanAnomaly": 33.029922,
+        "orbitalPeriod": 1315.99998308552,
+        "axialTilt": -0.061861,
+        "rotationalPeriod": 1.21524046859954,
+        "timestamps": {
+          "distanceToArrival": "2026-11-13T16:46:07Z",
+          "meanAnomaly": "2026-11-13T16:46:07Z"
+        },
+        "updateTime": "2026-11-13T16:46:07Z"
+      },
+      {
+        "name": "Lowing's Rock",
+        "bodyId": 5,
+        "type": "Planet",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "isLandable": true,
+        "radius": 860.5050625,
+        "gravity": 0.109773223207913,
+        "semiMajorAxis": 6.12500441742921,
+        "orbitalEccentricity": 0.0,
+        "orbitalInclination": 0.4,
+        "ascendingNode": 0.0,
+        "argOfPeriapsis": 269.315865,
+        "meanAnomaly": 237.710775,
+        "orbitalPeriod": 2959.99998019801,
+        "axialTilt": -0.462018,
+        "rotationalPeriod": 1.98294657804398,
+        "timestamps": {
+          "distanceToArrival": "2026-11-12T10:32:00Z",
+          "meanAnomaly": "2026-11-12T10:32:00Z"
+        },
+        "updateTime": "2026-11-12T10:32:00Z"
+      }
+    ]
+  },
+  "frozenCandidateLocalToGalactic": [
+    [
+      0.8977072457054239,
+      -0.4405920933863004,
+      -0.0005552057808097532
+    ],
+    [
+      -0.33915310896137324,
+      -0.6902196438790925,
+      -0.6391963797498023
+    ],
+    [
+      0.28124165710259996,
+      0.5739995212967482,
+      -0.7690433536942421
+    ]
+  ],
+  "matrixSource": "vega-external-alignment-results.json, localBranches determinant +1",
+  "matrixSourceSha256": "1e879f675f27e34603113903b55b935ce9af742043c48987f2854ebaba9bdf9b",
+  "observerBodyId": 3,
+  "maximumAltitudeKm": 10,
+  "localTargetBodyIds": [
+    0,
+    4
+  ],
+  "externalReferences": [
+    {
+      "name": "Sol",
+      "coords": [
+        0,
+        0,
+        0
+      ],
+      "role": "fit",
+      "source": "Catalogue coordinate origin"
+    },
+    {
+      "name": "Epsilon Indi",
+      "coords": [
+        3.125,
+        -8.875,
+        7.125
+      ],
+      "role": "fit",
+      "source": "https://spansh.co.uk/api/dump/908486251218"
+    },
+    {
+      "name": "Sirius",
+      "coords": [
+        6.25,
+        -1.28125,
+        -5.75
+      ],
+      "role": "holdout",
+      "source": "https://www.edsm.net/api-v1/system?systemName=Sirius&showCoordinates=1"
+    }
+  ],
+  "units": {
+    "semiMajorAxis": "AU",
+    "orbitalPeriod": "days",
+    "radius": "km",
+    "orbitalAngles": "degrees",
+    "axialTilt": "radians",
+    "coords": "light years"
+  }
+}

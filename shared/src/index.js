@@ -7,6 +7,9 @@ export {
   keplerianOffset,
 } from './kepler.js';
 
+export { eliteOrbitElements, eliteKeplerianOffset } from './elite-orbit.js';
+export { IDENTITY_FRAME, transformVector, multiplyFrames, eliteOrbitalFrame, parentOrbitFrame } from './orbital-frame.js';
+
 export { absolutePosition, absolutePositions } from './orbit-position.js';
 export { compressDistance, compressRadius, compressOffset } from './display-scale.js';
 export { displayPosition, displayPositions } from './display-position.js';
@@ -15,3 +18,4 @@ export { classifyModeHighlight, reserveLevelLabel } from './mode-highlight.js';
 export { mapEdsmPlanetClass, mapEdsmTerraformState } from './edsm-mapping.js';
 export { buildBackfillNodes } from './edsm-backfill.js';
 export { mergeCommunityBodies, normalizeCommunityBodies, completeElements, EARTH_GRAVITY } from './community-backfill.js';
+export { mapEdgisBodies } from './edgis-mapping.js';

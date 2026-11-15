@@ -77,6 +77,28 @@ npm start
 
 Leave it running while you play. Drag to orbit, scroll to zoom, click a body for its details.
 
+The top toolbar keeps scale modes and camera actions within reach. **System**
+and **Body details** toggle the side panels without clearing your selection.
+The System panel holds search, system context, community-data status/refresh,
+and live session statistics. Body details groups physical properties,
+exploration, provenance, and nicknames into expandable sections.
+
+**Settings** opens appearance, data-provider, activity-mode, and audio preferences
+in place of body details; closing it restores the previous panel state. **Legend**
+opens a temporary reference panel. Escape dismisses either overlay. Narrow
+windows show one side panel at a time, and short windows keep their contents
+scrollable. Incoming journal updates preserve your panel choices.
+
+**Settings → Appearance → Orbit brightness** adjusts all orbit lines from off
+to 400%, with 100% matching the default appearance. Above 100%, both color
+brightness and opacity increase. Changes preview immediately
+and persist across reloads. The selected orbit keeps its automatic extra emphasis and draws above other orbit lines;
+off hides all orbit lines, including the selected one.
+
+The bottom playback bar keeps the ED clock and transport controls visible.
+**More** expands the time reference and speed explanation; choosing a body as
+the time reference opens that explanation automatically.
+
 Camera controls: left-drag to orbit; right-drag or Shift-drag to pan; scroll or
 pinch to zoom. Arrow keys pan while the map has focus. On a touchscreen, use
 one finger to orbit and two fingers to pan/zoom. Dragging does not select a body.
@@ -87,13 +109,32 @@ pivot as simulated time advances; panning releases it. **Fit system** frames the
 known bodies at the current angle, while **Reset view** also restores the default
 orientation. The **Orbiting** indicator names the current target. Main-star
 centering is disabled until the available data identifies the arrival star. The
-selected body's orbit line is slightly brighter; selecting another body or
-closing details restores the previous line.
+selected body's orbit line is slightly brighter; selecting another body restores
+the previous line. Collapsing details keeps the selection and its highlight.
+
+**View** offers **Top**, **Front**, **Side**, and **Angled** orientations. The
+**System reference plane** is the renderer's XY plane. **Selected orbit** aligns
+to the selected body's displayed orbital plane; it is unavailable without orbital
+orientation data, and approximate community orientations are identified. Front
+and Side are edge-on views 90° apart; Top is perpendicular to the plane.
+Presets preserve the camera center, following, and zoom. They apply only when
+clicked: changing the selection or reference choice does not rotate the camera.
+Dragging afterward switches to a custom orientation. Reset view restores the
+system's default angled view and framing.
+
+**View → System plane grid** shows a square grid aligned to the system axes.
+Use **System reference plane → Top** for square cells. Finer divisions fade in
+as you zoom, with larger divisions every ten cells. **Grid origin → Follow view
+centre** keeps it visible around distant orbital groups; **System centre** pins
+it to the system's zero-height plane, which may leave the viewport in a close-up.
+The origin choice and visibility are remembered. True-distance modes show physical
+cell spacing; Compact uses display units. This is a local alignment aid, not a
+calibrated galactic plane.
 
 **Browse bodies** opens the system hierarchy. In the detail panel, **← / →**
 cycle through siblings, ordered by orbital size (unknown sizes last), and wrap
 at either end. **↑ Up** selects the parent; breadcrumb buttons jump to ancestors.
-The scrollable **Children** list enters a body or orbital group. Navigation
+The expandable, scrollable **Children** list enters a body or orbital group. Navigation
 centers the selection while preserving the current viewing distance and angle,
 including when returning to the System breadcrumb. Use **Zoom to body** or
 **Fit system** to change framing. Barycentres appear as **Orbital group**,
@@ -116,8 +157,8 @@ fast moons may jump between frames when viewing a slow outer orbit. Selecting
 or centering another body does not change the reference. Its period is captured
 when chosen, so incoming scans do not unexpectedly change playback speed.
 
-**Pause / Resume** and **Reverse / Play forward** control playback. **Return to
-live time** clears the reference and restores the current time, forward at real
+**Pause / Resume** and **Reverse / Play forward** control playback. **Live time**
+clears the reference and restores the current time, forward at real
 speed. Entering another system also returns to live time. A reference remains
 usable if its source data is temporarily hidden (for example, disabling a community provider).
 Bodies without a known nonzero orbital period cannot be used as references.
@@ -163,11 +204,12 @@ repeated scans/signals and deduplicating identical organic samples; oldest entri
 are evicted at the limit. Restoring cached data does not recount session statistics.
 
 This project uses journal data generated by Elite Dangerous, supplemented by
-[EDSM](https://www.edsm.net/) and [Spansh](https://spansh.co.uk/) when enabled.
+[EDSM](https://www.edsm.net/), [Spansh](https://spansh.co.uk/), and
+[EDGIS](https://edgis.elitedangereuse.fr/) when enabled in Settings → Data.
 Consider supporting these community-run services.
 
-The two providers are combined by system address and journal body ID. Journal
-fields win; missing descriptive fields prefer Spansh, then EDSM. Orbital elements
+The providers are combined by system address and journal body ID. Journal
+fields win; missing descriptive fields prefer Spansh, then EDGIS, then EDSM. Orbital elements
 are chosen as a complete group: journal first, then Spansh, with an approximate
 provider orbit as the last resort. Conflicting parent chains are diagnosed;
 community conflicts cannot overwrite a journal parent link. Barycentre parent
@@ -182,8 +224,18 @@ panel. EDSM-only phase is anchored to the cached response's receipt time, so
 rebuilding the scene does not reset it. Missing/invalid phase timestamps never
 produce a claim of a fully propagated position.
 
+EDGIS supplies journal-style metres and seconds, including bodies missing from
+the other providers. Its `updatetime` is also record freshness, not a verified
+phase epoch. EDGIS orbits therefore remain marked approximate. For an unambiguous
+pair of stars sharing a barycentre, matching periods, eccentricities and planes,
+and opposite periapsides, an EDGIS companion can use the other star's known phase
+as an estimate. The detail panel identifies this inference. Other EDGIS phases
+are illustrative and anchored to the cached response's receipt time.
+
 Requests use EDSM's `/api-system-v1/bodies?systemName=…` and Spansh's
-`/api/dump/{id64}`. Each provider has an 8-second timeout and fails independently.
+`/api/dump/{id64}`, plus EDGIS's `/system-map?name_or_id={id64}`. The EDGIS
+response includes system identity for validation; station data is discarded.
+Each provider has an 8-second timeout and fails independently.
 Responses are cached for one minute, with a maximum of 64 cache entries. This is
 local request deduplication, not a provider-imposed rate limit or a periodic
 refresh schedule. **Refresh community data** bypasses this cache for enabled
@@ -192,7 +244,7 @@ visible if a request fails. Concurrent requests for the same provider/system are
 coalesced. An explicit HTTP 429 pauses requests to that provider for its
 `Retry-After` duration (one minute if absent), including manual refreshes.
 The UI requires the local watcher for community lookups; Vite dev
-and preview proxy that route to the watcher on port 47821. Spansh needs a known
+and preview proxy that route to the watcher on port 47821. Spansh and EDGIS need a known
 system address. Changing systems or disabling a provider discards stale UI
 responses. Provider statuses appear beside the checkboxes.
 
@@ -207,6 +259,9 @@ Captured EDSM and Spansh fixtures also cover Bleia Dryiae XJ-R e4-1 (173 bodies)
 and HIP 97950 (40 bodies). Spansh supplies 11 and 4 additional barycentres,
 respectively. Regression checks cover complete hierarchy traversal, missing
 groups with EDSM alone, and finite animated positions in every scale mode.
+LFT 509 fixtures from all three providers verify that EDGIS restores Ross 54 and
+its planetary group, with all 29 physical bodies renderable and the estimated
+binary motion kept consistent.
 
 
 ## License

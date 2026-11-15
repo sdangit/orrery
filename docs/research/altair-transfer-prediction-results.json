@@ -1,0 +1,135 @@
+{
+  "warning": "Unvalidated transfer hypothesis. Values are predictions using the frozen Vega matrix, not observed Altair alignment. Recompute at each actual capture timestamp without changing that matrix.",
+  "timestamp": "2026-11-15T06:15:00Z",
+  "system": "Altair",
+  "observer": "Darkes Hollow",
+  "maximumAltitudeKm": 10,
+  "frozenMatrix": [
+    [
+      0.8977072457054239,
+      -0.4405920933863004,
+      -0.0005552057808097532
+    ],
+    [
+      -0.33915310896137324,
+      -0.6902196438790925,
+      -0.6391963797498023
+    ],
+    [
+      0.28124165710259996,
+      0.5739995212967482,
+      -0.7690433536942421
+    ]
+  ],
+  "targets": [
+    {
+      "name": "Altair",
+      "distanceLs": 666.6708454540999,
+      "candidateLocalDirection": [
+        -0.3499785349241459,
+        -0.9341113218752978,
+        0.0703637935072583
+      ],
+      "predictedGalacticDirection": [
+        0.09734472973319222,
+        0.7184620100421648,
+        -0.6887208024441716
+      ],
+      "observerOffsetBoundDeg": 0.0009639934925661424,
+      "predictedExternalSeparations": [
+        {
+          "name": "Sol",
+          "degrees": 50.038924649993746
+        },
+        {
+          "name": "Epsilon Indi",
+          "degrees": 90.769467738038
+        },
+        {
+          "name": "Sirius",
+          "degrees": 54.90872906271685
+        }
+      ]
+    },
+    {
+      "name": "Biggs Colony",
+      "distanceLs": 2169.044942285538,
+      "candidateLocalDirection": [
+        0.8196560713081061,
+        -0.5642292720014311,
+        0.09904167498833885
+      ],
+      "predictedGalacticDirection": [
+        0.9843511617901728,
+        0.04814614222687545,
+        -0.16951324217006286
+      ],
+      "observerOffsetBoundDeg": 0.0002962900141647975,
+      "predictedExternalSeparations": [
+        {
+          "name": "Sol",
+          "degrees": 32.498741701177444
+        },
+        {
+          "name": "Epsilon Indi",
+          "degrees": 24.18065441963378
+        },
+        {
+          "name": "Sirius",
+          "degrees": 32.24892510536545
+        }
+      ]
+    }
+  ],
+  "localTargetSeparationDeg": 75.69048877233956,
+  "externalReferences": [
+    {
+      "name": "Sol",
+      "role": "fit",
+      "galacticDirection": [
+        0.7356022653741492,
+        0.1642969526723988,
+        -0.6571878106895952
+      ],
+      "distanceLy": 16.737985429853858
+    },
+    {
+      "name": "Epsilon Indi",
+      "role": "fit",
+      "galacticDirection": [
+        0.905199251931742,
+        -0.35914788133324177,
+        -0.2272160065577652
+      ],
+      "distanceLy": 17.054256250273713
+    },
+    {
+      "name": "Sirius",
+      "role": "holdout",
+      "galacticDirection": [
+        0.7411457511702085,
+        0.0586428456313128,
+        -0.6687779842209289
+      ],
+      "distanceLy": 25.045680921318553
+    }
+  ],
+  "externalPairAngles": [
+    {
+      "a": "Sol",
+      "b": "Epsilon Indi",
+      "degrees": 40.871127720761784
+    },
+    {
+      "a": "Sol",
+      "b": "Sirius",
+      "degrees": 6.101008447499138
+    },
+    {
+      "a": "Epsilon Indi",
+      "b": "Sirius",
+      "degrees": 36.69956431770937
+    }
+  ],
+  "siriusMirrorPredictionSeparationDeg": 8.494694140806692
+}

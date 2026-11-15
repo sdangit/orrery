@@ -1,0 +1,2034 @@
+{
+  "description": "Sanitized V886 Centauri inputs captured locally. beforePositions are pre-reflection solver outputs, NOT measured positions. The latter two epochs are synthetic playback checks.",
+  "capturedAt": "2026-11-15T08:11:51.507Z",
+  "systemName": "V886 Centauri",
+  "nodes": [
+    {
+      "id": 0,
+      "name": "V886 Centauri",
+      "kind": "Star",
+      "parentId": null,
+      "children": [
+        9,
+        14,
+        25,
+        33,
+        45,
+        61,
+        64
+      ],
+      "elements": null,
+      "orbitSource": null,
+      "orbitQuality": "missing",
+      "raw": {
+        "AxialTilt": 0,
+        "Radius": 3970211.607368796,
+        "StarType": "DA"
+      }
+    },
+    {
+      "id": 9,
+      "name": "V886 Centauri barycentre 9",
+      "kind": "Barycentre",
+      "parentId": 0,
+      "children": [
+        10,
+        12
+      ],
+      "elements": {
+        "semiMajorAxis": 230616199970.24582,
+        "orbitalPeriodSec": 55740253.329277,
+        "eccentricity": 0.000653,
+        "inclinationDeg": -0.003079,
+        "periapsisDeg": 97.606501,
+        "ascendingNodeDeg": 135.841732,
+        "meanAnomalyDeg": 168.261152,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {}
+    },
+    {
+      "id": 10,
+      "name": "V886 Centauri 1",
+      "kind": "Planet",
+      "parentId": 9,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 71870083.80889899,
+        "orbitalPeriodSec": 6400224.149226998,
+        "eccentricity": 0.138931,
+        "inclinationDeg": -4.016412,
+        "periapsisDeg": 240.677329,
+        "ascendingNodeDeg": 6.665325,
+        "meanAnomalyDeg": 274.501493,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.260668,
+        "Radius": 74676160,
+        "PlanetClass": "Sudarsky class I gas giant"
+      }
+    },
+    {
+      "id": 12,
+      "name": "V886 Centauri 2",
+      "kind": "Planet",
+      "parentId": 9,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 5864963054.656986,
+        "orbitalPeriodSec": 6400224.149226998,
+        "eccentricity": 0.138931,
+        "inclinationDeg": -4.016412,
+        "periapsisDeg": 60.677334,
+        "ascendingNodeDeg": 6.665325,
+        "meanAnomalyDeg": 274.501493,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.220768,
+        "Radius": 13065781,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 14,
+      "name": "V886 Centauri barycentre 14",
+      "kind": "Barycentre",
+      "parentId": 0,
+      "children": [
+        15,
+        24
+      ],
+      "elements": {
+        "semiMajorAxis": 288328504562.37787,
+        "orbitalPeriodSec": 77922989.72606705,
+        "eccentricity": 0.000063,
+        "inclinationDeg": 0.619599,
+        "periapsisDeg": 51.849534,
+        "ascendingNodeDeg": -148.263432,
+        "meanAnomalyDeg": 128.002344,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {}
+    },
+    {
+      "id": 15,
+      "name": "V886 Centauri 3",
+      "kind": "Planet",
+      "parentId": 14,
+      "children": [
+        18,
+        19,
+        20,
+        21,
+        23
+      ],
+      "elements": {
+        "semiMajorAxis": 42817221.283912964,
+        "orbitalPeriodSec": 12616193.89057199,
+        "eccentricity": 0.109693,
+        "inclinationDeg": -4.982256,
+        "periapsisDeg": 281.835578,
+        "ascendingNodeDeg": -174.137339,
+        "meanAnomalyDeg": 334.527567,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.330956,
+        "Radius": 76807912,
+        "PlanetClass": "Sudarsky class II gas giant"
+      }
+    },
+    {
+      "id": 18,
+      "name": "V886 Centauri 3 a",
+      "kind": "Planet",
+      "parentId": 15,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 427571535.1104747,
+        "orbitalPeriodSec": 85727.01513799996,
+        "eccentricity": 0.000037,
+        "inclinationDeg": 0.218308,
+        "periapsisDeg": 23.429297,
+        "ascendingNodeDeg": -56.270414,
+        "meanAnomalyDeg": 242.284654,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.485298,
+        "Radius": 2245200,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 19,
+      "name": "V886 Centauri 3 b",
+      "kind": "Planet",
+      "parentId": 15,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 561328530.3115844,
+        "orbitalPeriodSec": 128952.62241399994,
+        "eccentricity": 0.006677,
+        "inclinationDeg": -1.979823,
+        "periapsisDeg": 295.785915,
+        "ascendingNodeDeg": 119.244479,
+        "meanAnomalyDeg": 112.30334,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.523558,
+        "Radius": 2401108,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 20,
+      "name": "V886 Centauri 3 c",
+      "kind": "Planet",
+      "parentId": 15,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 807447969.9134834,
+        "orbitalPeriodSec": 222472.44715700013,
+        "eccentricity": 0.003701,
+        "inclinationDeg": -0.059912,
+        "periapsisDeg": 182.952569,
+        "ascendingNodeDeg": -36.291742,
+        "meanAnomalyDeg": 148.907858,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.471052,
+        "Radius": 1996389.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 21,
+      "name": "V886 Centauri 3 d",
+      "kind": "Planet",
+      "parentId": 15,
+      "children": [
+        22
+      ],
+      "elements": {
+        "semiMajorAxis": 1093835234.6420288,
+        "orbitalPeriodSec": 350778.0253889998,
+        "eccentricity": 0.010748,
+        "inclinationDeg": 0.010272,
+        "periapsisDeg": 200.737262,
+        "ascendingNodeDeg": 6.897484,
+        "meanAnomalyDeg": 111.307557,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 2.161879,
+        "Radius": 2389085.5,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 22,
+      "name": "V886 Centauri 3 d a",
+      "kind": "Planet",
+      "parentId": 21,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 6491991.102694997,
+        "orbitalPeriodSec": 35607.77843,
+        "eccentricity": 0,
+        "inclinationDeg": -73.298896,
+        "periapsisDeg": 77.475369,
+        "ascendingNodeDeg": 132.676148,
+        "meanAnomalyDeg": 248.272078,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.200898,
+        "Radius": 826177.1875,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 23,
+      "name": "V886 Centauri 3 e",
+      "kind": "Planet",
+      "parentId": 15,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 1615083217.6208472,
+        "orbitalPeriodSec": 629356.7180630005,
+        "eccentricity": 0.009752,
+        "inclinationDeg": -1.525365,
+        "periapsisDeg": 77.918959,
+        "ascendingNodeDeg": -59.526977,
+        "meanAnomalyDeg": 23.588915,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.205675,
+        "Radius": 1721633.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 24,
+      "name": "V886 Centauri 4",
+      "kind": "Planet",
+      "parentId": 14,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 11889815926.55181,
+        "orbitalPeriodSec": 12616193.89057199,
+        "eccentricity": 0.109693,
+        "inclinationDeg": -4.982256,
+        "periapsisDeg": 101.835583,
+        "ascendingNodeDeg": -174.137339,
+        "meanAnomalyDeg": 334.527567,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.52003,
+        "Radius": 11468042,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 25,
+      "name": "V886 Centauri 5",
+      "kind": "Planet",
+      "parentId": 0,
+      "children": [
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "elements": {
+        "semiMajorAxis": 427873343229.2932,
+        "orbitalPeriodSec": 140866291.5229797,
+        "eccentricity": 0.003167,
+        "inclinationDeg": -1.249984,
+        "periapsisDeg": 130.092653,
+        "ascendingNodeDeg": -168.114151,
+        "meanAnomalyDeg": 81.610049,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.516663,
+        "Radius": 73587088,
+        "PlanetClass": "Sudarsky class III gas giant"
+      }
+    },
+    {
+      "id": 28,
+      "name": "V886 Centauri 5 a",
+      "kind": "Planet",
+      "parentId": 25,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 469671392.44079536,
+        "orbitalPeriodSec": 75277.98473800003,
+        "eccentricity": 0.000034,
+        "inclinationDeg": -0.002563,
+        "periapsisDeg": 148.493503,
+        "ascendingNodeDeg": 69.581459,
+        "meanAnomalyDeg": 312.980096,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.295547,
+        "Radius": 2650264,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 29,
+      "name": "V886 Centauri 5 b",
+      "kind": "Planet",
+      "parentId": 25,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 2148427307.6057405,
+        "orbitalPeriodSec": 736474.6749400004,
+        "eccentricity": 0.000032,
+        "inclinationDeg": 0.003381,
+        "periapsisDeg": 273.479019,
+        "ascendingNodeDeg": -100.209684,
+        "meanAnomalyDeg": 353.702144,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.04204,
+        "Radius": 2677199.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 30,
+      "name": "V886 Centauri 5 c",
+      "kind": "Planet",
+      "parentId": 25,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 3020388245.5825806,
+        "orbitalPeriodSec": 1227639.8539540023,
+        "eccentricity": 0.003124,
+        "inclinationDeg": -0.013056,
+        "periapsisDeg": 220.921868,
+        "ascendingNodeDeg": -2.006672,
+        "meanAnomalyDeg": 359.706766,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.294283,
+        "Radius": 2363723.5,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 31,
+      "name": "V886 Centauri 5 d",
+      "kind": "Planet",
+      "parentId": 25,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 4082357466.2208595,
+        "orbitalPeriodSec": 1929049.491881998,
+        "eccentricity": 0.007236,
+        "inclinationDeg": -0.155023,
+        "periapsisDeg": 45.29401,
+        "ascendingNodeDeg": 34.429279,
+        "meanAnomalyDeg": 298.717257,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.124448,
+        "Radius": 2749057.5,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 32,
+      "name": "V886 Centauri 5 e",
+      "kind": "Planet",
+      "parentId": 25,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 5389436483.383174,
+        "orbitalPeriodSec": 2926117.6586149996,
+        "eccentricity": 0.001065,
+        "inclinationDeg": -0.500836,
+        "periapsisDeg": 133.36654,
+        "ascendingNodeDeg": 13.238816,
+        "meanAnomalyDeg": 311.077106,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.496477,
+        "Radius": 2756552.5,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 33,
+      "name": "V886 Centauri 6",
+      "kind": "Star",
+      "parentId": 0,
+      "children": [
+        34,
+        35,
+        38,
+        40,
+        42,
+        44
+      ],
+      "elements": {
+        "semiMajorAxis": 537606269121.1705,
+        "orbitalPeriodSec": 198394995.9278111,
+        "eccentricity": 0.000357,
+        "inclinationDeg": 0.013317,
+        "periapsisDeg": 138.678266,
+        "ascendingNodeDeg": 26.753991,
+        "meanAnomalyDeg": 14.344382,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -2.189885,
+        "Radius": 39511038.642703086,
+        "StarType": "Y"
+      }
+    },
+    {
+      "id": 34,
+      "name": "V886 Centauri 6 a",
+      "kind": "Planet",
+      "parentId": 33,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 1648518502.712255,
+        "orbitalPeriodSec": 332018.6674589997,
+        "eccentricity": 0.003189,
+        "inclinationDeg": -0.173255,
+        "periapsisDeg": 77.58222,
+        "ascendingNodeDeg": -64.843798,
+        "meanAnomalyDeg": 190.830203,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.35331,
+        "Radius": 1132649.75,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 35,
+      "name": "V886 Centauri barycentre 35",
+      "kind": "Barycentre",
+      "parentId": 33,
+      "children": [
+        36,
+        37
+      ],
+      "elements": {
+        "semiMajorAxis": 2196443974.9717684,
+        "orbitalPeriodSec": 510624.8497959998,
+        "eccentricity": 0.000236,
+        "inclinationDeg": -0.063474,
+        "periapsisDeg": 217.453047,
+        "ascendingNodeDeg": -109.960172,
+        "meanAnomalyDeg": 210.550859,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {}
+    },
+    {
+      "id": 36,
+      "name": "V886 Centauri 6 b",
+      "kind": "Planet",
+      "parentId": 35,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 2749266.088008999,
+        "orbitalPeriodSec": 79670.33088199998,
+        "eccentricity": 0.175696,
+        "inclinationDeg": -8.173372,
+        "periapsisDeg": 78.836909,
+        "ascendingNodeDeg": -59.664353,
+        "meanAnomalyDeg": 80.961102,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.432529,
+        "Radius": 1080045.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 37,
+      "name": "V886 Centauri 6 c",
+      "kind": "Planet",
+      "parentId": 35,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 3599825.263023005,
+        "orbitalPeriodSec": 79670.33088199998,
+        "eccentricity": 0.175696,
+        "inclinationDeg": -8.173372,
+        "periapsisDeg": 258.836903,
+        "ascendingNodeDeg": -59.664353,
+        "meanAnomalyDeg": 80.961102,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.335303,
+        "Radius": 987983.5,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 38,
+      "name": "V886 Centauri 6 d",
+      "kind": "Planet",
+      "parentId": 33,
+      "children": [
+        39
+      ],
+      "elements": {
+        "semiMajorAxis": 3183300971.984857,
+        "orbitalPeriodSec": 890919.1966059994,
+        "eccentricity": 0.001039,
+        "inclinationDeg": -0.044718,
+        "periapsisDeg": 91.99382,
+        "ascendingNodeDeg": 88.336496,
+        "meanAnomalyDeg": 170.593662,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 2.48433,
+        "Radius": 1445187.125,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 39,
+      "name": "V886 Centauri 6 d a",
+      "kind": "Planet",
+      "parentId": 38,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 6136852.622032007,
+        "orbitalPeriodSec": 63028.10370900001,
+        "eccentricity": 0,
+        "inclinationDeg": 58.946609,
+        "periapsisDeg": 93.114473,
+        "ascendingNodeDeg": -8.720304,
+        "meanAnomalyDeg": 298.995055,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.385901,
+        "Radius": 545559.375,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 40,
+      "name": "V886 Centauri 6 e",
+      "kind": "Planet",
+      "parentId": 33,
+      "children": [
+        41
+      ],
+      "elements": {
+        "semiMajorAxis": 4258820533.752442,
+        "orbitalPeriodSec": 1378655.5528640016,
+        "eccentricity": 0.000389,
+        "inclinationDeg": -0.042858,
+        "periapsisDeg": 151.169742,
+        "ascendingNodeDeg": -84.158336,
+        "meanAnomalyDeg": 228.410799,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -2.554269,
+        "Radius": 2425516,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 41,
+      "name": "V886 Centauri 6 e a",
+      "kind": "Planet",
+      "parentId": 40,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 11302514.672279004,
+        "orbitalPeriodSec": 80131.809115,
+        "eccentricity": 0,
+        "inclinationDeg": -25.854783,
+        "periapsisDeg": 293.777989,
+        "ascendingNodeDeg": 14.167035,
+        "meanAnomalyDeg": 181.168717,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.389224,
+        "Radius": 795328.6875,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 42,
+      "name": "V886 Centauri 6 f",
+      "kind": "Planet",
+      "parentId": 33,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 5423284351.825708,
+        "orbitalPeriodSec": 1981140.732765,
+        "eccentricity": 0.003065,
+        "inclinationDeg": 0.294609,
+        "periapsisDeg": 68.838198,
+        "ascendingNodeDeg": 169.475384,
+        "meanAnomalyDeg": 64.241204,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.04837,
+        "Radius": 1850378.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 44,
+      "name": "V886 Centauri 6 g",
+      "kind": "Planet",
+      "parentId": 33,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 7551045298.576356,
+        "orbitalPeriodSec": 3254860.281944002,
+        "eccentricity": 0.000012,
+        "inclinationDeg": 0.484533,
+        "periapsisDeg": 3.14715,
+        "ascendingNodeDeg": -18.479207,
+        "meanAnomalyDeg": 331.288932,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.340325,
+        "Radius": 1861165.5,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 45,
+      "name": "V886 Centauri barycentre 45",
+      "kind": "Barycentre",
+      "parentId": 0,
+      "children": [
+        46,
+        54
+      ],
+      "elements": {
+        "semiMajorAxis": 720412558317.1849,
+        "orbitalPeriodSec": 307755708.69445807,
+        "eccentricity": 0.00011,
+        "inclinationDeg": 0.235188,
+        "periapsisDeg": 259.602803,
+        "ascendingNodeDeg": -138.615028,
+        "meanAnomalyDeg": 118.023218,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {}
+    },
+    {
+      "id": 46,
+      "name": "V886 Centauri 7",
+      "kind": "Planet",
+      "parentId": 45,
+      "children": [
+        48,
+        49,
+        50,
+        52,
+        53
+      ],
+      "elements": {
+        "semiMajorAxis": 20006493926.048252,
+        "orbitalPeriodSec": 50896199.94163499,
+        "eccentricity": 0.171335,
+        "inclinationDeg": -6.294488,
+        "periapsisDeg": 4.168068,
+        "ascendingNodeDeg": -42.286722,
+        "meanAnomalyDeg": 29.242113,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -3.11724,
+        "Radius": 68697712,
+        "PlanetClass": "Sudarsky class III gas giant"
+      }
+    },
+    {
+      "id": 48,
+      "name": "V886 Centauri 7 a",
+      "kind": "Planet",
+      "parentId": 46,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 606264030.9333799,
+        "orbitalPeriodSec": 87666.17894199994,
+        "eccentricity": 0.000045,
+        "inclinationDeg": 0.272579,
+        "periapsisDeg": 321.610915,
+        "ascendingNodeDeg": 31.649662,
+        "meanAnomalyDeg": 248.981768,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 3.106492,
+        "Radius": 1428325.125,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 49,
+      "name": "V886 Centauri 7 b",
+      "kind": "Planet",
+      "parentId": 46,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 903618597.9843135,
+        "orbitalPeriodSec": 159520.72739599986,
+        "eccentricity": 0.002185,
+        "inclinationDeg": 0.002494,
+        "periapsisDeg": 203.101262,
+        "ascendingNodeDeg": -72.64037,
+        "meanAnomalyDeg": 59.421166,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 2.296256,
+        "Radius": 1714060.5,
+        "PlanetClass": "Rocky ice body"
+      }
+    },
+    {
+      "id": 50,
+      "name": "V886 Centauri 7 c",
+      "kind": "Planet",
+      "parentId": 46,
+      "children": [
+        51
+      ],
+      "elements": {
+        "semiMajorAxis": 1707217454.9102848,
+        "orbitalPeriodSec": 414259.66024400044,
+        "eccentricity": 0.001811,
+        "inclinationDeg": -1.508613,
+        "periapsisDeg": 248.135097,
+        "ascendingNodeDeg": 106.196567,
+        "meanAnomalyDeg": 249.574678,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 2.939605,
+        "Radius": 1963309.375,
+        "PlanetClass": "Rocky ice body"
+      }
+    },
+    {
+      "id": 51,
+      "name": "V886 Centauri 7 c a",
+      "kind": "Planet",
+      "parentId": 50,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 6452739.059924993,
+        "orbitalPeriodSec": 41122.90024799999,
+        "eccentricity": 0,
+        "inclinationDeg": 50.693124,
+        "periapsisDeg": 112.75486,
+        "ascendingNodeDeg": -156.515704,
+        "meanAnomalyDeg": 214.291411,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.13677,
+        "Radius": 876421.9375,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 52,
+      "name": "V886 Centauri 7 d",
+      "kind": "Planet",
+      "parentId": 46,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 2115075707.4356098,
+        "orbitalPeriodSec": 571252.6679039998,
+        "eccentricity": 0.00643,
+        "inclinationDeg": 4.386368,
+        "periapsisDeg": 33.38173,
+        "ascendingNodeDeg": 137.40546,
+        "meanAnomalyDeg": 100.453414,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.121232,
+        "Radius": 1613513.625,
+        "PlanetClass": "Rocky ice body"
+      }
+    },
+    {
+      "id": 53,
+      "name": "V886 Centauri 7 e",
+      "kind": "Planet",
+      "parentId": 46,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 2670218348.503109,
+        "orbitalPeriodSec": 810325.5510329996,
+        "eccentricity": 0.000768,
+        "inclinationDeg": 0.85815,
+        "periapsisDeg": 336.266626,
+        "ascendingNodeDeg": -159.527408,
+        "meanAnomalyDeg": 344.372087,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.366168,
+        "Radius": 3598085.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 54,
+      "name": "V886 Centauri 8",
+      "kind": "Planet",
+      "parentId": 45,
+      "children": [
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "elements": {
+        "semiMajorAxis": 30016267299.65212,
+        "orbitalPeriodSec": 50896199.94163499,
+        "eccentricity": 0.171335,
+        "inclinationDeg": -6.294488,
+        "periapsisDeg": 184.168056,
+        "ascendingNodeDeg": -42.286722,
+        "meanAnomalyDeg": 29.242113,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.087016,
+        "Radius": 73593544,
+        "PlanetClass": "Sudarsky class III gas giant"
+      }
+    },
+    {
+      "id": 56,
+      "name": "V886 Centauri 8 a",
+      "kind": "Planet",
+      "parentId": 54,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 452626645.5650325,
+        "orbitalPeriodSec": 69269.55163500001,
+        "eccentricity": 0.000071,
+        "inclinationDeg": 0.004918,
+        "periapsisDeg": 140.559778,
+        "ascendingNodeDeg": -23.837637,
+        "meanAnomalyDeg": 144.765735,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.161662,
+        "Radius": 1791992.125,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 57,
+      "name": "V886 Centauri 8 b",
+      "kind": "Planet",
+      "parentId": 54,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 766566753.3874516,
+        "orbitalPeriodSec": 152671.21195800038,
+        "eccentricity": 0.000042,
+        "inclinationDeg": -0.050953,
+        "periapsisDeg": 36.824039,
+        "ascendingNodeDeg": 85.520662,
+        "meanAnomalyDeg": 90.72253,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.521196,
+        "Radius": 2447788.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 58,
+      "name": "V886 Centauri 8 c",
+      "kind": "Planet",
+      "parentId": 54,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 1198806166.6488645,
+        "orbitalPeriodSec": 298576.468229,
+        "eccentricity": 0.002208,
+        "inclinationDeg": -0.58113,
+        "periapsisDeg": 105.328088,
+        "ascendingNodeDeg": -1.991424,
+        "meanAnomalyDeg": 318.696398,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.19101,
+        "Radius": 2249719.5,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 59,
+      "name": "V886 Centauri 8 d",
+      "kind": "Planet",
+      "parentId": 54,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 1695557236.6714432,
+        "orbitalPeriodSec": 502227.95009599987,
+        "eccentricity": 0.002682,
+        "inclinationDeg": -2.521795,
+        "periapsisDeg": 281.230614,
+        "ascendingNodeDeg": 33.223611,
+        "meanAnomalyDeg": 263.53187,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.319924,
+        "Radius": 2680076.25,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 60,
+      "name": "V886 Centauri 8 e",
+      "kind": "Planet",
+      "parentId": 54,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 2328835725.784297,
+        "orbitalPeriodSec": 808426.3145920002,
+        "eccentricity": 0.002196,
+        "inclinationDeg": 0.022675,
+        "periapsisDeg": 104.466145,
+        "ascendingNodeDeg": 148.178055,
+        "meanAnomalyDeg": 7.791761,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": -0.408164,
+        "Radius": 2612386.75,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 61,
+      "name": "V886 Centauri 9",
+      "kind": "Planet",
+      "parentId": 0,
+      "children": [
+        62
+      ],
+      "elements": {
+        "semiMajorAxis": 949326783418.6554,
+        "orbitalPeriodSec": 465540868.0438998,
+        "eccentricity": 0.006968,
+        "inclinationDeg": 0.340821,
+        "periapsisDeg": 60.522962,
+        "ascendingNodeDeg": 162.720463,
+        "meanAnomalyDeg": 196.788595,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 3.124803,
+        "Radius": 23815558,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 62,
+      "name": "V886 Centauri 9 a",
+      "kind": "Planet",
+      "parentId": 61,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 12819358706.474302,
+        "orbitalPeriodSec": 43192388.415336974,
+        "eccentricity": 0,
+        "inclinationDeg": 4.698702,
+        "periapsisDeg": 252.019521,
+        "ascendingNodeDeg": 121.259244,
+        "meanAnomalyDeg": 329.385547,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.428331,
+        "Radius": 10071632,
+        "PlanetClass": "Icy body"
+      }
+    },
+    {
+      "id": 64,
+      "name": "V886 Centauri 10",
+      "kind": "Planet",
+      "parentId": 0,
+      "children": [],
+      "elements": {
+        "semiMajorAxis": 1406303346157.074,
+        "orbitalPeriodSec": 839368641.376495,
+        "eccentricity": 0.171625,
+        "inclinationDeg": -48.616938,
+        "periapsisDeg": 280.251473,
+        "ascendingNodeDeg": 141.37491,
+        "meanAnomalyDeg": 241.454512,
+        "epochMs": 1794702171000
+      },
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "raw": {
+        "AxialTilt": 0.181773,
+        "Radius": 19780344,
+        "PlanetClass": "Icy body"
+      }
+    }
+  ],
+  "samples": [
+    {
+      "epochMs": 1794730311507,
+      "beforePositions": [
+        {
+          "id": 0,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        {
+          "id": 9,
+          "x": 97560175832.69324,
+          "y": -209126557588.26407,
+          "z": -11714807.60933009
+        },
+        {
+          "id": 10,
+          "x": 97505431977.43645,
+          "y": -209079519658.21484,
+          "z": -13397888.650769418
+        },
+        {
+          "id": 12,
+          "x": 102027551513.21648,
+          "y": -212965091443.9077,
+          "z": 125633100.76697066
+        },
+        {
+          "id": 14,
+          "x": -205466569974.5438,
+          "y": -202272360057.30353,
+          "z": 3029197449.0015206
+        },
+        {
+          "id": 15,
+          "x": -205437934792.46945,
+          "y": -202298213593.7561,
+          "z": 3026796450.3781643
+        },
+        {
+          "id": 18,
+          "x": -205038703089.0389,
+          "y": -202149830018.7868,
+          "z": 3064216384.6936064
+        },
+        {
+          "id": 19,
+          "x": -205747466662.71545,
+          "y": -201857547039.43576,
+          "z": 3197792264.0601025
+        },
+        {
+          "id": 20,
+          "x": -204776798222.45486,
+          "y": -201847879440.2665,
+          "z": 3156228481.500086
+        },
+        {
+          "id": 21,
+          "x": -205228354594.5201,
+          "y": -203326328691.54083,
+          "z": 2686970381.59027
+        },
+        {
+          "id": 22,
+          "x": -205233242287.23035,
+          "y": -203330215699.06808,
+          "z": 2688744523.898799
+        },
+        {
+          "id": 23,
+          "x": -203857622863.67926,
+          "y": -202038970937.14047,
+          "z": 3098204310.0514
+        },
+        {
+          "id": 24,
+          "x": -213418207353.00912,
+          "y": -195093150149.0691,
+          "z": 3695925182.3073783
+        },
+        {
+          "id": 25,
+          "x": -214261926834.21762,
+          "y": 370074525036.6961,
+          "z": 6938917549.634123
+        },
+        {
+          "id": 28,
+          "x": -214311847343.85355,
+          "y": 369638356958.5127,
+          "z": 7105818502.163871
+        },
+        {
+          "id": 29,
+          "x": -215621820000.98904,
+          "y": 368425834194.23083,
+          "z": 7157906301.147781
+        },
+        {
+          "id": 30,
+          "x": -217121838018.45175,
+          "y": 369558975891.1383,
+          "z": 6150562864.319815
+        },
+        {
+          "id": 31,
+          "x": -215092189633.98633,
+          "y": 366315825937.8709,
+          "z": 8248574818.240721
+        },
+        {
+          "id": 32,
+          "x": -219014157310.45236,
+          "y": 367621344016.83344,
+          "z": 6305759113.481253
+        },
+        {
+          "id": 33,
+          "x": -470159524365.1523,
+          "y": -260328003079.2078,
+          "z": -103221693.22577196
+        },
+        {
+          "id": 34,
+          "x": -468638271605.79425,
+          "y": -260400952588.71317,
+          "z": 537976013.8422179
+        },
+        {
+          "id": 35,
+          "x": -469274617118.1425,
+          "y": -258991136815.01553,
+          "z": -1605069252.283457
+        },
+        {
+          "id": 36,
+          "x": -469275995429.85767,
+          "y": -258989347026.6342,
+          "z": -1607322257.2612753
+        },
+        {
+          "id": 37,
+          "x": -469272812389.137,
+          "y": -258993480322.56915,
+          "z": -1602119219.6896179
+        },
+        {
+          "id": 38,
+          "x": -473256168768.82623,
+          "y": -261076297740.0981,
+          "z": -176087366.5067768
+        },
+        {
+          "id": 39,
+          "x": -473250542219.39453,
+          "y": -261074244194.03894,
+          "z": -177423723.5624185
+        },
+        {
+          "id": 40,
+          "x": -466238783895.0788,
+          "y": -258806311280.60416,
+          "z": -779790329.8332951
+        },
+        {
+          "id": 41,
+          "x": -466240925503.4395,
+          "y": -258814141297.82953,
+          "z": -771925777.6021179
+        },
+        {
+          "id": 42,
+          "x": -464863246482.4606,
+          "y": -259592477734.61566,
+          "z": 767068975.5849576
+        },
+        {
+          "id": 44,
+          "x": -477160652769.23956,
+          "y": -262928679358.23532,
+          "z": 1009313679.3283799
+        },
+        {
+          "id": 45,
+          "x": 719511604262.7362,
+          "y": -36710151819.98541,
+          "z": -1839525010.806325
+        },
+        {
+          "id": 46,
+          "x": 732295552620.9133,
+          "y": -48163211121.50801,
+          "z": -2974629948.404351
+        },
+        {
+          "id": 48,
+          "x": 732252243696.9077,
+          "y": -48767716570.5837,
+          "z": -2959777377.668965
+        },
+        {
+          "id": 49,
+          "x": 732521345473.0084,
+          "y": -49039276252.40554,
+          "z": -2975170922.28515
+        },
+        {
+          "id": 50,
+          "x": 733996408720.1921,
+          "y": -48234421015.29088,
+          "z": -3100671221.8705206
+        },
+        {
+          "id": 51,
+          "x": 733999140301.187,
+          "y": -48228985689.597404,
+          "z": -3102823788.071593
+        },
+        {
+          "id": 52,
+          "x": 734090954410.5487,
+          "y": -49254580014.026665,
+          "z": -3268729258.7371316
+        },
+        {
+          "id": 53,
+          "x": 731967799084.6296,
+          "y": -45515597169.36836,
+          "z": -3017673433.1530576
+        },
+        {
+          "id": 54,
+          "x": 700331507847.6652,
+          "y": -19526830743.138897,
+          "z": -136496821.37671137
+        },
+        {
+          "id": 56,
+          "x": 700342910545.6787,
+          "y": -19979262598.412666,
+          "z": -130509780.97097312
+        },
+        {
+          "id": 57,
+          "x": 699819739017.0387,
+          "y": -18956087618.29397,
+          "z": -132623731.70753995
+        },
+        {
+          "id": 58,
+          "x": 701494103959.8899,
+          "y": -19807992478.50716,
+          "z": -149450579.15895528
+        },
+        {
+          "id": 59,
+          "x": 701017552196.325,
+          "y": -17977965063.12861,
+          "z": -177236182.6201607
+        },
+        {
+          "id": 60,
+          "x": 698686488076.4623,
+          "y": -21167352214.08495,
+          "z": -75118470.78408104
+        },
+        {
+          "id": 61,
+          "x": 854042343237.763,
+          "y": -428821141270.7901,
+          "z": 3944740185.9701195
+        },
+        {
+          "id": 62,
+          "x": 841279224293.2892,
+          "y": -428916064637.8495,
+          "z": 2749021988.040129
+        },
+        {
+          "id": 64,
+          "x": -1226188542816.7336,
+          "y": 84705096105.19907,
+          "z": 943815108462.6073
+        }
+      ]
+    },
+    {
+      "epochMs": 1795730311507,
+      "beforePositions": [
+        {
+          "id": 0,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        {
+          "id": 9,
+          "x": 120437056087.657,
+          "y": -196844997849.1478,
+          "z": -12097749.400790732
+        },
+        {
+          "id": 10,
+          "x": 120378774568.6199,
+          "y": -196869537648.93137,
+          "z": -16503089.562958159
+        },
+        {
+          "id": 12,
+          "x": 125193123569.62262,
+          "y": -194842426242.45477,
+          "z": 347400328.8685097
+        },
+        {
+          "id": 14,
+          "x": -188507649649.08707,
+          "y": -218164671970.65314,
+          "z": 3078894063.8275914
+        },
+        {
+          "id": 15,
+          "x": -188469918422.13516,
+          "y": -218168980570.04324,
+          "z": 3075431649.017299
+        },
+        {
+          "id": 18,
+          "x": -188542001154.01355,
+          "y": -218570022883.5,
+          "z": 2945842456.175816
+        },
+        {
+          "id": 19,
+          "x": -188014975194.41428,
+          "y": -217850555713.731,
+          "z": 3162989266.4141393
+        },
+        {
+          "id": 20,
+          "x": -189139221388.7577,
+          "y": -218598305140.23907,
+          "z": 2953013242.346738
+        },
+        {
+          "id": 21,
+          "x": -189205507420.77835,
+          "y": -218943360431.484,
+          "z": 2842158947.548605
+        },
+        {
+          "id": 22,
+          "x": -189210295151.2946,
+          "y": -218944830635.80005,
+          "z": 2846289575.134156
+        },
+        {
+          "id": 23,
+          "x": -189713050624.9639,
+          "y": -219164412046.44098,
+          "z": 2777640714.6832995
+        },
+        {
+          "id": 24,
+          "x": -198985147377.19257,
+          "y": -216968225974.73788,
+          "z": 4040364068.569289
+        },
+        {
+          "id": 25,
+          "x": -230597236254.72668,
+          "y": 360199187124.5658,
+          "z": 6654647673.886685
+        },
+        {
+          "id": 28,
+          "x": -230152739244.9355,
+          "y": 360299403044.02405,
+          "z": 6768600185.376518
+        },
+        {
+          "id": 29,
+          "x": -228555917122.5766,
+          "y": 360356848890.4398,
+          "z": 7305886757.753376
+        },
+        {
+          "id": 30,
+          "x": -231858362377.98398,
+          "y": 362534327944.2954,
+          "z": 5222849185.928066
+        },
+        {
+          "id": 31,
+          "x": -230293998673.27365,
+          "y": 363999555724.8235,
+          "z": 5141642661.886738
+        },
+        {
+          "id": 32,
+          "x": -226400936410.3802,
+          "y": 357911295069.39514,
+          "z": 9142496090.819868
+        },
+        {
+          "id": 33,
+          "x": -461675906537.3101,
+          "y": -275095855585.2854,
+          "z": -105399038.45353693
+        },
+        {
+          "id": 34,
+          "x": -460199678557.45544,
+          "y": -275244104945.4904,
+          "z": 621616256.8197563
+        },
+        {
+          "id": 35,
+          "x": -461327308389.64404,
+          "y": -273751617915.13507,
+          "z": -1807670119.237016
+        },
+        {
+          "id": 36,
+          "x": -461328061842.8498,
+          "y": -273753208846.4052,
+          "z": -1805934475.9320302
+        },
+        {
+          "id": 37,
+          "x": -461326321835.1668,
+          "y": -273749534786.6684,
+          "z": -1809942730.2358088
+        },
+        {
+          "id": 38,
+          "x": -464164630997.2062,
+          "y": -274375551888.781,
+          "z": -1958896108.0972638
+        },
+        {
+          "id": 39,
+          "x": -464159057552.30115,
+          "y": -274377642968.7512,
+          "z": -1957404445.7516222
+        },
+        {
+          "id": 40,
+          "x": -463676128084.0457,
+          "y": -273217097537.21533,
+          "z": -3363809507.2015676
+        },
+        {
+          "id": 41,
+          "x": -463672678352.3089,
+          "y": -273209127358.93295,
+          "z": -3371042932.877417
+        },
+        {
+          "id": 42,
+          "x": -466977629916.3859,
+          "y": -275772509883.6847,
+          "z": -1056661438.2774351
+        },
+        {
+          "id": 44,
+          "x": -461435021757.2275,
+          "y": -270631638700.288,
+          "z": -6190701668.602172
+        },
+        {
+          "id": 45,
+          "x": 720112333873.4967,
+          "y": -22015484006.958298,
+          "z": -1886411722.8153167
+        },
+        {
+          "id": 46,
+          "x": 734815753875.8512,
+          "y": -31419215605.7548,
+          "z": -3285042459.310115
+        },
+        {
+          "id": 48,
+          "x": 734519134065.0835,
+          "y": -30890646169.790466,
+          "z": -3270343636.463606
+        },
+        {
+          "id": 49,
+          "x": 733923013579.906,
+          "y": -31545315594.12137,
+          "z": -3205095629.6616073
+        },
+        {
+          "id": 50,
+          "x": 733319446801.5544,
+          "y": -32224308657.214283,
+          "z": -3134329391.8463726
+        },
+        {
+          "id": 51,
+          "x": 733316732297.4824,
+          "y": -32223781410.47048,
+          "z": -3128499184.31237
+        },
+        {
+          "id": 52,
+          "x": 735889004744.884,
+          "y": -29614451042.0138,
+          "z": -3403848141.8405147
+        },
+        {
+          "id": 53,
+          "x": 737407102761.808,
+          "y": -30838368005.23965,
+          "z": -3560568368.263683
+        },
+        {
+          "id": 54,
+          "x": 698052404474.3385,
+          "y": -7906823613.254841,
+          "z": 211991074.7565143
+        },
+        {
+          "id": 56,
+          "x": 698217888202.3623,
+          "y": -7485648598.169262,
+          "z": 202159401.78644532
+        },
+        {
+          "id": 57,
+          "x": 698715395510.58,
+          "y": -8291419245.159369,
+          "z": 201768787.56842804
+        },
+        {
+          "id": 58,
+          "x": 697595323785.7991,
+          "y": -6797233993.090976,
+          "z": 204910662.3459821
+        },
+        {
+          "id": 59,
+          "x": 698823905310.5616,
+          "y": -6398354620.356431,
+          "z": 173910878.19806302
+        },
+        {
+          "id": 60,
+          "x": 699561915554.6415,
+          "y": -9681980012.903744,
+          "z": 200117338.67996258
+        },
+        {
+          "id": 61,
+          "x": 859654322060.0581,
+          "y": -417397877032.3366,
+          "z": 3889771413.1368613
+        },
+        {
+          "id": 62,
+          "x": 847014125688.7777,
+          "y": -415633692218.43414,
+          "z": 2686008445.138283
+        },
+        {
+          "id": 64,
+          "x": -1228819193376.5828,
+          "y": 77023730267.52951,
+          "z": 938867918367.5582
+        }
+      ]
+    },
+    {
+      "epochMs": 1793730311507,
+      "beforePositions": [
+        {
+          "id": 0,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        {
+          "id": 9,
+          "x": 73447341805.0898,
+          "y": -218758764618.15018,
+          "z": -11183455.03382919
+        },
+        {
+          "id": 10,
+          "x": 73447135196.98988,
+          "y": -218678788541.706,
+          "z": -8394841.79335379
+        },
+        {
+          "id": 12,
+          "x": 73464201504.23438,
+          "y": -225285217750.82834,
+          "z": -238748461.92221305
+        },
+        {
+          "id": 14,
+          "x": -221090482468.90775,
+          "y": -185065794940.77377,
+          "z": 2959818792.8726506
+        },
+        {
+          "id": 15,
+          "x": -221080337517.59705,
+          "y": -185104863345.98685,
+          "z": 2959268414.2668467
+        },
+        {
+          "id": 18,
+          "x": -221415056043.5057,
+          "y": -184855017419.96387,
+          "z": 3050728371.5363493
+        },
+        {
+          "id": 19,
+          "x": -221560755321.04544,
+          "y": -185384795329.191,
+          "z": 2886564582.3892016
+        },
+        {
+          "id": 20,
+          "x": -221719752344.83142,
+          "y": -185573896526.40833,
+          "z": 2823232782.510098
+        },
+        {
+          "id": 21,
+          "x": -220090680680.7036,
+          "y": -185564877868.00528,
+          "z": 2784471016.7955675
+        },
+        {
+          "id": 22,
+          "x": -220094345811.84778,
+          "y": -185570129922.80997,
+          "z": 2783408622.0938964
+        },
+        {
+          "id": 23,
+          "x": -222578842880.29385,
+          "y": -184491814714.0916,
+          "z": 3153741639.5068326
+        },
+        {
+          "id": 24,
+          "x": -223907609776.47333,
+          "y": -174216978900.59808,
+          "z": 3112652074.9374995
+        },
+        {
+          "id": 25,
+          "x": -197499841102.40167,
+          "y": 379212726954.3864,
+          "z": 7209366071.422818
+        },
+        {
+          "id": 28,
+          "x": -197923067391.47336,
+          "y": 379297971907.13196,
+          "z": 7024462000.440688
+        },
+        {
+          "id": 29,
+          "x": -197836143944.3333,
+          "y": 381122106849.7808,
+          "z": 6283589402.3842
+        },
+        {
+          "id": 30,
+          "x": -198470367715.8474,
+          "y": 376474394179.4121,
+          "z": 8026373431.833126
+        },
+        {
+          "id": 31,
+          "x": -196322206893.22696,
+          "y": 382954221141.46204,
+          "z": 6029365730.17446
+        },
+        {
+          "id": 32,
+          "x": -196506438701.8462,
+          "y": 384198969143.1736,
+          "z": 5404587864.130653
+        },
+        {
+          "id": 33,
+          "x": -478171125045.3056,
+          "y": -245298794028.848,
+          "z": -100940718.47651896
+        },
+        {
+          "id": 34,
+          "x": -476613257358.38745,
+          "y": -245296040371.74374,
+          "z": 450894659.6665021
+        },
+        {
+          "id": 35,
+          "x": -476810039293.9221,
+          "y": -244060139639.33752,
+          "z": -1300314069.9737678
+        },
+        {
+          "id": 36,
+          "x": -476808831793.2697,
+          "y": -244061319911.2042,
+          "z": -1298788034.7080243
+        },
+        {
+          "id": 37,
+          "x": -476811620367.0126,
+          "y": -244058594218.5982,
+          "z": -1302312225.274004
+        },
+        {
+          "id": 38,
+          "x": -480136602438.37274,
+          "y": -247095452669.50073,
+          "z": 1647761130.2108135
+        },
+        {
+          "id": 39,
+          "x": -480134684444.4951,
+          "y": -247090627406.74655,
+          "z": 1644490182.4975374
+        },
+        {
+          "id": 40,
+          "x": -477378376642.40436,
+          "y": -247643888587.4206,
+          "z": 3362711457.3198156
+        },
+        {
+          "id": 41,
+          "x": -477377578851.5404,
+          "y": -247636329233.90848,
+          "z": 3354346856.78342
+        },
+        {
+          "id": 42,
+          "x": -483485266769.6585,
+          "y": -246170878085.9011,
+          "z": -794105937.0900033
+        },
+        {
+          "id": 44,
+          "x": -473484174863.32434,
+          "y": -247932579788.9248,
+          "z": 5201411910.320034
+        },
+        {
+          "id": 45,
+          "x": 718611025513.5261,
+          "y": -51389521044.76996,
+          "z": -1791871695.489049
+        },
+        {
+          "id": 46,
+          "x": 729170146243.6138,
+          "y": -64617600534.10871,
+          "z": -2636356145.181208
+        },
+        {
+          "id": 48,
+          "x": 729538978241.801,
+          "y": -64138030511.6049,
+          "z": -2675823539.397274
+        },
+        {
+          "id": 49,
+          "x": 730006884131.4785,
+          "y": -64290667566.93104,
+          "z": -2715812180.924797
+        },
+        {
+          "id": 50,
+          "x": 727749966837.9657,
+          "y": -63669126831.83753,
+          "z": -2571920703.282633
+        },
+        {
+          "id": 51,
+          "x": 727750437834.4633,
+          "y": -63674118231.167786,
+          "z": -2575982960.83241
+        },
+        {
+          "id": 52,
+          "x": 728118950169.7954,
+          "y": -66463253126.24592,
+          "z": -2521800699.526858
+        },
+        {
+          "id": 53,
+          "x": 726514075611.7976,
+          "y": -64677093822.27479,
+          "z": -2369287927.926862
+        },
+        {
+          "id": 54,
+          "x": 702768895755.4277,
+          "y": -31543089943.98781,
+          "z": -524868998.25309014
+        },
+        {
+          "id": 56,
+          "x": 702582183281.5774,
+          "y": -31130745315.71982,
+          "z": -526061953.7879703
+        },
+        {
+          "id": 57,
+          "x": 703079148442.504,
+          "y": -32244033874.664124,
+          "z": -522010166.82455194
+        },
+        {
+          "id": 58,
+          "x": 701856589588.9423,
+          "y": -32323269670.07448,
+          "z": -502509275.7327819
+        },
+        {
+          "id": 59,
+          "x": 703367348196.1118,
+          "y": -29958648716.57918,
+          "z": -568140714.7911655
+        },
+        {
+          "id": 60,
+          "x": 701005462271.8904,
+          "y": -30025428632.68661,
+          "z": -503463191.5167449
+        },
+        {
+          "id": 61,
+          "x": 848277871266.9413,
+          "y": -440167837576.10364,
+          "z": 3999004607.6767673
+        },
+        {
+          "id": 62,
+          "x": 835661439826.0822,
+          "y": -442119863948.39984,
+          "z": 2836589713.9234476
+        },
+        {
+          "id": 64,
+          "x": -1223506544162.9636,
+          "y": 92382914957.01802,
+          "z": 948722775309.157
+        }
+      ]
+    }
+  ]
+}
