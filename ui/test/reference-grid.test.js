@@ -75,3 +75,31 @@ test('grid follows a distant off-plane group through physical close-ups without 
     assert.equal(camera.position.z < fixed.z, true, 'fixed system plane is behind this close-up camera');
   }
 });
+
+test('screen grid rays intersect the correct world plane above, below and across extreme scales', () => {
+  const grid=createReferenceGrid();
+  for (const distance of [1e-4,100,1e6,1e12]) for (const angle of [-85,-5,.2,35,85]) {
+    const target=new THREE.Vector3(1494,-9510,-7662);
+    const camera=new THREE.PerspectiveCamera(15,1.6,Math.max(1e-12,distance/1e6),Math.max(60000,distance*1.5));
+    const a=THREE.MathUtils.degToRad(angle);
+    camera.position.copy(target).add(new THREE.Vector3(0,-Math.cos(a)*distance,Math.sin(a)*distance));
+    camera.up.set(0,0,1);camera.lookAt(target);
+    const layout=grid.update(camera,target,1000),u=grid.mesh.material.uniforms;
+    assert.ok(u.fadeDistance.value<u.clipRange.value.y,'grid fades before hard far clipping');
+    for (const [x,y] of [[0,0],[-.8,-.7],[.8,.7]]) {
+      const ray=u.rayForward.value.clone().addScaledVector(u.rayRight.value,x).addScaledVector(u.rayUp.value,y);
+      const t=u.planeHeight.value/ray.z;
+      // Unproject at the origin: adding/subtracting a 1e-12 near-plane offset
+      // at a distant body's world coordinates would spoil the reference ray.
+      const localCamera=camera.clone();localCamera.position.set(0,0,0);localCamera.updateMatrixWorld();
+      const expected=new THREE.Raycaster();expected.setFromCamera(new THREE.Vector2(x,y),localCamera);
+      assert.ok(ray.clone().normalize().distanceTo(expected.ray.direction)<1e-10);
+      if (t>0) {
+        const hit=camera.position.clone().addScaledVector(ray,t*layout.step);
+        assert.ok(Math.abs(hit.z-layout.z)<Math.max(1e-8,distance*1e-12));
+      }
+    }
+    assert.ok(u.cameraGridXY.value.toArray().every(v=>v>=0&&v<100),'GPU gets only the coarse-cell phase');
+  }
+  grid.dispose();
+});

@@ -18,6 +18,7 @@ function input(canvas, type, overrides = {}) {
   const event = new Event(type, { cancelable: true });
   Object.assign(event, { pointerId: 1, pointerType: 'mouse', button: 0,
     clientX: 600, clientY: 400, ...overrides });
+  Object.assign(event, { pageX: event.clientX, pageY: event.clientY });
   canvas.dispatchEvent(event);
 }
 
@@ -67,6 +68,51 @@ test('actual pointer and keyboard pans still release following at physical and s
       orbit.controls.dispose();
     }
   }
+});
+
+test('free rotation completes repeated horizontal and vertical revolutions without pole limits or lost follow', async () => {
+  const { viewOrientation } = await import('../src/view-presets.js');
+  for (const axis of ['clientX','clientY']) {
+    const canvas = new Canvas(), camera = new THREE.PerspectiveCamera(ORRERY_FOV_DEG,1.5,.001,60000);
+    let pans=0;
+    const orbit=createOrbitCamera(canvas,camera,{ onPan: () => pans++ });
+    const target=new THREE.Vector3(1494,-9510,-7662);
+    orbit.focus(target,100);
+    orbit.orient(viewOrientation('top'));
+    const direction=camera.position.clone().sub(target).normalize(), up=camera.up.clone();
+    input(canvas,'pointerdown');
+    for (let i=1;i<=192;i++) {
+      input(canvas,'pointermove',{ [axis]: (axis==='clientX' ? 600 : 400)+i*12.5 });
+      // 64 increments of 12.5 pixels = one complete revolution.
+      if (i%64===32) assert.ok(camera.position.clone().sub(target).normalize().dot(direction)<-.999999);
+      if (i%64===0) {
+        assert.ok(camera.position.clone().sub(target).normalize().distanceTo(direction)<1e-5);
+        assert.ok(camera.up.distanceTo(up)<1e-5);
+      }
+      assert.ok(Math.abs(camera.position.distanceTo(target)-100)<1e-8);
+    }
+    input(canvas,'pointerup',{ [axis]: (axis==='clientX' ? 600 : 400)+2400 });
+    assert.equal(pans,0);
+    orbit.controls.dispose();
+  }
+});
+
+test('two-finger pinch keeps free rotation out of the gesture, then one finger can rotate again', async () => {
+  const { viewOrientation } = await import('../src/view-presets.js');
+  const canvas=new Canvas(),camera=new THREE.PerspectiveCamera(ORRERY_FOV_DEG,1.5,.001,60000);
+  const orbit=createOrbitCamera(canvas,camera);
+  orbit.orient(viewOrientation('top'));
+  const before=camera.quaternion.clone(),distance=camera.position.distanceTo(orbit.controls.target);
+  input(canvas,'pointerdown',{ pointerType:'touch',pointerId:1,clientX:500 });
+  input(canvas,'pointerdown',{ pointerType:'touch',pointerId:2,clientX:700 });
+  input(canvas,'pointermove',{ pointerType:'touch',pointerId:2,clientX:800 });
+  assert.ok(camera.quaternion.angleTo(before)<1e-6);
+  assert.ok(camera.position.distanceTo(orbit.controls.target)<distance);
+  input(canvas,'pointerup',{ pointerType:'touch',pointerId:2,clientX:800 });
+  input(canvas,'pointermove',{ pointerType:'touch',pointerId:1,clientX:520 });
+  assert.ok(camera.quaternion.angleTo(before)>.01);
+  input(canvas,'pointerup',{ pointerType:'touch',pointerId:1,clientX:520 });
+  orbit.controls.dispose();
 });
 
 test('a small physical body can be inspected without the old minimum zoom or near-plane clipping', () => {
@@ -185,5 +231,33 @@ for (const preset of ['top', 'front', 'side', 'angled']) test(`${preset} aligns 
     orbit.fit(new THREE.Box3(new THREE.Vector3(-1,-1,-1), new THREE.Vector3(1,1,1)), {}, true);
     assert.deepEqual(camera.up.toArray(), [0, 0, 1]);
     orbit.controls.dispose();
+  }
+});
+
+test('vertical dragging crosses below the reference plane after every preset, including Top', async () => {
+  const { orbitFrame, SYSTEM_FRAME, viewOrientation } = await import('../src/view-presets.js');
+  for (const frame of [SYSTEM_FRAME, orbitFrame({ elements: { inclinationDeg: 63, ascendingNodeDeg: 117, periapsisDeg: 34 } })]) {
+    for (const preset of ['top', 'front', 'side', 'angled']) {
+      const canvas = new Canvas();
+      const camera = new THREE.PerspectiveCamera(ORRERY_FOV_DEG, 1.5, .001, 60000);
+      const orbit = createOrbitCamera(canvas, camera);
+      const target = new THREE.Vector3(1494, -9510, -7662);
+      orbit.focus(target, 100);
+      orbit.orient(viewOrientation(preset, frame));
+      if (preset === 'top') {
+        camera.updateMatrixWorld();
+        const centre = target.clone().project(camera);
+        const north = target.clone().add(frame.y).project(camera);
+        assert.ok(north.y > centre.y, 'Top retains positive reference Y screen-up');
+        assert.ok(Math.abs(north.x-centre.x) < 1e-5, 'Top does not introduce a roll');
+      }
+      input(canvas, 'pointerdown');
+      input(canvas, 'pointermove', { clientY: 100 });
+      input(canvas, 'pointerup', { clientY: 100 });
+      assert.ok(camera.position.clone().sub(target).dot(frame.z) < -1,
+        `${preset} must allow a continuous drag into the lower hemisphere`);
+      assert.ok(orbit.controls.target.distanceTo(target) < 1e-10);
+      orbit.controls.dispose();
+    }
   }
 });

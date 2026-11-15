@@ -104,7 +104,7 @@ test('physical-scale orbit lines pass through the current body position between 
   }
 });
 
-test('labels keep the same readable screen size in every scale mode at an unchanged camera zoom', () => {
+test('selected labels keep the same readable screen size in every scale mode at an unchanged camera zoom', () => {
   const camera = new THREE.PerspectiveCamera(60, 1, 1e-10, 1e9);
   camera.up.set(0, 0, 1);
   for (const scaleMode of ['compact', 'distances', 'realistic']) {
@@ -116,7 +116,7 @@ test('labels keep the same readable screen size in every scale mode at an unchan
         camera.updateProjectionMatrix();
         camera.position.copy(planet.bodyGroup.position).add(new THREE.Vector3(distance, -distance, distance));
         camera.lookAt(planet.bodyGroup.position);
-        updateBodyAnnotations(updatables, camera, 800);
+        updateBodyAnnotations(updatables, camera, 800, { selectedId:1 });
         const cameraUp = new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion);
         const center = planet.bodyGroup.position.clone().add(planet.label.position);
         const top = center.clone().addScaledVector(cameraUp, planet.label.scale.y / 2).project(camera);

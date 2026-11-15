@@ -47,6 +47,15 @@ Position at time *t*:
 
 Body positions, orbit paths (including moving close-up detail), and selected-orbit views share these inherited frames. Compact mode compresses each local offset before adding it in system axes. The unorbiting root's axial tilt is omitted as a common rigid rotation, preserving the existing main-planet view. Journal and community data retain signed axial tilt in radians; unavailable tilt defaults to zero. See the [Vega hierarchy investigation](docs/research/galactic-frame-followup.md) for measured range checks and remaining limits.
 
+Orbit paths start with 96 time intervals, then subdivide each interval where
+quarter/midpoint probes deviate from its chord by more than 0.01% of the displayed
+semimajor-axis scale (at most six subdivision levels). Refinement is evaluated
+after display scaling, including Compact's nonlinear compression, and cached
+when the path is built. This resolves fast periapsis swings without relying on
+the body's current location. True-distance modes additionally retain the exact
+body vertex and moving body-scale samples in a reusable, body-relative GPU buffer.
+This is geometric refinement, not a guarantee of subpixel accuracy at every zoom.
+
 For bodies orbiting a stellar pair's barycentre, the inner binary's orbital basis
 also defines the circumbinary plane. A uniquely matched pair (period, eccentricity,
 inclination and node agree, periapsides oppose) supplies its first component's

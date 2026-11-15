@@ -216,6 +216,14 @@ h3 { color: var(--hud-orange); font-weight: 400; text-transform: uppercase; font
   color: var(--text); pointer-events: none; text-shadow: 0 1px 4px #000;
 }
 #viewStatus strong { color: var(--hud-cyan); font-weight: normal; }
+#orientationAxes {
+  position: fixed; z-index: 5; left: var(--hud-gap);
+  bottom: calc(var(--playback-height) + 2 * var(--hud-gap) + 28px);
+  width: 96px; pointer-events: none; text-align: center;
+  color: #a0b3c5; font-size: 10px; text-shadow: 0 1px 3px #000;
+}
+#axisLegend { display: block; width: 96px; height: 96px; font-size: 11px; font-weight: bold; }
+#systemPanel { max-height: calc(100dvh - var(--toolbar-height) - var(--playback-height) - 6 * var(--hud-gap) - 148px); }
 #hint {
   position: fixed; bottom: calc(var(--playback-height) + 2 * var(--hud-gap)); right: var(--hud-gap);
   color: var(--text); opacity: .65; font-size: 10px; pointer-events: none;

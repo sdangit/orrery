@@ -95,6 +95,7 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
       bodyGroup.position.set(pos.x, pos.y, pos.z);
       const orbit = addOrbitPath(group, nodes, node, pos, trueDistances, 0, atEpochMs);
       updatables.set(node.id, {
+        kind: node.kind,
         bodyGroup, mesh: null, radius: 0, label: null, marker: null,
         rings: [], orbit, parentId: node.parentId,
       });
@@ -169,12 +170,17 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     label.userData.aspect = label.scale.x / label.scale.y;
     label.position.set(0, 0, radius + 1.1);
     bodyGroup.add(label);
+    const labelHint = makeLabel('+',finalLabelColor);
+    labelHint.userData.text = '+';
+    labelHint.userData.aspect = labelHint.scale.x/labelHint.scale.y;
+    labelHint.visible = false;
+    bodyGroup.add(labelHint);
 
     group.add(bodyGroup);
 
     const marker = trueSizes ? makeBodyMarker(labelColor) : null;
     if (marker) bodyGroup.add(marker);
-    const updatable = { bodyGroup, mesh, radius, label, marker, rings: [], orbit: null, parentId: node.parentId ?? null };
+    const updatable = { bodyGroup, mesh, radius, label, labelHint, marker, rings: [], orbit: null, kind: node.kind, parentId: node.parentId ?? null };
     updatables.set(node.id, updatable);
 
     updatable.orbit = addOrbitPath(group, nodes, node, pos, trueDistances, radius, atEpochMs);

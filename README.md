@@ -102,6 +102,17 @@ the time reference opens that explanation automatically.
 Camera controls: left-drag to orbit; right-drag or Shift-drag to pan; scroll or
 pinch to zoom. Arrow keys pan while the map has focus. On a touchscreen, use
 one finger to orbit and two fingers to pan/zoom. Dragging does not select a body.
+Rotation is unrestricted in every direction, including repeated flips past the
+top and bottom. The bottom-left X/Y/Z legend rotates with the camera and always
+shows the system axes (solid positive arms, dashed negative arms). Use a View
+preset or Reset view to recover a known orientation.
+
+Body labels reveal progressively as their parent and siblings separate on screen.
+Stars (including both components of a binary) and the selected body keep their
+labels. A small **+** beside a visible label indicates nearby bodies whose labels
+are still collapsed; it disappears as their labels become readable. Modest overlap
+is allowed, with separate reveal/hide thresholds to avoid flicker while zooming.
+Hidden labels do not hide the bodies or their selectable location markers.
 
 **Center main star** and the detail panel's **Center selection** move the
 orbit pivot while preserving angle and zoom. The centered body stays under the
@@ -130,6 +141,10 @@ it to the system's zero-height plane, which may leave the viewport in a close-up
 The origin choice and visibility are remembered. True-distance modes show physical
 cell spacing; Compact uses display units. This is a local alignment aid, not a
 calibrated galactic plane.
+The grid is blue when viewed from above and a complementary orange from below.
+It fades smoothly toward the horizon and viewing-distance limit; its screen-based
+projection avoids clipping the edges of a large world-space rectangle. There is
+no additional zoom restriction.
 
 **Browse bodies** opens the system hierarchy. In the detail panel, **← / →**
 cycle through siblings, ordered by orbital size (unknown sizes last), and wrap

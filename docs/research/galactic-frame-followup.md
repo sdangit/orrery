@@ -1065,3 +1065,63 @@ No new external sources were needed for this step: it uses the user's new captur
 ### User confirmation and commit checkpoint
 
 The user subsequently reported that the camera change **seemed to work**, with further checks in additional systems still planned, and requested that all current work be committed. The pre-commit validation completed with **403 passing tests and one optional live-network test skipped** across shared, watcher and UI workspaces. The first sandboxed run could not open the watcher's localhost test server; rerunning that workspace with localhost access passed all 126 watcher tests. The UI production build and whitespace checks also pass. This is a confirmation for V886's observed appearance, not a claim of completed multi-system visual validation.
+
+## Grid clipping, unrestricted rotation and orientation cues
+
+The user subsequently tested **V886 Centauri and Vega**, reporting both worked so far. They then reported slices disappearing/reappearing in the reference grid while changing angle, and occasional inability to lower the camera below the plane. They explicitly chose **unrestricted continuous 360° rotation**, then requested a rotating bottom-left XYZ legend and complementary grid colours above/below.
+
+### Grid rendering
+
+The previous shader expanded a two-triangle world-space quad. Its extent and recentering depended on rounded decade spacing, while camera far clipping depended on the system/body framing. The quad could extend beyond the far plane at large zoom ranges, and its bounds/fade region could jump at decade or anchor transitions. A corner-based finite patch is unnecessary for this reference overlay. These are identified rendering weaknesses consistent with the report; the user's exact intermittent frame sequence was not captured or reproduced on their hardware.
+
+The replacement keeps a fixed screen quad and calculates the camera ray/plane intersection per fragment. The quad itself never crosses the camera's eye/far plane. Rays parallel to the plane, intersections behind the camera and intersections outside the clipping range do not draw. The visible plane fades before the far limit and toward the horizon using a distance continuous with zoom, independent of discrete grid levels. The existing three-level decade subdivision remains, with separate derivative filtering on each axis so a highly foreshortened axis does not erase the other set of lines.
+
+Intersection coordinates are camera-relative in grid-step units. Only the camera XY phase modulo a coarse cell reaches the GPU, preventing loss of small-cell precision around distant bodies. Fragment depth is computed at the intersection, matching Three's logarithmic scene depth (with a conventional perspective-depth fallback). The grid remains depth-tested and does not write depth, preserving body occlusion. This changes neither the physical orbital geometry nor the meaning of the selected grid origin, and adds no zoom restriction. An exactly edge-on plane naturally has no visible area.
+
+Above the plane (+Z), the grid uses muted blue `#497f9c`; below (−Z), complementary orange `#9c6649`. This is a navigation cue, not a galactic-orientation assertion. The UI still labels it **System plane grid** because a calibrated galactic frame remains unresolved.
+
+### Rotation and legend
+
+The old OrbitControls input model restricted polar angle to [0, π]. Top's screen-up Y axis made an in-plane direction a polar limit, explaining why a vertical drag could stop at the plane's edge after that preset. An initial narrow fix would have retained an upright polar model; the user instead explicitly requested continuous rotation through every direction.
+
+`free-rotation.js` now applies screen-relative quaternion rotations to both camera offset and camera up. OrbitControls' own rotation inputs are disabled; its existing pan, keyboard and wheel/two-finger zoom remain. Single-touch rotation belongs to the new layer; the unmapped one-touch action explicitly clears the former two-finger state on release. Rotation preserves the target and distance and continues to follow moving bodies. Known view presets and Reset remain ways to restore orientation after flips. No changes to camera FOV or orbit conventions were needed.
+
+The bottom-left SVG legend projects the fixed **system X/Y/Z axes** through the inverse camera orientation. Pan, zoom and FOV do not affect it. Solid positive arms have coloured X/Y/Z labels; negative arms are faint/dashed. Depth ordering changes with orientation. It is independent of selected-orbit presets so it continues to provide a stable system reference when viewing a tilted local orbit. The left panel's available height reserves space for it above the playback/status area.
+
+### Validation and limits
+
+The UI suite passes **164 tests**, including repeated full horizontal/vertical revolutions, upper/lower hemisphere crossings after every preset, moving-body following, pan/zoom, two-finger-to-one-finger transitions, legend top/bottom directions and ray/plane projection across distances from 1e−4 to 1e12 scene units. The ray reference is evaluated at the origin to avoid cancellation when unprojecting near-plane offsets at a distant body's coordinates.
+
+An isolated headless Brave profile with software WebGL rendered nine grid cases: top, angled, below, shallow ±0.2°, a very large view, a close-up around an off-plane distant target, and another subdivision scale. Shader compilation and GL error checks passed, and the captures show blue/orange faces with no clipped triangular wedges. The built app was also inspected at 1440px and 640px widths; a real browser-input half-turn produced an upside-down view with the orange grid and correctly inverted legend. The test browser/profile were separate from the user's active comparison view. Software rendering verifies shader compilation and output, but does not establish that every native GPU/driver flicker scenario is resolved. The user's next normal-use check remains valuable.
+
+## Sedna: full-orbit sampling must follow curvature, not time alone
+
+The user observed that Sedna's outer orbit appeared smooth from a Sol-centred system overview, but its inner swing consisted of roughly six obvious straight lines. During playback, the curve smoothed as Sedna reached that region and became jagged again after it moved away. That second observation identifies the interaction between two existing mechanisms: a fixed **96 equal-time intervals** for the whole orbit, and extra moving samples concentrated around the current body. Equal-time spacing concentrates vertices near slow apoapsis and leaves long chords through rapid periapsis. The local refinement temporarily concealed those chords when Sedna was nearby. No geometric/orbital element change is needed to explain this behavior.
+
+`orbit-path.js` now starts from the same phase anchors but recursively subdivides an interval when its quarter/midpoint probes deviate too far from the endpoint chord. The tolerance is **1e−4 of the displayed semimajor-axis scale**, with six subdivision levels as a safety/work bound. Probes use the same parent frame and display transform as the rendered orbit; Compact therefore refines its nonlinear displayed curve as well. The full-curve refinement is cached at construction and does not move away with the body. Actual phase values are retained for the nonuniform samples so playback can correctly merge them with the existing exact-body and geometrically spaced local knots. The dynamic GPU buffer is sized once and reused.
+
+[The independent audit](sedna-orbit-sampling.mjs) compares actual scene/GPU polylines with **8192 points generated directly from eccentric anomaly**, using the frozen Sol provider fixture (Sedna eccentricity 0.854). No parameters are fitted. The [results](sedna-orbit-sampling-results.json) record errors relative to the displayed semimajor-axis scale:
+
+| Mode | Old 96-interval maximum error | Refined maximum error | Vertices in captured rendered path |
+| --- | ---: | ---: | ---: |
+| Compact | 16.7331% | 0.0097895% | 322 |
+| True distances | 1.97187% | 0.0099158% | 311 |
+| Fully to scale | 1.97187% | 0.0099158% | 329 |
+
+The old comparison isolates the full-orbit baseline; its extra moving local detail is not included, since it cannot improve distant parts of the curve. Refined counts include moving samples where applicable and differ with body-radius scaling. The true-distance error reduction is about **199×**. These are geometric errors, not measured screenshot pixels or a universal error guarantee. The [before/after inner-swing plot](sedna-orbit-sampling-comparison.svg) was generated from the actual polylines in the orbital plane and visually inspected; it is not an in-game screenshot.
+
+A new regression places Sedna at **apoapsis** so local body refinement cannot hide poor sampling of the inner swing, then checks the whole curve against 4096 independent conic points in all three modes. Existing tests still cover exact body attachment, GPU rounding at distant close-ups, local tangent continuity during playback, nested parent frames, and V886's captured outline. The full UI suite passes **167 tests**, and the production UI builds. The work preserves the preceding uncommitted grid/free-rotation/axis changes.
+
+This remains bounded geometric sampling, not camera-dependent tessellation. Extreme zoom into a distant portion of any polygonal path can still reveal chords; achieving a strict screen-pixel tolerance at every zoom would require view-dependent refinement. The present change addresses the large periapsis error visible in an ordinary system overview without changing orbital data or relying on the current body position.
+
+## Progressive body labels and collapsed-group hints
+
+The user requested that crowded orbital groups show their central star from a distance, then reveal child labels as the projected spacing becomes readable, allowing modest overlap. Both binary stars remain labelled for now. They also requested the game's small **+** cue for a collapsed group, disappearing when zoom reveals its bodies.
+
+Label layout now operates in CSS pixels on the rendered camera projection in every scale mode. In-view stars and the selected body take priority; remaining labels are considered parent-first through invisible barycentres. Children need 32px projected separation from an in-view labelled parent to appear, but can remain visible down to 24px. If a parent is off-screen, its local children can still be inspected. Label rectangles permit 20% overlap for newly revealed labels and 35% for existing labels, with stable ID ordering and preference for already-visible siblings to reduce chatter. These are initial readability thresholds, not physical-distance cutoffs.
+
+A separate small plus sprite is attached to a visible label when an otherwise hidden, in-view body lies within 48px of that representative body. It can move down the hierarchy: a stellar group's plus disappears as its planets become labelled, while a tighter planet/moon pair can retain its own plus. Off-screen and behind-camera bodies do not produce hints. The symbol indicates unresolved nearby labels, not a numeric body count or a discovery claim. Stars in a tightly overlapping binary remain individually labelled as requested; no combined binary naming policy is introduced.
+
+The implementation preserves sphere geometry, orbit paths, location markers and picking. Selected labels bypass normal decluttering but still obey viewport/depth visibility. Labels keep their existing constant screen size; layout is only recalculated on a frame already required by camera/data/time changes, without introducing continuous rendering.
+
+All **173 UI tests pass**, covering progressive parent/moon reveal, hint transfer/removal, binary stars, selected-body priority, invisible barycentres, off-screen parent handling, small overlap, stable reveal/hide thresholds and actual annotation projection. A software-WebGL browser check used the frozen Vega fixture centred on Vega 2: the distant group showed its central star with a plus; approaching revealed an outer child; close-up showed the main children and removed the central plus while the tighter Vega 2 d / d a pair retained one. The production UI build and whitespace checks pass. Threshold tuning across more systems and camera orientations remains a normal-use follow-up; dense stellar labels are intentionally exempt from decluttering in this first version.

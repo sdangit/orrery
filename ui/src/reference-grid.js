@@ -12,7 +12,6 @@ export function gridLayout(camera, target, viewportHeight, { followView = true }
   const step = 10 ** Math.floor(level);
   const snap = step * 100;
   return { step, blend: level - Math.floor(level),
-    extent: Math.max(height * Math.max(1, camera.aspect) * 3, snap * 2),
     x: Math.round(target.x / snap) * snap, y: Math.round(target.y / snap) * snap, z };
 }
 
@@ -26,62 +25,114 @@ export function gridStepLabel(step, trueDistances) {
 }
 
 export function createReferenceGrid() {
+  // Draw a screen quad and intersect each viewing ray with the reference plane.
+  // No world-space corner can cross the eye/far plane and clip away a wedge.
   const material = new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false, side: THREE.DoubleSide,
-    uniforms: { stepSize: { value: 1 }, extent: { value: 100 }, blend: { value: 0 },
-      color: { value: new THREE.Color('#83715d') } },
+    transparent: true, depthWrite: false,
+    uniforms: {
+      stepSize: { value: 1 }, blend: { value: 0 },
+      rayForward: { value: new THREE.Vector3() },
+      rayRight: { value: new THREE.Vector3() },
+      rayUp: { value: new THREE.Vector3() },
+      cameraGridXY: { value: new THREE.Vector2() },
+      planeHeight: { value: 0 },
+      clipRange: { value: new THREE.Vector2() },
+      fadeDistance: { value: 1 },
+      projectionDepth: { value: new THREE.Vector2() },
+      color: { value: new THREE.Color('#497f9c') },
+      undersideColor: { value: new THREE.Color('#9c6649') },
+    },
     vertexShader: `
-      #include <common>
-      #include <logdepthbuf_pars_vertex>
-      uniform float stepSize;
-      uniform float extent;
-      varying vec2 grid;
-      varying vec2 planeUV;
+      varying vec2 screen;
       void main() {
-        planeUV = position.xy;
-        vec3 p = vec3(position.xy * extent, 0.0);
-        grid = p.xy / stepSize;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
-        #include <logdepthbuf_vertex>
+        screen = position.xy;
+        gl_Position = vec4(position.xy, 0.0, 1.0);
       }`,
     fragmentShader: `
-      #include <logdepthbuf_pars_fragment>
+      #ifdef USE_LOGDEPTHBUF
+        uniform float logDepthBufFC;
+      #endif
       uniform vec3 color;
+      uniform vec3 undersideColor;
+      uniform float stepSize;
       uniform float blend;
-      varying vec2 grid;
-      varying vec2 planeUV;
+      uniform vec3 rayForward;
+      uniform vec3 rayRight;
+      uniform vec3 rayUp;
+      uniform vec2 cameraGridXY;
+      uniform float planeHeight;
+      uniform vec2 clipRange;
+      uniform float fadeDistance;
+      uniform vec2 projectionDepth;
+      varying vec2 screen;
       float lines(vec2 coordinate) {
         vec2 footprint = max(fwidth(coordinate), vec2(0.00001));
         vec2 d = abs(fract(coordinate + 0.5) - 0.5) / footprint;
-        float line = 1.0 - smoothstep(0.35, 1.0, min(d.x, d.y));
-        // Suppress unresolved detail at grazing angles rather than shimmer.
-        return line * (1.0 - smoothstep(0.25, 1.0, max(footprint.x, footprint.y)));
+        vec2 line = vec2(1.0) - smoothstep(vec2(0.35), vec2(1.0), d);
+        // Filter each axis independently: a foreshortened axis must not erase
+        // the other set of lines at shallow viewing angles.
+        line *= vec2(1.0) - smoothstep(vec2(0.25), vec2(1.0), footprint);
+        return max(line.x, line.y);
       }
       void main() {
+        vec3 ray = rayForward + screen.x * rayRight + screen.y * rayUp;
+        if (abs(ray.z) < 0.0000001) discard;
+        // Units of the fine grid step, relative to the camera, retain precision
+        // around small moons far from the system origin.
+        float t = planeHeight / ray.z;
+        if (t <= clipRange.x || t >= clipRange.y) discard;
+        vec2 grid = cameraGridXY + ray.xy * t;
         float fine = lines(grid) * (1.0 - blend);
         float middle = lines(grid / 10.0);
         float coarse = lines(grid / 100.0) * blend;
-        float fade = 1.0 - smoothstep(0.65, 1.0, max(abs(planeUV.x), abs(planeUV.y)));
+        // Fade before the far clip and toward the horizon. This distance is
+        // continuous with zoom, independent of decade/anchor transitions.
+        float fade = 1.0 - smoothstep(0.65 * fadeDistance, fadeDistance, t);
         float opacity = max(fine, max(middle, coarse)) * fade * 0.32;
         if (opacity < 0.002) discard;
-        gl_FragColor = vec4(color, opacity);
-        #include <logdepthbuf_fragment>
+        float viewDepth = t * stepSize;
+        #ifdef USE_LOGDEPTHBUF
+          gl_FragDepth = log2(1.0 + viewDepth) * logDepthBufFC * 0.5;
+        #else
+          gl_FragDepth = projectionDepth.x - projectionDepth.y / viewDepth;
+        #endif
+        gl_FragColor = vec4(planeHeight < 0.0 ? color : undersideColor, opacity);
         #include <tonemapping_fragment>
         #include <colorspace_fragment>
       }`,
   });
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
   mesh.name = 'System reference plane grid';
-  mesh.frustumCulled = false; // Shader controls its extent, not the unit quad.
+  mesh.frustumCulled = false; // Vertices are in clip space, not world space.
   mesh.renderOrder = -10;
   mesh.visible = false;
   return { mesh,
     update(camera, target, viewportHeight, options) {
       const layout = gridLayout(camera, target, viewportHeight, options);
+      camera.updateMatrixWorld();
+      const u = material.uniforms;
+      const tangent = Math.tan(THREE.MathUtils.degToRad(camera.getEffectiveFOV()) / 2);
+      u.rayForward.value.setFromMatrixColumn(camera.matrixWorld, 2).negate();
+      u.rayRight.value.setFromMatrixColumn(camera.matrixWorld, 0).multiplyScalar(tangent * camera.aspect);
+      u.rayUp.value.setFromMatrixColumn(camera.matrixWorld, 1).multiplyScalar(tangent);
+      // Only the phase within a coarse cell reaches the GPU. Avoid subtracting
+      // large Float32 world positions when the user zooms into a distant body.
+      const period = layout.step * 100;
+      const phase = v => ((v % period) + period) % period / layout.step;
+      u.cameraGridXY.value.set(phase(camera.position.x), phase(camera.position.y));
+      u.planeHeight.value = (layout.z - camera.position.z) / layout.step;
+      u.stepSize.value = layout.step;
+      u.blend.value = layout.blend;
+      u.clipRange.value.set(camera.near / layout.step, camera.far / layout.step);
+      const distance = Math.max(1e-12, camera.position.distanceTo(target));
+      const fade = Math.min(camera.far * 0.9,
+        distance * Math.max(4, 24 * tangent * camera.aspect));
+      u.fadeDistance.value = fade / layout.step;
+      u.projectionDepth.value.set(camera.far / (camera.far-camera.near),
+        camera.far * camera.near / (camera.far-camera.near));
+      // Retain the reported plane origin for inspection; the shader does not
+      // transform its screen quad through this world-space matrix.
       mesh.position.set(layout.x, layout.y, layout.z);
-      material.uniforms.stepSize.value = layout.step;
-      material.uniforms.extent.value = layout.extent;
-      material.uniforms.blend.value = layout.blend;
       return layout;
     },
     dispose() { mesh.geometry.dispose(); material.dispose(); },

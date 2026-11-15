@@ -22,6 +22,7 @@ import { bindHudLayout, observeHudSize } from './hud-layout.js';
 import { bindViewPanel } from './view-panel.js';
 import { bindOrbitSettings } from './orbit-settings.js';
 import { createReferenceGrid, bindGridToggle, gridStepLabel } from './reference-grid.js';
+import { createAxisLegend } from './axis-legend.js';
 
 const hud = bindHudLayout();
 observeHudSize();
@@ -36,6 +37,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(ORRERY_FOV_DEG, 1, 0.05, 60000);
 const starfield = createStarfield();
 const referenceGrid = createReferenceGrid();
+const axisLegend = createAxisLegend(document.getElementById('axisLegend'));
 let gridFollowsView = true;
 scene.add(referenceGrid.mesh);
 
@@ -97,7 +99,8 @@ function loop(now) {
   }
   // A programmatic focus above is already included in this render.
   needsRender = false;
-  updateBodyAnnotations(updatables, camera, canvas.getBoundingClientRect().height);
+  updateBodyAnnotations(updatables, camera, canvas.getBoundingClientRect().height, { selectedId });
+  axisLegend.update(camera);
   if (referenceGrid.mesh.visible) {
     const layout = referenceGrid.update(camera, orbitCamera.controls.target, canvas.getBoundingClientRect().height,
       { followView: gridFollowsView });

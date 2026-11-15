@@ -102,7 +102,7 @@ for (const scaleMode of ['realistic', 'distances']) test(`Tracy's Havan: ${scale
       assert.ok(tangent.angleTo(expected) < 0.001,
         `near-body tangent error ${THREE.MathUtils.radToDeg(tangent.angleTo(expected))} degrees`);
       directions.push(tangent);
-      assert.ok(count < 200, 'local refinement should not require thousands of vertices per orbit');
+      assert.ok(count < 600, 'full-curve and local refinement should remain bounded to hundreds of vertices here');
     }
     assert.ok(directions[0].angleTo(directions[1]) < 0.001, 'crossing a coarse sample must not snap the visible line');
   }

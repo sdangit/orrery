@@ -1,0 +1,38 @@
+[
+  {
+    "scaleMode": "compact",
+    "vertices": 322,
+    "legacy": {
+      "maxRelativeError": 0.167331145499317,
+      "innerRelativeError": 0.167331145499317
+    },
+    "refined": {
+      "maxRelativeError": 0.00009789505926894209,
+      "innerRelativeError": 0.00009701786940691786
+    }
+  },
+  {
+    "scaleMode": "distances",
+    "vertices": 311,
+    "legacy": {
+      "maxRelativeError": 0.019718675167879306,
+      "innerRelativeError": 0.019718675167879306
+    },
+    "refined": {
+      "maxRelativeError": 0.00009915833916397933,
+      "innerRelativeError": 0.000098042592718542
+    }
+  },
+  {
+    "scaleMode": "realistic",
+    "vertices": 329,
+    "legacy": {
+      "maxRelativeError": 0.019718675167879306,
+      "innerRelativeError": 0.019718675167879306
+    },
+    "refined": {
+      "maxRelativeError": 0.00009915833916397933,
+      "innerRelativeError": 0.000098042592718542
+    }
+  }
+]

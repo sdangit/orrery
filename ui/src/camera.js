@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import { DEFAULT_DIRECTION } from './view-presets.js';
+import { bindFreeRotation } from './free-rotation.js';
 
 // V886 paired screenshots support a narrow map camera (~15° vertical), not
 // the former 55° view, which exaggerated depth on steeply inclined orbits.
@@ -55,6 +56,12 @@ export function createOrbitCamera(canvas, camera, { initialRadius = 70, onDirty,
     controls.maxDistance = 1e12;
     controls.screenSpacePanning = true;
     controls.enableDamping = false;
+    // Quaternion rotation handles the full sphere. OrbitControls retains its
+    // tested screen-space pan, wheel/pinch zoom and keyboard behaviour.
+    controls.enableRotate = false;
+    // Use the unmapped action (NONE), rather than a disabled ROTATE action:
+    // releasing the second finger must clear the previous DOLLY_PAN state.
+    controls.touches.ONE = null;
     controls.target.copy(target);
     controls.cursor.copy(target);
     controls.update();
@@ -72,6 +79,7 @@ export function createOrbitCamera(canvas, camera, { initialRadius = 70, onDirty,
     lastQuaternion.copy(camera.quaternion);
   }
   installControls(new THREE.Vector3());
+  bindFreeRotation(canvas, camera, () => controls);
   canvas.addEventListener('pointerdown', () => canvas.focus({ preventScroll: true }));
 
   function focus(target, distance, resetDirection = false) {

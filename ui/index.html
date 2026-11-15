@@ -63,7 +63,7 @@
         <option value="view">Follow view centre</option>
         <option value="system">System centre</option>
       </select>
-      <p class="time-note" id="referenceGridNote">Aligned to the system axes. Follow the view centre for close-ups, or pin the plane to the system centre. Zoom in for finer divisions.</p>
+      <p class="time-note" id="referenceGridNote">Blue above, orange below. Aligned to the system axes. Follow the view centre for close-ups, or pin the plane to the system centre. Zoom in for finer divisions.</p>
       <p class="time-note" id="referenceGridStep" hidden></p>
     </section>
 
@@ -254,6 +254,12 @@
       <div class="stat"><span class="swatch sw-orbit"></span><span>Faint ellipse: orbit path</span></div>
     </aside>
 
+    <div id="orientationAxes">
+      <svg id="axisLegend" viewBox="0 0 96 96" role="img" aria-label="System X, Y and Z axes, rotated with the view">
+        <title>System axes · solid positive directions, dashed negative directions</title>
+      </svg>
+      <span>System axes</span>
+    </div>
     <div id="viewStatus" aria-label="Current view">
       <span>Orbiting <strong id="orbitTarget">System center</strong></span>
       <span id="sysScale" class="val-warn">compressed — not to scale</span>
