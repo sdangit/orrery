@@ -3,7 +3,7 @@ import demoSystem from './data/demo-system.json';
 import { createStarfield } from './starfield.js';
 import { updateBodyAnnotations } from './body-markers.js';
 import { SCALE_MODES, resolveScaleMode } from './scale-modes.js';
-import { createOrbitCamera, fitDistance } from './camera.js';
+import { createOrbitCamera, fitDistance, ORRERY_FOV_DEG } from './camera.js';
 import { bindBodySelection, pickBody } from './picking.js';
 import { primaryStarId } from './primary-star.js';
 import { buildSystemScene, updateSystemScene, disposeSystemScene, highlightSelectedOrbit, scenePosition } from './scene-builder.js';
@@ -18,6 +18,14 @@ import { applyColorScheme, DEFAULT_SCHEME } from './color-schemes.js';
 import { SYSTEM, isBody, navigationLabel, renderBodyNavigation } from './body-navigation.js';
 import { createSystemBrowser } from './system-browser.js';
 import { createAudioCues } from './audio-cues.js';
+import { bindHudLayout, observeHudSize } from './hud-layout.js';
+import { bindViewPanel } from './view-panel.js';
+import { bindOrbitSettings } from './orbit-settings.js';
+import { createReferenceGrid, bindGridToggle, gridStepLabel } from './reference-grid.js';
+import { createAxisLegend } from './axis-legend.js';
+
+const hud = bindHudLayout();
+observeHudSize();
 
 // ---------- renderer & scene ----------
 const canvas = document.getElementById('c');
@@ -26,8 +34,12 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.setClearColor(0x060402);
 renderer.autoClear = false;
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(55, 1, 0.05, 60000);
+const camera = new THREE.PerspectiveCamera(ORRERY_FOV_DEG, 1, 0.05, 60000);
 const starfield = createStarfield();
+const referenceGrid = createReferenceGrid();
+const axisLegend = createAxisLegend(document.getElementById('axisLegend'));
+let gridFollowsView = true;
+scene.add(referenceGrid.mesh);
 
 // ---------- HUD color scheme (milestone 7) ----------
 // Applied before the first scene build so the 3D labels pick up the accent.
@@ -87,7 +99,14 @@ function loop(now) {
   }
   // A programmatic focus above is already included in this render.
   needsRender = false;
-  updateBodyAnnotations(updatables, camera, canvas.getBoundingClientRect().height);
+  updateBodyAnnotations(updatables, camera, canvas.getBoundingClientRect().height, { selectedId });
+  axisLegend.update(camera);
+  if (referenceGrid.mesh.visible) {
+    const layout = referenceGrid.update(camera, orbitCamera.controls.target, canvas.getBoundingClientRect().height,
+      { followView: gridFollowsView });
+    document.getElementById('referenceGridStep').textContent =
+      `Fine grid: ${gridStepLabel(layout.step, SCALE_MODES[scaleMode].trueDistances)} · larger divisions ×10`;
+  }
   renderer.clear();
   starfield.render(renderer, camera);
   renderer.clearDepth();
@@ -95,9 +114,11 @@ function loop(now) {
 }
 requestAnimationFrame(loop);
 
+let viewPanel = null;
 const orbitCamera = createOrbitCamera(canvas, camera, {
   initialRadius: 70,
   onDirty: requestRender,
+  onOrientationChange: () => viewPanel?.custom(),
   onPan() {
     focusedBodyId = null;
     document.getElementById('orbitTarget').textContent = 'Custom point';
@@ -108,7 +129,6 @@ document.getElementById('fitSystemButton').addEventListener('click', () => fitCa
 document.getElementById('centerMainStarButton').addEventListener('click', () => centerBody(primaryStarId(renderedNodes)));
 document.getElementById('centerSelectedButton').addEventListener('click', () => centerBody(selectedId));
 document.getElementById('zoomSelectedButton').addEventListener('click', () => zoomToBody(selectedId));
-document.getElementById('closeDetailButton').addEventListener('click', () => selectNode(null));
 
 function resize() {
   const { width: w, height: h } = canvas.getBoundingClientRect();
@@ -143,6 +163,20 @@ let nextSystem = null;
 let scaleMode = 'compact';
 let displayBrowsing = false;
 
+const orbitSettings = bindOrbitSettings({ onChange(brightness) {
+  highlightSelectedOrbit(updatables, selectedId, brightness);
+  requestRender();
+} });
+
+viewPanel = bindViewPanel({ getSelectedNode: selectedNode, getNodes: () => renderedNodes,
+  onApply: orientation => orbitCamera.orient(orientation) });
+bindGridToggle({ onChange(visible, followView) {
+  referenceGrid.mesh.visible = visible;
+  gridFollowsView = followView;
+  document.getElementById('referenceGridStep').hidden = !visible;
+  requestRender();
+} });
+
 const nicknameInput = document.getElementById('nicknameInput');
 document.getElementById('browseBodiesButton').addEventListener('click', () => navigateTo(SYSTEM));
 function selectedNode() {
@@ -153,6 +187,7 @@ function refreshNavigation() {
 }
 function navigateTo(id) {
   selectNode(id);
+  if (id === SYSTEM) document.getElementById('bodyChildrenSection').open = true;
   // Navigation changes the pivot only; framing is an explicit camera action.
   centerBody(id);
 }
@@ -169,18 +204,20 @@ function currentNickname(id) {
   return id !== null && systemAddress !== null ? getNickname(systemAddress, id) : null;
 }
 
-function selectNode(id) {
+function selectNode(id, { reveal = true } = {}) {
   selectedId = id;
+  hud.selectionChanged(id !== null, { reveal });
   renderDetailPanel(id === null ? null : selectedNode(), systemName, currentNickname(id));
   refreshNavigation();
   nicknameInput.value = currentNickname(id) ?? '';
   updateSelectionControls();
   timePanel.refresh();
-  highlightSelectedOrbit(updatables, selectedId);
+  highlightSelectedOrbit(updatables, selectedId, orbitSettings.brightness);
   requestRender();
 }
 
 function updateSelectionControls() {
+  viewPanel?.refresh();
   nicknameInput.disabled = !isBody(selectedNode());
   document.getElementById('copyName').disabled = !selectedNode()?.name;
   document.getElementById('centerSelectedButton').disabled = selectedId !== SYSTEM && !navigationPosition(selectedId);
@@ -226,12 +263,17 @@ scaleSelect.addEventListener('change', () => {
 
 function visibleCameraArea() {
   const { width, height } = canvas.getBoundingClientRect();
-  const left = document.getElementById('systemPanel').getBoundingClientRect().right;
-  const detail = document.getElementById('detail');
-  const right = detail.hidden ? 0 : width - detail.getBoundingClientRect().left;
+  const system = document.getElementById('systemPanel');
+  const left = system.hidden ? 0 : system.getBoundingClientRect().right;
+  const right = Math.max(0, ...['bodyDrawer', 'settingsPanel', 'legend'].map((id) => {
+    const panel = document.getElementById(id);
+    return panel.hidden ? 0 : width - panel.getBoundingClientRect().left;
+  }));
+  const top = document.getElementById('viewToolbar').getBoundingClientRect().bottom;
+  const bottom = height - document.getElementById('timeControls').getBoundingClientRect().top + 24;
   return {
     widthFraction: Math.max(0.2, 1 - 2 * (Math.max(left, right) + 24) / width),
-    heightFraction: Math.max(0.3, 1 - 120 / height),
+    heightFraction: Math.max(0.3, 1 - 2 * (Math.max(top, bottom) + 12) / height),
   };
 }
 
@@ -247,6 +289,7 @@ function fitCameraToBodies(resetDirection = false) {
   updateSystemScene(renderedNodes, updatables, timeControl.simTimeMs, { scaleMode });
   focusedBodyId = null;
   orbitCamera.fit(currentBodyBounds(), visibleCameraArea(), resetDirection);
+  if (resetDirection) viewPanel?.reset();
   document.getElementById('orbitTarget').textContent = 'System center';
 }
 
@@ -286,15 +329,6 @@ function updateScaleBadge() {
   el.className = scaleMode === 'realistic' ? 'val-live' : 'val-warn';
 }
 updateScaleBadge();
-
-// ---------- legend window (milestone 7): hidable icon/color explainer ----------
-const legendPanel = document.getElementById('legend');
-const legendToggle = document.getElementById('legendToggle');
-legendPanel.hidden = localStorage.getItem('orrery.legendVisible') !== 'true';
-legendToggle.addEventListener('click', () => {
-  legendPanel.hidden = !legendPanel.hidden;
-  localStorage.setItem('orrery.legendVisible', String(!legendPanel.hidden));
-});
 
 // ---------- audio cues (milestone 7): off by default ----------
 const audioCues = createAudioCues();
@@ -395,7 +429,7 @@ function updateSystemLevelPanel() {
 }
 
 // ---------- community backfill: providers are independently opt-in ----------
-const providerNames = { edsm: 'EDSM', spansh: 'Spansh' };
+const providerNames = { edsm: 'EDSM', spansh: 'Spansh', edgis: 'EDGIS' };
 const enabledProviders = new Set(Object.keys(providerNames)
   .filter((source) => localStorage.getItem(`orrery.${source}Enabled`) === 'true'));
 let communityData = null;
@@ -495,13 +529,13 @@ function rebuildSceneVisuals() {
   pickables = built.pickables;
   updatables = built.updatables;
   systemGroup = built.group;
-  if (selectedId !== null && selectedId !== SYSTEM && !renderedNodes.has(selectedId)) selectNode(SYSTEM);
+  if (selectedId !== null && selectedId !== SYSTEM && !renderedNodes.has(selectedId)) selectNode(SYSTEM, { reveal: false });
   const mainStarButton = document.getElementById('centerMainStarButton');
   mainStarButton.disabled = !updatables.has(primaryStarId(renderedNodes));
   mainStarButton.title = mainStarButton.disabled ? 'Main star is not yet identified in the available data' : 'Orbit around the main star';
   updateSelectionControls();
   timePanel.refresh();
-  highlightSelectedOrbit(updatables, selectedId);
+  highlightSelectedOrbit(updatables, selectedId, orbitSettings.brightness);
   if (selectedId !== null) renderDetailPanel(selectedNode(), systemName, currentNickname(selectedId));
   refreshNavigation();
   updateCommunityStatus();
@@ -565,9 +599,9 @@ function loadSystem(payload, { community = null, browsing = false } = {}) {
   // Keep the current selection if it still exists in the new tree (a rescan
   // shouldn't yank the view away); otherwise fall back to the primary star.
   if (selectedId !== null && (selectedId === SYSTEM || renderedNodes.has(selectedId))) {
-    selectNode(selectedId);
+    selectNode(selectedId, { reveal: false });
   } else {
-    selectNode(changedSystem || !hadBodies ? primaryStarId(renderedNodes) ?? SYSTEM : null);
+    selectNode(changedSystem || !hadBodies ? primaryStarId(renderedNodes) ?? SYSTEM : null, { reveal: false });
   }
   if (updatables.size > 0 && (needsInitialFit || !hadBodies)) {
     fitCameraToBodies(true);

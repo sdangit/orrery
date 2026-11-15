@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import * as THREE from 'three';
-import { mergeCommunityBodies, keplerianOffset } from '@orrery/shared';
+import { mergeCommunityBodies, eliteKeplerianOffset, parentOrbitFrame, transformVector } from '@orrery/shared';
 import { buildSystemScene, updateSystemScene, disposeSystemScene } from '../src/scene-builder.js';
 
 const spansh = JSON.parse(readFileSync(new URL('../../shared/test/fixtures/spansh-sol-distant.json', import.meta.url)));
@@ -58,13 +58,53 @@ test('rebasing a distant orbit preserves its full trajectory around a moving par
     const parent = built.updatables.get(46).bodyGroup.position;
     const vertices = entry.orbit.geometry.attributes.position;
     for (const fraction of [0, 0.25, 0.5, 0.75, 1]) {
-      const offset = keplerianOffset(elements, elements.epochMs + fraction * elements.orbitalPeriodSec * 1000);
+      const offset = transformVector(parentOrbitFrame(nested, 45),
+        eliteKeplerianOffset(elements, elements.epochMs + fraction * elements.orbitalPeriodSec * 1000));
       const expected = new THREE.Vector3(offset.x, offset.y, offset.z).multiplyScalar(1e-9).add(parent);
       let nearest = Infinity;
       for (let i = 0; i < vertices.count; i++) nearest = Math.min(nearest,
         new THREE.Vector3().fromBufferAttribute(vertices, i).add(entry.orbit.position).distanceTo(expected));
       assert.ok(nearest < elements.semiMajorAxis / 1e9 * 1e-6, 'rebasing must not translate or deform the orbit');
     }
+  }
+  disposeSystemScene(built.group);
+});
+
+const vega = JSON.parse(readFileSync(new URL('../../shared/test/fixtures/edsm-vega-tracy.json', import.meta.url)));
+const vegaNodes = mergeCommunityBodies(new Map(), { edsm: { ...vega, receivedAt: now } }).nodes;
+for (const scaleMode of ['realistic', 'distances']) test(`Tracy's Havan: ${scaleMode} orbit tangent stays smooth across sample boundaries`, () => {
+  const built = buildSystemScene(vegaNodes, now, 'Vega', 'exploration', {}, { scaleMode });
+  const entry = built.updatables.get(11);
+  const elements = vegaNodes.get(11).elements;
+  const period = elements.orbitalPeriodSec * 1000;
+  // Straddle the coarse polygon's corners, including the wrap back to zero.
+  for (const boundary of [0, 1 / 96, 25 / 96, 1]) {
+    const directions = [];
+    for (const fraction of [boundary - 1e-7, boundary + 1e-7]) {
+      const time = elements.epochMs + fraction * period;
+      updateSystemScene(vegaNodes, built.updatables, time, { scaleMode });
+      const vertices = entry.orbit.geometry.attributes.position;
+      const count = Math.min(vertices.count, entry.orbit.geometry.drawRange.count);
+      let nearest = -1;
+      let error = Infinity;
+      for (let i = 0; i < count; i++) {
+        const p = new THREE.Vector3().fromBufferAttribute(vertices, i).add(entry.orbit.position);
+        const distance = p.distanceTo(entry.bodyGroup.position);
+        if (distance < error) { nearest = i; error = distance; }
+      }
+      assert.ok(error < entry.radius * 1e-5, 'the body must stay on the line');
+      const anchor = new THREE.Vector3().fromBufferAttribute(vertices, nearest);
+      const next = new THREE.Vector3().fromBufferAttribute(vertices, nearest + 1);
+      const tangent = next.sub(anchor).normalize();
+      const before = eliteKeplerianOffset(elements, time - period * 1e-8);
+      const after = eliteKeplerianOffset(elements, time + period * 1e-8);
+      const expected = new THREE.Vector3(after.x - before.x, after.y - before.y, after.z - before.z).normalize();
+      assert.ok(tangent.angleTo(expected) < 0.001,
+        `near-body tangent error ${THREE.MathUtils.radToDeg(tangent.angleTo(expected))} degrees`);
+      directions.push(tangent);
+      assert.ok(count < 600, 'full-curve and local refinement should remain bounded to hundreds of vertices here');
+    }
+    assert.ok(directions[0].angleTo(directions[1]) < 0.001, 'crossing a coarse sample must not snap the visible line');
   }
   disposeSystemScene(built.group);
 });

@@ -1,5 +1,5 @@
 // Provider adapters feed one journal-shaped model. Merge only within one system;
-// the watcher verifies system identity before returning either provider's data.
+// the watcher verifies system identity before returning any provider's data.
 import { mapEdsmPlanetClass, mapEdsmTerraformState } from './edsm-mapping.js';
 
 export const AU_IN_METRES = 149597870700;
@@ -7,11 +7,11 @@ export const EARTH_GRAVITY = 9.80665;
 const SOLAR_RADIUS_METRES = 695700000;
 const finite = Number.isFinite;
 const validId = (id) => Number.isSafeInteger(id) && id >= 0;
-const rank = { journal: 3, spansh: 2, edsm: 1 };
+const rank = { journal: 4, spansh: 3, edgis: 2, edsm: 1 };
 
 function timestamp(value) {
   if (typeof value !== 'string') return null;
-  // EDSM's date strings lack a zone; both providers document UTC.
+  // EDSM's date strings lack a zone and use UTC.
   const ms = Date.parse(/(?:Z|[+-]\d\d:\d\d)$/.test(value) ? value : value.replace(' ', 'T') + 'Z');
   return finite(ms) ? ms : null;
 }
@@ -39,8 +39,8 @@ function elementsFor(body, source, receivedAt) {
     eccentricity: body.orbitalEccentricity ?? 0,
     inclinationDeg: finite(body.orbitalInclination) ? body.orbitalInclination : 0,
     periapsisDeg: finite(body.argOfPeriapsis) ? body.argOfPeriapsis : 0,
-    ascendingNodeDeg: source === 'spansh' && finite(body.ascendingNode) ? body.ascendingNode : 0,
-    meanAnomalyDeg: full ? body.meanAnomaly : 0,
+    ascendingNodeDeg: source !== 'edsm' && finite(body.ascendingNode) ? body.ascendingNode : 0,
+    meanAnomalyDeg: full || (source === 'edgis' && finite(body.meanAnomaly)) ? body.meanAnomaly : 0,
     // updateTime is record freshness, NEVER the mean-anomaly epoch.
     epochMs: full ? phaseEpoch : receivedAt,
   };
@@ -56,10 +56,13 @@ function starType(subType) {
 
 function rawFor(body, source) {
   const raw = {};
+  // All three adapters retain journal radians, including negative axial tilts.
+  if (finite(body.axialTilt)) raw.AxialTilt = body.axialTilt;
   const assign = (key, value) => { if (value !== undefined && value !== null) raw[key] = value; };
-  if (body.type === 'Star') assign('StarType', starType(body.subType));
+  if (body.type === 'Star') assign('StarType', source === 'edgis' ? body.subType : starType(body.subType));
   if (body.type === 'Planet') {
-    assign('PlanetClass', mapEdsmPlanetClass(body.subType));
+    // EDGIS can retain either journal enums or Spansh descriptions from imports.
+    assign('PlanetClass', mapEdsmPlanetClass(body.subType) ?? (source === 'edgis' ? body.subType : undefined));
     if (typeof body.terraformingState === 'string') raw.TerraformState = mapEdsmTerraformState(body.terraformingState);
   }
   const fields = { surfaceTemperature: 'SurfaceTemperature', earthMasses: 'MassEM',
@@ -96,7 +99,7 @@ function parentChain(parents) {
 }
 
 export function normalizeCommunityBodies(source, bodies, receivedAt = Date.now()) {
-  if (!['edsm', 'spansh'].includes(source)) throw new Error('Unknown community provider');
+  if (!['edsm', 'spansh', 'edgis'].includes(source)) throw new Error('Unknown community provider');
   const nodes = [];
   for (const body of bodies ?? []) {
     if (!body || !validId(body.bodyId) || !['Star', 'Planet', 'Barycentre'].includes(body.type)) continue;
@@ -109,6 +112,8 @@ export function normalizeCommunityBodies(source, bodies, receivedAt = Date.now()
       landable: typeof body.isLandable === 'boolean' ? body.isLandable : undefined,
       isMainStar: typeof mainStar === 'boolean' ? mainStar : undefined,
       elements: orbit?.elements ?? null, orbitQuality: orbit?.quality ?? 'missing',
+      hasMeasuredOrientation: ['orbitalEccentricity', 'orbitalInclination', 'argOfPeriapsis',
+        'ascendingNode'].every((k) => finite(body[k])),
       chain: chain ?? [], invalidParents: chain === null, source,
       recordUpdatedAt: timestamp(body.updateTime),
     });
@@ -136,7 +141,7 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
     for (let i = 0; i < chain.length - 1; i++) addLink(chain[i].id, chain[i + 1].id, node.source);
     if (!node.invalidParents && !node.chain.length && node.id === 0) addLink(node.id, null, node.source);
   };
-  for (const source of ['spansh', 'edsm']) {
+  for (const source of ['spansh', 'edgis', 'edsm']) {
     const provider = providers[source];
     for (const node of normalizeCommunityBodies(source, provider?.bodies, provider?.receivedAt ?? now)) add(node);
   }
@@ -193,6 +198,7 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
     node.elements = orbit?.elements ? { ...orbit.elements } : null;
     node.orbitQuality = orbit?.orbitQuality ?? 'missing';
     node.orbitSource = orbit?.source ?? null;
+    node.hasMeasuredOrientation = orbit?.hasMeasuredOrientation;
     if (orbit) node.fieldSources.elements = orbit.source;
 
     if (first.invalidParents) node.positionIssue = 'Invalid parent chain';
@@ -210,6 +216,32 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
     nodes.set(id, node);
   }
 
+  // Binary stars share orbital phase about their barycentre, with opposite
+  // periapsides. Infer an EDGIS companion's phase only for an unambiguous pair
+  // whose measured geometry agrees; keep it approximate, never a measured epoch.
+  for (const node of nodes.values()) {
+    if (node.kind !== 'Star' || node.orbitSource !== 'edgis'
+        || node.orbitQuality !== 'approximate' || !node.hasMeasuredOrientation
+        || node.positionIssue || node.parentId == null) continue;
+    const parent = nodes.get(node.parentId);
+    if (!['Barycentre', 'SystemBarycentre'].includes(parent?.kind)) continue;
+    const siblings = [...nodes.values()].filter((n) => n.kind === 'Star' && n.parentId === node.parentId);
+    if (siblings.length !== 2) continue;
+    const other = siblings.find((n) => n.id !== node.id);
+    if (other.orbitQuality !== 'propagated' || other.positionIssue) continue;
+    const a = node.elements, b = other.elements;
+    const angleDifference = (x, y) => Math.abs(((x - y + 180) % 360 + 360) % 360 - 180);
+    if (Math.abs(a.orbitalPeriodSec - b.orbitalPeriodSec) > Math.abs(b.orbitalPeriodSec) * 1e-6
+        || Math.abs(a.eccentricity - b.eccentricity) > 1e-5
+        || angleDifference(a.inclinationDeg, b.inclinationDeg) > 0.001
+        || angleDifference(a.ascendingNodeDeg, b.ascendingNodeDeg) > 0.001
+        || Math.abs(angleDifference(a.periapsisDeg, b.periapsisDeg) - 180) > 0.001) continue;
+    a.meanAnomalyDeg = b.meanAnomalyDeg;
+    a.epochMs = b.epochMs;
+    node.phaseReferenceBodyId = other.id;
+    node.phaseReferenceSource = other.orbitSource;
+  }
+
   // Validate whole ancestor paths and propagate their position uncertainty.
   for (const node of nodes.values()) {
     let current = node;
@@ -225,6 +257,7 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
       if (current.parentId !== null && !current.elements) { issue = `Orbital elements missing for body ${current.id}`; break; }
       if (current.orbitQuality === 'approximate') quality = 'approximate';
       if (current.orbitSource) positionSources.add(current.orbitSource);
+      if (current.phaseReferenceSource) positionSources.add(current.phaseReferenceSource);
       if (current.parentId === null) break;
       const parent = nodes.get(current.parentId);
       if (!parent) { issue = `Missing parent body ${current.parentId}`; break; }

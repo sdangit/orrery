@@ -39,3 +39,16 @@ test('illustrative community epochs are not presented as known orbital phase tim
   assert.equal(el('detailBackfillNotice').hidden, false);
   assert.equal(el('detailOrbitEpoch').textContent, 'Unknown (illustrative phase)');
 });
+
+test('EDGIS binary phase inference is disclosed separately from record freshness', () => {
+  const el = setup();
+  renderDetailPanel({ id: 2, name: 'Ross 54', kind: 'Star', isBackfill: true,
+    sources: ['edgis'], orbitSource: 'edgis', orbitQuality: 'approximate', positionQuality: 'approximate',
+    phaseReferenceBodyId: 1, elements: { epochMs: 0, orbitalPeriodSec: 86400 },
+    recordUpdates: { edgis: Date.parse('2026-10-29T23:54:41Z') }, raw: {},
+  }, 'LFT 509');
+  assert.equal(el('detailSources').textContent, 'EDGIS');
+  assert.equal(el('detailOrbitSource').textContent, 'EDGIS');
+  assert.equal(el('detailOrbitEpoch').textContent, 'Estimated from binary companion (body 1)');
+  assert.equal(el('detailRecordUpdated').textContent, 'EDGIS: 2026-10-29 23:54:41');
+});

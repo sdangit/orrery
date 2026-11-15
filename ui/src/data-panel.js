@@ -68,6 +68,13 @@ function fmtMapped(wasMapped, kind) {
   return '—';
 }
 
+function fmtFootfall(node) {
+  if (node.kind !== 'Planet' || node.landable === false) return '—';
+  if (node.raw?.WasFootfalled === true) return 'Claimed';
+  if (node.raw?.WasFootfalled === false) return 'Unclaimed';
+  return 'Unknown';
+}
+
 const RING_CLASS_LABELS = {
   eRingClass_Icy: 'Icy',
   eRingClass_Rocky: 'Rocky',
@@ -138,7 +145,7 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   const icon = bodyIcon(node);
   setText('detailName', icon ? `${icon} ${designator}` : designator);
   document.getElementById('detailBackfillNotice').hidden = !node.isBackfill;
-  const sourceNames = { journal: 'Journal', edsm: 'EDSM', spansh: 'Spansh' };
+  const sourceNames = { journal: 'Journal', edsm: 'EDSM', spansh: 'Spansh', edgis: 'EDGIS' };
   const sources = node.sources ?? ['journal'];
   setText('detailSources', sources.map((s) => sourceNames[s]).join(' + '));
   const quality = node.positionQuality ?? 'propagated';
@@ -147,7 +154,9 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   const orbitSource = node.orbitSource ?? (node.elements ? 'journal' : null);
   setText('detailOrbitSource', sourceNames[orbitSource] ?? (node.positionIssue ? 'Missing orbital data' : 'System origin'));
   const utc = (ms) => Number.isFinite(ms) ? new Date(ms).toISOString().replace('T', ' ').replace('.000Z', '') : '—';
-  setText('detailOrbitEpoch', node.orbitQuality === 'approximate' ? 'Unknown (illustrative phase)' : utc(node.elements?.epochMs));
+  setText('detailOrbitEpoch', node.phaseReferenceBodyId != null
+    ? `Estimated from binary companion (body ${node.phaseReferenceBodyId})`
+    : node.orbitQuality === 'approximate' ? 'Unknown (illustrative phase)' : utc(node.elements?.epochMs));
   setText('detailRecordUpdated', Object.entries(node.recordUpdates ?? {})
     .filter(([, ms]) => Number.isFinite(ms)).map(([source, ms]) => `${sourceNames[source]}: ${utc(ms)}`).join('\n') || '—');
   setText('detailKind', fmtKind(node));
@@ -161,6 +170,7 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   setText('detailPeriod', fmtPeriod(node.elements?.orbitalPeriodSec));
   setText('detailDiscovered', fmtDiscovery(raw.WasDiscovered));
   setText('detailMapped', fmtMapped(raw.WasMapped, node.kind));
+  setText('detailFootfall', fmtFootfall(node));
 
   const ringsText = fmtRings(node);
   const ringsRow = document.getElementById('detailRingsRow');

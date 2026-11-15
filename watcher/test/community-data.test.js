@@ -5,7 +5,7 @@ import { parseJsonPreservingIntegers, systemAddressString } from '../src/json-in
 import { parseJournalLines } from '../src/journal-parser.js';
 
 const input = { systemName: 'Sol', systemAddress: '10477373803', providers: ['edsm', 'spansh'] };
-const system = { name: 'Sol', id64: 10477373803, bodies: [{ bodyId: 0, name: 'Sol', type: 'Star', stations: ['unused'] }] };
+const system = { name: 'Sol', id64: 10477373803, bodies: [{ bodyId: 0, name: 'Sol', type: 'Star', axialTilt: -0.25, stations: ['unused'] }] };
 const response = (source, value = system) => ({ ok: true, text: async () => JSON.stringify(source === 'spansh' ? { system: value } : value) });
 
 test('provider calls use fixed URLs, verify identity, and trim unrelated data', async () => {
@@ -18,6 +18,8 @@ test('provider calls use fixed URLs, verify identity, and trim unrelated data', 
   assert.deepEqual(calls.map((c) => c.url), ['https://www.edsm.net/api-system-v1/bodies?systemName=Sol', 'https://spansh.co.uk/api/dump/10477373803']);
   assert.equal(result.spansh.status, 'ready');
   assert.equal(result.edsm.bodies[0].stations, undefined);
+  assert.equal(result.edsm.bodies[0].axialTilt, -0.25);
+  assert.equal(result.spansh.bodies[0].axialTilt, -0.25);
   assert.ok(calls.every((c) => c.options.signal instanceof AbortSignal && c.options.redirect === 'error'));
   service.close();
 });
@@ -166,4 +168,41 @@ test('request validation excludes arbitrary endpoints and malformed system addre
     'systemName=Sol&providers=spansh&systemAddress=18446744073709551616',
     'systemName=&providers=edsm',
   ]) assert.throws(() => parseCommunityRequest(new URLSearchParams(params)));
+});
+
+test('EDGIS validates system and body identities, maps native units and excludes stations', async () => {
+  const body = { system_id64: '7268561135001', body_id: 2, body_name: 'Ross 54', type: 'Star',
+    radius: 402107136, semi_major_axis: 1669457614421.8445, orbital_period: 4264774024.486542,
+    mean_anomaly: 166.236227, updatetime: '2026-10-29T23:54:41Z' };
+  const payload = { system: { name: 'LFT 509', id64: body.system_id64 }, bodies: [body], stations: ['unused'] };
+  const calls = [];
+  let current = payload;
+  const service = createCommunityDataService({ fetchImpl: async (url) => {
+    calls.push(url); return { ok: true, text: async () => JSON.stringify(current) };
+  } });
+  const request = { systemName: 'LFT 509', systemAddress: body.system_id64, providers: ['edgis'] };
+  const result = (await service.get(request)).edgis;
+  assert.equal(result.status, 'ready');
+  assert.deepEqual(calls, ['https://edgis.elitedangereuse.fr/system-map?name_or_id=7268561135001']);
+  assert.equal(result.bodies[0].name, 'Ross 54');
+  assert.equal(result.bodies[0].radius, 402107.136);
+  assert.equal(result.bodies[0].timestamps, undefined);
+  assert.equal(result.stations, undefined);
+  await service.get(request);
+  assert.equal(calls.length, 1);
+  for (const bad of [
+    { ...payload, system: { ...payload.system, id64: '123' } },
+    { ...payload, system: { ...payload.system, name: 'Wrong' } },
+    { ...payload, bodies: [{ ...body, system_id64: '123' }] },
+    { ...payload, bodies: [null] },
+  ]) {
+    current = bad;
+    const failed = (await service.get({ ...request, refresh: true })).edgis;
+    assert.equal(failed.status, 'identity-mismatch');
+    assert.deepEqual(failed.bodies, []);
+  }
+  const callsBefore = calls.length;
+  assert.equal((await service.get({ systemName: 'LFT 509', providers: ['edgis'] })).edgis.status, 'missing-address');
+  assert.equal(calls.length, callsBefore);
+  service.close();
 });

@@ -7,7 +7,8 @@
 // gives orbital elements for) contribute a zero offset: they sit exactly at
 // their parent's position.
 
-import { keplerianOffset } from './kepler.js';
+import { eliteKeplerianOffset } from './elite-orbit.js';
+import { orbitalChain, IDENTITY_FRAME, childOrbitFrame, orbitParentFrame, transformVector } from './orbital-frame.js';
 
 /**
  * @param {Map<number, object>} nodes Output of buildBodyTree().nodes
@@ -16,36 +17,26 @@ import { keplerianOffset } from './kepler.js';
  * @returns {{x:number, y:number, z:number}} Absolute position, metres, system-frame.
  */
 export function absolutePosition(nodes, bodyId, atEpochMs) {
-  let x = 0;
-  let y = 0;
-  let z = 0;
-  let currentId = bodyId;
-  const visited = new Set();
+  return positionInTree(nodes, bodyId, atEpochMs);
+}
 
-  while (currentId !== null && currentId !== undefined) {
-    if (visited.has(currentId)) {
-      throw new Error(`Cycle detected in body tree while resolving position of body ${bodyId} (at ${currentId})`);
-    }
-    visited.add(currentId);
-
-    const node = nodes.get(currentId);
-    if (!node) {
-      throw new Error(`Body tree is missing node ${currentId} while resolving position of body ${bodyId}`);
-    }
-
-    if (node.positionIssue) throw new Error(node.positionIssue);
-
+/** Shared hierarchy walk; display scaling is applied to each local offset. */
+export function positionInTree(nodes, bodyId, atEpochMs, scaleOffset = v => v) {
+  const position = { x: 0, y: 0, z: 0 };
+  let frame = IDENTITY_FRAME;
+  const chain = orbitalChain(nodes, bodyId);
+  for (let i = 0; i < chain.length; i++) {
+    const node = chain[i];
+    frame = orbitParentFrame(nodes, node, frame);
     if (node.elements) {
-      const offset = keplerianOffset(node.elements, atEpochMs);
-      x += offset.x;
-      y += offset.y;
-      z += offset.z;
+      const offset = transformVector(frame, scaleOffset(eliteKeplerianOffset(node.elements, atEpochMs)));
+      position.x += offset.x;
+      position.y += offset.y;
+      position.z += offset.z;
     }
-
-    currentId = node.parentId;
+    if (i < chain.length - 1) frame = childOrbitFrame(frame, node);
   }
-
-  return { x, y, z };
+  return position;
 }
 
 /**

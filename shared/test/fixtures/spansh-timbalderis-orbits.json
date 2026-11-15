@@ -1,0 +1,1778 @@
+{
+  "description": "Public provider geometry captured through the watcher; timestamps.distanceToArrival are measured range epochs.",
+  "source": "https://spansh.co.uk/api/dump/8330323956442",
+  "status": "ready",
+  "bodies": [
+    {
+      "bodyId": 1,
+      "name": "Timbalderis barycentre 1",
+      "type": "Barycentre",
+      "orbitalPeriod": 3311022.5642169,
+      "semiMajorAxis": 83.2591601582401,
+      "orbitalEccentricity": 0.012425,
+      "orbitalInclination": -51.642367,
+      "argOfPeriapsis": 40.88056,
+      "meanAnomaly": 348.588399,
+      "ascendingNode": 59.889277,
+      "timestamps": {
+        "meanAnomaly": "2026-11-15T00:45:49Z"
+      },
+      "updateTime": "2026-11-15T00:45:49Z"
+    },
+    {
+      "bodyId": 2,
+      "name": "Timbalderis A",
+      "type": "Star",
+      "subType": "K (Yellow-Orange) Star",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 128.217351933322,
+      "semiMajorAxis": 0.195775007266381,
+      "orbitalEccentricity": 0.068798,
+      "orbitalInclination": 91.250241,
+      "argOfPeriapsis": 40.690507,
+      "meanAnomaly": 72.872308,
+      "ascendingNode": -159.846921,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-15T08:26:16Z",
+      "mainStar": true,
+      "distanceToArrival": 0,
+      "solarRadius": 0.945922852624012,
+      "surfaceTemperature": 4994,
+      "solarMasses": 0.894531,
+      "axialTilt": 0
+    },
+    {
+      "bodyId": 3,
+      "name": "Timbalderis B",
+      "type": "Star",
+      "subType": "M (Red dwarf) Star",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 128.217351933322,
+      "semiMajorAxis": 0.35865947231759,
+      "orbitalEccentricity": 0.068798,
+      "orbitalInclination": 91.250241,
+      "argOfPeriapsis": 220.690485,
+      "meanAnomaly": 72.872308,
+      "ascendingNode": -159.846921,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 272.289464,
+      "solarRadius": 0.641723629043853,
+      "surfaceTemperature": 3678,
+      "solarMasses": 0.488281,
+      "axialTilt": 0
+    },
+    {
+      "bodyId": 4,
+      "name": "Timbalderis C",
+      "type": "Star",
+      "subType": "M (Red dwarf) Star",
+      "parents": [
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3311022.5642169,
+      "semiMajorAxis": 432.560107868457,
+      "orbitalEccentricity": 0.012425,
+      "orbitalInclination": -51.642367,
+      "argOfPeriapsis": 220.880538,
+      "meanAnomaly": 348.588389,
+      "ascendingNode": 59.889277,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 254190.280581,
+      "solarRadius": 0.43582150395399,
+      "surfaceTemperature": 2752,
+      "solarMasses": 0.269531,
+      "axialTilt": 0
+    },
+    {
+      "bodyId": 12,
+      "name": "Timbalderis B 1",
+      "type": "Planet",
+      "subType": "Metal-rich body",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.861589196655093,
+      "semiMajorAxis": 0.0139547324734574,
+      "orbitalEccentricity": 0.000064,
+      "orbitalInclination": -0.049545,
+      "argOfPeriapsis": 51.03934,
+      "meanAnomaly": 176.179235,
+      "ascendingNode": -30.87769,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 274.123076,
+      "radius": 1286.062,
+      "gravity": 0.356497603752422,
+      "surfaceTemperature": 1365.153931,
+      "earthMasses": 0.014508,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.395501
+    },
+    {
+      "bodyId": 13,
+      "name": "Timbalderis B 2",
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 3
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.16344735357639,
+      "semiMajorAxis": 0.0398862708085882,
+      "orbitalEccentricity": 0.000961,
+      "orbitalInclination": -1.999399,
+      "argOfPeriapsis": 136.163038,
+      "meanAnomaly": 22.019223,
+      "ascendingNode": 117.096094,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 285.919633,
+      "radius": 2339.604,
+      "gravity": 0.35012562455389,
+      "surfaceTemperature": 924.223206,
+      "earthMasses": 0.047156,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.204957
+    },
+    {
+      "bodyId": 14,
+      "name": "Timbalderis AB 1",
+      "type": "Planet",
+      "subType": "Gas giant with water-based life",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 707.3285403075,
+      "semiMajorAxis": 1.73828057500888,
+      "orbitalEccentricity": 0.000034,
+      "orbitalInclination": 0.008282,
+      "argOfPeriapsis": 102.210963,
+      "meanAnomaly": 290.928919,
+      "ascendingNode": -14.744896,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 923.135369,
+      "radius": 63003.964,
+      "gravity": 1.73259467727134,
+      "surfaceTemperature": 182.855087,
+      "earthMasses": 169.223007,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "540440285608415962",
+          "innerRadius": 118900000,
+          "mass": 35399000000,
+          "name": "Timbalderis AB 1 A Ring",
+          "outerRadius": 124560000,
+          "signals": {
+            "signals": {
+              "Benitoite": 1,
+              "Monazite": 1
+            },
+            "updateTime": "2026-10-14T22:10:00Z"
+          },
+          "type": "Rocky"
+        },
+        {
+          "id64": "576469082627379930",
+          "innerRadius": 124660000,
+          "mass": 554010000000,
+          "name": "Timbalderis AB 1 B Ring",
+          "outerRadius": 192560000,
+          "signals": {
+            "signals": {
+              "Painite": 1,
+              "Rhodplumsite": 1
+            },
+            "updateTime": "2026-11-15T00:45:48Z"
+          },
+          "type": "Metal Rich"
+        }
+      ],
+      "axialTilt": 0.849366
+    },
+    {
+      "bodyId": 17,
+      "name": "Timbalderis AB 1 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 14
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.1623125109375,
+      "semiMajorAxis": 0.00172655315438688,
+      "orbitalEccentricity": 0.00081,
+      "orbitalInclination": -0.021297,
+      "argOfPeriapsis": 250.323581,
+      "meanAnomaly": 216.727186,
+      "ascendingNode": -23.431005,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 923.597801,
+      "radius": 502.410125,
+      "gravity": 0.058256653410829,
+      "surfaceTemperature": 173.734848,
+      "earthMasses": 0.000362,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.086362
+    },
+    {
+      "bodyId": 18,
+      "name": "Timbalderis AB 1 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 14
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.40931542659722,
+      "semiMajorAxis": 0.00280690156241407,
+      "orbitalEccentricity": 0.000093,
+      "orbitalInclination": -0.208244,
+      "argOfPeriapsis": 294.310095,
+      "meanAnomaly": 59.129215,
+      "ascendingNode": -66.547513,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 922.696885,
+      "radius": 544.099625,
+      "gravity": 0.063161517283573,
+      "surfaceTemperature": 172.508041,
+      "earthMasses": 0.00046,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.007922
+    },
+    {
+      "bodyId": 19,
+      "name": "Timbalderis AB 1 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 14
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.70642397966435,
+      "semiMajorAxis": 0.00374054379887196,
+      "orbitalEccentricity": 0.000464,
+      "orbitalInclination": -0.492519,
+      "argOfPeriapsis": 210.315141,
+      "meanAnomaly": 232.612349,
+      "ascendingNode": -167.610284,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 922.518183,
+      "radius": 639.4255625,
+      "gravity": 0.0744225553176303,
+      "surfaceTemperature": 171.911469,
+      "earthMasses": 0.000749,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.298156
+    },
+    {
+      "bodyId": 20,
+      "name": "Timbalderis AB 1 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 14
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 5.55085715043981,
+      "semiMajorAxis": 0.00489633789970661,
+      "orbitalEccentricity": 0.000961,
+      "orbitalInclination": -1.064132,
+      "argOfPeriapsis": 40.21531,
+      "meanAnomaly": 87.902307,
+      "ascendingNode": 100.402217,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 924.915924,
+      "radius": 884.2249375,
+      "gravity": 0.10403823799327,
+      "surfaceTemperature": 172.209045,
+      "earthMasses": 0.002001,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -3.117431
+    },
+    {
+      "bodyId": 21,
+      "name": "Timbalderis AB 1 d a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 20
+        },
+        {
+          "Planet": 14
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 0.243749014201389,
+      "semiMajorAxis": 0.0000142745693341944,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 89.353696,
+      "argOfPeriapsis": 264.667587,
+      "meanAnomaly": 221.442244,
+      "ascendingNode": -84.714327,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 924.915354,
+      "radius": 399.0235,
+      "gravity": 0.0442146426022229,
+      "surfaceTemperature": 171.424774,
+      "earthMasses": 0.000173,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.103844
+    },
+    {
+      "bodyId": 22,
+      "name": "Timbalderis barycentre 22",
+      "type": "Barycentre",
+      "orbitalPeriod": 20.3500612190509,
+      "semiMajorAxis": 0.0116414879084449,
+      "orbitalEccentricity": 0.000065,
+      "orbitalInclination": -0.006397,
+      "argOfPeriapsis": 271.5673,
+      "meanAnomaly": 156.62589,
+      "ascendingNode": 33.304477,
+      "timestamps": {
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z"
+    },
+    {
+      "bodyId": 23,
+      "name": "Timbalderis AB 1 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 22
+        },
+        {
+          "Planet": 14
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.59644590759259,
+      "semiMajorAxis": 0.0000282379948066467,
+      "orbitalEccentricity": 0.062153,
+      "orbitalInclination": -1.259774,
+      "argOfPeriapsis": 348.919264,
+      "meanAnomaly": 202.662432,
+      "ascendingNode": 104.63094,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 922.800066,
+      "radius": 914.216875,
+      "gravity": 0.107258488834506,
+      "surfaceTemperature": 170.237778,
+      "earthMasses": 0.002206,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.420745
+    },
+    {
+      "bodyId": 24,
+      "name": "Timbalderis AB 1 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Null": 22
+        },
+        {
+          "Planet": 14
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1.59644590759259,
+      "semiMajorAxis": 0.0000333569034029105,
+      "orbitalEccentricity": 0.062153,
+      "orbitalInclination": -1.259774,
+      "argOfPeriapsis": 168.91927,
+      "meanAnomaly": 202.662432,
+      "ascendingNode": 104.63094,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 922.819265,
+      "radius": 865.2541875,
+      "gravity": 0.101365657183644,
+      "surfaceTemperature": 170.237778,
+      "earthMasses": 0.001867,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.129884
+    },
+    {
+      "bodyId": 25,
+      "name": "Timbalderis AB 2",
+      "type": "Planet",
+      "subType": "Class I gas giant",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 1124.76164682044,
+      "semiMajorAxis": 2.36816931369779,
+      "orbitalEccentricity": 0.002608,
+      "orbitalInclination": 0.034224,
+      "argOfPeriapsis": 40.823276,
+      "meanAnomaly": 232.106543,
+      "ascendingNode": -56.11013,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1277.342988,
+      "radius": 29345.452,
+      "gravity": 1.0447307025594,
+      "surfaceTemperature": 143.020599,
+      "earthMasses": 22.136688,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "936757052817019610",
+          "innerRadius": 50153000,
+          "mass": 154960000000,
+          "name": "Timbalderis AB 2 A Ring",
+          "outerRadius": 97749000,
+          "signals": {
+            "signals": {
+              "Monazite": 1,
+              "Platinum": 2,
+              "Serendibite": 2
+            },
+            "updateTime": "2026-10-27T00:08:56Z"
+          },
+          "type": "Metal Rich"
+        }
+      ],
+      "axialTilt": 0.357113
+    },
+    {
+      "bodyId": 27,
+      "name": "Timbalderis AB 2 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Planet": 25
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 16.4824572426273,
+      "semiMajorAxis": 0.00513481274432186,
+      "orbitalEccentricity": 0.001334,
+      "orbitalInclination": -0.105811,
+      "argOfPeriapsis": 86.057757,
+      "meanAnomaly": 158.076549,
+      "ascendingNode": -93.557527,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1278.368473,
+      "radius": 420.97015625,
+      "gravity": 0.0487089833792189,
+      "surfaceTemperature": 158.948761,
+      "earthMasses": 0.000212,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Carbon dioxide",
+      "axialTilt": -0.076917
+    },
+    {
+      "bodyId": 28,
+      "name": "Timbalderis AB 3",
+      "type": "Star",
+      "subType": "Y (Brown dwarf) Star",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2501.32671660847,
+      "semiMajorAxis": 4.03477571754146,
+      "orbitalEccentricity": 0.002539,
+      "orbitalInclination": -0.561445,
+      "argOfPeriapsis": 323.959718,
+      "meanAnomaly": 269.583287,
+      "ascendingNode": -79.234443,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1961.294183,
+      "solarRadius": 0.0561218231488138,
+      "surfaceTemperature": 324,
+      "solarMasses": 0.011719,
+      "rings": [
+        {
+          "id64": "1044843443873911514",
+          "innerRadius": 92927000,
+          "mass": 646700000000,
+          "name": "Timbalderis AB 3 A Ring",
+          "outerRadius": 174170000,
+          "signals": {
+            "signals": {
+              "Alexandrite": 1,
+              "Monazite": 1,
+              "Serendibite": 1
+            },
+            "updateTime": "2026-09-19T22:15:55Z"
+          },
+          "type": "Rocky"
+        },
+        {
+          "id64": "1080872240892875482",
+          "innerRadius": 174270000,
+          "mass": 9180100000000,
+          "name": "Timbalderis AB 3 B Ring",
+          "outerRadius": 581690000,
+          "signals": {
+            "signals": {
+              "Alexandrite": 3,
+              "Benitoite": 1,
+              "Monazite": 2,
+              "Musgravite": 2,
+              "Serendibite": 4
+            },
+            "updateTime": "2026-09-19T22:15:24Z"
+          },
+          "type": "Rocky"
+        }
+      ],
+      "axialTilt": 1.682556
+    },
+    {
+      "bodyId": 31,
+      "name": "Timbalderis AB 3 a",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.63709154118056,
+      "semiMajorAxis": 0.00900547919955151,
+      "orbitalEccentricity": 0.000422,
+      "orbitalInclination": 0.175854,
+      "argOfPeriapsis": 288.400076,
+      "meanAnomaly": 251.65631,
+      "ascendingNode": -146.88511,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1961.842895,
+      "radius": 599.372,
+      "gravity": 0.0696860405832569,
+      "surfaceTemperature": 152.66922,
+      "earthMasses": 0.000616,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.504502
+    },
+    {
+      "bodyId": 32,
+      "name": "Timbalderis AB 3 b",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 2.79777979960648,
+      "semiMajorAxis": 0.00936768735821581,
+      "orbitalEccentricity": 0.000111,
+      "orbitalInclination": -0.07918,
+      "argOfPeriapsis": 221.966692,
+      "meanAnomaly": 223.317862,
+      "ascendingNode": 130.05145,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1961.048252,
+      "radius": 702.392,
+      "gravity": 0.0819000713775874,
+      "surfaceTemperature": 151.865295,
+      "earthMasses": 0.000994,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.069962
+    },
+    {
+      "bodyId": 33,
+      "name": "Timbalderis AB 3 c",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.24016664591435,
+      "semiMajorAxis": 0.0103308236756405,
+      "orbitalEccentricity": 0.000004,
+      "orbitalInclination": -0.000756,
+      "argOfPeriapsis": 176.565769,
+      "meanAnomaly": 298.868918,
+      "ascendingNode": 160.601049,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1960.73068,
+      "radius": 715.5591875,
+      "gravity": 0.0834668094218415,
+      "surfaceTemperature": 149.937225,
+      "earthMasses": 0.001052,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.08885
+    },
+    {
+      "bodyId": 34,
+      "name": "Timbalderis AB 3 d",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.227761593125,
+      "semiMajorAxis": 0.0123356966718347,
+      "orbitalEccentricity": 0.000845,
+      "orbitalInclination": 0.007672,
+      "argOfPeriapsis": 31.339572,
+      "meanAnomaly": 3.23226,
+      "ascendingNode": 41.734659,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1960.548046,
+      "radius": 729.3178125,
+      "gravity": 0.0851053329254614,
+      "surfaceTemperature": 229.161804,
+      "earthMasses": 0.001114,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Carbon dioxide",
+      "axialTilt": -0.200861
+    },
+    {
+      "bodyId": 35,
+      "name": "Timbalderis AB 3 e",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 7.30836225880787,
+      "semiMajorAxis": 0.0177679249694018,
+      "orbitalEccentricity": 0.000004,
+      "orbitalInclination": 0.651106,
+      "argOfPeriapsis": 95.764546,
+      "meanAnomaly": 78.281391,
+      "ascendingNode": 34.983809,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1960.214746,
+      "radius": 1145.74625,
+      "gravity": 0.135389517691445,
+      "surfaceTemperature": 172.983795,
+      "earthMasses": 0.004373,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Carbon dioxide",
+      "axialTilt": -0.519824
+    },
+    {
+      "bodyId": 36,
+      "name": "Timbalderis AB 3 f",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 10.4153157660301,
+      "semiMajorAxis": 0.0225011629158559,
+      "orbitalEccentricity": 0.000867,
+      "orbitalInclination": 1.019507,
+      "argOfPeriapsis": 319.703444,
+      "meanAnomaly": 322.272603,
+      "ascendingNode": -113.192443,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1962.718143,
+      "radius": 1068.801125,
+      "gravity": 0.125993677985113,
+      "surfaceTemperature": 167.303268,
+      "earthMasses": 0.003541,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Carbon dioxide",
+      "axialTilt": 0.038528
+    },
+    {
+      "bodyId": 37,
+      "name": "Timbalderis AB 3 g",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 18.592852133287,
+      "semiMajorAxis": 0.0331121471513374,
+      "orbitalEccentricity": 0.000387,
+      "orbitalInclination": -0.000174,
+      "argOfPeriapsis": 162.800725,
+      "meanAnomaly": 332.373316,
+      "ascendingNode": -2.146769,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1962.494907,
+      "radius": 1132.396,
+      "gravity": 0.133755786682982,
+      "surfaceTemperature": 133.109772,
+      "earthMasses": 0.00422,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.320931
+    },
+    {
+      "bodyId": 38,
+      "name": "Timbalderis AB 3 h",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 26.3763639937963,
+      "semiMajorAxis": 0.0418054927829636,
+      "orbitalEccentricity": 0.003286,
+      "orbitalInclination": 0.06925,
+      "argOfPeriapsis": 115.903321,
+      "meanAnomaly": 120.627041,
+      "ascendingNode": 80.047946,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1958.871964,
+      "radius": 965.564375,
+      "gravity": 0.113463444478434,
+      "surfaceTemperature": 130.603027,
+      "earthMasses": 0.002603,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.210434
+    },
+    {
+      "bodyId": 39,
+      "name": "Timbalderis AB 3 i",
+      "type": "Planet",
+      "subType": "Rocky body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 40.9023125690394,
+      "semiMajorAxis": 0.0560086693986696,
+      "orbitalEccentricity": 0.006867,
+      "orbitalInclination": 0.197869,
+      "argOfPeriapsis": 221.417927,
+      "meanAnomaly": 333.167134,
+      "ascendingNode": 81.109183,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-15T00:25:28Z",
+      "distanceToArrival": 1961.868322,
+      "radius": 1371.566375,
+      "gravity": 0.163359743040685,
+      "surfaceTemperature": 128.002869,
+      "earthMasses": 0.007561,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 1.287567
+    },
+    {
+      "bodyId": 40,
+      "name": "Timbalderis AB 3 j",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Star": 28
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 141.859910002465,
+      "semiMajorAxis": 0.128330467395308,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 54.881485,
+      "argOfPeriapsis": 174.329131,
+      "meanAnomaly": 156.412447,
+      "ascendingNode": -143.054866,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 1953.639932,
+      "radius": 3746.46325,
+      "gravity": 0.230282145406342,
+      "surfaceTemperature": 108.776764,
+      "earthMasses": 0.07953,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Argon",
+      "axialTilt": -0.414749
+    },
+    {
+      "bodyId": 41,
+      "name": "Timbalderis AB 4",
+      "type": "Planet",
+      "subType": "Class II gas giant",
+      "parents": [
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4438.94105652968,
+      "semiMajorAxis": 5.91414568231388,
+      "orbitalEccentricity": 0.000144,
+      "orbitalInclination": -0.08163,
+      "argOfPeriapsis": 6.629491,
+      "meanAnomaly": 123.846428,
+      "ascendingNode": 35.342039,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-15T02:08:32Z",
+      "distanceToArrival": 2855.302507,
+      "radius": 75363.768,
+      "gravity": 5.70149923524013,
+      "surfaceTemperature": 217.627853,
+      "earthMasses": 796.784851,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "1513217805120443098",
+          "innerRadius": 116370000,
+          "mass": 166950000000,
+          "name": "Timbalderis AB 4 A Ring",
+          "outerRadius": 137710000,
+          "signals": {
+            "signals": {
+              "Monazite": 4,
+              "Painite": 3,
+              "Platinum": 1,
+              "Rhodplumsite": 1
+            },
+            "updateTime": "2026-11-02T08:29:04Z"
+          },
+          "type": "Metal Rich"
+        },
+        {
+          "id64": "1549246602139407066",
+          "innerRadius": 137810000,
+          "mass": 2623600000000,
+          "name": "Timbalderis AB 4 B Ring",
+          "outerRadius": 322740000,
+          "signals": {
+            "signals": {
+              "Alexandrite": 1,
+              "Benitoite": 2,
+              "Musgravite": 4,
+              "Serendibite": 3
+            },
+            "updateTime": "2026-11-03T01:17:00Z"
+          },
+          "type": "Rocky"
+        }
+      ],
+      "axialTilt": 2.523216
+    },
+    {
+      "bodyId": 44,
+      "name": "Timbalderis AB 4 a",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 3.51985702636574,
+      "semiMajorAxis": 0.00605738736427988,
+      "orbitalEccentricity": 0.000351,
+      "orbitalInclination": 0.155302,
+      "argOfPeriapsis": 299.698104,
+      "meanAnomaly": 231.50472,
+      "ascendingNode": 115.033667,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2856.874816,
+      "radius": 1550.75725,
+      "gravity": 0.0930668909962272,
+      "surfaceTemperature": 102.655251,
+      "earthMasses": 0.005507,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.350811
+    },
+    {
+      "bodyId": 45,
+      "name": "Timbalderis AB 4 b",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 4.72861445612268,
+      "semiMajorAxis": 0.00737493029411675,
+      "orbitalEccentricity": 0.000102,
+      "orbitalInclination": -0.022752,
+      "argOfPeriapsis": 101.518796,
+      "meanAnomaly": 127.35554,
+      "ascendingNode": 23.970081,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2853.171084,
+      "radius": 1386.228,
+      "gravity": 0.0828638727439584,
+      "surfaceTemperature": 100.728508,
+      "earthMasses": 0.003918,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.185886
+    },
+    {
+      "bodyId": 46,
+      "name": "Timbalderis AB 4 c",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 8.88612473177083,
+      "semiMajorAxis": 0.0112307885295617,
+      "orbitalEccentricity": 0.000042,
+      "orbitalInclination": 0.113372,
+      "argOfPeriapsis": 346.823585,
+      "meanAnomaly": 129.250038,
+      "ascendingNode": 0.985753,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2855.387059,
+      "radius": 1472.652,
+      "gravity": 0.0882123993066177,
+      "surfaceTemperature": 97.194916,
+      "earthMasses": 0.004707,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.123474
+    },
+    {
+      "bodyId": 47,
+      "name": "Timbalderis AB 4 d",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 18.0477448911574,
+      "semiMajorAxis": 0.0180115301496557,
+      "orbitalEccentricity": 0.000363,
+      "orbitalInclination": -0.199831,
+      "argOfPeriapsis": 123.818888,
+      "meanAnomaly": 331.882856,
+      "ascendingNode": -0.885309,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2862.626049,
+      "radius": 1952.33925,
+      "gravity": 0.118349648210462,
+      "surfaceTemperature": 94.018753,
+      "earthMasses": 0.0111,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.31242
+    },
+    {
+      "bodyId": 48,
+      "name": "Timbalderis AB 4 e",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 22.4779146137037,
+      "semiMajorAxis": 0.0208499963269022,
+      "orbitalEccentricity": 0.000732,
+      "orbitalInclination": 0.007594,
+      "argOfPeriapsis": 144.280493,
+      "meanAnomaly": 30.573279,
+      "ascendingNode": -30.442249,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2861.613422,
+      "radius": 2213.11075,
+      "gravity": 0.135069338227796,
+      "surfaceTemperature": 93.177521,
+      "earthMasses": 0.016278,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.072848
+    },
+    {
+      "bodyId": 49,
+      "name": "Timbalderis AB 4 f",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 31.4463826793171,
+      "semiMajorAxis": 0.0260804966859154,
+      "orbitalEccentricity": 0.000079,
+      "orbitalInclination": 0.277556,
+      "argOfPeriapsis": 203.808631,
+      "meanAnomaly": 34.083846,
+      "ascendingNode": 65.170298,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2852.311307,
+      "radius": 2121.70575,
+      "gravity": 0.129180789232181,
+      "surfaceTemperature": 92.004196,
+      "earthMasses": 0.014309,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.119838
+    },
+    {
+      "bodyId": 50,
+      "name": "Timbalderis AB 4 g",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 43.9453463035648,
+      "semiMajorAxis": 0.0325994737703969,
+      "orbitalEccentricity": 0.006387,
+      "orbitalInclination": 0.007718,
+      "argOfPeriapsis": 12.022315,
+      "meanAnomaly": 74.060199,
+      "ascendingNode": 150.131523,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2865.886704,
+      "radius": 1840.314375,
+      "gravity": 0.111241052309575,
+      "surfaceTemperature": 90.958328,
+      "earthMasses": 0.00927,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.38915
+    },
+    {
+      "bodyId": 51,
+      "name": "Timbalderis AB 4 h",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 59.9421236526042,
+      "semiMajorAxis": 0.0400949856584255,
+      "orbitalEccentricity": 0.005486,
+      "orbitalInclination": 4.36566,
+      "argOfPeriapsis": 300.563864,
+      "meanAnomaly": 117.755492,
+      "ascendingNode": -39.658804,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2872.421991,
+      "radius": 1773.56125,
+      "gravity": 0.107026103803406,
+      "surfaceTemperature": 90.087143,
+      "earthMasses": 0.008283,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.092109
+    },
+    {
+      "bodyId": 52,
+      "name": "Timbalderis AB 4 i",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 41
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 78.4856301766898,
+      "semiMajorAxis": 0.0479875697389939,
+      "orbitalEccentricity": 0.000393,
+      "orbitalInclination": -6.040097,
+      "argOfPeriapsis": 221.272939,
+      "meanAnomaly": 306.949702,
+      "ascendingNode": 57.597558,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 2837.266601,
+      "radius": 1753.95675,
+      "gravity": 0.105791067604772,
+      "surfaceTemperature": 89.40049,
+      "earthMasses": 0.008008,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.299292
+    },
+    {
+      "bodyId": 53,
+      "name": "Timbalderis barycentre 53",
+      "type": "Barycentre",
+      "orbitalPeriod": 6906.31071726482,
+      "semiMajorAxis": 7.94090198267544,
+      "orbitalEccentricity": 0.003562,
+      "orbitalInclination": -6.321069,
+      "argOfPeriapsis": 224.566037,
+      "meanAnomaly": 301.239356,
+      "ascendingNode": 123.144489,
+      "timestamps": {
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z"
+    },
+    {
+      "bodyId": 54,
+      "name": "Timbalderis AB 5",
+      "type": "Planet",
+      "subType": "Class I gas giant",
+      "parents": [
+        {
+          "Null": 53
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 610.640058638877,
+      "semiMajorAxis": 0.00869736262749529,
+      "orbitalEccentricity": 0.104904,
+      "orbitalInclination": -7.213295,
+      "argOfPeriapsis": 67.653109,
+      "meanAnomaly": 145.072256,
+      "ascendingNode": -152.839543,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 4016.266663,
+      "radius": 54671.252,
+      "gravity": 1.74814805750994,
+      "surfaceTemperature": 91.731041,
+      "earthMasses": 128.565079,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": 0.380022
+    },
+    {
+      "bodyId": 55,
+      "name": "Timbalderis AB 5 a",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 54
+        },
+        {
+          "Null": 53
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 10.7834453660069,
+      "semiMajorAxis": 0.00695592320040852,
+      "orbitalEccentricity": 0.000216,
+      "orbitalInclination": -0.026586,
+      "argOfPeriapsis": 4.918966,
+      "meanAnomaly": 124.057682,
+      "ascendingNode": -15.600446,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 4017.032264,
+      "radius": 637.576375,
+      "gravity": 0.0374827164270419,
+      "surfaceTemperature": 72.93586,
+      "earthMasses": 0.000375,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": null,
+      "axialTilt": -0.159223
+    },
+    {
+      "bodyId": 56,
+      "name": "Timbalderis AB 5 b",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 54
+        },
+        {
+          "Null": 53
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 20.2489775364005,
+      "semiMajorAxis": 0.0105872978253029,
+      "orbitalEccentricity": 0.000674,
+      "orbitalInclination": 0.000761,
+      "argOfPeriapsis": 49.363519,
+      "meanAnomaly": 299.7538,
+      "ascendingNode": 96.603747,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 4018.974911,
+      "radius": 610.644625,
+      "gravity": 0.0358797797491588,
+      "surfaceTemperature": 103.540871,
+      "earthMasses": 0.000329,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Methane",
+      "axialTilt": -0.282482
+    },
+    {
+      "bodyId": 57,
+      "name": "Timbalderis AB 5 c",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 54
+        },
+        {
+          "Null": 53
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 43.6781719326968,
+      "semiMajorAxis": 0.0176749981727799,
+      "orbitalEccentricity": 0.001628,
+      "orbitalInclination": 0.202577,
+      "argOfPeriapsis": 315.433251,
+      "meanAnomaly": 124.147354,
+      "ascendingNode": 12.932468,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 4021.072178,
+      "radius": 892.69675,
+      "gravity": 0.0530469052717447,
+      "surfaceTemperature": 111.301201,
+      "earthMasses": 0.00104,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Methane",
+      "axialTilt": -2.780498
+    },
+    {
+      "bodyId": 58,
+      "name": "Timbalderis AB 5 d",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 54
+        },
+        {
+          "Null": 53
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 57.9374055895486,
+      "semiMajorAxis": 0.0213381011682399,
+      "orbitalEccentricity": 0.00236,
+      "orbitalInclination": 0.010135,
+      "argOfPeriapsis": 119.608401,
+      "meanAnomaly": 181.956697,
+      "ascendingNode": -8.107626,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 4008.292328,
+      "radius": 672.7620625,
+      "gravity": 0.039579789945957,
+      "surfaceTemperature": 104.931076,
+      "earthMasses": 0.000441,
+      "isLandable": true,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thin Methane",
+      "axialTilt": 0.364357
+    },
+    {
+      "bodyId": 59,
+      "name": "Timbalderis AB 6",
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 53
+        },
+        {
+          "Null": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "orbitalPeriod": 610.640058638877,
+      "semiMajorAxis": 0.0968598666816394,
+      "orbitalEccentricity": 0.104904,
+      "orbitalInclination": -7.213295,
+      "argOfPeriapsis": 247.653104,
+      "meanAnomaly": 145.072256,
+      "ascendingNode": -152.839543,
+      "timestamps": {
+        "distanceToArrival": "2026-11-14T22:31:04Z",
+        "meanAnomaly": "2026-11-14T22:31:04Z"
+      },
+      "updateTime": "2026-11-14T22:31:04Z",
+      "distanceToArrival": 3991.053901,
+      "radius": 15369.585,
+      "gravity": 1.9862403385337,
+      "surfaceTemperature": 461.137756,
+      "earthMasses": 11.544705,
+      "isLandable": false,
+      "terraformingState": "Not terraformable",
+      "atmosphereType": "Thick Methane-rich",
+      "reserveLevel": "Major",
+      "rings": [
+        {
+          "id64": "2161736151461794522",
+          "innerRadius": 23234000,
+          "mass": 32368000,
+          "name": "Timbalderis AB 6 A Ring",
+          "outerRadius": 78681000,
+          "signals": {
+            "signals": {
+              "Opal": 2
+            },
+            "updateTime": "2026-10-29T23:24:12Z"
+          },
+          "type": "Icy"
+        }
+      ],
+      "axialTilt": 0.201679
+    }
+  ],
+  "receivedAt": 1794731711274,
+  "systemAddress": "8330323956442",
+  "systemName": "Timbalderis"
+}

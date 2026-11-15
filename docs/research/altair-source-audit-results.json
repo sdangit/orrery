@@ -1,0 +1,163 @@
+{
+  "system": "Altair",
+  "systemAddress": 306253399220,
+  "comparisonEpoch": "2026-11-15T06:50:39Z",
+  "diagnostics": [],
+  "providers": {
+    "edsm": {
+      "status": "ready",
+      "receivedAt": "2026-11-15T06:55:15.114Z"
+    },
+    "spansh": {
+      "status": "ready",
+      "receivedAt": "2026-11-15T06:55:16.202Z"
+    },
+    "edgis": {
+      "status": "ready",
+      "receivedAt": "2026-11-15T06:55:15.985Z"
+    }
+  },
+  "rows": [
+    {
+      "id": 0,
+      "name": "Altair",
+      "orbitSource": null,
+      "orbitQuality": "missing",
+      "phaseEpoch": null,
+      "periodDays": null,
+      "phaseDifferenceFromCaptureCatalogueDeg": null,
+      "providerQuality": {
+        "edsm": "missing",
+        "spansh": "missing",
+        "edgis": "missing"
+      },
+      "elements": null,
+      "parentId": null
+    },
+    {
+      "id": 1,
+      "name": "Altair 1",
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "phaseEpoch": "2026-11-12T10:32:00.000Z",
+      "periodDays": 113.83092651765,
+      "phaseDifferenceFromCaptureCatalogueDeg": 0,
+      "providerQuality": {
+        "edsm": "approximate",
+        "spansh": "propagated",
+        "edgis": "approximate"
+      },
+      "elements": {
+        "semiMajorAxis": 86249015331.26834,
+        "orbitalPeriodSec": 9834992.05112496,
+        "eccentricity": 0.000601,
+        "inclinationDeg": 0.010429,
+        "periapsisDeg": 116.843367,
+        "ascendingNodeDeg": 32.430319,
+        "meanAnomalyDeg": 36.22055,
+        "epochMs": 1794479520000
+      },
+      "parentId": 0
+    },
+    {
+      "id": 2,
+      "name": "Altair 2",
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "phaseEpoch": "2026-11-12T10:32:00.000Z",
+      "periodDays": 194.31160417972202,
+      "phaseDifferenceFromCaptureCatalogueDeg": 0,
+      "providerQuality": {
+        "edsm": "approximate",
+        "spansh": "propagated",
+        "edgis": "approximate"
+      },
+      "elements": {
+        "semiMajorAxis": 123191231489.18155,
+        "orbitalPeriodSec": 16788522.601127982,
+        "eccentricity": 0.001407,
+        "inclinationDeg": 0.005987,
+        "periapsisDeg": 179.960083,
+        "ascendingNodeDeg": 96.607077,
+        "meanAnomalyDeg": 71.222387,
+        "epochMs": 1794479520000
+      },
+      "parentId": 0
+    },
+    {
+      "id": 3,
+      "name": "Darkes Hollow",
+      "orbitSource": "journal",
+      "orbitQuality": "propagated",
+      "phaseEpoch": "2026-11-15T06:16:45.000Z",
+      "periodDays": 300.9999998741667,
+      "phaseDifferenceFromCaptureCatalogueDeg": -0.000009267573659599293,
+      "providerQuality": {
+        "edsm": "approximate",
+        "spansh": "propagated",
+        "edgis": "approximate"
+      },
+      "elements": {
+        "semiMajorAxis": 199862891435.62317,
+        "eccentricity": 0,
+        "inclinationDeg": 0,
+        "periapsisDeg": 333.115788,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 42.63123,
+        "orbitalPeriodSec": 26006399.989128,
+        "epochMs": 1794723405000
+      },
+      "parentId": 0
+    },
+    {
+      "id": 4,
+      "name": "Biggs Colony",
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "phaseEpoch": "2026-11-13T16:46:07.000Z",
+      "periodDays": 1315.99998308552,
+      "phaseDifferenceFromCaptureCatalogueDeg": 0,
+      "providerQuality": {
+        "edsm": "approximate",
+        "spansh": "propagated",
+        "edgis": "approximate"
+      },
+      "elements": {
+        "semiMajorAxis": 631303435564.0416,
+        "orbitalPeriodSec": 113702398.53858893,
+        "eccentricity": 0,
+        "inclinationDeg": 348.700008,
+        "periapsisDeg": 50.697154,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 33.029922,
+        "epochMs": 1794588367000
+      },
+      "parentId": 0
+    },
+    {
+      "id": 5,
+      "name": "Lowing's Rock",
+      "orbitSource": "spansh",
+      "orbitQuality": "propagated",
+      "phaseEpoch": "2026-11-12T10:32:00.000Z",
+      "periodDays": 2959.99998019801,
+      "phaseDifferenceFromCaptureCatalogueDeg": 0,
+      "providerQuality": {
+        "edsm": "approximate",
+        "spansh": "propagated",
+        "edgis": "approximate"
+      },
+      "elements": {
+        "semiMajorAxis": 916287618875.5038,
+        "orbitalPeriodSec": 255743998.28910804,
+        "eccentricity": 0,
+        "inclinationDeg": 0.4,
+        "periapsisDeg": 269.315865,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 237.710775,
+        "epochMs": 1794479520000
+      },
+      "parentId": 0
+    }
+  ]
+}

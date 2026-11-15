@@ -1,0 +1,661 @@
+{
+  "recorded_local_date": "2026-11-14",
+  "timezone": "America/Los_Angeles",
+  "status": "Research checkpoint, not a verified alignment specification",
+  "provenance_note": "Generated from research responses already retrieved in this session. Hashes identify local bytes; full third-party files are not vendored.",
+  "repository": {
+    "branch": "feat/first-footfall",
+    "head": "8f95d28f9303d045755ade36c6e0c8e9d9d3bcbd",
+    "working_tree_note": "Contains pre-existing uncommitted changes; code hashes refer to the working tree, not necessarily HEAD.",
+    "inspected_files": [
+      {
+        "path": "shared/src/kepler.js",
+        "sha256": "7f5c0f0846cca27e308d7ad2986e0cc0f2861aa125287836fc67912e4ce99057"
+      },
+      {
+        "path": "shared/src/orbit-position.js",
+        "sha256": "03d0bae2ba495fd33048788c969899cd0f78ed5e170093a76cf01f090f712ffa"
+      },
+      {
+        "path": "shared/src/community-backfill.js",
+        "sha256": "c784bc68e83676b2472a7d33f1a369f7adf402648ddff3bf8fbdb7290cbbff8e"
+      },
+      {
+        "path": "watcher/src/body-tree.js",
+        "sha256": "e61bc86d2d3dc5ea451289f4c6138d2b392a1ea7c7978e157e2e83947f911b27"
+      },
+      {
+        "path": "watcher/src/system-model.js",
+        "sha256": "8f43d6a266b00539e45150967e8bd2c6ef59858605a19f4048a06d5317131218"
+      },
+      {
+        "path": "ui/src/starfield.js",
+        "sha256": "3ce2e2b01e8831c77abbe55f0bfb9b21c411473263fa63a88dc00f848ccfc628"
+      },
+      {
+        "path": "ui/src/data-panel.js",
+        "sha256": "029108d264b75e5052496729abfd7f5e1005497b40f6cd269f325cc8bd871c32"
+      },
+      {
+        "path": "ui/index.html",
+        "sha256": "fa0a9f3082aa2a2c8e67b499377e08d4c1f54ae6dfe3fa6d733eee6257229683"
+      },
+      {
+        "path": "TECHNICAL.md",
+        "sha256": "621762089eaa0d3685cdd084d2b5d86738b97bffabe2d682b34273c71cb9b1be"
+      }
+    ]
+  },
+  "api_observations": [
+    {
+      "name": "edsm_sol_25ly",
+      "url": "https://www.edsm.net/api-v1/sphere-systems",
+      "method": "GET",
+      "request_parameters": {
+        "systemName": "Sol",
+        "radius": 25,
+        "showId": 1,
+        "showCoordinates": 1,
+        "showPrimaryStar": 1
+      },
+      "request_note": "EDSM parameters reconstruct the tested query; Spansh body is retained from the saved request.",
+      "http_status_recorded": 200,
+      "response_bytes": 41042,
+      "response_sha256": "82edb8649326ebf009bd9f57fdec12710ff5555af79e8b4c7389d2efa74b3080",
+      "returned_count": 175,
+      "reported_total": null,
+      "curl_total_seconds_recorded": 1.774804,
+      "timing_provenance": "Captured earlier in the conversation; not remeasured during documentation.",
+      "first_five_records_projected": [
+        {
+          "name": "LHS 3595",
+          "id": 15575,
+          "id64": 20461895361961,
+          "distance": 23.02,
+          "coords": {
+            "x": -22.3125,
+            "y": 4.40625,
+            "z": -3.53125
+          },
+          "primaryStar": {
+            "type": "M (Red dwarf) Star",
+            "name": "LHS 3595 A",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "LP 71-165",
+          "id": 25261,
+          "id64": 27058965128617,
+          "distance": 23.77,
+          "coords": {
+            "x": -20.90625,
+            "y": 11.09375,
+            "z": -2.21875
+          },
+          "primaryStar": {
+            "type": "M (Red dwarf) Star",
+            "name": "LP 71-165 A",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "LHS 71",
+          "id": 698,
+          "id64": 6406044390098,
+          "distance": 21.39,
+          "coords": {
+            "x": -20.03125,
+            "y": -1.15625,
+            "z": -7.40625
+          },
+          "primaryStar": {
+            "type": "K (Yellow-Orange) Star",
+            "name": "LHS 71 A",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "Zeessze",
+          "id": 10980,
+          "id64": 2282875785938,
+          "distance": 24.64,
+          "coords": {
+            "x": -19.8125,
+            "y": -3.25,
+            "z": -14.28125
+          },
+          "primaryStar": {
+            "type": "K (Yellow-Orange) Star",
+            "name": "Zeessze",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "WISE J000517",
+          "id": 7028,
+          "id64": 5364951173960,
+          "distance": 23.22,
+          "coords": {
+            "x": -19.46875,
+            "y": -9.59375,
+            "z": -8.25
+          },
+          "primaryStar": {
+            "type": "T (Brown dwarf) Star",
+            "name": "WISE J000517",
+            "isScoopable": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "edsm_sol_50ly",
+      "url": "https://www.edsm.net/api-v1/sphere-systems",
+      "method": "GET",
+      "request_parameters": {
+        "systemName": "Sol",
+        "radius": 50,
+        "showId": 1,
+        "showCoordinates": 1,
+        "showPrimaryStar": 1
+      },
+      "request_note": "EDSM parameters reconstruct the tested query; Spansh body is retained from the saved request.",
+      "http_status_recorded": 200,
+      "response_bytes": 301635,
+      "response_sha256": "72991a6c0694e5d0f2a08f0ceefb3414e92a3bab8b418f17ab89a0efc4f06eb5",
+      "returned_count": 1252,
+      "reported_total": null,
+      "curl_total_seconds_recorded": 3.791854,
+      "timing_provenance": "Captured earlier in the conversation; not remeasured during documentation.",
+      "first_five_records_projected": [
+        {
+          "name": "V1396 Cygni",
+          "id": 25852,
+          "id64": 670149191081,
+          "distance": 49.89,
+          "coords": {
+            "x": -49.375,
+            "y": -3.59375,
+            "z": 6.1875
+          },
+          "primaryStar": {
+            "type": "M (Red dwarf) Star",
+            "name": "V1396 Cygni",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "LHS 3559",
+          "id": 45007,
+          "id64": 7267218957737,
+          "distance": 49.14,
+          "coords": {
+            "x": -48.03125,
+            "y": -0.5,
+            "z": 10.375
+          },
+          "primaryStar": {
+            "type": "M (Red dwarf) Star",
+            "name": "LHS 3559 A",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "Alderamin",
+          "id": 54,
+          "id64": 310548366516,
+          "distance": 49.07,
+          "coords": {
+            "x": -47.5,
+            "y": 7.84375,
+            "z": -9.46875
+          },
+          "primaryStar": {
+            "type": "A (Blue-White) Star",
+            "name": "Alderamin A",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "G 232-70",
+          "id": 24511,
+          "id64": 7267218957729,
+          "distance": 48.71,
+          "coords": {
+            "x": -46.96875,
+            "y": 1.375,
+            "z": -12.84375
+          },
+          "primaryStar": {
+            "type": "M (Red dwarf) Star",
+            "name": "G 232-70",
+            "isScoopable": true
+          }
+        },
+        {
+          "name": "Eta Cephei",
+          "id": 11236,
+          "id64": 2862335658347,
+          "distance": 46.54,
+          "coords": {
+            "x": -45.125,
+            "y": 9.375,
+            "z": -6.4375
+          },
+          "primaryStar": {
+            "type": "K (Yellow-Orange giant) Star",
+            "name": "Eta Cephei",
+            "isScoopable": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "spansh_sol_50ly_page_0",
+      "url": "https://spansh.co.uk/api/systems/search",
+      "method": "POST",
+      "request_parameters": {
+        "filters": {
+          "distance": {
+            "min": 0,
+            "max": 50
+          }
+        },
+        "sort": [
+          {
+            "distance": {
+              "direction": "asc"
+            }
+          }
+        ],
+        "size": 100,
+        "page": 0,
+        "reference_system": "Sol"
+      },
+      "request_note": "EDSM parameters reconstruct the tested query; Spansh body is retained from the saved request.",
+      "http_status_recorded": 200,
+      "response_bytes": 2405350,
+      "response_sha256": "1a3fb3511544c8dff27eb4d1cfc5d77f07f280236776bd86a113498c99bffeb5",
+      "returned_count": 100,
+      "reported_total": 1239,
+      "curl_total_seconds_recorded": 2.130604,
+      "timing_provenance": "Captured earlier in the conversation; not remeasured during documentation.",
+      "first_five_records_projected": [
+        {
+          "name": "Sol",
+          "id": "10477373803",
+          "id64": 10477373803,
+          "distance": 0.0,
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        {
+          "name": "Test",
+          "id": "7780433924818",
+          "id64": 7780433924818,
+          "distance": 1.0,
+          "x": -1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        {
+          "name": "Alpha Centauri",
+          "id": "1178708478315",
+          "id64": 1178708478315,
+          "distance": 4.37712002205788,
+          "x": 3.03125,
+          "y": -0.09375,
+          "z": 3.15625
+        },
+        {
+          "name": "Barnard's Star",
+          "id": "18263140541865",
+          "id64": 18263140541865,
+          "distance": 5.95466269510709,
+          "x": -3.03125,
+          "y": 1.375,
+          "z": 4.9375
+        },
+        {
+          "name": "Luhman 16",
+          "id": "22960358574928",
+          "id64": 22960358574928,
+          "distance": 6.56919301550807,
+          "x": 6.3125,
+          "y": 0.59375,
+          "z": 1.71875
+        }
+      ]
+    }
+  ],
+  "edsm_sample_headers": {
+    "date_utc": "Sun, 15 Nov 2026 03:21:30 GMT",
+    "cache_control": "max-age=86400",
+    "access_control_allow_origin": "*",
+    "access_control_allow_methods": "GET, POST",
+    "access_control_allow_headers": "Content-Type"
+  },
+  "spansh_documented_paths_observed": [
+    "/dump/{id64}",
+    "/system/{id64}",
+    "/body/{id64}",
+    "/station/{marketId}"
+  ],
+  "sol_dump": {
+    "url": "https://spansh.co.uk/api/dump/10477373803",
+    "system_name": "Sol",
+    "id64": 10477373803,
+    "coords": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "system_keys": [
+      "allegiance",
+      "bodies",
+      "bodyCount",
+      "controllingFaction",
+      "controllingPower",
+      "coords",
+      "date",
+      "factions",
+      "government",
+      "id64",
+      "name",
+      "population",
+      "powerState",
+      "powerStateControlProgress",
+      "powerStateReinforcement",
+      "powerStateUndermining",
+      "powers",
+      "primaryEconomy",
+      "secondaryEconomy",
+      "security",
+      "stations",
+      "timestamps"
+    ],
+    "selected_bodies": [
+      {
+        "name": "Sol",
+        "bodyId": 0,
+        "type": "Star",
+        "subType": "G (White-Yellow) Star",
+        "axialTilt": -0.219615,
+        "updateTime": "2026-11-15T03:25:05Z",
+        "timestamps": {
+          "distanceToArrival": "2026-11-14T23:38:39Z"
+        }
+      },
+      {
+        "name": "Mercury",
+        "bodyId": 1,
+        "type": "Planet",
+        "subType": "Metal-rich body",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "orbitalInclination": 7.0,
+        "ascendingNode": 48.331001,
+        "argOfPeriapsis": 29.124,
+        "axialTilt": 0.036826,
+        "semiMajorAxis": 0.387098364729585,
+        "orbitalEccentricity": 0.2056,
+        "orbitalPeriod": 87.9691003097454,
+        "meanAnomaly": 342.497225,
+        "updateTime": "2026-11-14T23:38:39Z",
+        "timestamps": {
+          "distanceToArrival": "2026-11-14T23:38:39Z",
+          "meanAnomaly": "2026-11-14T23:38:39Z"
+        }
+      },
+      {
+        "name": "Earth",
+        "bodyId": 3,
+        "type": "Planet",
+        "subType": "Earth-like world",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "orbitalInclination": 0.0,
+        "ascendingNode": -11.260999,
+        "argOfPeriapsis": 114.207832,
+        "axialTilt": 0.401426,
+        "semiMajorAxis": 1.00000072121293,
+        "orbitalEccentricity": 0.0167,
+        "orbitalPeriod": 365.256373253137,
+        "meanAnomaly": 163.449774,
+        "updateTime": "2026-11-14T23:38:39Z",
+        "timestamps": {
+          "distanceToArrival": "2026-11-14T23:38:39Z",
+          "meanAnomaly": "2026-11-14T23:38:39Z"
+        }
+      },
+      {
+        "name": "Moon",
+        "bodyId": 4,
+        "type": "Planet",
+        "subType": "Rocky body",
+        "parents": [
+          {
+            "Planet": 3
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "orbitalInclination": -23.434999,
+        "ascendingNode": 5.145,
+        "argOfPeriapsis": 0.0,
+        "axialTilt": 0.11671,
+        "semiMajorAxis": 0.0025695481855902,
+        "orbitalEccentricity": 0.0549,
+        "orbitalPeriod": 27.321582591088,
+        "meanAnomaly": 25.606369,
+        "updateTime": "2026-11-14T23:38:39Z",
+        "timestamps": {
+          "distanceToArrival": "2026-11-14T23:38:39Z",
+          "meanAnomaly": "2026-11-14T23:38:39Z"
+        }
+      },
+      {
+        "name": "Mars",
+        "bodyId": 5,
+        "type": "Planet",
+        "subType": "Earth-like world",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "orbitalInclination": 1.85,
+        "ascendingNode": 49.562,
+        "argOfPeriapsis": 286.536985,
+        "axialTilt": 0.439648,
+        "semiMajorAxis": 1.52367856711137,
+        "orbitalEccentricity": 0.0934,
+        "orbitalPeriod": 686.971001602986,
+        "meanAnomaly": 159.446587,
+        "updateTime": "2026-11-14T23:38:39Z",
+        "timestamps": {
+          "distanceToArrival": "2026-11-14T23:38:39Z",
+          "meanAnomaly": "2026-11-14T23:38:39Z"
+        }
+      },
+      {
+        "name": "Neptune",
+        "bodyId": 28,
+        "type": "Planet",
+        "subType": "Class I gas giant",
+        "parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "orbitalInclination": 1.767975,
+        "ascendingNode": 131.782971,
+        "argOfPeriapsis": 273.219421,
+        "axialTilt": 0.494277,
+        "semiMajorAxis": 29.8099426671085,
+        "orbitalEccentricity": 0.008678,
+        "orbitalPeriod": 60190.0306840738,
+        "meanAnomaly": 110.298615,
+        "updateTime": "2026-11-14T23:38:39Z",
+        "timestamps": {
+          "distanceToArrival": "2026-11-14T23:38:39Z",
+          "meanAnomaly": "2026-11-14T23:38:39Z"
+        }
+      }
+    ],
+    "unit_note": "Raw values retained. Orbital angles are interpreted as degrees in inspected code; axialTilt units must be verified separately.",
+    "orientation_note": "No explicit full root orientation identified in the inspected payload. This is not proof of absence from other sources."
+  },
+  "orbital_conventions": [
+    {
+      "implementation": "Orrery current working tree",
+      "inclination_multiplier": 1,
+      "node_multiplier": 1,
+      "periapsis_multiplier": 1,
+      "mean_anomaly_time_direction": "positive"
+    },
+    {
+      "implementation": "EDMC-Canonn inspected collision.py",
+      "inclination_multiplier": 1,
+      "node_multiplier": -1,
+      "periapsis_multiplier": -1
+    },
+    {
+      "implementation": "SrvSurvey PR 884 at 7eb0d19ffa0339ca6b1e5a822dd2ea8cc77d6c59",
+      "inclination_multiplier": -1,
+      "node_multiplier": -1,
+      "periapsis_expression": "2*pi - input_radians",
+      "mean_anomaly_time_direction": "positive"
+    }
+  ],
+  "frontier_archive_availability": {
+    "url": "https://forums.frontier.co.uk/threads/seam-in-skybox-but-fd-said-no-skybox.37904/",
+    "archived_snapshots": {
+      "closest": {
+        "status": "200",
+        "available": true,
+        "url": "http://web.archive.org/web/20250830042552/https://forums.frontier.co.uk/threads/seam-in-skybox-but-fd-said-no-skybox.37904/",
+        "timestamp": "20250830042552"
+      }
+    }
+  },
+  "source_artifact_hashes": [
+    {
+      "temporary_path": "/tmp/orrery-sol-dump.json",
+      "source_url": "https://spansh.co.uk/api/dump/10477373803",
+      "bytes": 1996765,
+      "sha256": "1758369e007775a306281dd5ddb9d58731277b0e043d010e3f7c86e8cf1c97c3",
+      "note": "Retrieved source or API response"
+    },
+    {
+      "temporary_path": "/tmp/orrery-spansh-openapi.json",
+      "source_url": "https://docs.spansh.co.uk/",
+      "bytes": 190573,
+      "sha256": "53732f1ac989c802bbb0c00fbec95b009d1994423b6237664ceb4e99dda9ed2f",
+      "note": "Extracted specification"
+    },
+    {
+      "temporary_path": "/tmp/orrery-spansh-gui.js",
+      "source_url": "https://spansh.co.uk/assets/elite-dangerous-gui-cbc763d9064128c5ce18abeee0f3c843.js",
+      "bytes": 1097159,
+      "sha256": "ac614cc01771f90ace2504192cc4960dff78d385ee90ab3585f093667e4d6dfe",
+      "note": "Retrieved source or API response"
+    },
+    {
+      "temporary_path": "/tmp/orrery-srv-files.json",
+      "source_url": "https://api.github.com/repos/njthomson/SrvSurvey/pulls/884/files",
+      "bytes": 35736,
+      "sha256": "3c5075c62fce01b24feb3a16b6f19d4dd66f96e828ce84218d651492b2338212",
+      "note": "Retrieved source or API response"
+    },
+    {
+      "temporary_path": "/tmp/orrery-srv-comments.json",
+      "source_url": "https://api.github.com/repos/njthomson/SrvSurvey/issues/884/comments",
+      "bytes": 15441,
+      "sha256": "473066419c1db37775b17672a1fa28903aa2fd64dbbd507bc6f412910ad1160b",
+      "note": "Retrieved source or API response"
+    },
+    {
+      "temporary_path": "/tmp/orrery-canonn-collision.json",
+      "source_url": "https://raw.githubusercontent.com/canonn-science/EDMC-Canonn/master/canonn/collision.py",
+      "bytes": 17108,
+      "sha256": "8a4aac2558680842e3e9b6edf57275bbcd9d3a61492abfeef154f13bb8c0f534",
+      "note": "Retrieved source or API response"
+    },
+    {
+      "temporary_path": "/tmp/orrery-canonn-orbits.ts",
+      "source_url": "https://raw.githubusercontent.com/canonn-science/canonn-signals/main/src/app/data/orbital-relations.core.ts",
+      "bytes": 132366,
+      "sha256": "2a46a5606176c0c9ffab3336d8420d8397aa75d50dbe6b7270a463d09ab9cd25",
+      "note": "Retrieved source or API response"
+    },
+    {
+      "temporary_path": "/tmp/orrery-canonn-orbital-test.md",
+      "source_url": "https://raw.githubusercontent.com/canonn-science/canonn-signals/main/docs/orbital-calculation-test.md",
+      "bytes": 4246,
+      "sha256": "de98d106951e192010a9886287cb3b6db22b9820587d5fa034c1a5ef485fffaa",
+      "note": "Retrieved source or API response"
+    },
+    {
+      "temporary_path": "/tmp/orrery-frontier-skybox.html",
+      "source_url": "https://web.archive.org/web/20250830042552id_/https://forums.frontier.co.uk/threads/seam-in-skybox-but-fd-said-no-skybox.37904/",
+      "bytes": 94255,
+      "sha256": "dc08236d83fd80af83b1b726c538c32bc6c7e011c971e4b849a3efecd81d2b17",
+      "note": "Retrieved source or API response"
+    }
+  ],
+  "continuation": {
+    "recorded_local_date": "2026-11-14",
+    "report": "galactic-frame-followup.md",
+    "fixtures": "fixtures/orbital-frame-snapshots.json",
+    "orbital_audit_results": "orbital-frame-audit-results.json",
+    "synthetic_calibration_results": "observer-calibration-results.json",
+    "source_artifact_hashes": [
+      {
+        "source_url": "https://api.github.com/repos/canonn-science/canonn-signals/commits/d0f67811f21cbecde743e54ee235f2f73a0b0130",
+        "temporary_path": "/tmp/orrery-canonn-sign-fix.json",
+        "bytes": 23703,
+        "sha256": "12eef11b31d335e615d30bc9cbfa0df7fe6d91479dd6d05a283fb564bb7431c7"
+      },
+      {
+        "source_url": "https://api.github.com/repos/canonn-science/canonn-signals/issues/77/comments",
+        "temporary_path": "/tmp/orrery-canonn-pr77-comments.json",
+        "bytes": 3389,
+        "sha256": "80039976a8232660ebbb10bc547226413aea671a57c29ace6b875b703c6cac57"
+      },
+      {
+        "source_url": "https://api.github.com/repos/canonn-science/canonn-signals/pulls/77/comments",
+        "temporary_path": "/tmp/orrery-canonn-pr77-reviews.json",
+        "bytes": 116080,
+        "sha256": "e6d662e7f71c3c39c679bbf6a396265ea6ed2e08b0b5e464d76b3bbbf77d6f31"
+      },
+      {
+        "source_url": "https://api.github.com/repos/njthomson/SrvSurvey/pulls/1023/files?per_page=100",
+        "temporary_path": "/tmp/orrery-srv-1023-files.json",
+        "bytes": 56343,
+        "sha256": "b6423a6882a8e4a221ce3a4dc31cfa6ab837cefc06c701f7127d4b4ae96dbef9"
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/njthomson/SrvSurvey/4739ae7bc6ae56715e85af39a906b671aadd2cef/SrvSurvey/game/OrbitalMechanics.cs",
+        "temporary_path": "/tmp/orrery-srv-1023-orbits.cs",
+        "bytes": 16857,
+        "sha256": "bf2024c21d83cfbce2e552e054852cbd024d24589d5a325bd333674248f440da"
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/LouisH99/Elite-Dangerous-Day-Night-Calculator/main/elite_daynight_model_v16.py",
+        "temporary_path": "/tmp/orrery-daynight-model.py",
+        "bytes": 127234,
+        "sha256": "26b4c198fc1d01c072bdf099aec6435a8b555c43ee6347223b36dfed31c6d913"
+      }
+    ]
+  }
+}

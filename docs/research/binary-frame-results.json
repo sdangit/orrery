@@ -1,0 +1,3254 @@
+{
+  "warning": "Scalar ranges do not establish absolute 3D/galactic orientation. Before model freezes the post-parity, pre-binary hierarchy.",
+  "systems": [
+    {
+      "system": "Sol",
+      "source": "https://spansh.co.uk/api/dump/10477373803",
+      "count": 39,
+      "beforeMaxErrorLs": 0.008239740505814552,
+      "afterMaxErrorLs": 0.008239740505814552,
+      "rows": [
+        {
+          "id": 1,
+          "name": "Mercury",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 156.314285,
+          "beforeErrorLs": -8.360959498077136e-7,
+          "afterErrorLs": -8.360959498077136e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 2,
+          "name": "Venus",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 363.099437,
+          "beforeErrorLs": 2.580870841484284e-7,
+          "afterErrorLs": 2.580870841484284e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 3,
+          "name": "Earth",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 507.004307,
+          "beforeErrorLs": 5.494648007697833e-7,
+          "afterErrorLs": 5.494648007697833e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 4,
+          "name": "Moon",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 506.068536,
+          "beforeErrorLs": 2.600875745883968e-7,
+          "afterErrorLs": 2.600875745883968e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 5,
+          "name": "Mars",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 827.537807,
+          "beforeErrorLs": -5.71617988498474e-7,
+          "afterErrorLs": -5.71617988498474e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 7,
+          "name": "Jupiter",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 2608.620858,
+          "beforeErrorLs": 9.698806024971418e-7,
+          "afterErrorLs": 9.698806024971418e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 9,
+          "name": "Io",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 2607.302969,
+          "beforeErrorLs": 3.8680582292727195e-7,
+          "afterErrorLs": 3.8680582292727195e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 10,
+          "name": "Europa",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 2610.836893,
+          "beforeErrorLs": 7.199837455118541e-7,
+          "afterErrorLs": 7.199837455118541e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 11,
+          "name": "Ganymede",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 2610.658082,
+          "beforeErrorLs": 1.5965588318067603e-7,
+          "afterErrorLs": 1.5965588318067603e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 12,
+          "name": "Callisto",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 2606.359944,
+          "beforeErrorLs": 4.964463187207002e-7,
+          "afterErrorLs": 4.964463187207002e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 13,
+          "name": "Saturn",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 4713.389453,
+          "beforeErrorLs": 0.00021105903124407632,
+          "afterErrorLs": 0.00021105903124407632,
+          "displacementMetres": 0
+        },
+        {
+          "id": 15,
+          "name": "Enceladus",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 4712.826746,
+          "beforeErrorLs": 0.0002111779285769444,
+          "afterErrorLs": 0.0002111779285769444,
+          "displacementMetres": 0
+        },
+        {
+          "id": 16,
+          "name": "Tethys",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 4713.854556,
+          "beforeErrorLs": 0.00021147088773432188,
+          "afterErrorLs": 0.00021147088773432188,
+          "displacementMetres": 0
+        },
+        {
+          "id": 17,
+          "name": "Dione",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 4713.522685,
+          "beforeErrorLs": 0.0002118432221323019,
+          "afterErrorLs": 0.0002118432221323019,
+          "displacementMetres": 0
+        },
+        {
+          "id": 18,
+          "name": "Rhea",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 4714.371371,
+          "beforeErrorLs": 0.00021147391544218408,
+          "afterErrorLs": 0.00021147391544218408,
+          "displacementMetres": 0
+        },
+        {
+          "id": 19,
+          "name": "Titan",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 4716.965741,
+          "beforeErrorLs": 0.00021170801755943103,
+          "afterErrorLs": 0.00021170801755943103,
+          "displacementMetres": 0
+        },
+        {
+          "id": 20,
+          "name": "Iapetus",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 4722.188241,
+          "beforeErrorLs": 0.00021649334576068213,
+          "afterErrorLs": 0.00021649334576068213,
+          "displacementMetres": 0
+        },
+        {
+          "id": 22,
+          "name": "Uranus",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 9143.441891,
+          "beforeErrorLs": 0.0008446791107417084,
+          "afterErrorLs": 0.0008446791107417084,
+          "displacementMetres": 0
+        },
+        {
+          "id": 24,
+          "name": "Ariel",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 9144.015772,
+          "beforeErrorLs": 0.0008444795766990865,
+          "afterErrorLs": 0.0008444795766990865,
+          "displacementMetres": 0
+        },
+        {
+          "id": 25,
+          "name": "Umbriel",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 9143.303059,
+          "beforeErrorLs": 0.0008443398583040107,
+          "afterErrorLs": 0.0008443398583040107,
+          "displacementMetres": 0
+        },
+        {
+          "id": 26,
+          "name": "Titania",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 9142.444161,
+          "beforeErrorLs": 0.0008441987702099141,
+          "afterErrorLs": 0.0008441987702099141,
+          "displacementMetres": 0
+        },
+        {
+          "id": 27,
+          "name": "Oberon",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 9141.497311,
+          "beforeErrorLs": 0.0008449430206383113,
+          "afterErrorLs": 0.0008449430206383113,
+          "displacementMetres": 0
+        },
+        {
+          "id": 28,
+          "name": "Neptune",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 14921.06703,
+          "beforeErrorLs": 0.00016285458877973724,
+          "afterErrorLs": 0.00016285458877973724,
+          "displacementMetres": 0
+        },
+        {
+          "id": 30,
+          "name": "Triton",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 14920.781228,
+          "beforeErrorLs": 0.00016272051288979128,
+          "afterErrorLs": 0.00016272051288979128,
+          "displacementMetres": 0
+        },
+        {
+          "id": 32,
+          "name": "Pluto",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 20444.690484,
+          "beforeErrorLs": -0.000006157286406960338,
+          "afterErrorLs": -0.000006157286406960338,
+          "displacementMetres": 0
+        },
+        {
+          "id": 33,
+          "name": "Charon",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 20444.746672,
+          "beforeErrorLs": -0.000005609446816379204,
+          "afterErrorLs": -0.000005609446816379204,
+          "displacementMetres": 0
+        },
+        {
+          "id": 34,
+          "name": "90482 Orcus",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 16045.192067,
+          "beforeErrorLs": -0.00010624205788190011,
+          "afterErrorLs": -0.00010624205788190011,
+          "displacementMetres": 0
+        },
+        {
+          "id": 35,
+          "name": "Vanth",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 16045.208089,
+          "beforeErrorLs": -0.00010576599015621468,
+          "afterErrorLs": -0.00010576599015621468,
+          "displacementMetres": 0
+        },
+        {
+          "id": 36,
+          "name": "(307261) 2002 MS4",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 18840.814756,
+          "beforeErrorLs": -0.00007306000043172389,
+          "afterErrorLs": -0.00007306000043172389,
+          "displacementMetres": 0
+        },
+        {
+          "id": 37,
+          "name": "Salacia",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 18614.356394,
+          "beforeErrorLs": -0.00005452536788652651,
+          "afterErrorLs": -0.00005452536788652651,
+          "displacementMetres": 0
+        },
+        {
+          "id": 38,
+          "name": "Actaea",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 18614.369805,
+          "beforeErrorLs": -0.00005423293623607606,
+          "afterErrorLs": -0.00005423293623607606,
+          "displacementMetres": 0
+        },
+        {
+          "id": 39,
+          "name": "Haumea",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 25195.364914,
+          "beforeErrorLs": 0.00014811562505201437,
+          "afterErrorLs": 0.00014811562505201437,
+          "displacementMetres": 0
+        },
+        {
+          "id": 40,
+          "name": "Hi'iaka",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 25195.257296,
+          "beforeErrorLs": 0.0001489125679654535,
+          "afterErrorLs": 0.0001489125679654535,
+          "displacementMetres": 0
+        },
+        {
+          "id": 41,
+          "name": "Quaoar",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 21087.037754,
+          "beforeErrorLs": 0.00002078340548905544,
+          "afterErrorLs": 0.00002078340548905544,
+          "displacementMetres": 0
+        },
+        {
+          "id": 42,
+          "name": "Makemake",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 25370.899142,
+          "beforeErrorLs": -0.00012815467562177218,
+          "afterErrorLs": -0.00012815467562177218,
+          "displacementMetres": 0
+        },
+        {
+          "id": 43,
+          "name": "(225088) 2007 OR10",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 24437.293775,
+          "beforeErrorLs": 0.00011591499060159549,
+          "afterErrorLs": 0.00011591499060159549,
+          "displacementMetres": 0
+        },
+        {
+          "id": 44,
+          "name": "Eris",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 38981.283808,
+          "beforeErrorLs": 0.00011312919377814978,
+          "afterErrorLs": 0.00011312919377814978,
+          "displacementMetres": 0
+        },
+        {
+          "id": 45,
+          "name": "Sedna",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 290999.375185,
+          "beforeErrorLs": 0.006726750172674656,
+          "afterErrorLs": 0.006726750172674656,
+          "displacementMetres": 0
+        },
+        {
+          "id": 46,
+          "name": "Persephone",
+          "epoch": "2026-11-14T23:38:39Z",
+          "observedLs": 484209.225872,
+          "beforeErrorLs": -0.008239740505814552,
+          "afterErrorLs": -0.008239740505814552,
+          "displacementMetres": 0
+        }
+      ]
+    },
+    {
+      "system": "HIP 97950",
+      "source": "https://spansh.co.uk/api/dump/2557619442410",
+      "count": 39,
+      "beforeMaxErrorLs": 677.6297915177734,
+      "afterMaxErrorLs": 0.0016494677802256774,
+      "rows": [
+        {
+          "id": 3,
+          "name": "HIP 97950 B",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 1053.265362,
+          "beforeErrorLs": 0.0000012066079762007575,
+          "afterErrorLs": 0.0000012066079762007575,
+          "displacementMetres": 0
+        },
+        {
+          "id": 4,
+          "name": "HIP 97950 C",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 1076.622076,
+          "beforeErrorLs": 8.210745363612659e-7,
+          "afterErrorLs": 8.210745363612659e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 5,
+          "name": "HIP 97950 A 1",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 16.038307,
+          "beforeErrorLs": -0.000004621065791354795,
+          "afterErrorLs": -0.000004621065791354795,
+          "displacementMetres": 0
+        },
+        {
+          "id": 6,
+          "name": "HIP 97950 A 1 a",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 16.061187,
+          "beforeErrorLs": -0.0000055424863312225625,
+          "afterErrorLs": -0.0000055424863312225625,
+          "displacementMetres": 0
+        },
+        {
+          "id": 7,
+          "name": "HIP 97950 A 2",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 26.826082,
+          "beforeErrorLs": -5.067188162399816e-7,
+          "afterErrorLs": -5.067188162399816e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 9,
+          "name": "HIP 97950 A 3",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 49.832818,
+          "beforeErrorLs": 0.000008955045842640175,
+          "afterErrorLs": 0.000008955045842640175,
+          "displacementMetres": 0
+        },
+        {
+          "id": 10,
+          "name": "HIP 97950 A 4",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 49.859084,
+          "beforeErrorLs": 0.000008833688490028635,
+          "afterErrorLs": 0.000008833688490028635,
+          "displacementMetres": 0
+        },
+        {
+          "id": 11,
+          "name": "HIP 97950 A 5",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 84.509081,
+          "beforeErrorLs": 0.000015800435889445907,
+          "afterErrorLs": 0.000015800435889445907,
+          "displacementMetres": 0
+        },
+        {
+          "id": 12,
+          "name": "HIP 97950 ABC 1",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2002.665716,
+          "beforeErrorLs": -635.3495421865571,
+          "afterErrorLs": -0.0001676468136793119,
+          "displacementMetres": 991906050562.5361
+        },
+        {
+          "id": 14,
+          "name": "HIP 97950 ABC 1 a",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2004.256834,
+          "beforeErrorLs": -635.4783063724092,
+          "afterErrorLs": -0.000167987785744117,
+          "displacementMetres": 992945635883.126
+        },
+        {
+          "id": 15,
+          "name": "HIP 97950 ABC 1 b",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2005.32886,
+          "beforeErrorLs": -635.3189127135777,
+          "afterErrorLs": -0.00016670507488925068,
+          "displacementMetres": 993631336975.0619
+        },
+        {
+          "id": 16,
+          "name": "HIP 97950 ABC 1 c",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2006.369264,
+          "beforeErrorLs": -634.952189525724,
+          "afterErrorLs": -0.00016845667732923175,
+          "displacementMetres": 994283794858.6608
+        },
+        {
+          "id": 17,
+          "name": "HIP 97950 ABC 1 d",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2000.0583,
+          "beforeErrorLs": -636.8630191675525,
+          "afterErrorLs": -0.00016630326058475475,
+          "displacementMetres": 990303623745.2196
+        },
+        {
+          "id": 18,
+          "name": "HIP 97950 ABC 1 e",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 1988.485538,
+          "beforeErrorLs": -636.6345258347701,
+          "afterErrorLs": -0.00016426253387180623,
+          "displacementMetres": 982780985233.1448
+        },
+        {
+          "id": 19,
+          "name": "HIP 97950 ABC 1 f",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 1998.469768,
+          "beforeErrorLs": -639.7398086853661,
+          "afterErrorLs": -0.00017015091316352482,
+          "displacementMetres": 989377522677.1042
+        },
+        {
+          "id": 20,
+          "name": "HIP 97950 ABC 1 f a",
+          "epoch": "2026-11-08T16:01:45Z",
+          "observedLs": 1992.37969,
+          "beforeErrorLs": -642.3452436094424,
+          "afterErrorLs": -0.0001680590160049178,
+          "displacementMetres": 984726567588.5575
+        },
+        {
+          "id": 21,
+          "name": "HIP 97950 ABC 1 g",
+          "epoch": "2026-11-06T09:34:55Z",
+          "observedLs": 2020.18339,
+          "beforeErrorLs": -629.7663755666515,
+          "afterErrorLs": -0.00016707192889953149,
+          "displacementMetres": 1002693517708.5869
+        },
+        {
+          "id": 22,
+          "name": "HIP 97950 ABC 1 h",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 1991.6504,
+          "beforeErrorLs": -649.5520672874668,
+          "afterErrorLs": -0.00016473493951707496,
+          "displacementMetres": 985873489487.2654
+        },
+        {
+          "id": 25,
+          "name": "HIP 97950 ABC 2",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2368.918471,
+          "beforeErrorLs": -267.22189208415557,
+          "afterErrorLs": 0.00005059572004029178,
+          "displacementMetres": 1286945734823.7317
+        },
+        {
+          "id": 28,
+          "name": "HIP 97950 ABC 2 a",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2368.806981,
+          "beforeErrorLs": -267.72870469211057,
+          "afterErrorLs": 0.00004939463406117284,
+          "displacementMetres": 1287045382985.6206
+        },
+        {
+          "id": 29,
+          "name": "HIP 97950 ABC 2 b",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2368.80839,
+          "beforeErrorLs": -267.7247839172346,
+          "afterErrorLs": 0.00004944754027746967,
+          "displacementMetres": 1287046179453.9832
+        },
+        {
+          "id": 30,
+          "name": "HIP 97950 ABC 2 c",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2369.773342,
+          "beforeErrorLs": -266.3976809041533,
+          "afterErrorLs": 0.00005081092876935145,
+          "displacementMetres": 1287737188709.41
+        },
+        {
+          "id": 31,
+          "name": "HIP 97950 ABC 2 d",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2369.443012,
+          "beforeErrorLs": -267.26832687680553,
+          "afterErrorLs": 0.000050562352953420486,
+          "displacementMetres": 1287686951419.3035
+        },
+        {
+          "id": 32,
+          "name": "HIP 97950 ABC 2 e",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2368.133786,
+          "beforeErrorLs": -267.36423708867414,
+          "afterErrorLs": 0.00005014936323277652,
+          "displacementMetres": 1285895543938.5205
+        },
+        {
+          "id": 33,
+          "name": "HIP 97950 ABC 2 f",
+          "epoch": "2026-11-07T14:51:35Z",
+          "observedLs": 2366.038526,
+          "beforeErrorLs": -266.07304074350395,
+          "afterErrorLs": 0.00004608554490914685,
+          "displacementMetres": 1285518240700.4976
+        },
+        {
+          "id": 34,
+          "name": "HIP 97950 ABC 2 g",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2367.114155,
+          "beforeErrorLs": -269.37146083935386,
+          "afterErrorLs": 0.00004831178603126318,
+          "displacementMetres": 1285455718908.5193
+        },
+        {
+          "id": 35,
+          "name": "HIP 97950 ABC 2 h",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2366.180649,
+          "beforeErrorLs": -269.6862828914027,
+          "afterErrorLs": 0.000049248015329794725,
+          "displacementMetres": 1284269229893.4824
+        },
+        {
+          "id": 36,
+          "name": "HIP 97950 ABC 2 i",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 2368.190554,
+          "beforeErrorLs": -266.1342841001724,
+          "afterErrorLs": 0.000050559218379930826,
+          "displacementMetres": 1285402386078.8777
+        },
+        {
+          "id": 37,
+          "name": "HIP 97950 ABC 2 i a",
+          "epoch": "2026-11-13T21:14:46Z",
+          "observedLs": 2364.510122,
+          "beforeErrorLs": -247.77192199421597,
+          "afterErrorLs": 0.00004258806575307972,
+          "displacementMetres": 1289240921807.5222
+        },
+        {
+          "id": 38,
+          "name": "HIP 97950 ABC 2 j",
+          "epoch": "2026-11-07T23:54:18Z",
+          "observedLs": 2363.679891,
+          "beforeErrorLs": -265.4313476476609,
+          "afterErrorLs": 0.000045484760448744055,
+          "displacementMetres": 1282703432822.6206
+        },
+        {
+          "id": 39,
+          "name": "HIP 97950 ABC 2 k",
+          "epoch": "2026-11-08T15:17:06Z",
+          "observedLs": 2369.764208,
+          "beforeErrorLs": -252.67191316243316,
+          "afterErrorLs": 0.00004980094354323228,
+          "displacementMetres": 1290475063805.094
+        },
+        {
+          "id": 44,
+          "name": "HIP 97950 ABC 3",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 3186.396887,
+          "beforeErrorLs": -560.1697123091544,
+          "afterErrorLs": 0.00048366251758125145,
+          "displacementMetres": 1727207837637.1545
+        },
+        {
+          "id": 46,
+          "name": "HIP 97950 ABC 3 a",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 3186.55271,
+          "beforeErrorLs": -560.1919774884564,
+          "afterErrorLs": 0.0004837458409383544,
+          "displacementMetres": 1727220310595.8328
+        },
+        {
+          "id": 47,
+          "name": "HIP 97950 ABC 3 b",
+          "epoch": "2026-11-12T06:32:56Z",
+          "observedLs": 3191.000353,
+          "beforeErrorLs": -573.9840678103888,
+          "afterErrorLs": 0.00047035484112711856,
+          "displacementMetres": 1726456904926.8625
+        },
+        {
+          "id": 48,
+          "name": "HIP 97950 ABC 3 c",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 3183.822404,
+          "beforeErrorLs": -559.926112464781,
+          "afterErrorLs": 0.00048202209336523083,
+          "displacementMetres": 1725721196613.7686
+        },
+        {
+          "id": 49,
+          "name": "HIP 97950 ABC 3 d",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 3185.419739,
+          "beforeErrorLs": -560.0622067935797,
+          "afterErrorLs": 0.0004812920233234763,
+          "displacementMetres": 1726849551854.1035
+        },
+        {
+          "id": 50,
+          "name": "HIP 97950 ABC 3 e",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 3187.547156,
+          "beforeErrorLs": -560.3485305520239,
+          "afterErrorLs": 0.00048266422209053417,
+          "displacementMetres": 1728168183638.506
+        },
+        {
+          "id": 51,
+          "name": "HIP 97950 ABC 4",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 3198.864622,
+          "beforeErrorLs": -571.980104836317,
+          "afterErrorLs": 0.0005286103641992668,
+          "displacementMetres": 1729828447596.0867
+        },
+        {
+          "id": 53,
+          "name": "HIP 97950 ABC 5",
+          "epoch": "2026-11-06T06:14:45Z",
+          "observedLs": 3918.054436,
+          "beforeErrorLs": 677.6297915177734,
+          "afterErrorLs": -0.0016494677802256774,
+          "displacementMetres": 2527149467770.751
+        }
+      ]
+    },
+    {
+      "system": "Bleia Dryiae XJ-R e4-1",
+      "source": "https://spansh.co.uk/api/dump/5593048492",
+      "count": 172,
+      "beforeMaxErrorLs": 0.09568722994299605,
+      "afterMaxErrorLs": 0.09568722994299605,
+      "rows": [
+        {
+          "id": 3,
+          "name": "Bleia Dryiae XJ-R e4-1 B",
+          "epoch": "2026-10-30T02:34:45Z",
+          "observedLs": 44565.314308,
+          "beforeErrorLs": 0.002429891836072784,
+          "afterErrorLs": 0.002429891836072784,
+          "displacementMetres": 0
+        },
+        {
+          "id": 5,
+          "name": "Bleia Dryiae XJ-R e4-1 C",
+          "epoch": "2026-10-30T02:34:45Z",
+          "observedLs": 322198.789065,
+          "beforeErrorLs": -0.09553100308403373,
+          "afterErrorLs": -0.09553100308403373,
+          "displacementMetres": 0
+        },
+        {
+          "id": 6,
+          "name": "Bleia Dryiae XJ-R e4-1 D",
+          "epoch": "2026-10-30T02:34:45Z",
+          "observedLs": 307916.358297,
+          "beforeErrorLs": -0.08589494321495295,
+          "afterErrorLs": -0.08589494321495295,
+          "displacementMetres": 0
+        },
+        {
+          "id": 7,
+          "name": "Bleia Dryiae XJ-R e4-1 A 1",
+          "epoch": "2026-10-30T02:45:30Z",
+          "observedLs": 88.844415,
+          "beforeErrorLs": 0.000020082868942949972,
+          "afterErrorLs": 0.000020082868942949972,
+          "displacementMetres": 0
+        },
+        {
+          "id": 8,
+          "name": "Bleia Dryiae XJ-R e4-1 A 2",
+          "epoch": "2026-10-30T02:45:55Z",
+          "observedLs": 151.27693,
+          "beforeErrorLs": 0.00004838525856598608,
+          "afterErrorLs": 0.00004838525856598608,
+          "displacementMetres": 0
+        },
+        {
+          "id": 9,
+          "name": "Bleia Dryiae XJ-R e4-1 A 3",
+          "epoch": "2026-10-30T02:45:02Z",
+          "observedLs": 322.736059,
+          "beforeErrorLs": 0.00002139041680493392,
+          "afterErrorLs": 0.00002139041680493392,
+          "displacementMetres": 0
+        },
+        {
+          "id": 12,
+          "name": "Bleia Dryiae XJ-R e4-1 A 3 a",
+          "epoch": "2026-10-30T02:44:59Z",
+          "observedLs": 322.804054,
+          "beforeErrorLs": 0.000021517764935197192,
+          "afterErrorLs": 0.000021517764935197192,
+          "displacementMetres": 0
+        },
+        {
+          "id": 13,
+          "name": "Bleia Dryiae XJ-R e4-1 A 4",
+          "epoch": "2026-10-30T02:46:36Z",
+          "observedLs": 415.765398,
+          "beforeErrorLs": -0.00019092205081960856,
+          "afterErrorLs": -0.00019092205081960856,
+          "displacementMetres": 0
+        },
+        {
+          "id": 15,
+          "name": "Bleia Dryiae XJ-R e4-1 A 4 a",
+          "epoch": "2026-10-30T02:46:39Z",
+          "observedLs": 415.765229,
+          "beforeErrorLs": -0.00019079199586258255,
+          "afterErrorLs": -0.00019079199586258255,
+          "displacementMetres": 0
+        },
+        {
+          "id": 16,
+          "name": "Bleia Dryiae XJ-R e4-1 A 4 b",
+          "epoch": "2026-10-30T02:46:37Z",
+          "observedLs": 416.343205,
+          "beforeErrorLs": -0.00019124331578268539,
+          "afterErrorLs": -0.00019124331578268539,
+          "displacementMetres": 0
+        },
+        {
+          "id": 17,
+          "name": "Bleia Dryiae XJ-R e4-1 A 4 c",
+          "epoch": "2026-10-30T02:46:41Z",
+          "observedLs": 416.566819,
+          "beforeErrorLs": -0.00019044558655423316,
+          "afterErrorLs": -0.00019044558655423316,
+          "displacementMetres": 0
+        },
+        {
+          "id": 18,
+          "name": "Bleia Dryiae XJ-R e4-1 A 5",
+          "epoch": "2026-10-30T02:45:38Z",
+          "observedLs": 639.424943,
+          "beforeErrorLs": 0.00007636192481186299,
+          "afterErrorLs": 0.00007636192481186299,
+          "displacementMetres": 0
+        },
+        {
+          "id": 21,
+          "name": "Bleia Dryiae XJ-R e4-1 A 5 a",
+          "epoch": "2026-10-30T02:45:43Z",
+          "observedLs": 639.157006,
+          "beforeErrorLs": 0.00007612852527927316,
+          "afterErrorLs": 0.00007612852527927316,
+          "displacementMetres": 0
+        },
+        {
+          "id": 22,
+          "name": "Bleia Dryiae XJ-R e4-1 A 5 b",
+          "epoch": "2026-10-30T02:45:44Z",
+          "observedLs": 638.854353,
+          "beforeErrorLs": 0.0000765027358511361,
+          "afterErrorLs": 0.0000765027358511361,
+          "displacementMetres": 0
+        },
+        {
+          "id": 23,
+          "name": "Bleia Dryiae XJ-R e4-1 A 5 c",
+          "epoch": "2026-10-30T02:45:46Z",
+          "observedLs": 639.144784,
+          "beforeErrorLs": 0.00007677176847664668,
+          "afterErrorLs": 0.00007677176847664668,
+          "displacementMetres": 0
+        },
+        {
+          "id": 24,
+          "name": "Bleia Dryiae XJ-R e4-1 A 5 d",
+          "epoch": "2026-10-30T02:45:48Z",
+          "observedLs": 640.709119,
+          "beforeErrorLs": 0.00007588390076307405,
+          "afterErrorLs": 0.00007588390076307405,
+          "displacementMetres": 0
+        },
+        {
+          "id": 25,
+          "name": "Bleia Dryiae XJ-R e4-1 A 5 e",
+          "epoch": "2026-10-30T02:45:49Z",
+          "observedLs": 639.49495,
+          "beforeErrorLs": 0.0000761277490255452,
+          "afterErrorLs": 0.0000761277490255452,
+          "displacementMetres": 0
+        },
+        {
+          "id": 26,
+          "name": "Bleia Dryiae XJ-R e4-1 A 6",
+          "epoch": "2026-10-30T02:46:49Z",
+          "observedLs": 828.575325,
+          "beforeErrorLs": 0.00005232410262578924,
+          "afterErrorLs": 0.00005232410262578924,
+          "displacementMetres": 0
+        },
+        {
+          "id": 28,
+          "name": "Bleia Dryiae XJ-R e4-1 A 6 a",
+          "epoch": "2026-10-30T02:46:56Z",
+          "observedLs": 828.726422,
+          "beforeErrorLs": 0.00005248746765573742,
+          "afterErrorLs": 0.00005248746765573742,
+          "displacementMetres": 0
+        },
+        {
+          "id": 29,
+          "name": "Bleia Dryiae XJ-R e4-1 A 6 b",
+          "epoch": "2026-10-30T02:46:55Z",
+          "observedLs": 828.810239,
+          "beforeErrorLs": 0.00005199999952765211,
+          "afterErrorLs": 0.00005199999952765211,
+          "displacementMetres": 0
+        },
+        {
+          "id": 30,
+          "name": "Bleia Dryiae XJ-R e4-1 A 6 c",
+          "epoch": "2026-10-30T02:46:54Z",
+          "observedLs": 828.911717,
+          "beforeErrorLs": 0.000052392871680240205,
+          "afterErrorLs": 0.000052392871680240205,
+          "displacementMetres": 0
+        },
+        {
+          "id": 31,
+          "name": "Bleia Dryiae XJ-R e4-1 A 6 d",
+          "epoch": "2026-10-30T02:46:53Z",
+          "observedLs": 828.193656,
+          "beforeErrorLs": 0.000050972642497981724,
+          "afterErrorLs": 0.000050972642497981724,
+          "displacementMetres": 0
+        },
+        {
+          "id": 32,
+          "name": "Bleia Dryiae XJ-R e4-1 A 6 e",
+          "epoch": "2026-10-30T02:46:59Z",
+          "observedLs": 828.2883,
+          "beforeErrorLs": 0.00005338589494385815,
+          "afterErrorLs": 0.00005338589494385815,
+          "displacementMetres": 0
+        },
+        {
+          "id": 33,
+          "name": "Bleia Dryiae XJ-R e4-1 A 6 f",
+          "epoch": "2026-10-30T02:47:01Z",
+          "observedLs": 828.200394,
+          "beforeErrorLs": 0.00005425226868283062,
+          "afterErrorLs": 0.00005425226868283062,
+          "displacementMetres": 0
+        },
+        {
+          "id": 35,
+          "name": "Bleia Dryiae XJ-R e4-1 A 7",
+          "epoch": "2026-10-30T02:45:26Z",
+          "observedLs": 1202.962491,
+          "beforeErrorLs": 0.000016551861335756257,
+          "afterErrorLs": 0.000016551861335756257,
+          "displacementMetres": 0
+        },
+        {
+          "id": 38,
+          "name": "Bleia Dryiae XJ-R e4-1 A 7 a",
+          "epoch": "2026-10-30T02:45:16Z",
+          "observedLs": 1202.013378,
+          "beforeErrorLs": 0.0000170350426742516,
+          "afterErrorLs": 0.0000170350426742516,
+          "displacementMetres": 0
+        },
+        {
+          "id": 39,
+          "name": "Bleia Dryiae XJ-R e4-1 A 7 b",
+          "epoch": "2026-10-30T02:45:15Z",
+          "observedLs": 1200.242502,
+          "beforeErrorLs": 0.000017900151306093903,
+          "afterErrorLs": 0.000017900151306093903,
+          "displacementMetres": 0
+        },
+        {
+          "id": 40,
+          "name": "Bleia Dryiae XJ-R e4-1 A 7 c",
+          "epoch": "2026-10-30T02:45:11Z",
+          "observedLs": 1201.162971,
+          "beforeErrorLs": 0.00001927655534927908,
+          "afterErrorLs": 0.00001927655534927908,
+          "displacementMetres": 0
+        },
+        {
+          "id": 41,
+          "name": "Bleia Dryiae XJ-R e4-1 A 7 d",
+          "epoch": "2026-10-30T02:45:19Z",
+          "observedLs": 1199.244426,
+          "beforeErrorLs": 0.000017969009832086158,
+          "afterErrorLs": 0.000017969009832086158,
+          "displacementMetres": 0
+        },
+        {
+          "id": 42,
+          "name": "Bleia Dryiae XJ-R e4-1 A 8",
+          "epoch": "2026-10-30T02:45:21Z",
+          "observedLs": 1237.495018,
+          "beforeErrorLs": -1.391435944242403e-7,
+          "afterErrorLs": -1.391435944242403e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 45,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9",
+          "epoch": "2026-10-30T02:35:39Z",
+          "observedLs": 1769.195983,
+          "beforeErrorLs": -0.00019006369620910846,
+          "afterErrorLs": -0.00019006369620910846,
+          "displacementMetres": 0
+        },
+        {
+          "id": 47,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 a",
+          "epoch": "2026-10-30T02:35:51Z",
+          "observedLs": 1770.380598,
+          "beforeErrorLs": -0.0001919799997267546,
+          "afterErrorLs": -0.0001919799997267546,
+          "displacementMetres": 0
+        },
+        {
+          "id": 48,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 b",
+          "epoch": "2026-10-30T02:35:52Z",
+          "observedLs": 1768.825121,
+          "beforeErrorLs": -0.00019136690752930008,
+          "afterErrorLs": -0.00019136690752930008,
+          "displacementMetres": 0
+        },
+        {
+          "id": 49,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 c",
+          "epoch": "2026-10-30T02:35:44Z",
+          "observedLs": 1768.006447,
+          "beforeErrorLs": -0.0001881552286704391,
+          "afterErrorLs": -0.0001881552286704391,
+          "displacementMetres": 0
+        },
+        {
+          "id": 50,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 c a",
+          "epoch": "2026-10-30T02:35:45Z",
+          "observedLs": 1768.006898,
+          "beforeErrorLs": -0.00019024808284484607,
+          "afterErrorLs": -0.00019024808284484607,
+          "displacementMetres": 0
+        },
+        {
+          "id": 51,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 d",
+          "epoch": "2026-10-30T02:35:46Z",
+          "observedLs": 1766.906601,
+          "beforeErrorLs": -0.0001882189424122771,
+          "afterErrorLs": -0.0001882189424122771,
+          "displacementMetres": 0
+        },
+        {
+          "id": 52,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 e",
+          "epoch": "2026-10-30T02:35:54Z",
+          "observedLs": 1768.408235,
+          "beforeErrorLs": -0.00019267105153630837,
+          "afterErrorLs": -0.00019267105153630837,
+          "displacementMetres": 0
+        },
+        {
+          "id": 53,
+          "name": "Bleia Dryiae XJ-R e4-1 A 9 f",
+          "epoch": "2026-10-30T02:56:02Z",
+          "observedLs": 1760.650309,
+          "beforeErrorLs": -0.00018471179214429867,
+          "afterErrorLs": -0.00018471179214429867,
+          "displacementMetres": 0
+        },
+        {
+          "id": 56,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10",
+          "epoch": "2026-10-30T02:34:45Z",
+          "observedLs": 2969.168734,
+          "beforeErrorLs": -0.00036627550070988946,
+          "afterErrorLs": -0.00036627550070988946,
+          "displacementMetres": 0
+        },
+        {
+          "id": 58,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 a",
+          "epoch": "2026-10-30T02:46:15Z",
+          "observedLs": 2970.817777,
+          "beforeErrorLs": -0.0003657317161014362,
+          "afterErrorLs": -0.0003657317161014362,
+          "displacementMetres": 0
+        },
+        {
+          "id": 59,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 b",
+          "epoch": "2026-10-30T02:46:25Z",
+          "observedLs": 2975.485684,
+          "beforeErrorLs": -0.0003693823446155875,
+          "afterErrorLs": -0.0003693823446155875,
+          "displacementMetres": 0
+        },
+        {
+          "id": 60,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 c",
+          "epoch": "2026-10-30T02:46:23Z",
+          "observedLs": 2976.763267,
+          "beforeErrorLs": -0.00036876291733278777,
+          "afterErrorLs": -0.00036876291733278777,
+          "displacementMetres": 0
+        },
+        {
+          "id": 61,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 d",
+          "epoch": "2026-10-30T02:46:28Z",
+          "observedLs": 2967.619696,
+          "beforeErrorLs": -0.0003713206037900818,
+          "afterErrorLs": -0.0003713206037900818,
+          "displacementMetres": 0
+        },
+        {
+          "id": 62,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 e",
+          "epoch": "2026-10-30T02:46:17Z",
+          "observedLs": 2965.546929,
+          "beforeErrorLs": -0.0003609250520639762,
+          "afterErrorLs": -0.0003609250520639762,
+          "displacementMetres": 0
+        },
+        {
+          "id": 63,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 f",
+          "epoch": "2026-10-30T02:46:16Z",
+          "observedLs": 2955.992849,
+          "beforeErrorLs": -0.0003638027674242039,
+          "afterErrorLs": -0.0003638027674242039,
+          "displacementMetres": 0
+        },
+        {
+          "id": 64,
+          "name": "Bleia Dryiae XJ-R e4-1 A 10 g",
+          "epoch": "2026-10-30T02:46:29Z",
+          "observedLs": 2962.571412,
+          "beforeErrorLs": -0.0003708391200234473,
+          "afterErrorLs": -0.0003708391200234473,
+          "displacementMetres": 0
+        },
+        {
+          "id": 65,
+          "name": "Bleia Dryiae XJ-R e4-1 A 11",
+          "epoch": "2026-10-30T02:46:01Z",
+          "observedLs": 2937.49987,
+          "beforeErrorLs": -0.0004013835859950632,
+          "afterErrorLs": -0.0004013835859950632,
+          "displacementMetres": 0
+        },
+        {
+          "id": 68,
+          "name": "Bleia Dryiae XJ-R e4-1 A 11 a",
+          "epoch": "2026-10-30T02:46:10Z",
+          "observedLs": 2936.830505,
+          "beforeErrorLs": -0.0004097414221178042,
+          "afterErrorLs": -0.0004097414221178042,
+          "displacementMetres": 0
+        },
+        {
+          "id": 69,
+          "name": "Bleia Dryiae XJ-R e4-1 A 11 b",
+          "epoch": "2026-10-30T02:46:09Z",
+          "observedLs": 2936.37914,
+          "beforeErrorLs": -0.0004082945720256248,
+          "afterErrorLs": -0.0004082945720256248,
+          "displacementMetres": 0
+        },
+        {
+          "id": 70,
+          "name": "Bleia Dryiae XJ-R e4-1 A 12",
+          "epoch": "2026-10-30T02:35:11Z",
+          "observedLs": 4341.769203,
+          "beforeErrorLs": -0.000582938849220227,
+          "afterErrorLs": -0.000582938849220227,
+          "displacementMetres": 0
+        },
+        {
+          "id": 71,
+          "name": "Bleia Dryiae XJ-R e4-1 A 12 a",
+          "epoch": "2026-10-30T02:35:16Z",
+          "observedLs": 4340.716334,
+          "beforeErrorLs": -0.0005829960882692831,
+          "afterErrorLs": -0.0005829960882692831,
+          "displacementMetres": 0
+        },
+        {
+          "id": 72,
+          "name": "Bleia Dryiae XJ-R e4-1 A 12 b",
+          "epoch": "2026-10-30T02:35:18Z",
+          "observedLs": 4340.127319,
+          "beforeErrorLs": -0.0005833953773617395,
+          "afterErrorLs": -0.0005833953773617395,
+          "displacementMetres": 0
+        },
+        {
+          "id": 73,
+          "name": "Bleia Dryiae XJ-R e4-1 A 12 c",
+          "epoch": "2026-10-30T02:35:22Z",
+          "observedLs": 4334.73226,
+          "beforeErrorLs": -0.0005839233572260127,
+          "afterErrorLs": -0.0005839233572260127,
+          "displacementMetres": 0
+        },
+        {
+          "id": 74,
+          "name": "Bleia Dryiae XJ-R e4-1 A 12 d",
+          "epoch": "2026-10-30T02:35:26Z",
+          "observedLs": 4334.023344,
+          "beforeErrorLs": -0.0005859980010427535,
+          "afterErrorLs": -0.0005859980010427535,
+          "displacementMetres": 0
+        },
+        {
+          "id": 75,
+          "name": "Bleia Dryiae XJ-R e4-1 A 12 e",
+          "epoch": "2026-10-30T02:35:29Z",
+          "observedLs": 4334.155277,
+          "beforeErrorLs": -0.0005829462970723398,
+          "afterErrorLs": -0.0005829462970723398,
+          "displacementMetres": 0
+        },
+        {
+          "id": 76,
+          "name": "Bleia Dryiae XJ-R e4-1 B 1",
+          "epoch": "2026-10-30T02:38:09Z",
+          "observedLs": 44631.372783,
+          "beforeErrorLs": 0.002471037791110575,
+          "afterErrorLs": 0.002471037791110575,
+          "displacementMetres": 0
+        },
+        {
+          "id": 77,
+          "name": "Bleia Dryiae XJ-R e4-1 B 1 a",
+          "epoch": "2026-10-30T02:38:07Z",
+          "observedLs": 44631.214347,
+          "beforeErrorLs": 0.002364649611990899,
+          "afterErrorLs": 0.002364649611990899,
+          "displacementMetres": 0
+        },
+        {
+          "id": 78,
+          "name": "Bleia Dryiae XJ-R e4-1 B 2",
+          "epoch": "2026-10-30T02:37:57Z",
+          "observedLs": 44587.936842,
+          "beforeErrorLs": 0.002476903799106367,
+          "afterErrorLs": 0.002476903799106367,
+          "displacementMetres": 0
+        },
+        {
+          "id": 79,
+          "name": "Bleia Dryiae XJ-R e4-1 B 3",
+          "epoch": "2026-10-30T02:36:41Z",
+          "observedLs": 44406.967816,
+          "beforeErrorLs": 0.0024398209279752336,
+          "afterErrorLs": 0.0024398209279752336,
+          "displacementMetres": 0
+        },
+        {
+          "id": 80,
+          "name": "Bleia Dryiae XJ-R e4-1 B 4",
+          "epoch": "2026-10-30T02:38:18Z",
+          "observedLs": 44670.349175,
+          "beforeErrorLs": 0.0023658903664909303,
+          "afterErrorLs": 0.0023658903664909303,
+          "displacementMetres": 0
+        },
+        {
+          "id": 81,
+          "name": "Bleia Dryiae XJ-R e4-1 B 5",
+          "epoch": "2026-10-30T02:37:56Z",
+          "observedLs": 44452.767285,
+          "beforeErrorLs": 0.002544027352996636,
+          "afterErrorLs": 0.002544027352996636,
+          "displacementMetres": 0
+        },
+        {
+          "id": 82,
+          "name": "Bleia Dryiae XJ-R e4-1 B 6",
+          "epoch": "2026-10-30T02:37:56Z",
+          "observedLs": 44619.178462,
+          "beforeErrorLs": 0.00267646925203735,
+          "afterErrorLs": 0.00267646925203735,
+          "displacementMetres": 0
+        },
+        {
+          "id": 83,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7",
+          "epoch": "2026-10-30T02:37:19Z",
+          "observedLs": 43865.197827,
+          "beforeErrorLs": 0.002415172988548875,
+          "afterErrorLs": 0.002415172988548875,
+          "displacementMetres": 0
+        },
+        {
+          "id": 86,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 a",
+          "epoch": "2026-10-30T02:37:10Z",
+          "observedLs": 43865.539562,
+          "beforeErrorLs": 0.002381854908890091,
+          "afterErrorLs": 0.002381854908890091,
+          "displacementMetres": 0
+        },
+        {
+          "id": 87,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 b",
+          "epoch": "2026-10-30T02:37:23Z",
+          "observedLs": 43866.332102,
+          "beforeErrorLs": 0.002382388833211735,
+          "afterErrorLs": 0.002382388833211735,
+          "displacementMetres": 0
+        },
+        {
+          "id": 88,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 c",
+          "epoch": "2026-10-30T02:37:32Z",
+          "observedLs": 43863.722121,
+          "beforeErrorLs": 0.002406367151706945,
+          "afterErrorLs": 0.002406367151706945,
+          "displacementMetres": 0
+        },
+        {
+          "id": 89,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 d",
+          "epoch": "2026-10-30T02:37:29Z",
+          "observedLs": 43864.71694,
+          "beforeErrorLs": 0.002362345883739181,
+          "afterErrorLs": 0.002362345883739181,
+          "displacementMetres": 0
+        },
+        {
+          "id": 90,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 e",
+          "epoch": "2026-10-30T02:36:57Z",
+          "observedLs": 43863.179669,
+          "beforeErrorLs": 0.0023752690030960366,
+          "afterErrorLs": 0.0023752690030960366,
+          "displacementMetres": 0
+        },
+        {
+          "id": 91,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 f",
+          "epoch": "2026-10-30T02:37:33Z",
+          "observedLs": 43860.005117,
+          "beforeErrorLs": 0.002403890081041027,
+          "afterErrorLs": 0.002403890081041027,
+          "displacementMetres": 0
+        },
+        {
+          "id": 92,
+          "name": "Bleia Dryiae XJ-R e4-1 B 7 g",
+          "epoch": "2026-10-30T02:37:36Z",
+          "observedLs": 43862.136859,
+          "beforeErrorLs": 0.002351818977331277,
+          "afterErrorLs": 0.002351818977331277,
+          "displacementMetres": 0
+        },
+        {
+          "id": 93,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8",
+          "epoch": "2026-10-30T02:36:08Z",
+          "observedLs": 45734.827337,
+          "beforeErrorLs": 0.001979647160624154,
+          "afterErrorLs": 0.001979647160624154,
+          "displacementMetres": 0
+        },
+        {
+          "id": 95,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 a",
+          "epoch": "2026-10-30T02:36:28Z",
+          "observedLs": 45735.237258,
+          "beforeErrorLs": 0.00196575701556867,
+          "afterErrorLs": 0.00196575701556867,
+          "displacementMetres": 0
+        },
+        {
+          "id": 96,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 b",
+          "epoch": "2026-10-30T02:36:27Z",
+          "observedLs": 45735.152363,
+          "beforeErrorLs": 0.0019862280605593696,
+          "afterErrorLs": 0.0019862280605593696,
+          "displacementMetres": 0
+        },
+        {
+          "id": 97,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 c",
+          "epoch": "2026-10-30T02:36:20Z",
+          "observedLs": 45737.068641,
+          "beforeErrorLs": 0.0019761855437536724,
+          "afterErrorLs": 0.0019761855437536724,
+          "displacementMetres": 0
+        },
+        {
+          "id": 98,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 c a",
+          "epoch": "2026-10-30T02:36:20Z",
+          "observedLs": 45737.067915,
+          "beforeErrorLs": 0.001981611996598076,
+          "afterErrorLs": 0.001981611996598076,
+          "displacementMetres": 0
+        },
+        {
+          "id": 99,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 d",
+          "epoch": "2026-10-30T02:36:25Z",
+          "observedLs": 45738.307316,
+          "beforeErrorLs": 0.0019947093387600034,
+          "afterErrorLs": 0.0019947093387600034,
+          "displacementMetres": 0
+        },
+        {
+          "id": 100,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 e",
+          "epoch": "2026-10-30T02:36:23Z",
+          "observedLs": 45739.443993,
+          "beforeErrorLs": 0.001995901642658282,
+          "afterErrorLs": 0.001995901642658282,
+          "displacementMetres": 0
+        },
+        {
+          "id": 101,
+          "name": "Bleia Dryiae XJ-R e4-1 B 8 f",
+          "epoch": "2026-10-30T02:36:32Z",
+          "observedLs": 45735.306621,
+          "beforeErrorLs": 0.0020066960059921257,
+          "afterErrorLs": 0.0020066960059921257,
+          "displacementMetres": 0
+        },
+        {
+          "id": 103,
+          "name": "Bleia Dryiae XJ-R e4-1 B 9",
+          "epoch": "2026-10-30T02:36:51Z",
+          "observedLs": 42799.0467,
+          "beforeErrorLs": 0.00259192606608849,
+          "afterErrorLs": 0.00259192606608849,
+          "displacementMetres": 0
+        },
+        {
+          "id": 106,
+          "name": "Bleia Dryiae XJ-R e4-1 B 9 a",
+          "epoch": "2026-10-30T02:37:00Z",
+          "observedLs": 42800.198776,
+          "beforeErrorLs": 0.0025970072601921856,
+          "afterErrorLs": 0.0025970072601921856,
+          "displacementMetres": 0
+        },
+        {
+          "id": 107,
+          "name": "Bleia Dryiae XJ-R e4-1 B 9 b",
+          "epoch": "2026-10-30T02:37:07Z",
+          "observedLs": 42798.6278,
+          "beforeErrorLs": 0.002582895504019689,
+          "afterErrorLs": 0.002582895504019689,
+          "displacementMetres": 0
+        },
+        {
+          "id": 108,
+          "name": "Bleia Dryiae XJ-R e4-1 B 9 c",
+          "epoch": "2026-10-30T02:37:04Z",
+          "observedLs": 42800.340726,
+          "beforeErrorLs": 0.0025819492657319643,
+          "afterErrorLs": 0.0025819492657319643,
+          "displacementMetres": 0
+        },
+        {
+          "id": 109,
+          "name": "Bleia Dryiae XJ-R e4-1 B 10",
+          "epoch": "2026-10-30T02:37:42Z",
+          "observedLs": 42773.950418,
+          "beforeErrorLs": 0.0026062327160616405,
+          "afterErrorLs": 0.0026062327160616405,
+          "displacementMetres": 0
+        },
+        {
+          "id": 112,
+          "name": "Bleia Dryiae XJ-R e4-1 B 10 a",
+          "epoch": "2026-10-30T02:37:47Z",
+          "observedLs": 42773.499241,
+          "beforeErrorLs": 0.002583655084890779,
+          "afterErrorLs": 0.002583655084890779,
+          "displacementMetres": 0
+        },
+        {
+          "id": 113,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11",
+          "epoch": "2026-10-30T02:38:32Z",
+          "observedLs": 44154.766526,
+          "beforeErrorLs": 0.0010918025436694734,
+          "afterErrorLs": 0.0010918025436694734,
+          "displacementMetres": 0
+        },
+        {
+          "id": 114,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11 a",
+          "epoch": "2026-10-30T02:38:36Z",
+          "observedLs": 44155.922517,
+          "beforeErrorLs": 0.0011248692972003482,
+          "afterErrorLs": 0.0011248692972003482,
+          "displacementMetres": 0
+        },
+        {
+          "id": 115,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11 b",
+          "epoch": "2026-10-30T02:38:45Z",
+          "observedLs": 44156.005096,
+          "beforeErrorLs": 0.0011154335516039282,
+          "afterErrorLs": 0.0011154335516039282,
+          "displacementMetres": 0
+        },
+        {
+          "id": 116,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11 c",
+          "epoch": "2026-10-30T02:38:43Z",
+          "observedLs": 44157.998944,
+          "beforeErrorLs": 0.0010868017925531603,
+          "afterErrorLs": 0.0010868017925531603,
+          "displacementMetres": 0
+        },
+        {
+          "id": 117,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11 d",
+          "epoch": "2026-10-30T02:38:37Z",
+          "observedLs": 44151.450159,
+          "beforeErrorLs": 0.00111544242099626,
+          "afterErrorLs": 0.00111544242099626,
+          "displacementMetres": 0
+        },
+        {
+          "id": 118,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11 e",
+          "epoch": "2026-10-30T02:38:40Z",
+          "observedLs": 44155.201455,
+          "beforeErrorLs": 0.0011149754718644544,
+          "afterErrorLs": 0.0011149754718644544,
+          "displacementMetres": 0
+        },
+        {
+          "id": 119,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11 f",
+          "epoch": "2026-10-30T02:38:41Z",
+          "observedLs": 44153.587653,
+          "beforeErrorLs": 0.0010992176248691976,
+          "afterErrorLs": 0.0010992176248691976,
+          "displacementMetres": 0
+        },
+        {
+          "id": 120,
+          "name": "Bleia Dryiae XJ-R e4-1 B 11 g",
+          "epoch": "2026-10-30T02:38:48Z",
+          "observedLs": 44153.466661,
+          "beforeErrorLs": 0.0011196732739335857,
+          "afterErrorLs": 0.0011196732739335857,
+          "displacementMetres": 0
+        },
+        {
+          "id": 121,
+          "name": "Bleia Dryiae XJ-R e4-1 C 1",
+          "epoch": "2026-10-30T02:39:32Z",
+          "observedLs": 322142.327722,
+          "beforeErrorLs": -0.09551555704092607,
+          "afterErrorLs": -0.09551555704092607,
+          "displacementMetres": 0
+        },
+        {
+          "id": 122,
+          "name": "Bleia Dryiae XJ-R e4-1 C 2",
+          "epoch": "2026-10-30T02:39:49Z",
+          "observedLs": 322261.047065,
+          "beforeErrorLs": -0.09547297231620178,
+          "afterErrorLs": -0.09547297231620178,
+          "displacementMetres": 0
+        },
+        {
+          "id": 123,
+          "name": "Bleia Dryiae XJ-R e4-1 C 3",
+          "epoch": "2026-10-30T02:39:48Z",
+          "observedLs": 322314.594963,
+          "beforeErrorLs": -0.09554669709177688,
+          "afterErrorLs": -0.09554669709177688,
+          "displacementMetres": 0
+        },
+        {
+          "id": 124,
+          "name": "Bleia Dryiae XJ-R e4-1 C 4",
+          "epoch": "2026-10-30T02:39:37Z",
+          "observedLs": 322404.309443,
+          "beforeErrorLs": -0.09558766818372533,
+          "afterErrorLs": -0.09558766818372533,
+          "displacementMetres": 0
+        },
+        {
+          "id": 126,
+          "name": "Bleia Dryiae XJ-R e4-1 C 4 a",
+          "epoch": "2026-10-30T02:39:40Z",
+          "observedLs": 322404.524513,
+          "beforeErrorLs": -0.09561143635073677,
+          "afterErrorLs": -0.09561143635073677,
+          "displacementMetres": 0
+        },
+        {
+          "id": 127,
+          "name": "Bleia Dryiae XJ-R e4-1 C 5",
+          "epoch": "2026-10-30T02:39:22Z",
+          "observedLs": 321798.400025,
+          "beforeErrorLs": -0.09554888773709536,
+          "afterErrorLs": -0.09554888773709536,
+          "displacementMetres": 0
+        },
+        {
+          "id": 129,
+          "name": "Bleia Dryiae XJ-R e4-1 C 5 a",
+          "epoch": "2026-10-30T02:39:24Z",
+          "observedLs": 321797.779587,
+          "beforeErrorLs": -0.09556138218613341,
+          "afterErrorLs": -0.09556138218613341,
+          "displacementMetres": 0
+        },
+        {
+          "id": 130,
+          "name": "Bleia Dryiae XJ-R e4-1 C 5 b",
+          "epoch": "2026-10-30T02:39:26Z",
+          "observedLs": 321797.383623,
+          "beforeErrorLs": -0.09554060216760263,
+          "afterErrorLs": -0.09554060216760263,
+          "displacementMetres": 0
+        },
+        {
+          "id": 131,
+          "name": "Bleia Dryiae XJ-R e4-1 C 6",
+          "epoch": "2026-10-30T02:39:00Z",
+          "observedLs": 321953.493096,
+          "beforeErrorLs": -0.09563088434515521,
+          "afterErrorLs": -0.09563088434515521,
+          "displacementMetres": 0
+        },
+        {
+          "id": 134,
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 a",
+          "epoch": "2026-10-30T02:39:03Z",
+          "observedLs": 321952.026267,
+          "beforeErrorLs": -0.09567163465544581,
+          "afterErrorLs": -0.09567163465544581,
+          "displacementMetres": 0
+        },
+        {
+          "id": 135,
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 b",
+          "epoch": "2026-10-30T02:39:06Z",
+          "observedLs": 321951.669161,
+          "beforeErrorLs": -0.09566661604912952,
+          "afterErrorLs": -0.09566661604912952,
+          "displacementMetres": 0
+        },
+        {
+          "id": 136,
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 c",
+          "epoch": "2026-10-30T02:39:10Z",
+          "observedLs": 321956.139844,
+          "beforeErrorLs": -0.09568722994299605,
+          "afterErrorLs": -0.09568722994299605,
+          "displacementMetres": 0
+        },
+        {
+          "id": 137,
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 d",
+          "epoch": "2026-10-30T02:39:13Z",
+          "observedLs": 321950.971511,
+          "beforeErrorLs": -0.095648575166706,
+          "afterErrorLs": -0.095648575166706,
+          "displacementMetres": 0
+        },
+        {
+          "id": 138,
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 e",
+          "epoch": "2026-10-30T02:39:11Z",
+          "observedLs": 321957.773666,
+          "beforeErrorLs": -0.09567813301691785,
+          "afterErrorLs": -0.09567813301691785,
+          "displacementMetres": 0
+        },
+        {
+          "id": 139,
+          "name": "Bleia Dryiae XJ-R e4-1 C 6 f",
+          "epoch": "2026-10-30T02:39:16Z",
+          "observedLs": 321953.13325,
+          "beforeErrorLs": -0.09563807991798967,
+          "afterErrorLs": -0.09563807991798967,
+          "displacementMetres": 0
+        },
+        {
+          "id": 141,
+          "name": "Bleia Dryiae XJ-R e4-1 C 7",
+          "epoch": "2026-10-30T02:41:28Z",
+          "observedLs": 321123.872316,
+          "beforeErrorLs": -0.09505843272199854,
+          "afterErrorLs": -0.09505843272199854,
+          "displacementMetres": 0
+        },
+        {
+          "id": 143,
+          "name": "Bleia Dryiae XJ-R e4-1 C 8",
+          "epoch": "2026-10-30T02:41:15Z",
+          "observedLs": 321103.40632,
+          "beforeErrorLs": -0.09505474549951032,
+          "afterErrorLs": -0.09505474549951032,
+          "displacementMetres": 0
+        },
+        {
+          "id": 146,
+          "name": "Bleia Dryiae XJ-R e4-1 C 8 a",
+          "epoch": "2026-10-30T02:41:17Z",
+          "observedLs": 321102.553752,
+          "beforeErrorLs": -0.09506170387612656,
+          "afterErrorLs": -0.09506170387612656,
+          "displacementMetres": 0
+        },
+        {
+          "id": 147,
+          "name": "Bleia Dryiae XJ-R e4-1 C 8 b",
+          "epoch": "2026-10-30T02:41:19Z",
+          "observedLs": 321104.928296,
+          "beforeErrorLs": -0.09505075262859464,
+          "afterErrorLs": -0.09505075262859464,
+          "displacementMetres": 0
+        },
+        {
+          "id": 148,
+          "name": "Bleia Dryiae XJ-R e4-1 C 8 c",
+          "epoch": "2026-10-30T02:41:22Z",
+          "observedLs": 321104.705386,
+          "beforeErrorLs": -0.09504406969062984,
+          "afterErrorLs": -0.09504406969062984,
+          "displacementMetres": 0
+        },
+        {
+          "id": 149,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9",
+          "epoch": "2026-10-30T02:40:28Z",
+          "observedLs": 320624.138335,
+          "beforeErrorLs": -0.09543380764080212,
+          "afterErrorLs": -0.09543380764080212,
+          "displacementMetres": 0
+        },
+        {
+          "id": 150,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 a",
+          "epoch": "2026-10-30T02:40:52Z",
+          "observedLs": 320624.682968,
+          "beforeErrorLs": -0.09543178050080314,
+          "afterErrorLs": -0.09543178050080314,
+          "displacementMetres": 0
+        },
+        {
+          "id": 152,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 b",
+          "epoch": "2026-10-30T02:40:42Z",
+          "observedLs": 320625.540706,
+          "beforeErrorLs": -0.09543042053701356,
+          "afterErrorLs": -0.09543042053701356,
+          "displacementMetres": 0
+        },
+        {
+          "id": 153,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 c",
+          "epoch": "2026-10-30T02:40:44Z",
+          "observedLs": 320625.528695,
+          "beforeErrorLs": -0.0954360913601704,
+          "afterErrorLs": -0.0954360913601704,
+          "displacementMetres": 0
+        },
+        {
+          "id": 154,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 d",
+          "epoch": "2026-10-30T02:40:47Z",
+          "observedLs": 320621.018645,
+          "beforeErrorLs": -0.09542950493050739,
+          "afterErrorLs": -0.09542950493050739,
+          "displacementMetres": 0
+        },
+        {
+          "id": 156,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 e",
+          "epoch": "2026-10-30T02:40:36Z",
+          "observedLs": 320633.711904,
+          "beforeErrorLs": -0.09543081471929327,
+          "afterErrorLs": -0.09543081471929327,
+          "displacementMetres": 0
+        },
+        {
+          "id": 157,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 f",
+          "epoch": "2026-10-30T02:40:34Z",
+          "observedLs": 320633.693751,
+          "beforeErrorLs": -0.09542894019978121,
+          "afterErrorLs": -0.09542894019978121,
+          "displacementMetres": 0
+        },
+        {
+          "id": 158,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 g",
+          "epoch": "2026-10-30T02:40:55Z",
+          "observedLs": 320616.205849,
+          "beforeErrorLs": -0.09544224012643099,
+          "afterErrorLs": -0.09544224012643099,
+          "displacementMetres": 0
+        },
+        {
+          "id": 159,
+          "name": "Bleia Dryiae XJ-R e4-1 C 9 h",
+          "epoch": "2026-10-30T02:40:54Z",
+          "observedLs": 320615.204259,
+          "beforeErrorLs": -0.09542384761152789,
+          "afterErrorLs": -0.09542384761152789,
+          "displacementMetres": 0
+        },
+        {
+          "id": 161,
+          "name": "Bleia Dryiae XJ-R e4-1 C 10",
+          "epoch": "2026-10-30T02:42:11Z",
+          "observedLs": 323873.644028,
+          "beforeErrorLs": -0.09413926495471969,
+          "afterErrorLs": -0.09413926495471969,
+          "displacementMetres": 0
+        },
+        {
+          "id": 164,
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 a",
+          "epoch": "2026-10-30T02:42:21Z",
+          "observedLs": 323872.858559,
+          "beforeErrorLs": -0.09413933829637244,
+          "afterErrorLs": -0.09413933829637244,
+          "displacementMetres": 0
+        },
+        {
+          "id": 165,
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 b",
+          "epoch": "2026-10-30T02:42:19Z",
+          "observedLs": 323872.97229,
+          "beforeErrorLs": -0.09414057258982211,
+          "afterErrorLs": -0.09414057258982211,
+          "displacementMetres": 0
+        },
+        {
+          "id": 166,
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 c",
+          "epoch": "2026-10-30T02:41:57Z",
+          "observedLs": 323871.492014,
+          "beforeErrorLs": -0.09413995739305392,
+          "afterErrorLs": -0.09413995739305392,
+          "displacementMetres": 0
+        },
+        {
+          "id": 167,
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 d",
+          "epoch": "2026-10-30T02:41:58Z",
+          "observedLs": 323871.25087,
+          "beforeErrorLs": -0.09414458402898163,
+          "afterErrorLs": -0.09414458402898163,
+          "displacementMetres": 0
+        },
+        {
+          "id": 168,
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 e",
+          "epoch": "2026-10-30T02:41:54Z",
+          "observedLs": 323875.616109,
+          "beforeErrorLs": -0.09413917735219002,
+          "afterErrorLs": -0.09413917735219002,
+          "displacementMetres": 0
+        },
+        {
+          "id": 169,
+          "name": "Bleia Dryiae XJ-R e4-1 C 10 f",
+          "epoch": "2026-10-30T02:42:01Z",
+          "observedLs": 323865.740229,
+          "beforeErrorLs": -0.0941196764470078,
+          "afterErrorLs": -0.0941196764470078,
+          "displacementMetres": 0
+        },
+        {
+          "id": 170,
+          "name": "Bleia Dryiae XJ-R e4-1 C 11",
+          "epoch": "2026-10-30T02:41:47Z",
+          "observedLs": 323903.648842,
+          "beforeErrorLs": -0.09415582253132015,
+          "afterErrorLs": -0.09415582253132015,
+          "displacementMetres": 0
+        },
+        {
+          "id": 173,
+          "name": "Bleia Dryiae XJ-R e4-1 C 11 a",
+          "epoch": "2026-10-30T02:41:48Z",
+          "observedLs": 323903.37917,
+          "beforeErrorLs": -0.0941570321447216,
+          "afterErrorLs": -0.0941570321447216,
+          "displacementMetres": 0
+        },
+        {
+          "id": 174,
+          "name": "Bleia Dryiae XJ-R e4-1 C 11 b",
+          "epoch": "2026-10-30T02:41:47Z",
+          "observedLs": 323904.320872,
+          "beforeErrorLs": -0.09415896330028772,
+          "afterErrorLs": -0.09415896330028772,
+          "displacementMetres": 0
+        },
+        {
+          "id": 175,
+          "name": "Bleia Dryiae XJ-R e4-1 C 11 c",
+          "epoch": "2026-10-30T02:41:49Z",
+          "observedLs": 323903.112649,
+          "beforeErrorLs": -0.09415847348282114,
+          "afterErrorLs": -0.09415847348282114,
+          "displacementMetres": 0
+        },
+        {
+          "id": 176,
+          "name": "Bleia Dryiae XJ-R e4-1 C 12",
+          "epoch": "2026-10-30T02:40:06Z",
+          "observedLs": 320699.285766,
+          "beforeErrorLs": -0.09497936005936936,
+          "afterErrorLs": -0.09497936005936936,
+          "displacementMetres": 0
+        },
+        {
+          "id": 178,
+          "name": "Bleia Dryiae XJ-R e4-1 C 12 a",
+          "epoch": "2026-10-30T02:40:09Z",
+          "observedLs": 320702.733082,
+          "beforeErrorLs": -0.09498611663002521,
+          "afterErrorLs": -0.09498611663002521,
+          "displacementMetres": 0
+        },
+        {
+          "id": 179,
+          "name": "Bleia Dryiae XJ-R e4-1 C 12 b",
+          "epoch": "2026-10-30T02:40:14Z",
+          "observedLs": 320695.561953,
+          "beforeErrorLs": -0.0950106218806468,
+          "afterErrorLs": -0.0950106218806468,
+          "displacementMetres": 0
+        },
+        {
+          "id": 180,
+          "name": "Bleia Dryiae XJ-R e4-1 C 12 c",
+          "epoch": "2026-10-30T02:40:10Z",
+          "observedLs": 320701.532247,
+          "beforeErrorLs": -0.09502646140754223,
+          "afterErrorLs": -0.09502646140754223,
+          "displacementMetres": 0
+        },
+        {
+          "id": 181,
+          "name": "Bleia Dryiae XJ-R e4-1 C 12 d",
+          "epoch": "2026-10-30T02:40:13Z",
+          "observedLs": 320706.602029,
+          "beforeErrorLs": -0.09502710175001994,
+          "afterErrorLs": -0.09502710175001994,
+          "displacementMetres": 0
+        },
+        {
+          "id": 182,
+          "name": "Bleia Dryiae XJ-R e4-1 C 12 e",
+          "epoch": "2026-10-30T02:40:11Z",
+          "observedLs": 320685.883723,
+          "beforeErrorLs": -0.09501998248742893,
+          "afterErrorLs": -0.09501998248742893,
+          "displacementMetres": 0
+        },
+        {
+          "id": 183,
+          "name": "Bleia Dryiae XJ-R e4-1 C 12 f",
+          "epoch": "2026-10-30T02:40:18Z",
+          "observedLs": 320671.264303,
+          "beforeErrorLs": -0.09501491778064519,
+          "afterErrorLs": -0.09501491778064519,
+          "displacementMetres": 0
+        },
+        {
+          "id": 188,
+          "name": "Bleia Dryiae XJ-R e4-1 D 1",
+          "epoch": "2026-10-30T02:43:03Z",
+          "observedLs": 307922.446522,
+          "beforeErrorLs": -0.08590018941322342,
+          "afterErrorLs": -0.08590018941322342,
+          "displacementMetres": 0
+        },
+        {
+          "id": 189,
+          "name": "Bleia Dryiae XJ-R e4-1 D 2",
+          "epoch": "2026-10-30T02:43:13Z",
+          "observedLs": 307919.969448,
+          "beforeErrorLs": -0.08588703721761703,
+          "afterErrorLs": -0.08588703721761703,
+          "displacementMetres": 0
+        },
+        {
+          "id": 190,
+          "name": "Bleia Dryiae XJ-R e4-1 D 3",
+          "epoch": "2026-10-30T02:43:12Z",
+          "observedLs": 307932.337295,
+          "beforeErrorLs": -0.08588481438346207,
+          "afterErrorLs": -0.08588481438346207,
+          "displacementMetres": 0
+        },
+        {
+          "id": 191,
+          "name": "Bleia Dryiae XJ-R e4-1 D 4",
+          "epoch": "2026-10-30T02:43:01Z",
+          "observedLs": 307914.144149,
+          "beforeErrorLs": -0.08591652201721445,
+          "afterErrorLs": -0.08591652201721445,
+          "displacementMetres": 0
+        },
+        {
+          "id": 192,
+          "name": "Bleia Dryiae XJ-R e4-1 D 5",
+          "epoch": "2026-10-30T02:42:58Z",
+          "observedLs": 307877.89876,
+          "beforeErrorLs": -0.08592303772456944,
+          "afterErrorLs": -0.08592303772456944,
+          "displacementMetres": 0
+        },
+        {
+          "id": 193,
+          "name": "Bleia Dryiae XJ-R e4-1 D 6",
+          "epoch": "2026-10-30T02:42:29Z",
+          "observedLs": 307995.905167,
+          "beforeErrorLs": -0.08587877708487213,
+          "afterErrorLs": -0.08587877708487213,
+          "displacementMetres": 0
+        },
+        {
+          "id": 194,
+          "name": "Bleia Dryiae XJ-R e4-1 D 7",
+          "epoch": "2026-10-30T02:43:56Z",
+          "observedLs": 307974.83517,
+          "beforeErrorLs": -0.0857662062626332,
+          "afterErrorLs": -0.0857662062626332,
+          "displacementMetres": 0
+        },
+        {
+          "id": 195,
+          "name": "Bleia Dryiae XJ-R e4-1 D 8",
+          "epoch": "2026-10-30T02:42:33Z",
+          "observedLs": 308204.170945,
+          "beforeErrorLs": -0.0859275360708125,
+          "afterErrorLs": -0.0859275360708125,
+          "displacementMetres": 0
+        },
+        {
+          "id": 196,
+          "name": "Bleia Dryiae XJ-R e4-1 D 8 a",
+          "epoch": "2026-10-30T02:42:36Z",
+          "observedLs": 308203.642598,
+          "beforeErrorLs": -0.08592676528496668,
+          "afterErrorLs": -0.08592676528496668,
+          "displacementMetres": 0
+        },
+        {
+          "id": 197,
+          "name": "Bleia Dryiae XJ-R e4-1 D 9",
+          "epoch": "2026-10-30T02:42:45Z",
+          "observedLs": 307674.887036,
+          "beforeErrorLs": -0.08610216935630888,
+          "afterErrorLs": -0.08610216935630888,
+          "displacementMetres": 0
+        },
+        {
+          "id": 199,
+          "name": "Bleia Dryiae XJ-R e4-1 D 10",
+          "epoch": "2026-10-30T02:43:35Z",
+          "observedLs": 308895.244614,
+          "beforeErrorLs": -0.08594195841578767,
+          "afterErrorLs": -0.08594195841578767,
+          "displacementMetres": 0
+        },
+        {
+          "id": 201,
+          "name": "Bleia Dryiae XJ-R e4-1 D 10 a",
+          "epoch": "2026-10-30T02:43:39Z",
+          "observedLs": 308896.548136,
+          "beforeErrorLs": -0.08594262873521075,
+          "afterErrorLs": -0.08594262873521075,
+          "displacementMetres": 0
+        },
+        {
+          "id": 202,
+          "name": "Bleia Dryiae XJ-R e4-1 D 10 b",
+          "epoch": "2026-10-30T02:43:40Z",
+          "observedLs": 308893.296082,
+          "beforeErrorLs": -0.08593899011611938,
+          "afterErrorLs": -0.08593899011611938,
+          "displacementMetres": 0
+        },
+        {
+          "id": 203,
+          "name": "Bleia Dryiae XJ-R e4-1 D 10 c",
+          "epoch": "2026-10-30T02:43:44Z",
+          "observedLs": 308893.368082,
+          "beforeErrorLs": -0.08594285661820322,
+          "afterErrorLs": -0.08594285661820322,
+          "displacementMetres": 0
+        },
+        {
+          "id": 204,
+          "name": "Bleia Dryiae XJ-R e4-1 D 10 d",
+          "epoch": "2026-10-30T02:43:43Z",
+          "observedLs": 308894.118424,
+          "beforeErrorLs": -0.08594461221946403,
+          "afterErrorLs": -0.08594461221946403,
+          "displacementMetres": 0
+        },
+        {
+          "id": 205,
+          "name": "Bleia Dryiae XJ-R e4-1 D 11",
+          "epoch": "2026-10-30T02:43:23Z",
+          "observedLs": 308873.326206,
+          "beforeErrorLs": -0.08595102111576125,
+          "afterErrorLs": -0.08595102111576125,
+          "displacementMetres": 0
+        },
+        {
+          "id": 207,
+          "name": "Bleia Dryiae XJ-R e4-1 D 11 a",
+          "epoch": "2026-10-30T02:43:25Z",
+          "observedLs": 308873.901608,
+          "beforeErrorLs": -0.08595390006667003,
+          "afterErrorLs": -0.08595390006667003,
+          "displacementMetres": 0
+        },
+        {
+          "id": 208,
+          "name": "Bleia Dryiae XJ-R e4-1 D 11 b",
+          "epoch": "2026-10-30T02:43:51Z",
+          "observedLs": 308873.14953,
+          "beforeErrorLs": -0.08595063874963671,
+          "afterErrorLs": -0.08595063874963671,
+          "displacementMetres": 0
+        },
+        {
+          "id": 209,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12",
+          "epoch": "2026-10-30T02:44:31Z",
+          "observedLs": 308209.741894,
+          "beforeErrorLs": -0.08492654003202915,
+          "afterErrorLs": -0.08492654003202915,
+          "displacementMetres": 0
+        },
+        {
+          "id": 211,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 a",
+          "epoch": "2026-10-30T02:44:42Z",
+          "observedLs": 308211.035214,
+          "beforeErrorLs": -0.08490508876275271,
+          "afterErrorLs": -0.08490508876275271,
+          "displacementMetres": 0
+        },
+        {
+          "id": 212,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 b",
+          "epoch": "2026-10-30T02:44:43Z",
+          "observedLs": 308213.561756,
+          "beforeErrorLs": -0.08489597326843068,
+          "afterErrorLs": -0.08489597326843068,
+          "displacementMetres": 0
+        },
+        {
+          "id": 213,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 c",
+          "epoch": "2026-10-30T02:44:47Z",
+          "observedLs": 308204.772479,
+          "beforeErrorLs": -0.08490955719025806,
+          "afterErrorLs": -0.08490955719025806,
+          "displacementMetres": 0
+        },
+        {
+          "id": 214,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 d",
+          "epoch": "2026-10-30T02:44:45Z",
+          "observedLs": 308206.437749,
+          "beforeErrorLs": -0.08490827359491959,
+          "afterErrorLs": -0.08490827359491959,
+          "displacementMetres": 0
+        },
+        {
+          "id": 215,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 e",
+          "epoch": "2026-10-30T02:44:50Z",
+          "observedLs": 308206.613117,
+          "beforeErrorLs": -0.08490273106144741,
+          "afterErrorLs": -0.08490273106144741,
+          "displacementMetres": 0
+        },
+        {
+          "id": 216,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 f",
+          "epoch": "2026-10-30T02:44:51Z",
+          "observedLs": 308207.204891,
+          "beforeErrorLs": -0.0848898499389179,
+          "afterErrorLs": -0.0848898499389179,
+          "displacementMetres": 0
+        },
+        {
+          "id": 217,
+          "name": "Bleia Dryiae XJ-R e4-1 D 12 g",
+          "epoch": "2026-10-30T02:44:49Z",
+          "observedLs": 308199.645867,
+          "beforeErrorLs": -0.08492115611443296,
+          "afterErrorLs": -0.08492115611443296,
+          "displacementMetres": 0
+        },
+        {
+          "id": 218,
+          "name": "Bleia Dryiae XJ-R e4-1 D 13",
+          "epoch": "2026-10-30T02:44:03Z",
+          "observedLs": 306198.408489,
+          "beforeErrorLs": -0.08495199581375346,
+          "afterErrorLs": -0.08495199581375346,
+          "displacementMetres": 0
+        },
+        {
+          "id": 220,
+          "name": "Bleia Dryiae XJ-R e4-1 D 13 a",
+          "epoch": "2026-10-30T02:44:14Z",
+          "observedLs": 306198.472682,
+          "beforeErrorLs": -0.08495123381726444,
+          "afterErrorLs": -0.08495123381726444,
+          "displacementMetres": 0
+        },
+        {
+          "id": 221,
+          "name": "Bleia Dryiae XJ-R e4-1 D 13 b",
+          "epoch": "2026-10-30T02:44:15Z",
+          "observedLs": 306198.466625,
+          "beforeErrorLs": -0.08495851518819109,
+          "afterErrorLs": -0.08495851518819109,
+          "displacementMetres": 0
+        },
+        {
+          "id": 222,
+          "name": "Bleia Dryiae XJ-R e4-1 D 13 c",
+          "epoch": "2026-10-30T02:44:06Z",
+          "observedLs": 306198.14928,
+          "beforeErrorLs": -0.08496505505172536,
+          "afterErrorLs": -0.08496505505172536,
+          "displacementMetres": 0
+        },
+        {
+          "id": 223,
+          "name": "Bleia Dryiae XJ-R e4-1 D 13 d",
+          "epoch": "2026-10-30T02:44:08Z",
+          "observedLs": 306196.714291,
+          "beforeErrorLs": -0.08497022930532694,
+          "afterErrorLs": -0.08497022930532694,
+          "displacementMetres": 0
+        },
+        {
+          "id": 224,
+          "name": "Bleia Dryiae XJ-R e4-1 D 13 e",
+          "epoch": "2026-10-30T02:44:19Z",
+          "observedLs": 306200.821069,
+          "beforeErrorLs": -0.08496951003326103,
+          "afterErrorLs": -0.08496951003326103,
+          "displacementMetres": 0
+        },
+        {
+          "id": 225,
+          "name": "Bleia Dryiae XJ-R e4-1 D 13 f",
+          "epoch": "2026-10-30T02:44:10Z",
+          "observedLs": 306195.424536,
+          "beforeErrorLs": -0.0849603041424416,
+          "afterErrorLs": -0.0849603041424416,
+          "displacementMetres": 0
+        }
+      ]
+    },
+    {
+      "system": "Epsilon Indi",
+      "source": "https://spansh.co.uk/api/dump/908486251218",
+      "count": 13,
+      "beforeMaxErrorLs": 0.0014087427407503128,
+      "afterMaxErrorLs": 0.0014087427407503128,
+      "rows": [
+        {
+          "id": 2,
+          "name": "Epsilon Indi Ba",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 800781.785726,
+          "beforeErrorLs": 0.0012852792860940099,
+          "afterErrorLs": 0.0012852792860940099,
+          "displacementMetres": 0
+        },
+        {
+          "id": 3,
+          "name": "Edmond's Rock",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 143.214476,
+          "beforeErrorLs": 1.0447337217556196e-8,
+          "afterErrorLs": 1.0447337217556196e-8,
+          "displacementMetres": 0
+        },
+        {
+          "id": 4,
+          "name": "Lee",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 192.116975,
+          "beforeErrorLs": 1.647613601107878e-7,
+          "afterErrorLs": 1.647613601107878e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 5,
+          "name": "New Africa",
+          "epoch": "2026-11-14T17:23:37Z",
+          "observedLs": 260.480692,
+          "beforeErrorLs": -4.5433699824570795e-7,
+          "afterErrorLs": -4.5433699824570795e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 6,
+          "name": "Mitterand Hollow",
+          "epoch": "2026-11-13T08:24:23Z",
+          "observedLs": 260.492659,
+          "beforeErrorLs": 1.3842134194419486e-7,
+          "afterErrorLs": 1.3842134194419486e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 7,
+          "name": "Alisonworld",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 683.637045,
+          "beforeErrorLs": -4.827794555239961e-7,
+          "afterErrorLs": -4.827794555239961e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 8,
+          "name": "Epsilon Indi B 1",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 800730.638561,
+          "beforeErrorLs": 0.0012828410835936666,
+          "afterErrorLs": 0.0012828410835936666,
+          "displacementMetres": 0
+        },
+        {
+          "id": 9,
+          "name": "Epsilon Indi B 2",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 800658.075077,
+          "beforeErrorLs": 0.0012468263739719987,
+          "afterErrorLs": 0.0012468263739719987,
+          "displacementMetres": 0
+        },
+        {
+          "id": 10,
+          "name": "Epsilon Indi B 3",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 800904.246622,
+          "beforeErrorLs": 0.0014087427407503128,
+          "afterErrorLs": 0.0014087427407503128,
+          "displacementMetres": 0
+        },
+        {
+          "id": 11,
+          "name": "Epsilon Indi B 4",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 800478.01197,
+          "beforeErrorLs": 0.0012470779474824667,
+          "afterErrorLs": 0.0012470779474824667,
+          "displacementMetres": 0
+        },
+        {
+          "id": 12,
+          "name": "Epsilon Indi B 5",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 800215.381949,
+          "beforeErrorLs": 0.0012394905788823962,
+          "afterErrorLs": 0.0012394905788823962,
+          "displacementMetres": 0
+        },
+        {
+          "id": 13,
+          "name": "Epsilon Indi B 6",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 801410.861436,
+          "beforeErrorLs": 0.0012809096369892359,
+          "afterErrorLs": 0.0012809096369892359,
+          "displacementMetres": 0
+        },
+        {
+          "id": 14,
+          "name": "Epsilon Indi B 7",
+          "epoch": "2026-11-12T17:07:21Z",
+          "observedLs": 801657.95948,
+          "beforeErrorLs": 0.0011455588974058628,
+          "afterErrorLs": 0.0011455588974058628,
+          "displacementMetres": 0
+        }
+      ]
+    },
+    {
+      "system": "61 Cygni",
+      "source": "https://spansh.co.uk/api/dump/5856288576210",
+      "count": 5,
+      "beforeMaxErrorLs": 0.000260838663962204,
+      "afterMaxErrorLs": 0.000260838663962204,
+      "rows": [
+        {
+          "id": 2,
+          "name": "61 Cygni B",
+          "epoch": "2026-11-11T04:57:26Z",
+          "observedLs": 54227.478522,
+          "beforeErrorLs": -0.000260838663962204,
+          "afterErrorLs": -0.000260838663962204,
+          "displacementMetres": 0
+        },
+        {
+          "id": 3,
+          "name": "61 Cygni A 1",
+          "epoch": "2026-11-11T04:57:26Z",
+          "observedLs": 7.632688,
+          "beforeErrorLs": 0.000002434268163931108,
+          "afterErrorLs": 0.000002434268163931108,
+          "displacementMetres": 0
+        },
+        {
+          "id": 4,
+          "name": "61 Cygni A 2",
+          "epoch": "2026-11-11T04:57:26Z",
+          "observedLs": 12.948535,
+          "beforeErrorLs": 9.795853959104761e-7,
+          "afterErrorLs": 9.795853959104761e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 5,
+          "name": "61 Cygni A 3",
+          "epoch": "2026-11-11T04:57:26Z",
+          "observedLs": 24.079051,
+          "beforeErrorLs": -0.000006671490517362599,
+          "afterErrorLs": -0.000006671490517362599,
+          "displacementMetres": 0
+        },
+        {
+          "id": 14,
+          "name": "61 Cygni A 4",
+          "epoch": "2026-11-11T04:57:26Z",
+          "observedLs": 2056.525564,
+          "beforeErrorLs": -0.00021415826722659403,
+          "afterErrorLs": -0.00021415826722659403,
+          "displacementMetres": 0
+        }
+      ]
+    },
+    {
+      "system": "LHS 3447",
+      "source": "https://spansh.co.uk/api/dump/5306465653474",
+      "count": 33,
+      "beforeMaxErrorLs": 0.000014324250514619052,
+      "afterMaxErrorLs": 0.000014324250514619052,
+      "rows": [
+        {
+          "id": 1,
+          "name": "LHS 3447",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 92255.35563,
+          "beforeErrorLs": 0.000011617899872362614,
+          "afterErrorLs": 0.000011617899872362614,
+          "displacementMetres": 0
+        },
+        {
+          "id": 10,
+          "name": "LHS 3447 A 1",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 92276.218459,
+          "beforeErrorLs": 0.000011393800377845764,
+          "afterErrorLs": 0.000011393800377845764,
+          "displacementMetres": 0
+        },
+        {
+          "id": 11,
+          "name": "LHS 3447 A 2",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 92253.961089,
+          "beforeErrorLs": 0.000010774645488709211,
+          "afterErrorLs": 0.000010774645488709211,
+          "displacementMetres": 0
+        },
+        {
+          "id": 12,
+          "name": "LHS 3447 A 3",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 92317.838414,
+          "beforeErrorLs": 0.000011256284778937697,
+          "afterErrorLs": 0.000011256284778937697,
+          "displacementMetres": 0
+        },
+        {
+          "id": 13,
+          "name": "LHS 3447 A 4",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 92144.853782,
+          "beforeErrorLs": 0.000012087461072951555,
+          "afterErrorLs": 0.000012087461072951555,
+          "displacementMetres": 0
+        },
+        {
+          "id": 14,
+          "name": "LHS 3447 A 5",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 92449.949057,
+          "beforeErrorLs": 0.00001037289621308446,
+          "afterErrorLs": 0.00001037289621308446,
+          "displacementMetres": 0
+        },
+        {
+          "id": 15,
+          "name": "LHS 3447 A 6",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 91931.87093,
+          "beforeErrorLs": 0.000012581978808157146,
+          "afterErrorLs": 0.000012581978808157146,
+          "displacementMetres": 0
+        },
+        {
+          "id": 16,
+          "name": "LHS 3447 A 7",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 93251.486852,
+          "beforeErrorLs": 0.000012891148799099028,
+          "afterErrorLs": 0.000012891148799099028,
+          "displacementMetres": 0
+        },
+        {
+          "id": 17,
+          "name": "LHS 3447 A 8",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 94588.676225,
+          "beforeErrorLs": 0.000014324250514619052,
+          "afterErrorLs": 0.000014324250514619052,
+          "displacementMetres": 0
+        },
+        {
+          "id": 25,
+          "name": "LHS 3447 B 1",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2119.169625,
+          "beforeErrorLs": -2.0488278096308932e-7,
+          "afterErrorLs": -2.0488278096308932e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 26,
+          "name": "LHS 3447 B 1 a",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2124.661366,
+          "beforeErrorLs": -3.383020157343708e-7,
+          "afterErrorLs": -3.383020157343708e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 27,
+          "name": "LHS 3447 B 1 b",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2127.588087,
+          "beforeErrorLs": 7.350627129198983e-8,
+          "afterErrorLs": 7.350627129198983e-8,
+          "displacementMetres": 0
+        },
+        {
+          "id": 28,
+          "name": "LHS 3447 B 1 c",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2116.751977,
+          "beforeErrorLs": -6.712457434332464e-7,
+          "afterErrorLs": -6.712457434332464e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 29,
+          "name": "LHS 3447 B 1 d",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2129.157316,
+          "beforeErrorLs": 6.751502041879576e-7,
+          "afterErrorLs": 6.751502041879576e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 30,
+          "name": "LHS 3447 B 2",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2740.951283,
+          "beforeErrorLs": 3.611107786127832e-7,
+          "afterErrorLs": 3.611107786127832e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 33,
+          "name": "LHS 3447 B 2 a",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2737.209676,
+          "beforeErrorLs": 3.7852851164643653e-7,
+          "afterErrorLs": 3.7852851164643653e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 34,
+          "name": "LHS 3447 B 2 b",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2763.283612,
+          "beforeErrorLs": -1.2836153473472223e-8,
+          "afterErrorLs": -1.2836153473472223e-8,
+          "displacementMetres": 0
+        },
+        {
+          "id": 35,
+          "name": "LHS 3447 B 2 c",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2723.721599,
+          "beforeErrorLs": -4.0229951991932467e-7,
+          "afterErrorLs": -4.0229951991932467e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 36,
+          "name": "LHS 3447 B 2 d",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2726.49704,
+          "beforeErrorLs": 1.874100234999787e-7,
+          "afterErrorLs": 1.874100234999787e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 37,
+          "name": "LHS 3447 B 2 e",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2708.423373,
+          "beforeErrorLs": 2.1080722945043817e-7,
+          "afterErrorLs": 2.1080722945043817e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 38,
+          "name": "LHS 3447 B 2 f",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 2688.026783,
+          "beforeErrorLs": -7.351127351284958e-7,
+          "afterErrorLs": -7.351127351284958e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 39,
+          "name": "LHS 3447 B 3",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 3602.971638,
+          "beforeErrorLs": -7.400558388326317e-8,
+          "afterErrorLs": -7.400558388326317e-8,
+          "displacementMetres": 0
+        },
+        {
+          "id": 41,
+          "name": "LHS 3447 B 3 a",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 3603.596582,
+          "beforeErrorLs": -3.362115421623457e-7,
+          "afterErrorLs": -3.362115421623457e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 42,
+          "name": "LHS 3447 B 3 b",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 3595.057771,
+          "beforeErrorLs": -5.89014234719798e-7,
+          "afterErrorLs": -5.89014234719798e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 43,
+          "name": "LHS 3447 B 3 c",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 3618.008172,
+          "beforeErrorLs": 2.850056262104772e-7,
+          "afterErrorLs": 2.850056262104772e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 44,
+          "name": "LHS 3447 B 3 d",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 3578.791863,
+          "beforeErrorLs": 5.08531229570508e-7,
+          "afterErrorLs": 5.08531229570508e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 45,
+          "name": "LHS 3447 B 4",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 5067.253596,
+          "beforeErrorLs": 1.7927141016116366e-7,
+          "afterErrorLs": 1.7927141016116366e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 46,
+          "name": "LHS 3447 B 4 a",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 5066.684509,
+          "beforeErrorLs": 4.532957973424345e-7,
+          "afterErrorLs": 4.532957973424345e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 47,
+          "name": "LHS 3447 B 4 b",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 5063.742065,
+          "beforeErrorLs": 2.196993591496721e-7,
+          "afterErrorLs": 2.196993591496721e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 48,
+          "name": "LHS 3447 B 4 c",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 5069.021864,
+          "beforeErrorLs": 4.4799617171520367e-7,
+          "afterErrorLs": 4.4799617171520367e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 49,
+          "name": "LHS 3447 B 4 d",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 5078.536704,
+          "beforeErrorLs": 4.0317718230653554e-7,
+          "afterErrorLs": 4.0317718230653554e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 50,
+          "name": "LHS 3447 B 4 e",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 5087.4498,
+          "beforeErrorLs": 8.372708180104382e-7,
+          "afterErrorLs": 8.372708180104382e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 51,
+          "name": "LHS 3447 B 4 f",
+          "epoch": "2026-11-15T03:56:19Z",
+          "observedLs": 5103.203916,
+          "beforeErrorLs": -1.7918864614330232e-8,
+          "afterErrorLs": -1.7918864614330232e-8,
+          "displacementMetres": 0
+        }
+      ]
+    },
+    {
+      "system": "Vega",
+      "source": "https://spansh.co.uk/api/dump/301958431924",
+      "count": 11,
+      "beforeMaxErrorLs": 0.0006442189842346124,
+      "afterMaxErrorLs": 0.0006442189842346124,
+      "rows": [
+        {
+          "id": 1,
+          "name": "Popov Reward",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1083.340161,
+          "beforeErrorLs": 1.4160491446091328e-7,
+          "afterErrorLs": 1.4160491446091328e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 2,
+          "name": "Vega 2",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1806.740722,
+          "beforeErrorLs": 0.0005042609507199813,
+          "afterErrorLs": 0.0005042609507199813,
+          "displacementMetres": 0
+        },
+        {
+          "id": 4,
+          "name": "Vega 2 a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.702311,
+          "beforeErrorLs": 0.0005037766902660223,
+          "afterErrorLs": 0.0005037766902660223,
+          "displacementMetres": 0
+        },
+        {
+          "id": 5,
+          "name": "Vega 2 b",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1804.810599,
+          "beforeErrorLs": 0.0005043271546583128,
+          "afterErrorLs": 0.0005043271546583128,
+          "displacementMetres": 0
+        },
+        {
+          "id": 6,
+          "name": "Vega 2 c",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1805.714103,
+          "beforeErrorLs": 0.0005077464211353799,
+          "afterErrorLs": 0.0005077464211353799,
+          "displacementMetres": 0
+        },
+        {
+          "id": 7,
+          "name": "Vega 2 d",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.628435,
+          "beforeErrorLs": 0.0005083259927687322,
+          "afterErrorLs": 0.0005083259927687322,
+          "displacementMetres": 0
+        },
+        {
+          "id": 8,
+          "name": "Vega 2 d a",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1816.605866,
+          "beforeErrorLs": 0.000508786732552835,
+          "afterErrorLs": 0.000508786732552835,
+          "displacementMetres": 0
+        },
+        {
+          "id": 9,
+          "name": "Vega 2 e",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 1793.06392,
+          "beforeErrorLs": 0.0005017295814013778,
+          "afterErrorLs": 0.0005017295814013778,
+          "displacementMetres": 0
+        },
+        {
+          "id": 11,
+          "name": "Tracy's Havan",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3752.019494,
+          "beforeErrorLs": -1.335097294941079e-7,
+          "afterErrorLs": -1.335097294941079e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 12,
+          "name": "Trikora",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 3743.604735,
+          "beforeErrorLs": -0.000005934452019573655,
+          "afterErrorLs": -0.000005934452019573655,
+          "displacementMetres": 0
+        },
+        {
+          "id": 19,
+          "name": "Vega 4",
+          "epoch": "2026-11-15T03:00:07Z",
+          "observedLs": 8844.451926,
+          "beforeErrorLs": 0.0006442189842346124,
+          "afterErrorLs": 0.0006442189842346124,
+          "displacementMetres": 0
+        }
+      ]
+    },
+    {
+      "system": "Timbalderis",
+      "source": "https://spansh.co.uk/api/dump/8330323956442",
+      "count": 41,
+      "beforeMaxErrorLs": 105.39728489968093,
+      "afterMaxErrorLs": 0.1051043255138211,
+      "rows": [
+        {
+          "id": 3,
+          "name": "Timbalderis B",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 272.289464,
+          "beforeErrorLs": -0.000014498816028662986,
+          "afterErrorLs": -0.000014498816028662986,
+          "displacementMetres": 0
+        },
+        {
+          "id": 4,
+          "name": "Timbalderis C",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 254190.280581,
+          "beforeErrorLs": -0.1051043255138211,
+          "afterErrorLs": -0.1051043255138211,
+          "displacementMetres": 0
+        },
+        {
+          "id": 12,
+          "name": "Timbalderis B 1",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 274.123076,
+          "beforeErrorLs": -0.000009896265680708893,
+          "afterErrorLs": -0.000009896265680708893,
+          "displacementMetres": 0
+        },
+        {
+          "id": 13,
+          "name": "Timbalderis B 2",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 285.919633,
+          "beforeErrorLs": 8.718013759789756e-7,
+          "afterErrorLs": 8.718013759789756e-7,
+          "displacementMetres": 0
+        },
+        {
+          "id": 14,
+          "name": "Timbalderis AB 1",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 923.135369,
+          "beforeErrorLs": -104.24816462183037,
+          "afterErrorLs": 0.0001263712391619265,
+          "displacementMetres": 478922231226.53864
+        },
+        {
+          "id": 17,
+          "name": "Timbalderis AB 1 a",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 923.597801,
+          "beforeErrorLs": -104.25813498375544,
+          "afterErrorLs": 0.00012752880331845518,
+          "displacementMetres": 479078509380.7198
+        },
+        {
+          "id": 18,
+          "name": "Timbalderis AB 1 b",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 922.696885,
+          "beforeErrorLs": -104.19937975720018,
+          "afterErrorLs": 0.0001251401866966262,
+          "displacementMetres": 478830382514.63324
+        },
+        {
+          "id": 19,
+          "name": "Timbalderis AB 1 c",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 922.518183,
+          "beforeErrorLs": -104.18581824773776,
+          "afterErrorLs": 0.00012591427764618857,
+          "displacementMetres": 478783526738.6013
+        },
+        {
+          "id": 20,
+          "name": "Timbalderis AB 1 d",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 924.915924,
+          "beforeErrorLs": -104.16110864118968,
+          "afterErrorLs": 0.00012727988905680832,
+          "displacementMetres": 479698957163.39984
+        },
+        {
+          "id": 21,
+          "name": "Timbalderis AB 1 d a",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 924.915354,
+          "beforeErrorLs": -104.16146773307594,
+          "afterErrorLs": 0.0001267787525875974,
+          "displacementMetres": 479699502007.54535
+        },
+        {
+          "id": 23,
+          "name": "Timbalderis AB 1 e",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 922.800066,
+          "beforeErrorLs": -103.94433909838597,
+          "afterErrorLs": 0.00012163509859419719,
+          "displacementMetres": 479243031735.4487
+        },
+        {
+          "id": 24,
+          "name": "Timbalderis AB 1 f",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 922.819265,
+          "beforeErrorLs": -103.94442339460909,
+          "afterErrorLs": 0.000121131066180169,
+          "displacementMetres": 479249949638.5293
+        },
+        {
+          "id": 25,
+          "name": "Timbalderis AB 2",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1277.342988,
+          "beforeErrorLs": -91.92356943633808,
+          "afterErrorLs": -0.00036737179175361234,
+          "displacementMetres": 509817202561.2918
+        },
+        {
+          "id": 27,
+          "name": "Timbalderis AB 2 a",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1278.368473,
+          "beforeErrorLs": -92.04207139297546,
+          "afterErrorLs": -0.0003696175547247549,
+          "displacementMetres": 510796260730.91376
+        },
+        {
+          "id": 28,
+          "name": "Timbalderis AB 3",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1961.294183,
+          "beforeErrorLs": 104.71521208703007,
+          "afterErrorLs": 0.00009077371328203299,
+          "displacementMetres": 1107555235584.147
+        },
+        {
+          "id": 31,
+          "name": "Timbalderis AB 3 a",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1961.842895,
+          "beforeErrorLs": 104.56501943071248,
+          "afterErrorLs": 0.00009202714636558085,
+          "displacementMetres": 1107647152205.0906
+        },
+        {
+          "id": 32,
+          "name": "Timbalderis AB 3 b",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1961.048252,
+          "beforeErrorLs": 104.77969406628381,
+          "afterErrorLs": 0.00009166128688775643,
+          "displacementMetres": 1107850726608.373
+        },
+        {
+          "id": 33,
+          "name": "Timbalderis AB 3 c",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1960.73068,
+          "beforeErrorLs": 104.87221035157859,
+          "afterErrorLs": 0.00008900699958758196,
+          "displacementMetres": 1107233121656.79
+        },
+        {
+          "id": 34,
+          "name": "Timbalderis AB 3 d",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1960.548046,
+          "beforeErrorLs": 104.9200107228678,
+          "afterErrorLs": 0.00008999688179756049,
+          "displacementMetres": 1107430338160.4963
+        },
+        {
+          "id": 35,
+          "name": "Timbalderis AB 3 e",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1960.214746,
+          "beforeErrorLs": 105.0070812205322,
+          "afterErrorLs": 0.00008879221013557981,
+          "displacementMetres": 1107142527043.7324
+        },
+        {
+          "id": 36,
+          "name": "Timbalderis AB 3 f",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1962.718143,
+          "beforeErrorLs": 104.33693168874242,
+          "afterErrorLs": 0.0000946434743127611,
+          "displacementMetres": 1107904944293.328
+        },
+        {
+          "id": 37,
+          "name": "Timbalderis AB 3 g",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1962.494907,
+          "beforeErrorLs": 104.39157484576958,
+          "afterErrorLs": 0.00009811031668505166,
+          "displacementMetres": 1108999652406.8904
+        },
+        {
+          "id": 38,
+          "name": "Timbalderis AB 3 h",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1958.871964,
+          "beforeErrorLs": 105.39728489968093,
+          "afterErrorLs": 0.0000883097136465949,
+          "displacementMetres": 1107330927226.9285
+        },
+        {
+          "id": 39,
+          "name": "Timbalderis AB 3 i",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1961.868322,
+          "beforeErrorLs": 104.65125270313752,
+          "afterErrorLs": 0.00008406312599618104,
+          "displacementMetres": 1105345111604.485
+        },
+        {
+          "id": 40,
+          "name": "Timbalderis AB 3 j",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 1953.639932,
+          "beforeErrorLs": 102.58995006693112,
+          "afterErrorLs": 0.00011137463889099308,
+          "displacementMetres": 1102448668299.6594
+        },
+        {
+          "id": 41,
+          "name": "Timbalderis AB 4",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2855.302507,
+          "beforeErrorLs": 81.02007327773208,
+          "afterErrorLs": -0.0001859307344602712,
+          "displacementMetres": 1140719130927.8347
+        },
+        {
+          "id": 44,
+          "name": "Timbalderis AB 4 a",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2856.874816,
+          "beforeErrorLs": 80.95182255983809,
+          "afterErrorLs": -0.00018620116088641225,
+          "displacementMetres": 1140918718526.603
+        },
+        {
+          "id": 45,
+          "name": "Timbalderis AB 4 b",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2853.171084,
+          "beforeErrorLs": 81.0954987435698,
+          "afterErrorLs": -0.00018502699640521314,
+          "displacementMetres": 1140296836338.5962
+        },
+        {
+          "id": 46,
+          "name": "Timbalderis AB 4 c",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2855.387059,
+          "beforeErrorLs": 80.84555252235214,
+          "afterErrorLs": -0.00018415325348541955,
+          "displacementMetres": 1139238349917.6746
+        },
+        {
+          "id": 47,
+          "name": "Timbalderis AB 4 d",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2862.626049,
+          "beforeErrorLs": 80.95409608000818,
+          "afterErrorLs": -0.0001834541435528081,
+          "displacementMetres": 1143864334194.0847
+        },
+        {
+          "id": 48,
+          "name": "Timbalderis AB 4 e",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2861.613422,
+          "beforeErrorLs": 81.28536193358104,
+          "afterErrorLs": -0.00018767907158689923,
+          "displacementMetres": 1146245950276.5771
+        },
+        {
+          "id": 49,
+          "name": "Timbalderis AB 4 f",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2852.311307,
+          "beforeErrorLs": 80.6120094086341,
+          "afterErrorLs": -0.00018921037690233788,
+          "displacementMetres": 1135634902819.4497
+        },
+        {
+          "id": 50,
+          "name": "Timbalderis AB 4 g",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2865.886704,
+          "beforeErrorLs": 81.41092600324055,
+          "afterErrorLs": -0.000189707982372056,
+          "displacementMetres": 1149518657733.787
+        },
+        {
+          "id": 51,
+          "name": "Timbalderis AB 4 h",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2872.421991,
+          "beforeErrorLs": 80.96501718803893,
+          "afterErrorLs": -0.00018021516871158383,
+          "displacementMetres": 1148947643247.3562
+        },
+        {
+          "id": 52,
+          "name": "Timbalderis AB 4 i",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 2837.266601,
+          "beforeErrorLs": 81.18374029016968,
+          "afterErrorLs": -0.00017379329528921517,
+          "displacementMetres": 1132398697032.6855
+        },
+        {
+          "id": 54,
+          "name": "Timbalderis AB 5",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 4016.266663,
+          "beforeErrorLs": 14.182942536804603,
+          "afterErrorLs": -0.0007901428102741193,
+          "displacementMetres": 1566957982203.752
+        },
+        {
+          "id": 55,
+          "name": "Timbalderis AB 5 a",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 4017.032264,
+          "beforeErrorLs": 14.083822723167032,
+          "afterErrorLs": -0.0007896948582128971,
+          "displacementMetres": 1566651049352.4124
+        },
+        {
+          "id": 56,
+          "name": "Timbalderis AB 5 b",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 4018.974911,
+          "beforeErrorLs": 14.05501841528212,
+          "afterErrorLs": -0.0007897156970102515,
+          "displacementMetres": 1567037954031.228
+        },
+        {
+          "id": 57,
+          "name": "Timbalderis AB 5 c",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 4021.072178,
+          "beforeErrorLs": 13.975240428478628,
+          "afterErrorLs": -0.0007909625628599315,
+          "displacementMetres": 1567203627897.4792
+        },
+        {
+          "id": 58,
+          "name": "Timbalderis AB 5 d",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 4008.292328,
+          "beforeErrorLs": 13.96823827915432,
+          "afterErrorLs": -0.0007842372233426431,
+          "displacementMetres": 1563636572084.0332
+        },
+        {
+          "id": 59,
+          "name": "Timbalderis AB 6",
+          "epoch": "2026-11-14T22:31:04Z",
+          "observedLs": 3991.053901,
+          "beforeErrorLs": 15.488971992900588,
+          "afterErrorLs": -0.0008133060982800089,
+          "displacementMetres": 1571220842584.3242
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1608 @@
+{
+  "name": "LFT 509",
+  "id64": 7268561135001,
+  "bodies": [
+    {
+      "id": 660157050,
+      "id64": 36036065580098969,
+      "bodyId": 1,
+      "name": "LFT 509",
+      "discovery": {
+        "commander": "Angus Thermopyle",
+        "date": "2026-10-29 23:54:41"
+      },
+      "type": "Star",
+      "subType": "M (Red dwarf) Star",
+      "parents": [
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16012,
+      "isMainStar": false,
+      "isScoopable": true,
+      "age": 7564,
+      "spectralClass": "M4",
+      "luminosity": "V",
+      "absoluteMagnitude": 9.186493,
+      "solarMasses": 0.351563,
+      "solarRadius": 0.5126036980589503,
+      "surfaceTemperature": 2959,
+      "orbitalPeriod": 49360.81046859375,
+      "semiMajorAxis": 12.840381880767637,
+      "orbitalEccentricity": 0.342441,
+      "orbitalInclination": 3.078624,
+      "argOfPeriapsis": 339.618466,
+      "rotationalPeriod": 2.002694902025463,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.076708,
+      "belts": [
+        {
+          "name": "LFT 509 A A Belt",
+          "type": "Metallic",
+          "mass": 73264000000000,
+          "innerRadius": 707130,
+          "outerRadius": 1703100
+        }
+      ],
+      "updateTime": "2026-10-29 23:54:41"
+    },
+    {
+      "id": 660064107,
+      "id64": 288237644712846745,
+      "bodyId": 8,
+      "name": "LFT 509 A 1",
+      "discovery": {
+        "commander": "Gulldukat",
+        "date": "2026-10-29 09:57:12"
+      },
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16018,
+      "isLandable": true,
+      "gravity": 0.7569108087864006,
+      "earthMasses": 0.386775,
+      "radius": 4559.2285,
+      "surfaceTemperature": 750,
+      "surfacePressure": 0,
+      "volcanismType": "Minor Metallic Magma",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Rock": 67.27,
+        "Metal": 32.73,
+        "Ice": 0
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 1.1937405776041667,
+      "semiMajorAxis": 0.01554925232855938,
+      "orbitalEccentricity": 1.4e-05,
+      "orbitalInclination": 7.4e-05,
+      "argOfPeriapsis": 345.225474,
+      "rotationalPeriod": -1.1943074099537037,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -2.743742,
+      "materials": {
+        "Iron": 21.04,
+        "Nickel": 15.92,
+        "Sulphur": 15.01,
+        "Carbon": 12.62,
+        "Chromium": 9.46,
+        "Manganese": 8.69,
+        "Phosphorus": 8.08,
+        "Zinc": 5.72,
+        "Tin": 1.36,
+        "Tungsten": 1.16,
+        "Antimony": 0.94
+      },
+      "updateTime": "2026-11-12 21:58:37"
+    },
+    {
+      "id": 660063807,
+      "id64": 324266441731810713,
+      "bodyId": 9,
+      "name": "LFT 509 A 2",
+      "discovery": {
+        "commander": "Max Parax",
+        "date": "2026-10-29 09:27:44"
+      },
+      "type": "Planet",
+      "subType": "High metal content world",
+      "parents": [
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16025,
+      "isLandable": true,
+      "gravity": 0.8287203716736037,
+      "earthMasses": 0.490716,
+      "radius": 4907.899,
+      "surfaceTemperature": 564,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Rock": 67.4,
+        "Metal": 32.6,
+        "Ice": 0
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 2.8637909778819446,
+      "semiMajorAxis": 0.027865302296733827,
+      "orbitalEccentricity": 4.3e-05,
+      "orbitalInclination": 5.8e-05,
+      "argOfPeriapsis": 245.981121,
+      "rotationalPeriod": 2.8651508533333336,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": 0.150952,
+      "materials": {
+        "Iron": 20.97,
+        "Nickel": 15.86,
+        "Sulphur": 14.97,
+        "Carbon": 12.59,
+        "Chromium": 9.43,
+        "Manganese": 8.66,
+        "Phosphorus": 8.06,
+        "Vanadium": 5.15,
+        "Cadmium": 1.63,
+        "Niobium": 1.43,
+        "Yttrium": 1.25
+      },
+      "updateTime": "2026-11-12 21:53:45"
+    },
+    {
+      "id": 660065818,
+      "id64": 360295238750774681,
+      "bodyId": 10,
+      "name": "LFT 509 A 3",
+      "discovery": {
+        "commander": "Ap0stol",
+        "date": "2026-10-29 09:48:43"
+      },
+      "type": "Planet",
+      "subType": "Rocky Ice world",
+      "parents": [
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 15959,
+      "isLandable": false,
+      "gravity": 0.7427181547011817,
+      "earthMasses": 0.951708,
+      "radius": 7219.7865,
+      "surfaceTemperature": 327,
+      "surfacePressure": 1889.2236269430052,
+      "volcanismType": "Minor Water Geysers",
+      "atmosphereType": "Thick Methane-rich",
+      "atmosphereComposition": {
+        "Nitrogen": 83.59,
+        "Methane": 15.35,
+        "Argon": 0.84
+      },
+      "solidComposition": {
+        "Ice": 49.54,
+        "Rock": 34.01,
+        "Metal": 16.45
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 922.1325042071181,
+      "semiMajorAxis": 1.3090765990571016,
+      "orbitalEccentricity": 0.003268,
+      "orbitalInclination": -0.070786,
+      "argOfPeriapsis": 117.403609,
+      "rotationalPeriod": 0.7113667493981481,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.02548,
+      "updateTime": "2026-11-10 22:19:54"
+    },
+    {
+      "id": 660066323,
+      "id64": 396324035769738649,
+      "bodyId": 11,
+      "name": "LFT 509 A 4",
+      "discovery": {
+        "commander": "Ap0stol",
+        "date": "2026-10-29 09:54:55"
+      },
+      "type": "Planet",
+      "subType": "Class I gas giant",
+      "parents": [
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16938,
+      "isLandable": false,
+      "gravity": 1.157503576621506,
+      "earthMasses": 106.48674,
+      "radius": 61174.596,
+      "surfaceTemperature": 83,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": {
+        "Hydrogen": 72.82,
+        "Helium": 27.18
+      },
+      "solidComposition": null,
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 2278.5404904020834,
+      "semiMajorAxis": 2.3926215508711115,
+      "orbitalEccentricity": 0.000139,
+      "orbitalInclination": -7.831012,
+      "argOfPeriapsis": 152.46462,
+      "rotationalPeriod": 0.5195048808796296,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.728606,
+      "rings": [
+        {
+          "name": "LFT 509 A 4 A Ring",
+          "type": "Metal Rich",
+          "mass": 52471000000,
+          "innerRadius": 102020,
+          "outerRadius": 109940
+        },
+        {
+          "name": "LFT 509 A 4 B Ring",
+          "type": "Icy",
+          "mass": 473220000000,
+          "innerRadius": 110040,
+          "outerRadius": 165010
+        }
+      ],
+      "reserveLevel": "Depleted",
+      "updateTime": "2026-11-10 22:21:59"
+    },
+    {
+      "id": 660065970,
+      "id64": 504410426826630553,
+      "bodyId": 14,
+      "name": "LFT 509 A 4 a",
+      "discovery": {
+        "commander": "Ap0stol",
+        "date": "2026-10-29 09:56:08"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16937,
+      "isLandable": false,
+      "gravity": 0.08721858968558263,
+      "earthMasses": 0.004547,
+      "radius": 1456.271875,
+      "surfaceTemperature": 200,
+      "surfacePressure": 34.64447816432273,
+      "volcanismType": "Water Magma",
+      "atmosphereType": "Thick Methane",
+      "atmosphereComposition": {
+        "Methane": 99.87,
+        "Sulphur dioxide": 0.11
+      },
+      "solidComposition": {
+        "Ice": 82.59,
+        "Rock": 15.87,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 4.031798629849537,
+      "semiMajorAxis": 0.0033905355618613093,
+      "orbitalEccentricity": 5.2e-05,
+      "orbitalInclination": 0.021166,
+      "argOfPeriapsis": 0.198649,
+      "rotationalPeriod": 4.0322704198726855,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.336309,
+      "updateTime": "2026-11-10 22:22:49"
+    },
+    {
+      "id": 660066098,
+      "id64": 540439223845594521,
+      "bodyId": 15,
+      "name": "LFT 509 A 4 b",
+      "discovery": {
+        "commander": "Ap0stol",
+        "date": "2026-10-29 09:56:57"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16940,
+      "isLandable": false,
+      "gravity": 0.07825578200043877,
+      "earthMasses": 0.003307,
+      "radius": 1311.122875,
+      "surfaceTemperature": 140,
+      "surfacePressure": 1.950044719960523,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Methane",
+      "atmosphereComposition": {
+        "Methane": 100
+      },
+      "solidComposition": {
+        "Ice": 82.59,
+        "Rock": 15.87,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 6.279311039386573,
+      "semiMajorAxis": 0.004555580586638323,
+      "orbitalEccentricity": 0.000675,
+      "orbitalInclination": 0.132005,
+      "argOfPeriapsis": 13.850128,
+      "rotationalPeriod": 6.280045966956019,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.154591,
+      "updateTime": "2026-11-10 22:23:31"
+    },
+    {
+      "id": 660065363,
+      "id64": 612496817883522457,
+      "bodyId": 17,
+      "name": "LFT 509 A 4 c",
+      "discovery": {
+        "commander": "Ap0stol",
+        "date": "2026-10-29 09:58:40"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 16
+        },
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16941,
+      "isLandable": false,
+      "gravity": 0.07547105241673237,
+      "earthMasses": 0.002973,
+      "radius": 1265.87775,
+      "surfaceTemperature": 192,
+      "surfacePressure": 27.19255859856896,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "Thick Methane",
+      "atmosphereComposition": {
+        "Methane": 100
+      },
+      "solidComposition": {
+        "Ice": 82.59,
+        "Rock": 15.87,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 1.1372823613078704,
+      "semiMajorAxis": 2.3253024853441312e-05,
+      "orbitalEccentricity": 0.075489,
+      "orbitalInclination": -9.50554,
+      "argOfPeriapsis": 234.366931,
+      "rotationalPeriod": 1.7250731459837965,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.302487,
+      "updateTime": "2026-11-12 21:46:26"
+    },
+    {
+      "id": 660065582,
+      "id64": 648525614902486425,
+      "bodyId": 18,
+      "name": "LFT 509 A 4 d",
+      "discovery": {
+        "commander": "Ap0stol",
+        "date": "2026-10-29 09:58:41"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 16
+        },
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16941,
+      "isLandable": false,
+      "gravity": 0.0690392439850614,
+      "earthMasses": 0.002286,
+      "radius": 1160.57875,
+      "surfaceTemperature": 188,
+      "surfacePressure": 22.745692079940785,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "Thick Methane",
+      "atmosphereComposition": {
+        "Methane": 100
+      },
+      "solidComposition": {
+        "Ice": 82.59,
+        "Rock": 15.87,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 1.1372823613078704,
+      "semiMajorAxis": 3.024747925991035e-05,
+      "orbitalEccentricity": 0.075489,
+      "orbitalInclination": -9.50554,
+      "argOfPeriapsis": 54.366936,
+      "rotationalPeriod": 1.5125253812037038,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.177086,
+      "updateTime": "2026-11-12 21:45:09"
+    },
+    {
+      "id": 660065358,
+      "id64": 684554411921450393,
+      "bodyId": 19,
+      "name": "LFT 509 A 4 e",
+      "discovery": {
+        "commander": "Mexxna",
+        "date": "2026-10-29 10:26:44"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16943,
+      "isLandable": false,
+      "gravity": 0.07883485670502058,
+      "earthMasses": 0.00333,
+      "radius": 1310.833375,
+      "surfaceTemperature": 112,
+      "surfacePressure": 0.2929913798470269,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Methane",
+      "atmosphereComposition": {
+        "Methane": 100
+      },
+      "solidComposition": {
+        "Ice": 81.6,
+        "Rock": 16.74,
+        "Metal": 1.66
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 29.068480211273148,
+      "semiMajorAxis": 0.012653693969992448,
+      "orbitalEccentricity": 0.008118,
+      "orbitalInclination": -0.230628,
+      "argOfPeriapsis": 64.618654,
+      "rotationalPeriod": -29.071883597662037,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -2.894536,
+      "updateTime": "2026-11-10 22:25:13"
+    },
+    {
+      "id": 660064232,
+      "id64": 720583208940414361,
+      "bodyId": 20,
+      "name": "LFT 509 A 4 e a",
+      "discovery": {
+        "commander": "SiMats",
+        "date": "2026-10-29 09:39:37"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 19
+        },
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16939,
+      "isLandable": false,
+      "gravity": 0.03389708478810183,
+      "earthMasses": 0.000321,
+      "radius": 620.663,
+      "surfaceTemperature": 159,
+      "surfacePressure": 6.155131384159882,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "Thick Methane",
+      "atmosphereComposition": {
+        "Methane": 100
+      },
+      "solidComposition": {
+        "Ice": 92.91,
+        "Rock": 6.87,
+        "Metal": 0.22
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 1.7256950614583333,
+      "semiMajorAxis": 6.254890484603668e-05,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 85.139148,
+      "argOfPeriapsis": 345.828614,
+      "rotationalPeriod": 1.806876508634259,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": -0.328231,
+      "updateTime": "2026-11-10 22:25:23"
+    },
+    {
+      "id": 660065293,
+      "id64": 756612005959378329,
+      "bodyId": 21,
+      "name": "LFT 509 A 4 f",
+      "discovery": {
+        "commander": "Tahou",
+        "date": "2026-10-29 10:04:48"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16930,
+      "isLandable": false,
+      "gravity": 0.06398067957272503,
+      "earthMasses": 0.001826,
+      "radius": 1077.483125,
+      "surfaceTemperature": 107,
+      "surfacePressure": 0.1953200561361954,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Methane",
+      "atmosphereComposition": {
+        "Methane": 100
+      },
+      "solidComposition": {
+        "Ice": 82.59,
+        "Rock": 15.87,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 41.725989431145834,
+      "semiMajorAxis": 0.016101766562994935,
+      "orbitalEccentricity": 0.000774,
+      "orbitalInclination": 0.722738,
+      "argOfPeriapsis": 233.908164,
+      "rotationalPeriod": 41.73087225737268,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.445365,
+      "updateTime": "2026-11-08 02:06:06"
+    },
+    {
+      "id": 660065254,
+      "id64": 792640802978342297,
+      "bodyId": 22,
+      "name": "LFT 509 A 4 g",
+      "discovery": {
+        "commander": "Tahou",
+        "date": "2026-10-29 10:02:36"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 11
+        },
+        {
+          "Star": 1
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 16930,
+      "isLandable": false,
+      "gravity": 0.06744028832297766,
+      "earthMasses": 0.002134,
+      "radius": 1134.54575,
+      "surfaceTemperature": 108,
+      "surfacePressure": 0.21711789492227979,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "Methane",
+      "atmosphereComposition": {
+        "Methane": 100
+      },
+      "solidComposition": {
+        "Ice": 82.59,
+        "Rock": 15.87,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 71.15018243591435,
+      "semiMajorAxis": 0.022981925444172782,
+      "orbitalEccentricity": 0.000521,
+      "orbitalInclination": -0.01555,
+      "argOfPeriapsis": 47.015932,
+      "rotationalPeriod": 71.15850652197916,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.038846,
+      "updateTime": "2026-11-08 20:41:32"
+    },
+    {
+      "id": 660063850,
+      "id64": 828669599997306265,
+      "bodyId": 23,
+      "name": "LFT 509 B 1",
+      "discovery": {
+        "commander": "tinkerbear",
+        "date": "2026-10-29 09:49:18"
+      },
+      "type": "Planet",
+      "subType": "Class III gas giant",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 79,
+      "isLandable": false,
+      "gravity": 3.3173343157900654,
+      "earthMasses": 462.373077,
+      "radius": 75298.472,
+      "surfaceTemperature": 265,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": {
+        "Hydrogen": 72.82,
+        "Helium": 27.18
+      },
+      "solidComposition": null,
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 36.78477265768518,
+      "semiMajorAxis": 0.16014899923798848,
+      "orbitalEccentricity": 0.01,
+      "orbitalInclination": 1.246796,
+      "argOfPeriapsis": 300.346558,
+      "rotationalPeriod": -36.90123053221065,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 2.082332,
+      "rings": [
+        {
+          "name": "LFT 509 B 1 A Ring",
+          "type": "Metal Rich",
+          "mass": 50111000000,
+          "innerRadius": 140850,
+          "outerRadius": 157930
+        },
+        {
+          "name": "LFT 509 B 1 B Ring",
+          "type": "Metal Rich",
+          "mass": 466610000000,
+          "innerRadius": 158030,
+          "outerRadius": 269200
+        }
+      ],
+      "reserveLevel": "Depleted",
+      "updateTime": "2026-11-09 00:30:19"
+    },
+    {
+      "id": 660063686,
+      "id64": 936755991054198169,
+      "bodyId": 26,
+      "name": "LFT 509 B 2",
+      "discovery": {
+        "commander": "Warmbeer",
+        "date": "2026-10-29 09:18:10"
+      },
+      "type": "Planet",
+      "subType": "Gas giant with ammonia-based life",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 266,
+      "isLandable": false,
+      "gravity": 1.130224254916282,
+      "earthMasses": 103.037407,
+      "radius": 60897.528,
+      "surfaceTemperature": 128,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": {
+        "Hydrogen": 72.81,
+        "Helium": 27.18
+      },
+      "solidComposition": null,
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 223.7105259188889,
+      "semiMajorAxis": 0.5335843864379883,
+      "orbitalEccentricity": 2.4e-05,
+      "orbitalInclination": -0.033091,
+      "argOfPeriapsis": 332.308094,
+      "rotationalPeriod": 224.41878986402776,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": -0.490964,
+      "rings": [
+        {
+          "name": "LFT 509 B 2 A Ring",
+          "type": "Rocky",
+          "mass": 33594000000,
+          "innerRadius": 100480,
+          "outerRadius": 106410
+        },
+        {
+          "name": "LFT 509 B 2 B Ring",
+          "type": "Icy",
+          "mass": 564160000000,
+          "innerRadius": 106510,
+          "outerRadius": 176370
+        }
+      ],
+      "reserveLevel": "Depleted",
+      "updateTime": "2026-11-12 20:12:11"
+    },
+    {
+      "id": 660063647,
+      "id64": 1044842382111090073,
+      "bodyId": 29,
+      "name": "LFT 509 B 2 a",
+      "discovery": {
+        "commander": "tuoni",
+        "date": "2026-10-29 09:12:49"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 266,
+      "isLandable": true,
+      "gravity": 0.076150309871666,
+      "earthMasses": 0.00302,
+      "radius": 1270.141625,
+      "surfaceTemperature": 110,
+      "surfacePressure": 0,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 81.87,
+        "Rock": 16.5,
+        "Metal": 1.63
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 1.0362264113888888,
+      "semiMajorAxis": 0.001355559998676572,
+      "orbitalEccentricity": 5e-06,
+      "orbitalInclination": -0.021287,
+      "argOfPeriapsis": 155.718532,
+      "rotationalPeriod": -0.9375450366435185,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 2.948154,
+      "materials": {
+        "Sulphur": 26.31,
+        "Carbon": 22.12,
+        "Phosphorus": 14.16,
+        "Iron": 11.91,
+        "Nickel": 9.01,
+        "Chromium": 5.36,
+        "Manganese": 4.92,
+        "Selenium": 4.12,
+        "Ruthenium": 0.74,
+        "Tin": 0.71,
+        "Tungsten": 0.65
+      },
+      "updateTime": "2026-11-12 20:04:45"
+    },
+    {
+      "id": 660063774,
+      "id64": 1080871179130054041,
+      "bodyId": 30,
+      "name": "LFT 509 B 2 b",
+      "discovery": {
+        "commander": "Warmbeer",
+        "date": "2026-10-29 09:26:23"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 26
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 266,
+      "isLandable": true,
+      "gravity": 0.08979771433920121,
+      "earthMasses": 0.004952,
+      "radius": 1497.759875,
+      "surfaceTemperature": 109,
+      "surfacePressure": 0,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.59,
+        "Rock": 15.87,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 2.098155587361111,
+      "semiMajorAxis": 0.0021695722174212067,
+      "orbitalEccentricity": 1.6e-05,
+      "orbitalInclination": -0.02146,
+      "argOfPeriapsis": 203.914628,
+      "rotationalPeriod": 1.9756794233680557,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.41446,
+      "materials": {
+        "Sulphur": 26.97,
+        "Carbon": 22.68,
+        "Phosphorus": 14.52,
+        "Iron": 12.03,
+        "Nickel": 9.1,
+        "Manganese": 4.97,
+        "Selenium": 4.22,
+        "Zinc": 3.27,
+        "Molybdenum": 0.79,
+        "Yttrium": 0.72,
+        "Tin": 0.72
+      },
+      "updateTime": "2026-11-12 20:01:11"
+    },
+    {
+      "id": 660065008,
+      "id64": 1116899976149018009,
+      "bodyId": 31,
+      "name": "LFT 509 B 3",
+      "discovery": {
+        "commander": "KiTRUS",
+        "date": "2026-10-29 09:59:19"
+      },
+      "type": "Planet",
+      "subType": "Gas giant with ammonia-based life",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 349,
+      "isLandable": false,
+      "gravity": 1.7976870252739259,
+      "earthMasses": 207.386444,
+      "radius": 68504.272,
+      "surfaceTemperature": 129,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": {
+        "Hydrogen": 72.79,
+        "Helium": 27.18
+      },
+      "solidComposition": null,
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 336.52801756505784,
+      "semiMajorAxis": 0.7005293362591958,
+      "orbitalEccentricity": 0.00627,
+      "orbitalInclination": -0.00559,
+      "argOfPeriapsis": 144.008921,
+      "rotationalPeriod": 337.5934253271991,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.204513,
+      "rings": [
+        {
+          "name": "LFT 509 B 3 A Ring",
+          "type": "Rocky",
+          "mass": 35971000000,
+          "innerRadius": 118060,
+          "outerRadius": 126360
+        },
+        {
+          "name": "LFT 509 B 3 B Ring",
+          "type": "Icy",
+          "mass": 470180000000,
+          "innerRadius": 126460,
+          "outerRadius": 206060
+        }
+      ],
+      "reserveLevel": "Depleted",
+      "updateTime": "2026-11-11 20:30:33"
+    },
+    {
+      "id": 660064021,
+      "id64": 1224986367205909913,
+      "bodyId": 34,
+      "name": "LFT 509 B 3 a",
+      "discovery": {
+        "commander": "Mexxna",
+        "date": "2026-10-29 09:48:26"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 31
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 350,
+      "isLandable": true,
+      "gravity": 0.11150742023682483,
+      "earthMasses": 0.009228,
+      "radius": 1834.79025,
+      "surfaceTemperature": 103,
+      "surfacePressure": 0,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 81.91,
+        "Rock": 16.47,
+        "Metal": 1.62
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 0.8463084421759259,
+      "semiMajorAxis": 0.0014954502661659876,
+      "orbitalEccentricity": 0.00015,
+      "orbitalInclination": 0.018018,
+      "argOfPeriapsis": 102.958268,
+      "rotationalPeriod": 0.8463747496180556,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.567176,
+      "materials": {
+        "Sulphur": 26.73,
+        "Carbon": 22.48,
+        "Phosphorus": 14.39,
+        "Iron": 12.09,
+        "Nickel": 9.15,
+        "Manganese": 4.99,
+        "Selenium": 4.18,
+        "Germanium": 3.49,
+        "Cadmium": 0.94,
+        "Niobium": 0.83,
+        "Yttrium": 0.72
+      },
+      "updateTime": "2026-11-11 23:43:25"
+    },
+    {
+      "id": 660064400,
+      "id64": 1297043961243837849,
+      "bodyId": 36,
+      "name": "LFT 509 B 3 b",
+      "discovery": {
+        "commander": "Viking In Oz",
+        "date": "2026-10-29 09:43:59"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 35
+        },
+        {
+          "Planet": 31
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 350,
+      "isLandable": true,
+      "gravity": 0.0830862942785703,
+      "earthMasses": 0.003941,
+      "radius": 1389.0665,
+      "surfaceTemperature": 101,
+      "surfacePressure": 0,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.57,
+        "Rock": 15.89,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 0.973876496712963,
+      "semiMajorAxis": 2.1476505442099184e-05,
+      "orbitalEccentricity": 0.014007,
+      "orbitalInclination": 2.656492,
+      "argOfPeriapsis": 219.325075,
+      "rotationalPeriod": 1.5193287964814817,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": -0.342855,
+      "materials": {
+        "Sulphur": 27.37,
+        "Carbon": 23.02,
+        "Phosphorus": 14.74,
+        "Iron": 12.22,
+        "Nickel": 9.24,
+        "Manganese": 5.05,
+        "Selenium": 4.28,
+        "Zirconium": 1.42,
+        "Cadmium": 0.95,
+        "Tellurium": 0.92,
+        "Molybdenum": 0.8
+      },
+      "updateTime": "2026-11-12 23:17:34"
+    },
+    {
+      "id": 660064537,
+      "id64": 1333072758262801817,
+      "bodyId": 37,
+      "name": "LFT 509 B 3 c",
+      "discovery": {
+        "commander": "HAMLET REIGNS",
+        "date": "2026-10-29 09:44:19"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Null": 35
+        },
+        {
+          "Planet": 31
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 350,
+      "isLandable": true,
+      "gravity": 0.07348816369225664,
+      "earthMasses": 0.002748,
+      "radius": 1233.343875,
+      "surfaceTemperature": 101,
+      "surfacePressure": 0,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.57,
+        "Rock": 15.89,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 0.973876496712963,
+      "semiMajorAxis": 3.0794320613254556e-05,
+      "orbitalEccentricity": 0.014007,
+      "orbitalInclination": 2.656492,
+      "argOfPeriapsis": 39.325081,
+      "rotationalPeriod": 1.2688150172337962,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.351136,
+      "materials": {
+        "Sulphur": 27.37,
+        "Carbon": 23.01,
+        "Phosphorus": 14.73,
+        "Iron": 12.22,
+        "Nickel": 9.24,
+        "Selenium": 4.28,
+        "Germanium": 3.54,
+        "Zinc": 3.32,
+        "Tellurium": 0.92,
+        "Niobium": 0.83,
+        "Mercury": 0.53
+      },
+      "updateTime": "2026-11-11 21:59:49"
+    },
+    {
+      "id": 660064864,
+      "id64": 1369101555281765785,
+      "bodyId": 38,
+      "name": "LFT 509 B 3 d",
+      "discovery": {
+        "commander": "Mexxna",
+        "date": "2026-10-29 09:52:34"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 31
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 348,
+      "isLandable": true,
+      "gravity": 0.10648210079229338,
+      "earthMasses": 0.00872,
+      "radius": 1825.17475,
+      "surfaceTemperature": 100,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 87.94,
+        "Rock": 10.4,
+        "Metal": 1.66
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 4.566204492696759,
+      "semiMajorAxis": 0.004600338534729291,
+      "orbitalEccentricity": 0,
+      "orbitalInclination": 61.008588,
+      "argOfPeriapsis": 90.876336,
+      "rotationalPeriod": 4.566563197175926,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": 0.109821,
+      "materials": {
+        "Sulphur": 27.64,
+        "Carbon": 23.24,
+        "Phosphorus": 14.88,
+        "Iron": 11.97,
+        "Nickel": 9.05,
+        "Selenium": 4.33,
+        "Zinc": 3.25,
+        "Germanium": 3.18,
+        "Cadmium": 0.93,
+        "Molybdenum": 0.78,
+        "Ruthenium": 0.74
+      },
+      "updateTime": "2026-11-12 20:18:07"
+    },
+    {
+      "id": 660065364,
+      "id64": 1405130352300729753,
+      "bodyId": 39,
+      "name": "LFT 509 B 4",
+      "discovery": {
+        "commander": "Cynict3hGray",
+        "date": "2026-10-29 11:18:42"
+      },
+      "type": "Planet",
+      "subType": "Class I gas giant",
+      "parents": [
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 666,
+      "isLandable": false,
+      "gravity": 0.9608655173905867,
+      "earthMasses": 73.497482,
+      "radius": 55781.404,
+      "surfaceTemperature": 88,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": {
+        "Hydrogen": 72.82,
+        "Helium": 27.18
+      },
+      "solidComposition": null,
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 883.9780809702662,
+      "semiMajorAxis": 1.3336437441463531,
+      "orbitalEccentricity": 3.2e-05,
+      "orbitalInclination": 0.754923,
+      "argOfPeriapsis": 334.673491,
+      "rotationalPeriod": 0.611971720763889,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 2.441865,
+      "rings": [
+        {
+          "name": "LFT 509 B 4 A Ring",
+          "type": "Rocky",
+          "mass": 26447000000,
+          "innerRadius": 94283,
+          "outerRadius": 100380
+        },
+        {
+          "name": "LFT 509 B 4 B Ring",
+          "type": "Icy",
+          "mass": 249300000000,
+          "innerRadius": 100480,
+          "outerRadius": 145830
+        }
+      ],
+      "reserveLevel": "Depleted",
+      "updateTime": "2026-11-09 01:04:17"
+    },
+    {
+      "id": 660064194,
+      "id64": 1513216743357621657,
+      "bodyId": 42,
+      "name": "LFT 509 B 4 a",
+      "discovery": {
+        "commander": "Fuezt",
+        "date": "2026-10-29 09:39:21"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 39
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 665,
+      "isLandable": true,
+      "gravity": 0.035251133035558053,
+      "earthMasses": 0.000312,
+      "radius": 600.0331875,
+      "surfaceTemperature": 76,
+      "surfacePressure": 0,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.52,
+        "Rock": 15.94,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 0.9166303677083333,
+      "semiMajorAxis": 0.001116111146116333,
+      "orbitalEccentricity": 0.000319,
+      "orbitalInclination": -0.017607,
+      "argOfPeriapsis": 63.283841,
+      "rotationalPeriod": 0.9166846126851851,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.120239,
+      "materials": {
+        "Sulphur": 27.35,
+        "Carbon": 23,
+        "Phosphorus": 14.73,
+        "Iron": 12.22,
+        "Nickel": 9.24,
+        "Chromium": 5.5,
+        "Selenium": 4.28,
+        "Zirconium": 1.42,
+        "Niobium": 0.84,
+        "Antimony": 0.75,
+        "Tungsten": 0.67
+      },
+      "updateTime": "2026-11-12 21:18:29"
+    },
+    {
+      "id": 660065266,
+      "id64": 1549245540376585625,
+      "bodyId": 43,
+      "name": "LFT 509 B 4 b",
+      "discovery": {
+        "commander": "Mexxna",
+        "date": "2026-10-29 10:03:42"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 39
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 666,
+      "isLandable": true,
+      "gravity": 0.045636804019851825,
+      "earthMasses": 0.000671,
+      "radius": 773.3715,
+      "surfaceTemperature": 75,
+      "surfacePressure": 0,
+      "volcanismType": "Major Water Geysers",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.52,
+        "Rock": 15.94,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 2.1601180649421297,
+      "semiMajorAxis": 0.0019764975143051287,
+      "orbitalEccentricity": 0.000512,
+      "orbitalInclination": 0.001341,
+      "argOfPeriapsis": 147.676592,
+      "rotationalPeriod": 2.1602458302893517,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": 0.341358,
+      "materials": {
+        "Sulphur": 26.92,
+        "Carbon": 22.64,
+        "Phosphorus": 14.49,
+        "Iron": 12.03,
+        "Nickel": 9.1,
+        "Chromium": 5.41,
+        "Germanium": 3.49,
+        "Zinc": 3.27,
+        "Cadmium": 0.93,
+        "Tellurium": 0.9,
+        "Niobium": 0.82
+      },
+      "updateTime": "2026-11-12 21:15:04"
+    },
+    {
+      "id": 660065350,
+      "id64": 1585274337395549593,
+      "bodyId": 44,
+      "name": "LFT 509 B 4 c",
+      "discovery": {
+        "commander": "Mexxna",
+        "date": "2026-10-29 10:06:55"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 39
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 664,
+      "isLandable": true,
+      "gravity": 0.06207494262195059,
+      "earthMasses": 0.001668,
+      "radius": 1045.5008125,
+      "surfaceTemperature": 75,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.52,
+        "Rock": 15.94,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 4.95197058275463,
+      "semiMajorAxis": 0.0034363442958286706,
+      "orbitalEccentricity": 0.000174,
+      "orbitalInclination": -0.001266,
+      "argOfPeriapsis": 101.879426,
+      "rotationalPeriod": 4.952263373240741,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": 0.077515,
+      "materials": {
+        "Sulphur": 26.71,
+        "Carbon": 22.46,
+        "Phosphorus": 14.38,
+        "Iron": 11.94,
+        "Nickel": 9.03,
+        "Chromium": 5.37,
+        "Selenium": 4.18,
+        "Germanium": 3.46,
+        "Cadmium": 0.93,
+        "Tellurium": 0.9,
+        "Tungsten": 0.66
+      },
+      "updateTime": "2026-11-12 21:06:22"
+    },
+    {
+      "id": 660065349,
+      "id64": 1621303134414513561,
+      "bodyId": 45,
+      "name": "LFT 509 B 4 d",
+      "discovery": {
+        "commander": "Mr2Brainless",
+        "date": "2026-10-29 10:30:11"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 39
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 664,
+      "isLandable": true,
+      "gravity": 0.06356270607580547,
+      "earthMasses": 0.001789,
+      "radius": 1070.011625,
+      "surfaceTemperature": 74,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.52,
+        "Rock": 15.94,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 11.264554259398148,
+      "semiMajorAxis": 0.005943659884118993,
+      "orbitalEccentricity": 9e-06,
+      "orbitalInclination": -0.085591,
+      "argOfPeriapsis": 81.669084,
+      "rotationalPeriod": 11.265221116574075,
+      "rotationalPeriodTidallyLocked": false,
+      "axialTilt": -0.370247,
+      "materials": {
+        "Sulphur": 28.09,
+        "Carbon": 23.62,
+        "Phosphorus": 15.12,
+        "Iron": 12.55,
+        "Nickel": 9.49,
+        "Selenium": 4.4,
+        "Vanadium": 3.08,
+        "Zirconium": 1.46,
+        "Tellurium": 0.94,
+        "Tungsten": 0.69,
+        "Mercury": 0.55
+      },
+      "updateTime": "2026-11-12 20:55:14"
+    },
+    {
+      "id": 660064079,
+      "id64": 1657331931433477529,
+      "bodyId": 46,
+      "name": "LFT 509 B 4 e",
+      "discovery": {
+        "commander": "Fuezt",
+        "date": "2026-10-29 09:36:40"
+      },
+      "type": "Planet",
+      "subType": "Icy body",
+      "parents": [
+        {
+          "Planet": 39
+        },
+        {
+          "Star": 2
+        },
+        {
+          "Null": 0
+        }
+      ],
+      "distanceToArrival": 664,
+      "isLandable": true,
+      "gravity": 0.05805178163071908,
+      "earthMasses": 0.001368,
+      "radius": 979.083625,
+      "surfaceTemperature": 74,
+      "surfacePressure": 0,
+      "volcanismType": "No volcanism",
+      "atmosphereType": "No atmosphere",
+      "atmosphereComposition": null,
+      "solidComposition": {
+        "Ice": 82.52,
+        "Rock": 15.94,
+        "Metal": 1.54
+      },
+      "terraformingState": "Not terraformable",
+      "orbitalPeriod": 24.96326756145833,
+      "semiMajorAxis": 0.010102889241719667,
+      "orbitalEccentricity": 0.000179,
+      "orbitalInclination": 0.018173,
+      "argOfPeriapsis": 81.259502,
+      "rotationalPeriod": 24.96473794375,
+      "rotationalPeriodTidallyLocked": true,
+      "axialTilt": -0.231241,
+      "materials": {
+        "Sulphur": 26.79,
+        "Carbon": 22.52,
+        "Phosphorus": 14.42,
+        "Iron": 11.97,
+        "Nickel": 9.05,
+        "Chromium": 5.38,
+        "Selenium": 4.19,
+        "Germanium": 3.47,
+        "Niobium": 0.82,
+        "Antimony": 0.73,
+        "Tungsten": 0.66
+      },
+      "updateTime": "2026-11-12 20:23:29"
+    }
+  ]
+}

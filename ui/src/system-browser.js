@@ -41,11 +41,12 @@ export function createSystemBrowser({ fetchBodies, getProviders, onDisplay, onSt
         }
         const systemName = edsm.systemName || name;
         const systemAddress = edsm.systemAddress;
-        if (getProviders().includes('spansh')) {
-          onState({ loading: true, browsing, message: `Loading ${systemName} from Spansh…` });
-          const extra = await fetchBodies({ systemName, systemAddress, providers: ['spansh'] }, { signal });
+        const additional = getProviders().filter((p) => ['spansh', 'edgis'].includes(p));
+        if (additional.length) {
+          onState({ loading: true, browsing, message: `Loading ${systemName} from community sources…` });
+          const extra = await fetchBodies({ systemName, systemAddress, providers: additional }, { signal });
           if (token !== generation) return;
-          data.spansh = extra?.spansh ?? { status: 'unavailable', bodies: [] };
+          for (const source of additional) data[source] = extra?.[source] ?? { status: 'unavailable', bodies: [] };
         }
         browsing = true;
         onState({ loading: false, browsing, message: 'Browsing community data. Live journal updates continue in the background.' });

@@ -1,10 +1,12 @@
 import * as THREE from 'three';
-import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighlight, compressDistance, compressOffset, keplerianOffset } from '@orrery/shared';
+import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighlight, compressDistance, parentOrbitFrame } from '@orrery/shared';
 import { makeLabel } from './labels.js';
 import { bodyColor, bodyDisplayRadius, bodyIcon } from './body-visuals.js';
 import { shortDesignator } from './naming.js';
 import { METRES_PER_UNIT, scaleSettings } from './scale-modes.js';
 import { makeBodyMarker } from './body-markers.js';
+import { buildOrbitPath, updateOrbitPhase } from './orbit-path.js';
+import { resolveOrbitBrightness } from './orbit-settings.js';
 
 const RING_CLASS_COLORS = {
   eRingClass_Icy: 0xcfe8f5,
@@ -25,68 +27,28 @@ export function scenePosition(nodes, id, atEpochMs, trueDistances) {
   };
 }
 
-/**
- * A body's orbit path around its parent, as a line loop of positions sampled
- * across one full orbital period — glanceable structure even where the body
- * itself is a small dot (which true-distance mode makes common). Sampling by
- * time through keplerianOffset naturally spaces points by real motion, and
- * in compressed mode each sample is compressed exactly the way the body's own
- * position is, so the path always passes through the body.
- * @returns {THREE.Line|null} Parent-relative, or body-relative at true body sizes for GPU precision.
- */
-function buildOrbitPath(node, trueDistances, trueSizes, atEpochMs) {
+function addOrbitPath(group, nodes, node, pos, trueDistances, radius, atEpochMs) {
   if (!node.elements) return null;
-  const samples = 96;
-  const periodMs = node.elements.orbitalPeriodSec * 1000;
-  const points = [];
-  for (let i = 0; i <= samples; i++) {
-    const offset = keplerianOffset(node.elements, node.elements.epochMs + (i / samples) * periodMs);
-    const p = trueDistances
-      ? { x: offset.x / METRES_PER_UNIT, y: offset.y / METRES_PER_UNIT, z: offset.z / METRES_PER_UNIT }
-      : compressOffset(offset);
-    points.push(new THREE.Vector3(p.x, p.y, p.z));
+  let parentPos;
+  try {
+    parentPos = node.parentId != null
+      ? scenePosition(nodes, node.parentId, atEpochMs, trueDistances)
+      : { x: 0, y: 0, z: 0 };
+  } catch {
+    return null;
   }
-  const line = new THREE.Line(
-    new THREE.BufferGeometry().setFromPoints(trueSizes ? [...points, points.at(-1)] : points),
-    new THREE.LineBasicMaterial({ color: 0x7a4a1e, transparent: true, opacity: node.isBackfill ? 0.18 : 0.35 }),
-  );
-  line.userData.baseOpacity = line.material.opacity;
-  line.userData.orbitBodyId = node.id; // stashed for testability
-  if (trueSizes) {
-    // Retain precision until after subtracting the body's current offset.
-    // At Sedna's distance, absolute Float32 vertices can miss it by several radii.
-    line.userData.orbitSamples = new Float64Array(points.flatMap((p) => p.toArray()));
-    updateOrbitPhase(line, node, atEpochMs);
-  }
+  const line = buildOrbitPath(node, trueDistances, radius, atEpochMs, parentOrbitFrame(nodes, node.id));
+  // The physical orbit is around the parent. At true distances its vertices
+  // use a local origin to retain close-up GPU precision.
+  const origin = trueDistances ? pos : parentPos;
+  line.position.set(origin.x, origin.y, origin.z);
+  group.add(line);
   return line;
-}
-
-// At close physical zoom, even a small chord error is larger than a planet.
-// Insert its exact current position between the surrounding fixed samples,
-// and express the whole line relative to that body. Three.js then subtracts
-// camera translation in double precision when computing the model-view matrix,
-// before sending the small local coordinates to the GPU. Increasing the number
-// of samples or using logarithmic depth alone cannot fix coordinate rounding.
-function updateOrbitPhase(line, node, atEpochMs) {
-  const samples = line.userData.orbitSamples;
-  if (!samples) return;
-  const turns = (atEpochMs - node.elements.epochMs) / (node.elements.orbitalPeriodSec * 1000);
-  const phase = ((turns % 1) + 1) % 1;
-  const index = (Math.floor(phase * 96) + 1) * 3;
-  const point = keplerianOffset(node.elements, atEpochMs);
-  const attribute = line.geometry.attributes.position;
-  const offset = [point.x / METRES_PER_UNIT, point.y / METRES_PER_UNIT, point.z / METRES_PER_UNIT];
-  for (let i = 0; i < samples.length; i++) {
-    attribute.array[i < index ? i : i + 3] = samples[i] - offset[i % 3];
-  }
-  attribute.array.set([0, 0, 0], index);
-  attribute.needsUpdate = true;
-  line.geometry.computeBoundingSphere();
 }
 
 /**
  * Builds Three.js objects for every renderable body in the tree (stars and
- * planets/moons — barycentres are invisible organizing nodes, and belt
+ * planets/moons — barycentres have orbit paths but no visible body, and belt
  * clusters render as their parent's ring band rather than as individual
  * points, since the journal gives no per-cluster angular position).
  *
@@ -110,7 +72,8 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
   const ringsAddedFor = new Set();
 
   for (const node of nodes.values()) {
-    if (!RENDERABLE_KINDS.has(node.kind)) continue;
+    const orbitOnly = node.kind === 'Barycentre' && node.elements && node.parentId != null;
+    if (!RENDERABLE_KINDS.has(node.kind) && !orbitOnly) continue;
 
     // In live play a body can be scanned before its parent is (e.g. a moon
     // mapped before its planet ever got a full Scan), which buildBodyTree
@@ -123,6 +86,19 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
       pos = scenePosition(nodes, node.id, atEpochMs, trueDistances);
     } catch (err) {
       console.warn(`orrery: skipping body ${node.id} (${node.name ?? 'unnamed'}) — ${err.message}`);
+      continue;
+    }
+    if (orbitOnly) {
+      // A binary pair's shared path belongs to its centre of mass. Keep an
+      // empty position anchor for time updates, with no mesh or annotation.
+      const bodyGroup = new THREE.Group();
+      bodyGroup.position.set(pos.x, pos.y, pos.z);
+      const orbit = addOrbitPath(group, nodes, node, pos, trueDistances, 0, atEpochMs);
+      updatables.set(node.id, {
+        kind: node.kind,
+        bodyGroup, mesh: null, radius: 0, label: null, marker: null,
+        rings: [], orbit, parentId: node.parentId,
+      });
       continue;
     }
     // Unknown physical sizes get a location marker, not an invented radius.
@@ -194,30 +170,20 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     label.userData.aspect = label.scale.x / label.scale.y;
     label.position.set(0, 0, radius + 1.1);
     bodyGroup.add(label);
+    const labelHint = makeLabel('+',finalLabelColor);
+    labelHint.userData.text = '+';
+    labelHint.userData.aspect = labelHint.scale.x/labelHint.scale.y;
+    labelHint.visible = false;
+    bodyGroup.add(labelHint);
 
     group.add(bodyGroup);
 
     const marker = trueSizes ? makeBodyMarker(labelColor) : null;
     if (marker) bodyGroup.add(marker);
-    const updatable = { bodyGroup, mesh, radius, label, marker, rings: [], orbit: null, parentId: node.parentId ?? null };
+    const updatable = { bodyGroup, mesh, radius, label, labelHint, marker, rings: [], orbit: null, kind: node.kind, parentId: node.parentId ?? null };
     updatables.set(node.id, updatable);
 
-    // The physical orbit is still around the parent. At true body sizes its
-    // vertices use a body-local origin to retain close-up GPU precision.
-    const orbitLine = buildOrbitPath(node, trueDistances, trueSizes, atEpochMs);
-    if (orbitLine) {
-      try {
-        const parentPos = node.parentId != null
-          ? scenePosition(nodes, node.parentId, atEpochMs, trueDistances)
-          : { x: 0, y: 0, z: 0 };
-        const origin = trueSizes ? pos : parentPos;
-        orbitLine.position.set(origin.x, origin.y, origin.z);
-        group.add(orbitLine);
-        updatable.orbit = orbitLine;
-      } catch {
-        // parent unresolvable (orphan tolerance) — skip the path, keep the body
-      }
-    }
+    updatable.orbit = addOrbitPath(group, nodes, node, pos, trueDistances, radius, atEpochMs);
 
     // Ring band(s), drawn once per owning body regardless of how many belt
     // clusters reference it — the journal never gives individual cluster
@@ -314,11 +280,21 @@ export function disposeSystemScene(group) {
 }
 
 /** A subtle selection cue; does not change the camera or time reference. */
-export function highlightSelectedOrbit(updatables, selectedId) {
+export function highlightSelectedOrbit(updatables, selectedId, brightness = 1) {
+  const intensity = resolveOrbitBrightness(brightness);
   for (const [id, entry] of updatables) {
     if (!entry.orbit) continue;
     const selected = id === selectedId;
     entry.orbit.material.color.setHex(selected ? 0xa76b32 : 0x7a4a1e);
-    entry.orbit.material.opacity = entry.orbit.userData.baseOpacity + (selected ? 0.15 : 0);
+    // Above the baseline, raise color luminance as well as opacity. Reserve
+    // opacity headroom so even a community orbit stands out among journal ones.
+    const gain = Math.max(0, (intensity - 1) / 3);
+    entry.orbit.material.color.lerp(new THREE.Color(selected ? 0xffdda0 : 0xe6a25a), gain);
+    const normalOpacity = Math.min(0.75, entry.orbit.userData.baseOpacity * intensity);
+    entry.orbit.material.opacity = selected
+      ? Math.min(1, Math.max(normalOpacity, Math.min(0.75, 0.42 * intensity)) + 0.2 * Math.min(1, intensity))
+      : normalOpacity;
+    entry.orbit.renderOrder = selected ? 1 : 0;
+    entry.orbit.visible = intensity > 0;
   }
 }

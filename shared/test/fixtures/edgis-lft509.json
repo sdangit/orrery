@@ -1,0 +1,2340 @@
+[
+  {
+    "system_id64": 7268561135001,
+    "body_id": -157,
+    "body_name": "LFT 509 B 4 A Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Rocky",
+    "ring_inner_rad": 94283000,
+    "ring_outer_rad": 100380000,
+    "ring_mass_mt": 26447000000.0,
+    "mass_em": 4.428499665103818e-11,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "ParentBody": 39
+      }
+    ],
+    "updatetime": "2026-10-29T10:05:58+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": -45,
+    "body_name": "LFT 509 A 4 A Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_MetalRich",
+    "ring_inner_rad": 102020000,
+    "ring_outer_rad": 109940000,
+    "ring_mass_mt": 52471000000.0,
+    "mass_em": 8.78616878767582e-11,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "ParentBody": 11
+      }
+    ],
+    "updatetime": "2026-10-29T11:25:48+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 1,
+    "body_name": "LFT 509",
+    "type": "Star",
+    "radius": 356515872.0,
+    "surface_temperature": 2959.0,
+    "axial_tilt": 0.076708,
+    "semi_major_axis": 1920893788337.7092,
+    "eccentricity": 0.342441,
+    "orbital_inclination": 3.078624,
+    "periapsis": 339.618466,
+    "mean_anomaly": 166.236227,
+    "orbital_period": 4264774024.486539,
+    "rotation_period": 173032.839535,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 16011.573801,
+    "age_my": 7564,
+    "absolute_magnitude": 9.186493,
+    "luminosity": "V",
+    "star_type": "M",
+    "subclass": 3,
+    "stellar_mass": 0.351563,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-09T13:53:09+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 2,
+    "body_name": "Ross 54",
+    "type": "Star",
+    "radius": 402107136.0,
+    "surface_temperature": 3286.0,
+    "axial_tilt": 0.21691,
+    "semi_major_axis": 1669457614421.8445,
+    "eccentricity": 0.342441,
+    "orbital_inclination": 3.078624,
+    "periapsis": 159.618471,
+    "mean_anomaly": 166.236227,
+    "orbital_period": 4264774024.486542,
+    "rotation_period": 215995.499272,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 0.0,
+    "age_my": 5312,
+    "absolute_magnitude": 10.064957,
+    "luminosity": "V",
+    "star_type": "M",
+    "subclass": 3,
+    "stellar_mass": 0.402344,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-10-29T23:54:41+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 3,
+    "body_name": "LFT 509 A A Belt",
+    "type": "StellarRing",
+    "atmosphere_composition": [],
+    "materials": [],
+    "updatetime": "2026-11-02T23:13:34+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 4,
+    "body_name": "LFT 509 A A Belt Cluster 1",
+    "type": "AsteroidCluster",
+    "atmosphere_composition": [],
+    "materials": [],
+    "updatetime": "2026-11-07T06:43:32+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 6,
+    "body_name": "LFT 509 A A Belt Cluster 3",
+    "type": "AsteroidCluster",
+    "atmosphere_composition": [],
+    "materials": [],
+    "updatetime": "2026-10-30T15:13:03+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 7,
+    "body_name": "LFT 509 A A Belt Cluster 4",
+    "type": "AsteroidCluster",
+    "atmosphere_composition": [],
+    "materials": [],
+    "updatetime": "2026-11-02T16:16:28+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 8,
+    "body_name": "LFT 509 A 1",
+    "type": "Planet",
+    "planet_class": "High metal content body",
+    "atmosphere_type": "None",
+    "volcanism": "minor metallic magma volcanism",
+    "radius": 4559228.5,
+    "mass_em": 0.386775,
+    "surface_gravity": 7.416265,
+    "surface_temperature": 750.819519,
+    "surface_pressure": 0.0,
+    "axial_tilt": -2.743742,
+    "semi_major_axis": 2326135039.329529,
+    "eccentricity": 1.4e-05,
+    "orbital_inclination": 7.4e-05,
+    "periapsis": 345.225474,
+    "mean_anomaly": 258.484687,
+    "orbital_period": 103139.185905,
+    "rotation_period": -103188.16022,
+    "ascending_node": 159.689208,
+    "distance_from_arrival_ls": 16016.570041,
+    "composition_ice": 0.0,
+    "composition_metal": 0.327313,
+    "composition_rock": 0.672687,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "iron",
+        "Percent": 21.043814
+      },
+      {
+        "Name": "nickel",
+        "Percent": 15.916657
+      },
+      {
+        "Name": "sulphur",
+        "Percent": 15.008979
+      },
+      {
+        "Name": "carbon",
+        "Percent": 12.620996
+      },
+      {
+        "Name": "chromium",
+        "Percent": 9.464101
+      },
+      {
+        "Name": "manganese",
+        "Percent": 8.69088
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 8.080178
+      },
+      {
+        "Name": "zinc",
+        "Percent": 5.71892
+      },
+      {
+        "Name": "tin",
+        "Percent": 1.364178
+      },
+      {
+        "Name": "tungsten",
+        "Percent": 1.155517
+      },
+      {
+        "Name": "antimony",
+        "Percent": 0.935789
+      }
+    ],
+    "parents": [
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": false,
+    "landable": true,
+    "updatetime": "2026-11-13T22:22:00+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 9,
+    "body_name": "LFT 509 A 2",
+    "type": "Planet",
+    "planet_class": "High metal content body",
+    "atmosphere_type": "None",
+    "radius": 4907899.0,
+    "mass_em": 0.490716,
+    "surface_gravity": 8.11986,
+    "surface_temperature": 564.734253,
+    "surface_pressure": 0.0,
+    "axial_tilt": 0.150952,
+    "semi_major_axis": 4168589890.003204,
+    "eccentricity": 4.3e-05,
+    "orbital_inclination": 5.8e-05,
+    "periapsis": 245.981121,
+    "mean_anomaly": 336.557908,
+    "orbital_period": 247431.540489,
+    "rotation_period": 247549.033728,
+    "ascending_node": 172.277827,
+    "distance_from_arrival_ls": 16008.918872,
+    "composition_ice": 0.0,
+    "composition_metal": 0.325968,
+    "composition_rock": 0.674032,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "iron",
+        "Percent": 20.965858
+      },
+      {
+        "Name": "nickel",
+        "Percent": 15.857697
+      },
+      {
+        "Name": "sulphur",
+        "Percent": 14.974016
+      },
+      {
+        "Name": "carbon",
+        "Percent": 12.591596
+      },
+      {
+        "Name": "chromium",
+        "Percent": 9.429043
+      },
+      {
+        "Name": "manganese",
+        "Percent": 8.658686
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 8.061357
+      },
+      {
+        "Name": "vanadium",
+        "Percent": 5.148485
+      },
+      {
+        "Name": "cadmium",
+        "Percent": 1.628094
+      },
+      {
+        "Name": "niobium",
+        "Percent": 1.432905
+      },
+      {
+        "Name": "yttrium",
+        "Percent": 1.252266
+      }
+    ],
+    "parents": [
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-13T22:15:54+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 10,
+    "body_name": "LFT 509 A 3",
+    "type": "Planet",
+    "planet_class": "Rocky Ice world",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "MethaneRich",
+    "atmosphere": "thick methane rich atmosphere",
+    "volcanism": "minor water geysers volcanism",
+    "radius": 7219786.5,
+    "mass_em": 0.951708,
+    "surface_gravity": 7.277203,
+    "surface_temperature": 327.384583,
+    "surface_pressure": 191425584.0,
+    "axial_tilt": -0.02548,
+    "semi_major_axis": 195835071802.1398,
+    "eccentricity": 0.003268,
+    "orbital_inclination": -0.070786,
+    "periapsis": 117.403609,
+    "mean_anomaly": 126.211198,
+    "orbital_period": 79672248.363495,
+    "rotation_period": 61462.087148,
+    "ascending_node": -67.912475,
+    "distance_from_arrival_ls": 15958.986036,
+    "composition_ice": 0.495386,
+    "composition_metal": 0.164488,
+    "composition_rock": 0.340126,
+    "atmosphere_composition": [
+      {
+        "Name": "Nitrogen",
+        "Percent": 83.585564
+      },
+      {
+        "Name": "Methane",
+        "Percent": 15.350895
+      },
+      {
+        "Name": "Argon",
+        "Percent": 0.835856
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": false,
+    "landable": false,
+    "updatetime": "2026-11-10T22:19:54+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 11,
+    "body_name": "LFT 509 A 4",
+    "type": "Planet",
+    "planet_class": "Sudarsky class I gas giant",
+    "radius": 61174596.0,
+    "mass_em": 106.48674,
+    "surface_gravity": 11.341296,
+    "surface_temperature": 83.251808,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.728606,
+    "semi_major_axis": 357931089401.2451,
+    "eccentricity": 0.000139,
+    "orbital_inclination": -7.831012,
+    "periapsis": 152.46462,
+    "mean_anomaly": 200.120545,
+    "orbital_period": 196865898.370743,
+    "rotation_period": 44885.221708,
+    "ascending_node": -85.710183,
+    "distance_from_arrival_ls": 16944.018893,
+    "atmosphere_composition": [
+      {
+        "Name": "Hydrogen",
+        "Percent": 72.8153
+      },
+      {
+        "Name": "Helium",
+        "Percent": 27.1847
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": false,
+    "landable": false,
+    "updatetime": "2026-11-13T22:13:18+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 12,
+    "body_name": "LFT 509 A 4 A Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_MetalRich",
+    "ring_inner_rad": 102020000,
+    "ring_outer_rad": 109940000,
+    "ring_mass_mt": 52471000000.0,
+    "semi_major_axis": 105980286.002159,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 240.873833,
+    "orbital_period": 33274.412751,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 16944.015126,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-13T22:10:34+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 13,
+    "body_name": "LFT 509 A 4 B Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Icy",
+    "ring_inner_rad": 110040000,
+    "ring_outer_rad": 165010000,
+    "ring_mass_mt": 473220000000.0,
+    "semi_major_axis": 137524896.860123,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 107.745771,
+    "orbital_period": 49186.373353,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 16944.015164,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-13T22:10:36+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 14,
+    "body_name": "LFT 509 A 4 a",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "thick methane atmosphere",
+    "volcanism": "water magma volcanism",
+    "radius": 1456271.875,
+    "mass_em": 0.004547,
+    "surface_gravity": 0.854662,
+    "surface_temperature": 200.498764,
+    "surface_pressure": 3510351.75,
+    "axial_tilt": -0.336309,
+    "semi_major_axis": 507216900.587082,
+    "eccentricity": 5.2e-05,
+    "orbital_inclination": 0.021166,
+    "periapsis": 0.198649,
+    "mean_anomaly": 30.210115,
+    "orbital_period": 348347.401619,
+    "rotation_period": 348388.164277,
+    "ascending_node": 27.9115,
+    "distance_from_arrival_ls": 16943.055685,
+    "composition_ice": 0.825923,
+    "composition_metal": 0.015352,
+    "composition_rock": 0.158725,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 99.870743
+      },
+      {
+        "Name": "SulphurDioxide",
+        "Percent": 0.112038
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-13T22:08:55+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 15,
+    "body_name": "LFT 509 A 4 b",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "methane atmosphere",
+    "radius": 1311122.875,
+    "mass_em": 0.003307,
+    "surface_gravity": 0.766825,
+    "surface_temperature": 140.809845,
+    "surface_pressure": 197588.28125,
+    "axial_tilt": 0.154591,
+    "semi_major_axis": 681505155.563354,
+    "eccentricity": 0.000675,
+    "orbital_inclination": 0.132005,
+    "periapsis": 13.850128,
+    "mean_anomaly": 155.778399,
+    "orbital_period": 542532.473803,
+    "rotation_period": 542595.971545,
+    "ascending_node": 64.465945,
+    "distance_from_arrival_ls": 16942.187248,
+    "composition_ice": 0.825923,
+    "composition_metal": 0.015352,
+    "composition_rock": 0.158725,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 100
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-13T22:08:09+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 16,
+    "body_name": "Barycenter16",
+    "type": "Barycenter",
+    "semi_major_axis": 1353397667.40799,
+    "eccentricity": 0.000283,
+    "orbital_inclination": 0.443535,
+    "periapsis": 227.590134,
+    "mean_anomaly": 90.67746,
+    "orbital_period": 1518308.93755,
+    "ascending_node": -102.309786,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-13T22:06:17+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 17,
+    "body_name": "LFT 509 A 4 c",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "thick methane atmosphere",
+    "volcanism": "major water geysers volcanism",
+    "radius": 1265877.75,
+    "mass_em": 0.002973,
+    "surface_gravity": 0.739578,
+    "surface_temperature": 192.371399,
+    "surface_pressure": 2755286.0,
+    "axial_tilt": 0.302487,
+    "semi_major_axis": 3478603.005409,
+    "eccentricity": 0.075489,
+    "orbital_inclination": -9.50554,
+    "periapsis": 234.366931,
+    "mean_anomaly": 240.265466,
+    "orbital_period": 98261.196017,
+    "rotation_period": 149046.319813,
+    "ascending_node": 70.235846,
+    "distance_from_arrival_ls": 16943.812089,
+    "composition_ice": 0.825923,
+    "composition_metal": 0.015352,
+    "composition_rock": 0.158725,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 100
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Null": 16
+      },
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-13T22:06:17+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 18,
+    "body_name": "LFT 509 A 4 d",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "thick methane atmosphere",
+    "volcanism": "major water geysers volcanism",
+    "radius": 1160578.75,
+    "mass_em": 0.002286,
+    "surface_gravity": 0.676408,
+    "surface_temperature": 188.190704,
+    "surface_pressure": 2304707.25,
+    "axial_tilt": 0.177086,
+    "semi_major_axis": 4524958.491325,
+    "eccentricity": 0.075489,
+    "orbital_inclination": -9.50554,
+    "periapsis": 54.366936,
+    "mean_anomaly": 240.352119,
+    "orbital_period": 98261.196017,
+    "rotation_period": 130682.192936,
+    "ascending_node": 70.235846,
+    "distance_from_arrival_ls": 16943.803601,
+    "composition_ice": 0.825923,
+    "composition_metal": 0.015352,
+    "composition_rock": 0.158725,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 100
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Null": 16
+      },
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-13T22:06:41+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 19,
+    "body_name": "LFT 509 A 4 e",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "methane atmosphere",
+    "radius": 1310833.375,
+    "mass_em": 0.00333,
+    "surface_gravity": 0.772337,
+    "surface_temperature": 112.245117,
+    "surface_pressure": 29687.351563,
+    "axial_tilt": -2.894536,
+    "semi_major_axis": 1892965674.40033,
+    "eccentricity": 0.008118,
+    "orbital_inclination": -0.230628,
+    "periapsis": 64.618654,
+    "mean_anomaly": 51.966939,
+    "orbital_period": 2511516.690254,
+    "rotation_period": -2511810.742838,
+    "ascending_node": 111.633817,
+    "distance_from_arrival_ls": 16949.551419,
+    "composition_ice": 0.815984,
+    "composition_metal": 0.016619,
+    "composition_rock": 0.167397,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 100
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": false,
+    "landable": false,
+    "updatetime": "2026-11-13T22:04:04+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 20,
+    "body_name": "LFT 509 A 4 e a",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "thick methane atmosphere",
+    "volcanism": "major water geysers volcanism",
+    "radius": 620663.0,
+    "mass_em": 0.000321,
+    "surface_gravity": 0.331749,
+    "surface_temperature": 159.975388,
+    "surface_pressure": 623668.6875,
+    "axial_tilt": -0.328231,
+    "semi_major_axis": 9357182.979584,
+    "eccentricity": 0.0,
+    "orbital_inclination": 85.139148,
+    "periapsis": 345.828614,
+    "mean_anomaly": 162.939357,
+    "orbital_period": 149100.05331,
+    "rotation_period": 156114.130346,
+    "ascending_node": -28.251421,
+    "distance_from_arrival_ls": 16949.543491,
+    "composition_ice": 0.92913,
+    "composition_metal": 0.002193,
+    "composition_rock": 0.068677,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 100
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 19
+      },
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-13T22:03:37+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 21,
+    "body_name": "LFT 509 A 4 f",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "methane atmosphere",
+    "radius": 1077483.125,
+    "mass_em": 0.001826,
+    "surface_gravity": 0.626792,
+    "surface_temperature": 107.268066,
+    "surface_pressure": 19790.804688,
+    "axial_tilt": -0.445365,
+    "semi_major_axis": 2408789992.332458,
+    "eccentricity": 0.000774,
+    "orbital_inclination": 0.722738,
+    "periapsis": 233.908164,
+    "mean_anomaly": 289.58438,
+    "orbital_period": 3605125.486851,
+    "rotation_period": 3605547.363037,
+    "ascending_node": 55.504279,
+    "distance_from_arrival_ls": 16939.615971,
+    "composition_ice": 0.825923,
+    "composition_metal": 0.015352,
+    "composition_rock": 0.158725,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 100
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-13T22:01:11+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 22,
+    "body_name": "LFT 509 A 4 g",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "Methane",
+    "atmosphere": "methane atmosphere",
+    "radius": 1134545.75,
+    "mass_em": 0.002134,
+    "surface_gravity": 0.660843,
+    "surface_temperature": 108.242836,
+    "surface_pressure": 21999.470703,
+    "axial_tilt": -0.038846,
+    "semi_major_axis": 3438047111.034393,
+    "eccentricity": 0.000521,
+    "orbital_inclination": -0.01555,
+    "periapsis": 47.015932,
+    "mean_anomaly": 227.753576,
+    "orbital_period": 6147375.762463,
+    "rotation_period": 6148094.963499,
+    "ascending_node": -170.253762,
+    "distance_from_arrival_ls": 16939.144505,
+    "composition_ice": 0.825923,
+    "composition_metal": 0.015352,
+    "composition_rock": 0.158725,
+    "atmosphere_composition": [
+      {
+        "Name": "Methane",
+        "Percent": 100
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 11
+      },
+      {
+        "Star": 1
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-13T21:57:42+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 23,
+    "body_name": "LFT 509 B 1",
+    "type": "Planet",
+    "planet_class": "Class III gas giant",
+    "terraform_state": "Not terraformable",
+    "radius": 75298472.0,
+    "mass_em": 462.373077,
+    "surface_gravity": 32.503462,
+    "surface_temperature": 265.893127,
+    "surface_pressure": 0.0,
+    "axial_tilt": 2.082332,
+    "semi_major_axis": 23957949280.738777,
+    "eccentricity": 0.01,
+    "orbital_inclination": 1.246796,
+    "periapsis": 300.346558,
+    "mean_anomaly": 140.671509,
+    "orbital_period": 3178204.357624,
+    "rotation_period": -3188266.317983,
+    "ascending_node": 141.089322,
+    "distance_from_arrival_ls": 80.536453,
+    "atmosphere_composition": [
+      {
+        "Name": "Hydrogen",
+        "Percent": 72.8153
+      },
+      {
+        "Name": "Helium",
+        "Percent": 27.184698
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": false,
+    "landable": false,
+    "updatetime": "2026-11-09T00:30:19+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 24,
+    "body_name": "LFT 509 B 1 A Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_MetalRich",
+    "ring_inner_rad": 140850000,
+    "ring_outer_rad": 157930000,
+    "ring_mass_mt": 50111000000.0,
+    "semi_major_axis": 149391049.146652,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 83.197141,
+    "orbital_period": 26724.591851,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 80.714146,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 23
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-12T22:28:30+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 25,
+    "body_name": "LFT 509 B 1 B Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_MetalRich",
+    "ring_inner_rad": 158030000,
+    "ring_outer_rad": 269200000,
+    "ring_mass_mt": 466610000000.0,
+    "semi_major_axis": 213615810.871124,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 247.902932,
+    "orbital_period": 45695.60051,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 80.714146,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 23
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-12T22:28:14+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 26,
+    "body_name": "LFT 509 B 2",
+    "type": "Planet",
+    "planet_class": "Gas giant with ammonia based life",
+    "terraform_state": "Not terraformable",
+    "radius": 60897528.0,
+    "mass_em": 103.037407,
+    "surface_gravity": 11.074011,
+    "surface_temperature": 128.61647,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.490964,
+    "semi_major_axis": 79823088049.88866,
+    "eccentricity": 2.4e-05,
+    "orbital_inclination": -0.033091,
+    "periapsis": 332.308094,
+    "mean_anomaly": 154.678844,
+    "orbital_period": 19328589.439392,
+    "rotation_period": 19389783.444252,
+    "ascending_node": 24.217853,
+    "distance_from_arrival_ls": 266.2669,
+    "atmosphere_composition": [
+      {
+        "Name": "Hydrogen",
+        "Percent": 72.807838
+      },
+      {
+        "Name": "Helium",
+        "Percent": 27.181911
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-12T20:12:11+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 27,
+    "body_name": "LFT 509 B 2 A Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Rocky",
+    "ring_inner_rad": 100480000,
+    "ring_outer_rad": 106410000,
+    "ring_mass_mt": 33594000000.0,
+    "semi_major_axis": 103443914.651871,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 158.626076,
+    "orbital_period": 32619.740963,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 266.266899,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 26
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-12T20:06:26+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 28,
+    "body_name": "LFT 509 B 2 B Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Icy",
+    "ring_inner_rad": 106510000,
+    "ring_outer_rad": 176370000,
+    "ring_mass_mt": 564160000000.0,
+    "semi_major_axis": 141439914.703369,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 58.988638,
+    "orbital_period": 52153.217793,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 266.266908,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 26
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-12T22:51:53+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 29,
+    "body_name": "LFT 509 B 2 a",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "None",
+    "volcanism": "major water geysers volcanism",
+    "radius": 1270141.625,
+    "mass_em": 0.00302,
+    "surface_gravity": 0.746112,
+    "surface_temperature": 110.525703,
+    "surface_pressure": 0.0,
+    "axial_tilt": 2.948154,
+    "semi_major_axis": 202788889.408112,
+    "eccentricity": 5e-06,
+    "orbital_inclination": -0.021287,
+    "periapsis": 155.718532,
+    "mean_anomaly": 329.559991,
+    "orbital_period": 89529.961944,
+    "rotation_period": -81003.891166,
+    "ascending_node": -129.921659,
+    "distance_from_arrival_ls": 265.724119,
+    "composition_ice": 0.818744,
+    "composition_metal": 0.01627,
+    "composition_rock": 0.164986,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 26.307096
+      },
+      {
+        "Name": "carbon",
+        "Percent": 22.121544
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.162593
+      },
+      {
+        "Name": "iron",
+        "Percent": 11.908891
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.007384
+      },
+      {
+        "Name": "chromium",
+        "Percent": 5.355823
+      },
+      {
+        "Name": "manganese",
+        "Percent": 4.91825
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.117283
+      },
+      {
+        "Name": "ruthenium",
+        "Percent": 0.73545
+      },
+      {
+        "Name": "tin",
+        "Percent": 0.71176
+      },
+      {
+        "Name": "tungsten",
+        "Percent": 0.653918
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 26
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": false,
+    "landable": true,
+    "updatetime": "2026-11-13T21:29:25+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 30,
+    "body_name": "LFT 509 B 2 b",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "None",
+    "volcanism": "major water geysers volcanism",
+    "radius": 1497759.875,
+    "mass_em": 0.004952,
+    "surface_gravity": 0.87989,
+    "surface_temperature": 109.84359,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.41446,
+    "semi_major_axis": 324563384.05609,
+    "eccentricity": 1.6e-05,
+    "orbital_inclination": -0.02146,
+    "periapsis": 203.914628,
+    "mean_anomaly": 273.151834,
+    "orbital_period": 181280.642748,
+    "rotation_period": 170698.702179,
+    "ascending_node": 84.62949,
+    "distance_from_arrival_ls": 265.21509,
+    "composition_ice": 0.825923,
+    "composition_metal": 0.015352,
+    "composition_rock": 0.158725,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 26.974136
+      },
+      {
+        "Name": "carbon",
+        "Percent": 22.682453
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.521696
+      },
+      {
+        "Name": "iron",
+        "Percent": 12.034419
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.10233
+      },
+      {
+        "Name": "manganese",
+        "Percent": 4.970092
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.22168
+      },
+      {
+        "Name": "zinc",
+        "Percent": 3.270505
+      },
+      {
+        "Name": "molybdenum",
+        "Percent": 0.785841
+      },
+      {
+        "Name": "yttrium",
+        "Percent": 0.718801
+      },
+      {
+        "Name": "tin",
+        "Percent": 0.718043
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 26
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-12T20:01:11+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 31,
+    "body_name": "LFT 509 B 3",
+    "type": "Planet",
+    "planet_class": "Gas giant with ammonia based life",
+    "terraform_state": "Not terraformable",
+    "radius": 68504272.0,
+    "mass_em": 207.386444,
+    "surface_gravity": 17.613855,
+    "surface_temperature": 129.502426,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.204513,
+    "semi_major_axis": 104797697067.26077,
+    "eccentricity": 0.00627,
+    "orbital_inclination": -0.00559,
+    "periapsis": 144.008921,
+    "mean_anomaly": 86.640516,
+    "orbital_period": 29076020.717621,
+    "rotation_period": 29168071.94827,
+    "ascending_node": -35.700449,
+    "distance_from_arrival_ls": 349.452754,
+    "atmosphere_composition": [
+      {
+        "Name": "Hydrogen",
+        "Percent": 72.793159
+      },
+      {
+        "Name": "Helium",
+        "Percent": 27.176434
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": false,
+    "updatetime": "2026-11-12T10:00:40+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 32,
+    "body_name": "LFT 509 B 3 A Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Rocky",
+    "ring_inner_rad": 118060000,
+    "ring_outer_rad": 126360000,
+    "ring_mass_mt": 35971000000.0,
+    "semi_major_axis": 122210410.237312,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 122.708094,
+    "orbital_period": 29525.185227,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 349.452646,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 31
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-11T20:26:44+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 33,
+    "body_name": "LFT 509 B 3 B Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Icy",
+    "ring_inner_rad": 126460000,
+    "ring_outer_rad": 206060000,
+    "ring_mass_mt": 470180000000.0,
+    "semi_major_axis": 166260778.903961,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 256.55793,
+    "orbital_period": 46850.595474,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 349.452638,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 31
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-11T20:26:26+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 34,
+    "body_name": "LFT 509 B 3 a",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "None",
+    "volcanism": "major water geysers volcanism",
+    "radius": 1834790.25,
+    "mass_em": 0.009228,
+    "surface_gravity": 1.092499,
+    "surface_temperature": 103.149918,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.567176,
+    "semi_major_axis": 223716175.556183,
+    "eccentricity": 0.00015,
+    "orbital_inclination": 0.018018,
+    "periapsis": 102.958268,
+    "mean_anomaly": 87.051538,
+    "orbital_period": 73121.049404,
+    "rotation_period": 73126.778367,
+    "ascending_node": -136.119403,
+    "distance_from_arrival_ls": 350.072811,
+    "composition_ice": 0.819062,
+    "composition_metal": 0.016234,
+    "composition_rock": 0.164705,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 26.730618
+      },
+      {
+        "Name": "carbon",
+        "Percent": 22.47768
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.390596
+      },
+      {
+        "Name": "iron",
+        "Percent": 12.093459
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.146985
+      },
+      {
+        "Name": "manganese",
+        "Percent": 4.994475
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.183568
+      },
+      {
+        "Name": "germanium",
+        "Percent": 3.494637
+      },
+      {
+        "Name": "cadmium",
+        "Percent": 0.939112
+      },
+      {
+        "Name": "niobium",
+        "Percent": 0.826523
+      },
+      {
+        "Name": "yttrium",
+        "Percent": 0.722328
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 31
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-11T23:43:25+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 35,
+    "body_name": "Barycenter35",
+    "type": "Barycenter",
+    "semi_major_axis": 391532737.016678,
+    "eccentricity": 4e-05,
+    "orbital_inclination": -0.008758,
+    "periapsis": 305.072961,
+    "mean_anomaly": 30.764513,
+    "orbital_period": 169296.687841,
+    "ascending_node": 179.931683,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 31
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-13T00:04:17+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 36,
+    "body_name": "LFT 509 B 3 b",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "None",
+    "volcanism": "major water geysers volcanism",
+    "radius": 1389066.5,
+    "mass_em": 0.003941,
+    "surface_gravity": 0.814019,
+    "surface_temperature": 101.371704,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.342855,
+    "semi_major_axis": 3212839.484215,
+    "eccentricity": 0.014007,
+    "orbital_inclination": 2.656492,
+    "periapsis": 219.325075,
+    "mean_anomaly": 119.902791,
+    "orbital_period": 84142.929316,
+    "rotation_period": 131270.008016,
+    "ascending_node": 161.388914,
+    "distance_from_arrival_ls": 348.218312,
+    "composition_ice": 0.825743,
+    "composition_metal": 0.015375,
+    "composition_rock": 0.158882,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 27.374012
+      },
+      {
+        "Name": "carbon",
+        "Percent": 23.018707
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.736973
+      },
+      {
+        "Name": "iron",
+        "Percent": 12.217367
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.240704
+      },
+      {
+        "Name": "manganese",
+        "Percent": 5.045648
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.284264
+      },
+      {
+        "Name": "zirconium",
+        "Percent": 1.418688
+      },
+      {
+        "Name": "cadmium",
+        "Percent": 0.948734
+      },
+      {
+        "Name": "tellurium",
+        "Percent": 0.91712
+      },
+      {
+        "Name": "molybdenum",
+        "Percent": 0.797787
+      }
+    ],
+    "parents": [
+      {
+        "Null": 35
+      },
+      {
+        "Planet": 31
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-13T00:04:17+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 37,
+    "body_name": "LFT 509 B 3 c",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "None",
+    "volcanism": "major water geysers volcanism",
+    "radius": 1233343.875,
+    "mass_em": 0.002748,
+    "surface_gravity": 0.720121,
+    "surface_temperature": 101.371704,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.351136,
+    "semi_major_axis": 4606764.793396,
+    "eccentricity": 0.014007,
+    "orbital_inclination": 2.656492,
+    "periapsis": 39.325081,
+    "mean_anomaly": 111.936207,
+    "orbital_period": 84142.929316,
+    "rotation_period": 109625.617489,
+    "ascending_node": 161.388914,
+    "distance_from_arrival_ls": 350.810539,
+    "composition_ice": 0.825743,
+    "composition_metal": 0.015375,
+    "composition_rock": 0.158882,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 27.368853
+      },
+      {
+        "Name": "carbon",
+        "Percent": 23.01437
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.734195
+      },
+      {
+        "Name": "iron",
+        "Percent": 12.215065
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.238963
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.283457
+      },
+      {
+        "Name": "germanium",
+        "Percent": 3.540309
+      },
+      {
+        "Name": "zinc",
+        "Percent": 3.319598
+      },
+      {
+        "Name": "tellurium",
+        "Percent": 0.916947
+      },
+      {
+        "Name": "niobium",
+        "Percent": 0.834835
+      },
+      {
+        "Name": "mercury",
+        "Percent": 0.533412
+      }
+    ],
+    "parents": [
+      {
+        "Null": 35
+      },
+      {
+        "Planet": 31
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-13T22:55:38+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 38,
+    "body_name": "LFT 509 B 3 d",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "None",
+    "radius": 1825174.75,
+    "mass_em": 0.00872,
+    "surface_gravity": 1.043366,
+    "surface_temperature": 100.018578,
+    "surface_pressure": 0.0,
+    "axial_tilt": 0.109821,
+    "semi_major_axis": 688200849.294661,
+    "eccentricity": 0.0,
+    "orbital_inclination": 61.008588,
+    "periapsis": 90.876336,
+    "mean_anomaly": 311.173898,
+    "orbital_period": 394520.068169,
+    "rotation_period": 394551.060236,
+    "ascending_node": -35.810392,
+    "distance_from_arrival_ls": 347.630797,
+    "composition_ice": 0.879392,
+    "composition_metal": 0.016608,
+    "composition_rock": 0.104,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 27.642748
+      },
+      {
+        "Name": "carbon",
+        "Percent": 23.244688
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.881647
+      },
+      {
+        "Name": "iron",
+        "Percent": 11.970052
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.053645
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.326324
+      },
+      {
+        "Name": "zinc",
+        "Percent": 3.253012
+      },
+      {
+        "Name": "germanium",
+        "Percent": 3.177482
+      },
+      {
+        "Name": "cadmium",
+        "Percent": 0.929529
+      },
+      {
+        "Name": "molybdenum",
+        "Percent": 0.781637
+      },
+      {
+        "Name": "ruthenium",
+        "Percent": 0.739227
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 31
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-12T20:18:07+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 39,
+    "body_name": "LFT 509 B 4",
+    "type": "Planet",
+    "planet_class": "Class I gas giant",
+    "terraform_state": "Not terraformable",
+    "radius": 55781404.0,
+    "mass_em": 73.497482,
+    "surface_gravity": 9.414623,
+    "surface_temperature": 88.310364,
+    "surface_pressure": 0.0,
+    "axial_tilt": 2.441865,
+    "semi_major_axis": 199510264396.66806,
+    "eccentricity": 3.2e-05,
+    "orbital_inclination": 0.754923,
+    "periapsis": 334.673491,
+    "mean_anomaly": 226.228176,
+    "orbital_period": 76375706.195831,
+    "rotation_period": 52874.356674,
+    "ascending_node": 138.511332,
+    "distance_from_arrival_ls": 665.509285,
+    "atmosphere_composition": [
+      {
+        "Name": "Hydrogen",
+        "Percent": 72.8153
+      },
+      {
+        "Name": "Helium",
+        "Percent": 27.184698
+      }
+    ],
+    "materials": [],
+    "parents": [
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": false,
+    "landable": false,
+    "updatetime": "2026-11-09T01:04:17+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 40,
+    "body_name": "LFT 509 B 4 A Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Rocky",
+    "ring_inner_rad": 94283000,
+    "ring_outer_rad": 100380000,
+    "ring_mass_mt": 26447000000.0,
+    "semi_major_axis": 97331602.275372,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 53.666703,
+    "orbital_period": 35250.476599,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 665.50886,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 39
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-12T21:37:24+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 41,
+    "body_name": "LFT 509 B 4 B Ring",
+    "type": "PlanetaryRing",
+    "ring_class": "eRingClass_Icy",
+    "ring_inner_rad": 100480000,
+    "ring_outer_rad": 145830000,
+    "ring_mass_mt": 249300000000.0,
+    "semi_major_axis": 123152992.129326,
+    "eccentricity": 0.0,
+    "orbital_inclination": 0.0,
+    "periapsis": 0.0,
+    "mean_anomaly": 159.754351,
+    "orbital_period": 50170.888305,
+    "ascending_node": 0.0,
+    "distance_from_arrival_ls": 665.50886,
+    "atmosphere_composition": [],
+    "materials": [],
+    "parents": [
+      {
+        "Planet": 39
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "updatetime": "2026-11-12T21:36:53+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 42,
+    "body_name": "LFT 509 B 4 a",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "None",
+    "volcanism": "major water geysers volcanism",
+    "radius": 600033.1875,
+    "mass_em": 0.000312,
+    "surface_gravity": 0.345679,
+    "surface_temperature": 76.112976,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.120239,
+    "semi_major_axis": 166967850.923538,
+    "eccentricity": 0.000319,
+    "orbital_inclination": -0.017607,
+    "periapsis": 63.283841,
+    "mean_anomaly": 356.981243,
+    "orbital_period": 79196.86377,
+    "rotation_period": 79201.550536,
+    "ascending_node": -31.760052,
+    "distance_from_arrival_ls": 665.021986,
+    "composition_ice": 0.825194,
+    "composition_metal": 0.015445,
+    "composition_rock": 0.159361,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 27.353632
+      },
+      {
+        "Name": "carbon",
+        "Percent": 23.001572
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.726001
+      },
+      {
+        "Name": "iron",
+        "Percent": 12.222117
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.244297
+      },
+      {
+        "Name": "chromium",
+        "Percent": 5.496692
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.281075
+      },
+      {
+        "Name": "zirconium",
+        "Percent": 1.41924
+      },
+      {
+        "Name": "niobium",
+        "Percent": 0.835317
+      },
+      {
+        "Name": "antimony",
+        "Percent": 0.748931
+      },
+      {
+        "Name": "tungsten",
+        "Percent": 0.671117
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 39
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-12T21:18:29+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 43,
+    "body_name": "LFT 509 B 4 b",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "atmosphere_type": "None",
+    "volcanism": "major water geysers volcanism",
+    "radius": 773371.5,
+    "mass_em": 0.000671,
+    "surface_gravity": 0.447138,
+    "surface_temperature": 75.598526,
+    "surface_pressure": 0.0,
+    "axial_tilt": 0.341358,
+    "semi_major_axis": 295679819.583893,
+    "eccentricity": 0.000512,
+    "orbital_inclination": 0.001341,
+    "periapsis": 147.676592,
+    "mean_anomaly": 225.193878,
+    "orbital_period": 186634.200811,
+    "rotation_period": 186645.239737,
+    "ascending_node": -116.354451,
+    "distance_from_arrival_ls": 666.012956,
+    "composition_ice": 0.825194,
+    "composition_metal": 0.015445,
+    "composition_rock": 0.159361,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 26.920488
+      },
+      {
+        "Name": "carbon",
+        "Percent": 22.637344
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.492816
+      },
+      {
+        "Name": "iron",
+        "Percent": 12.02858
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.097913
+      },
+      {
+        "Name": "chromium",
+        "Percent": 5.409652
+      },
+      {
+        "Name": "germanium",
+        "Percent": 3.485394
+      },
+      {
+        "Name": "zinc",
+        "Percent": 3.268918
+      },
+      {
+        "Name": "cadmium",
+        "Percent": 0.934074
+      },
+      {
+        "Name": "tellurium",
+        "Percent": 0.902724
+      },
+      {
+        "Name": "niobium",
+        "Percent": 0.822089
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 39
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-13T23:01:12+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 44,
+    "body_name": "LFT 509 B 4 c",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "None",
+    "radius": 1045500.8125,
+    "mass_em": 0.001668,
+    "surface_gravity": 0.608077,
+    "surface_temperature": 75.222733,
+    "surface_pressure": 0.0,
+    "axial_tilt": 0.077515,
+    "semi_major_axis": 514069789.648055,
+    "eccentricity": 0.000174,
+    "orbital_inclination": -0.001266,
+    "periapsis": 101.879426,
+    "mean_anomaly": 198.045483,
+    "orbital_period": 427850.25835,
+    "rotation_period": 427875.555448,
+    "ascending_node": -176.028455,
+    "distance_from_arrival_ls": 664.495228,
+    "composition_ice": 0.825194,
+    "composition_metal": 0.015445,
+    "composition_rock": 0.159361,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 26.711401
+      },
+      {
+        "Name": "carbon",
+        "Percent": 22.461523
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.380253
+      },
+      {
+        "Name": "iron",
+        "Percent": 11.935158
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.027252
+      },
+      {
+        "Name": "chromium",
+        "Percent": 5.367637
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.18056
+      },
+      {
+        "Name": "germanium",
+        "Percent": 3.458325
+      },
+      {
+        "Name": "cadmium",
+        "Percent": 0.926819
+      },
+      {
+        "Name": "tellurium",
+        "Percent": 0.895713
+      },
+      {
+        "Name": "tungsten",
+        "Percent": 0.65536
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 39
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-12T21:06:22+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 45,
+    "body_name": "LFT 509 B 4 d",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "None",
+    "radius": 1070011.625,
+    "mass_em": 0.001789,
+    "surface_gravity": 0.622677,
+    "surface_temperature": 74.940048,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.370247,
+    "semi_major_axis": 889158862.829208,
+    "eccentricity": 9e-06,
+    "orbital_inclination": -0.085591,
+    "periapsis": 81.669084,
+    "mean_anomaly": 354.411264,
+    "orbital_period": 973257.488012,
+    "rotation_period": 973315.104472,
+    "ascending_node": 157.134816,
+    "distance_from_arrival_ls": 667.890008,
+    "composition_ice": 0.825194,
+    "composition_metal": 0.015445,
+    "composition_rock": 0.159361,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 28.092077
+      },
+      {
+        "Name": "carbon",
+        "Percent": 23.622528
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 15.123548
+      },
+      {
+        "Name": "iron",
+        "Percent": 12.552071
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.493859
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.396647
+      },
+      {
+        "Name": "vanadium",
+        "Percent": 3.082351
+      },
+      {
+        "Name": "zirconium",
+        "Percent": 1.457554
+      },
+      {
+        "Name": "tellurium",
+        "Percent": 0.942011
+      },
+      {
+        "Name": "tungsten",
+        "Percent": 0.689235
+      },
+      {
+        "Name": "mercury",
+        "Percent": 0.548128
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 39
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-12T20:55:14+00:00"
+  },
+  {
+    "system_id64": 7268561135001,
+    "body_id": 46,
+    "body_name": "LFT 509 B 4 e",
+    "type": "Planet",
+    "planet_class": "Icy body",
+    "terraform_state": "Not terraformable",
+    "atmosphere_type": "None",
+    "radius": 979083.625,
+    "mass_em": 0.001368,
+    "surface_gravity": 0.568605,
+    "surface_temperature": 74.731071,
+    "surface_pressure": 0.0,
+    "axial_tilt": -0.231241,
+    "semi_major_axis": 1511370718.47916,
+    "eccentricity": 0.000179,
+    "orbital_inclination": 0.018173,
+    "periapsis": 81.259502,
+    "mean_anomaly": 107.12739,
+    "orbital_period": 2156826.31731,
+    "rotation_period": 2156953.35834,
+    "ascending_node": -3.413059,
+    "distance_from_arrival_ls": 663.969534,
+    "composition_ice": 0.825194,
+    "composition_metal": 0.015445,
+    "composition_rock": 0.159361,
+    "atmosphere_composition": [],
+    "materials": [
+      {
+        "Name": "sulphur",
+        "Percent": 26.785189
+      },
+      {
+        "Name": "carbon",
+        "Percent": 22.523571
+      },
+      {
+        "Name": "phosphorus",
+        "Percent": 14.419976
+      },
+      {
+        "Name": "iron",
+        "Percent": 11.968127
+      },
+      {
+        "Name": "nickel",
+        "Percent": 9.05219
+      },
+      {
+        "Name": "chromium",
+        "Percent": 5.382464
+      },
+      {
+        "Name": "selenium",
+        "Percent": 4.192109
+      },
+      {
+        "Name": "germanium",
+        "Percent": 3.467878
+      },
+      {
+        "Name": "niobium",
+        "Percent": 0.817958
+      },
+      {
+        "Name": "antimony",
+        "Percent": 0.733367
+      },
+      {
+        "Name": "tungsten",
+        "Percent": 0.65717
+      }
+    ],
+    "parents": [
+      {
+        "Planet": 39
+      },
+      {
+        "Star": 2
+      },
+      {
+        "Null": 0
+      }
+    ],
+    "tidally_locked": true,
+    "landable": true,
+    "updatetime": "2026-11-12T20:23:29+00:00"
+  }
+]

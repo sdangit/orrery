@@ -1,0 +1,436 @@
+{
+  "systemName": "Vega",
+  "capturedAt": "2026-11-15T07:14:37.603Z",
+  "description": "Sanitized live journal geometry. Distances are measured game Scan fields, not solver output.",
+  "nodes": [
+    {
+      "id": 3,
+      "name": "Vega 2 A Ring",
+      "kind": "Unknown",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 393543383.181095,
+        "eccentricity": 0,
+        "inclinationDeg": 0,
+        "periapsisDeg": 0,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 283.887646,
+        "orbitalPeriodSec": 27950.053811,
+        "epochMs": 1794710590000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T02:43:10Z",
+        "BodyID": 3,
+        "BodyName": "Vega 2 A Ring",
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "DistanceFromArrivalLS": 1806.740728
+      }
+    },
+    {
+      "id": 11,
+      "name": "Tracy's Havan",
+      "kind": "Planet",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 1124827146530.1514,
+        "eccentricity": 0,
+        "inclinationDeg": 2.7,
+        "periapsisDeg": 299.320616,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 20.295402,
+        "orbitalPeriodSec": 64627199.76902,
+        "epochMs": 1794711607000
+      },
+      "children": [
+        12
+      ],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 11,
+        "BodyName": "Tracy's Havan",
+        "Parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": -0.340957,
+        "DistanceFromArrivalLS": 3752.019494,
+        "Radius": 7207324,
+        "PlanetClass": "Earthlike body"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Vega 2 c",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 1896512031.555176,
+        "eccentricity": 0.000082,
+        "inclinationDeg": 0.019648,
+        "periapsisDeg": 69.360581,
+        "ascendingNodeDeg": 153.145685,
+        "meanAnomalyDeg": 305.310468,
+        "orbitalPeriodSec": 295677.894354,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 6,
+        "BodyName": "Vega 2 c",
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": 0.39336,
+        "DistanceFromArrivalLS": 1805.714103,
+        "Radius": 2719270,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Vega 2 e",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 4825175940.990448,
+        "eccentricity": 0.001282,
+        "inclinationDeg": -0.974445,
+        "periapsisDeg": 132.227312,
+        "ascendingNodeDeg": 53.894079,
+        "meanAnomalyDeg": 332.316462,
+        "orbitalPeriodSec": 1199928.104877,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 9,
+        "BodyName": "Vega 2 e",
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": 0.135053,
+        "DistanceFromArrivalLS": 1793.06392,
+        "Radius": 2143906.5,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 0,
+      "name": "Vega",
+      "kind": "Star",
+      "parentId": null,
+      "elements": null,
+      "children": [
+        11,
+        19,
+        1,
+        2
+      ],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 0,
+        "BodyName": "Vega",
+        "AxialTilt": -0.172337,
+        "DistanceFromArrivalLS": 0,
+        "Radius": 1450408576,
+        "StarType": "A"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Trikora",
+      "kind": "Planet",
+      "parentId": 11,
+      "elements": {
+        "semiMajorAxis": 2991959452.629089,
+        "eccentricity": 0.023897,
+        "inclinationDeg": 2.83523,
+        "periapsisDeg": 345.708891,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 220.599059,
+        "orbitalPeriodSec": 38979117.274284,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 12,
+        "BodyName": "Trikora",
+        "Parents": [
+          {
+            "Planet": 11
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": 0.28805,
+        "DistanceFromArrivalLS": 3743.604735,
+        "Radius": 1704644.5,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Vega 4",
+      "kind": "Planet",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 3185052514076.233,
+        "eccentricity": 0.343165,
+        "inclinationDeg": 16.986277,
+        "periapsisDeg": 354.462878,
+        "ascendingNodeDeg": -50.26591,
+        "meanAnomalyDeg": 316.379434,
+        "orbitalPeriodSec": 1728944778.442383,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 19,
+        "BodyName": "Vega 4",
+        "Parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": 0.378996,
+        "DistanceFromArrivalLS": 8844.451926,
+        "Radius": 22211160,
+        "PlanetClass": "Sudarsky class I gas giant"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Popov Reward",
+      "kind": "Planet",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 324777209758.75854,
+        "eccentricity": 0,
+        "inclinationDeg": 351.999997,
+        "periapsisDeg": 122.757569,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 117.351837,
+        "orbitalPeriodSec": 31276799.440384,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 1,
+        "BodyName": "Popov Reward",
+        "Parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": -0.027633,
+        "DistanceFromArrivalLS": 1083.340161,
+        "Radius": 1300236.875,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Vega 2 d",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 3336448669.433594,
+        "eccentricity": 0.000133,
+        "inclinationDeg": -0.111388,
+        "periapsisDeg": 354.686461,
+        "ascendingNodeDeg": -31.448353,
+        "meanAnomalyDeg": 309.332435,
+        "orbitalPeriodSec": 689941.394329,
+        "epochMs": 1794711607000
+      },
+      "children": [
+        8
+      ],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 7,
+        "BodyName": "Vega 2 d",
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": -0.09173,
+        "DistanceFromArrivalLS": 1816.628435,
+        "Radius": 2782864.75,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Vega 2 a",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 741265153.884888,
+        "eccentricity": 0.000639,
+        "inclinationDeg": -0.000009,
+        "periapsisDeg": 65.992267,
+        "ascendingNodeDeg": 64.265871,
+        "meanAnomalyDeg": 270.522606,
+        "orbitalPeriodSec": 72251.338959,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 4,
+        "BodyName": "Vega 2 a",
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": -0.122106,
+        "DistanceFromArrivalLS": 1804.702311,
+        "Radius": 1878273.75,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Vega 2 b",
+      "kind": "Planet",
+      "parentId": 2,
+      "elements": {
+        "semiMajorAxis": 1287276387.214661,
+        "eccentricity": 0.000218,
+        "inclinationDeg": -0.644575,
+        "periapsisDeg": 314.190222,
+        "ascendingNodeDeg": 53.819947,
+        "meanAnomalyDeg": 229.393912,
+        "orbitalPeriodSec": 165345.823765,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 5,
+        "BodyName": "Vega 2 b",
+        "Parents": [
+          {
+            "Star": 2
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": 0.487455,
+        "DistanceFromArrivalLS": 1804.810599,
+        "Radius": 1686463,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Vega 2 d a",
+      "kind": "Planet",
+      "parentId": 7,
+      "elements": {
+        "semiMajorAxis": 15247688.293457,
+        "eccentricity": 0,
+        "inclinationDeg": 88.396769,
+        "periapsisDeg": 113.088084,
+        "ascendingNodeDeg": -129.278453,
+        "meanAnomalyDeg": 153.816314,
+        "orbitalPeriodSec": 71686.413884,
+        "epochMs": 1794711607000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 8,
+        "BodyName": "Vega 2 d a",
+        "Parents": [
+          {
+            "Planet": 7
+          },
+          {
+            "Star": 2
+          },
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": 0.39388,
+        "DistanceFromArrivalLS": 1816.605866,
+        "Radius": 871136.625,
+        "PlanetClass": "Rocky body"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Vega 2",
+      "kind": "Star",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 541700136661.52954,
+        "eccentricity": 0.000115,
+        "inclinationDeg": 0.336791,
+        "periapsisDeg": 131.410914,
+        "ascendingNodeDeg": -148.238478,
+        "meanAnomalyDeg": 327.85434,
+        "orbitalPeriodSec": 121267557.144165,
+        "epochMs": 1794711607000
+      },
+      "children": [
+        3,
+        6,
+        9,
+        7,
+        4,
+        5
+      ],
+      "raw": {
+        "timestamp": "2026-11-15T03:00:07Z",
+        "BodyID": 2,
+        "BodyName": "Vega 2",
+        "Parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "AxialTilt": 1.033939,
+        "DistanceFromArrivalLS": 1806.740722,
+        "Radius": 61743452,
+        "StarType": "Y"
+      }
+    }
+  ]
+}

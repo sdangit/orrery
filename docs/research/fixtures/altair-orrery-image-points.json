@@ -1,0 +1,333 @@
+{
+  "warning": "Extract reviewed orrery marker centres from the original Desktop PNGs.\nManual seeds identify bodies, not calculated orbital predictions. Colocated\nstation icons obscure three markers; their centres carry a 3-pixel allowance.\n",
+  "previewSize": [
+    1600,
+    1034
+  ],
+  "logicalAspectSize": [
+    1600,
+    1000
+  ],
+  "images": [
+    {
+      "filename": "Screenshot 2026-11-14 at 10.35.47\u202fPM.png",
+      "sha256": "c7aabb082b0176650c0db8098adb2a531656732a2c7238ba53b0f9e0b0d3eab6",
+      "width": 4112,
+      "height": 2658,
+      "hudTimestamp": "2026-11-15T06:35:47Z",
+      "points": [
+        {
+          "bodyId": 0,
+          "name": "Altair",
+          "manualSeedPreviewPx": [
+            800,
+            517
+          ],
+          "pointPx": [
+            2055.29020589872,
+            1328.3560563902802
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 1,
+          "name": "Altair 1",
+          "manualSeedPreviewPx": [
+            770,
+            606
+          ],
+          "pointPx": [
+            1982.3048951048952,
+            1557.634965034965
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 2,
+          "name": "Altair 2",
+          "manualSeedPreviewPx": [
+            647,
+            474
+          ],
+          "pointPx": [
+            1662.9782608695652,
+            1216.7570126227208
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 3,
+          "name": "Darkes Hollow",
+          "manualSeedPreviewPx": [
+            888,
+            329
+          ],
+          "pointPx": [
+            2283.3677587948528,
+            846.2448504545654
+          ],
+          "approximateCentroidAllowancePx": 3
+        }
+      ]
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.35.57\u202fPM.png",
+      "sha256": "3aa410236b58b593077fd133108bf6c5ad37bbfb46a7a1d9da02198cbb34232f",
+      "width": 4112,
+      "height": 2658,
+      "hudTimestamp": "2026-11-15T06:35:57Z",
+      "points": [
+        {
+          "bodyId": 0,
+          "name": "Altair",
+          "manualSeedPreviewPx": [
+            800,
+            517
+          ],
+          "pointPx": [
+            2055.2490706319704,
+            1328.4293680297399
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 1,
+          "name": "Altair 1",
+          "manualSeedPreviewPx": [
+            913,
+            521
+          ],
+          "pointPx": [
+            2348.7268803945744,
+            1341.1489342962832
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 2,
+          "name": "Altair 2",
+          "manualSeedPreviewPx": [
+            790,
+            595
+          ],
+          "pointPx": [
+            2031.9213215859031,
+            1530.3576211453744
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 3,
+          "name": "Darkes Hollow",
+          "manualSeedPreviewPx": [
+            534,
+            490
+          ],
+          "pointPx": [
+            1373.7472605474468,
+            1260.4201455126215
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 4,
+          "name": "Biggs Colony",
+          "manualSeedPreviewPx": [
+            798,
+            233
+          ],
+          "pointPx": [
+            2049.384276437848,
+            600.6692949907235
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 5,
+          "name": "Lowing's Rock",
+          "manualSeedPreviewPx": [
+            1034,
+            104
+          ],
+          "pointPx": [
+            2656.5074894320896,
+            269.295235250873
+          ],
+          "approximateCentroidAllowancePx": 3
+        }
+      ]
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.37.44\u202fPM.png",
+      "sha256": "f64761551475efdfedadb3d52c23126bdf9e4439909461cfc10f1621df0582ea",
+      "width": 4112,
+      "height": 2658,
+      "hudTimestamp": "2026-11-15T06:37:44Z",
+      "points": [
+        {
+          "bodyId": 0,
+          "name": "Altair",
+          "manualSeedPreviewPx": [
+            1061,
+            554
+          ],
+          "pointPx": [
+            2727.43896713615,
+            1424.6491914449662
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 1,
+          "name": "Altair 1",
+          "manualSeedPreviewPx": [
+            971,
+            557
+          ],
+          "pointPx": [
+            2493.910492733073,
+            1434.3429634881247
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 2,
+          "name": "Altair 2",
+          "manualSeedPreviewPx": [
+            1098,
+            535
+          ],
+          "pointPx": [
+            2819.120927426306,
+            1374.0842096190313
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 3,
+          "name": "Darkes Hollow",
+          "manualSeedPreviewPx": [
+            1274,
+            550
+          ],
+          "pointPx": [
+            3272.3611111111113,
+            1413.491305687621
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 4,
+          "name": "Biggs Colony",
+          "manualSeedPreviewPx": [
+            876,
+            731
+          ],
+          "pointPx": [
+            2253.652256852732,
+            1872.3358572518637
+          ],
+          "approximateCentroidAllowancePx": 3
+        },
+        {
+          "bodyId": 5,
+          "name": "Lowing's Rock",
+          "manualSeedPreviewPx": [
+            467,
+            749
+          ],
+          "pointPx": [
+            1201.3712293873173,
+            1924.7483800330697
+          ],
+          "approximateCentroidAllowancePx": 3
+        }
+      ]
+    }
+  ],
+  "independentOrbitOutlineSamples": {
+    "imageIndex": 0,
+    "method": "Manually digitized from 1600x1034 preview, not used in any camera fit. Approximate 2-preview-pixel selection allowance; compare distance to sampled projected curve, not orbital phase.",
+    "samples": [
+      {
+        "bodyId": 1,
+        "previewPoints": [
+          [
+            685,
+            517
+          ],
+          [
+            720,
+            453
+          ],
+          [
+            800,
+            429
+          ],
+          [
+            880,
+            451
+          ],
+          [
+            915,
+            517
+          ],
+          [
+            880,
+            584
+          ],
+          [
+            800,
+            610
+          ],
+          [
+            720,
+            584
+          ]
+        ]
+      },
+      {
+        "bodyId": 2,
+        "previewPoints": [
+          [
+            635,
+            517
+          ],
+          [
+            800,
+            391
+          ],
+          [
+            965,
+            517
+          ],
+          [
+            800,
+            652
+          ]
+        ]
+      },
+      {
+        "bodyId": 3,
+        "previewPoints": [
+          [
+            533,
+            517
+          ],
+          [
+            800,
+            318
+          ],
+          [
+            1067,
+            517
+          ],
+          [
+            800,
+            736
+          ]
+        ]
+      }
+    ]
+  }
+}

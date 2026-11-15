@@ -1,0 +1,30 @@
+{
+  "images": [
+    {
+      "filename": "Screenshot 2026-11-14 at 10.50.35\u202fPM.png",
+      "kind": "in-game orrery",
+      "width": 4112,
+      "height": 2658,
+      "sha256": "8b70e60afbe45bdb8d5b9526545a8652019baa91c350100ead6158ee943054fe",
+      "displayedGameTimestamp": "3312-11-15T06:50:35Z"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.50.39\u202fPM.png",
+      "kind": "running Orrery app",
+      "width": 3569,
+      "height": 2080,
+      "sha256": "3801540c88db0462d97b944de3e4dd7f3cd2a849779a8a084631966fbefad8f4",
+      "displayedGameTimestamp": "3312-11-15T06:50:39Z"
+    },
+    {
+      "filename": "Screenshot 2026-11-14 at 10.52.05\u202fPM.png",
+      "kind": "in-game orrery, zoomed-out full system",
+      "width": 4112,
+      "height": 2658,
+      "sha256": "8a9901734035c3d7c680b5c8af9e70a72644914ddab5ff44ceda9eabfe62b6f7",
+      "displayedGameTimestamp": "3312-11-15T06:52:05Z"
+    }
+  ],
+  "appMode": "Fully to scale; TRUE DISTANCES AND SIZES; LIVE 1x",
+  "finding": "Actual app screenshot visibly disagrees with in-game relative body placement. Experimental correction remains confined to research scripts."
+}

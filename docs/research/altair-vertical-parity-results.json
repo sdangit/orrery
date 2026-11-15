@@ -1,0 +1,216 @@
+{
+  "description": "Test both orbital parities with a forward-facing perspective camera.\n\nUnlike the historical fit, inverse depth is nonnegative. Camera coordinates\nare right/down/forward (a right-handed basis); all bodies remain in front.\nOnly camera pose, positive uniform scale, translation and depth are fitted.\nNo orbital data or timestamps are fitted. Original historical reports remain intact.\n",
+  "limitations": [
+    "First image has only four markers for seven fitted parameters.",
+    "Same existing image measurements; this is a corrected audit, not new observations.",
+    "No V886 Centauri screenshot fit is claimed."
+  ],
+  "rows": [
+    {
+      "timestamp": "2026-11-15T06:35:47Z",
+      "bodyIds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "historicalInverseDepth": -0.054705623108664,
+      "models": [
+        {
+          "reflected": false,
+          "rmsOriginalPx": 0.121743413572982,
+          "maxOriginalPx": 0.19770041061459304,
+          "inverseDepth": 0.0544566856195928,
+          "cameraParameters": [
+            -3.773918615478249,
+            0.0013805658427107066,
+            -0.0011846642295980708,
+            5.293525773782502,
+            799.652903506688,
+            499.7289027014897,
+            0.0544566856195928
+          ],
+          "bodyErrorsOriginalPx": [
+            0.19770041061459304,
+            0.12908041814866075,
+            0.009987814437543865,
+            0.05864189500483372
+          ],
+          "independentOutlineChecks": [
+            {
+              "bodyId": 1,
+              "rmsPreviewPx": 1.079777755579146
+            },
+            {
+              "bodyId": 2,
+              "rmsPreviewPx": 1.5058927746977608
+            },
+            {
+              "bodyId": 3,
+              "rmsPreviewPx": 0.8894609095813947
+            }
+          ]
+        },
+        {
+          "reflected": true,
+          "rmsOriginalPx": 0.11455403563301546,
+          "maxOriginalPx": 0.1860348755507487,
+          "inverseDepth": 0.05470562269382478,
+          "cameraParameters": [
+            -10.207421972066898,
+            0.004420309918594777,
+            -0.0016483427804104699,
+            5.293606507250954,
+            799.6570963843681,
+            499.73058406656133,
+            0.05470562269382478
+          ],
+          "bodyErrorsOriginalPx": [
+            0.1860348755507487,
+            0.12143162993397418,
+            0.009407299962937148,
+            0.055203218719960555
+          ],
+          "independentOutlineChecks": [
+            {
+              "bodyId": 1,
+              "rmsPreviewPx": 1.0794960848386768
+            },
+            {
+              "bodyId": 2,
+              "rmsPreviewPx": 1.4848252011190224
+            },
+            {
+              "bodyId": 3,
+              "rmsPreviewPx": 0.8728344923679752
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T06:35:57Z",
+      "bodyIds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "historicalInverseDepth": -0.05487108252157817,
+      "models": [
+        {
+          "reflected": false,
+          "rmsOriginalPx": 43.6200756035108,
+          "maxOriginalPx": 66.52718518580461,
+          "inverseDepth": 9.03734753697624e-16,
+          "cameraParameters": [
+            1.9827955336809184,
+            -2.649426610418231,
+            -1.7687242134696817,
+            5.2222035717596444,
+            797.3378340405942,
+            504.0003903878241,
+            9.03734753697624e-16
+          ],
+          "bodyErrorsOriginalPx": [
+            12.752274704451576,
+            34.97162723321345,
+            32.89286033899941,
+            44.152787824122306,
+            66.52718518580461,
+            50.72825100267238
+          ],
+          "independentOutlineChecks": []
+        },
+        {
+          "reflected": true,
+          "rmsOriginalPx": 1.398217121391104,
+          "maxOriginalPx": 2.37098187735708,
+          "inverseDepth": 0.05487108184621609,
+          "cameraParameters": [
+            1.3507081759553412,
+            -1.8186809269921786,
+            1.097269872208826,
+            5.296431110310962,
+            799.6544438423064,
+            499.62313092129324,
+            0.05487108184621609
+          ],
+          "bodyErrorsOriginalPx": [
+            0.4523773706401307,
+            0.184339985433182,
+            0.49970784448432454,
+            1.6182743857761706,
+            2.37098187735708,
+            1.7324448664694794
+          ],
+          "independentOutlineChecks": []
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-15T06:37:44Z",
+      "bodyIds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "historicalInverseDepth": -0.042337042654474986,
+      "models": [
+        {
+          "reflected": false,
+          "rmsOriginalPx": 46.153088842037995,
+          "maxOriginalPx": 72.36703204119034,
+          "inverseDepth": 7.078886613812663e-17,
+          "cameraParameters": [
+            -5.175820150273549,
+            -4.998361581285701,
+            -4.453816875658073,
+            5.219701723242432,
+            1057.8031321492615,
+            538.1761973887313,
+            7.078886613812663e-17
+          ],
+          "bodyErrorsOriginalPx": [
+            10.623122554421133,
+            43.02490383719224,
+            27.508062038357906,
+            43.36290633482807,
+            72.36703204119034,
+            54.24601483611983
+          ],
+          "independentOutlineChecks": []
+        },
+        {
+          "reflected": true,
+          "rmsOriginalPx": 1.102560190625856,
+          "maxOriginalPx": 1.5003348759486859,
+          "inverseDepth": 0.04233704283129973,
+          "cameraParameters": [
+            -2.5927092972294914,
+            -2.453188068030208,
+            2.122632549581723,
+            5.092219239965555,
+            1061.5227793253932,
+            536.1438936834556,
+            0.04233704283129973
+          ],
+          "bodyErrorsOriginalPx": [
+            0.7953160000927811,
+            1.474147505706171,
+            1.5003348759486859,
+            1.174023123506926,
+            0.8092203988540657,
+            0.451688771939027
+          ],
+          "independentOutlineChecks": []
+        }
+      ]
+    }
+  ]
+}

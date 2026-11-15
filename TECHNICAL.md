@@ -42,12 +42,30 @@ Position at time *t*:
 
 1. Propagate the mean anomaly: `M = M₀ + 2π(t − t₀)/P`
 2. Solve Kepler's equation `E − e·sin E = M` by Newton–Raphson (5 iterations, first-order seed `E₀ = M + e·sin M`; residual < 1e-8 across tested eccentricities)
-3. True anomaly and radius from `E`; rotate by argument of periapsis, inclination, and ascending node (standard combined perifocal rotation)
-4. Sum each ancestor's own offset walking up the parent chain to the system root
+3. Convert raw Elite orientation angles at the geometry boundary: negate inclination, ascending node and argument of periapsis; retain phase, signed period, and epoch. Compute true anomaly and radius from `E`, then apply the standard combined perifocal rotation. `eliteKeplerianOffset` supplies this conversion; `keplerianOffset` remains the standard mathematical primitive.
+4. Walk from the root to the body, rotating each local offset through its ancestors' frames before adding it. The frame inherited by children is `parentFrame · Rz(-node) · Rx(-inclination) · Rz(-periapsis) · Rx(-axialTilt)`. Axial tilt is in radians; orbital angles are converted from degrees. Mean anomaly and daily rotation do not rotate the inherited frame. Negating both inclination and inherited axial tilt consistently reflects the earlier geometry across system XY, preserving distances and horizontal positions.
 
-Inclination and node are already expressed in a common system-wide reference frame (the same convention EDSM/EDDiscovery-family tools use), so the per-level offsets are directly additive — no per-level frame rotation.
+Body positions, orbit paths (including moving close-up detail), and selected-orbit views share these inherited frames. Compact mode compresses each local offset before adding it in system axes. The unorbiting root's axial tilt is omitted as a common rigid rotation, preserving the existing main-planet view. Journal and community data retain signed axial tilt in radians; unavailable tilt defaults to zero. See the [Vega hierarchy investigation](docs/research/galactic-frame-followup.md) for measured range checks and remaining limits.
 
-**Accuracy statement:** body positions are exactly as accurate as Frontier's own published elements under the two-body assumption — each body orbits its parent independently, no N-body perturbation (the game itself works the same way). Propagation is closed-form from the scan epoch, so there is no accumulating integration drift; the warp slider is just evaluating the same equations at a different *t*.
+Orbit paths start with 96 time intervals, then subdivide each interval where
+quarter/midpoint probes deviate from its chord by more than 0.01% of the displayed
+semimajor-axis scale (at most six subdivision levels). Refinement is evaluated
+after display scaling, including Compact's nonlinear compression, and cached
+when the path is built. This resolves fast periapsis swings without relying on
+the body's current location. True-distance modes additionally retain the exact
+body vertex and moving body-scale samples in a reusable, body-relative GPU buffer.
+This is geometric refinement, not a guarantee of subpixel accuracy at every zoom.
+
+For bodies orbiting a stellar pair's barycentre, the inner binary's orbital basis
+also defines the circumbinary plane. A uniquely matched pair (period, eccentricity,
+inclination and node agree, periapsides oppose) supplies its first component's
+orbital basis to other children of that barycentre. The components retain the
+enclosing frame. This works at nested as well as root barycentres; it does not
+inherit the reference star's axial tilt or orbital phase. Ambiguous or unmeasured
+pairs do not trigger inference. Captured Timbalderis and HIP 97950 ranges validate
+this rule; [the audit](docs/research/binary-frame-results.json) records all eight systems.
+
+**Accuracy statement:** the solver evaluates two-body Keplerian motion from the recorded epoch without accumulating integration drift; the warp slider evaluates those equations at a different *t*. This establishes the numerical propagation method, not complete agreement with Elite's coordinate conventions. Node/periapsis conversion is supported by Canonn source; the vertical parity correction is supported by SrvSurvey source, the V886 Centauri report, and the [Altair audit with positive camera depth](docs/research/altair-vertical-parity-results.json). The former Altair fit allowed negative depth and could hide a reflection; the current regression forbids this. Parent-frame inheritance is supported by recorded arrival distances in six systems and the user's Vega position/tilt comparison. Scalar distances alone do not establish full 3D orientation. Missing tilt/phase data, ambiguous binary reference frames, broader visual coverage, and galactic alignment remain accuracy limitations; positions should not be described as exact merely because all orbital fields are present.
 
 ### Display scaling — where the picture deliberately deviates
 

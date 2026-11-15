@@ -1,0 +1,569 @@
+{
+  "systemName": "Altair",
+  "systemAddress": 306253399220,
+  "journalNodes": [
+    {
+      "id": 3,
+      "name": "Darkes Hollow",
+      "kind": "Planet",
+      "parentId": 0,
+      "elements": {
+        "semiMajorAxis": 199862891435.62317,
+        "eccentricity": 0,
+        "inclinationDeg": 0,
+        "periapsisDeg": 333.115788,
+        "ascendingNodeDeg": 0,
+        "meanAnomalyDeg": 42.63123,
+        "orbitalPeriodSec": 26006399.989128,
+        "epochMs": 1794723405000
+      },
+      "children": [],
+      "raw": {
+        "timestamp": "2026-11-15T06:16:45Z",
+        "BodyName": "Darkes Hollow",
+        "BodyID": 3,
+        "Parents": [
+          {
+            "Star": 0
+          }
+        ],
+        "PlanetClass": "Rocky body",
+        "Radius": 3352665.25,
+        "SemiMajorAxis": 199862891435.62317,
+        "Eccentricity": 0,
+        "OrbitalInclination": 0,
+        "Periapsis": 333.115788,
+        "OrbitalPeriod": 26006399.989128,
+        "AscendingNode": 0,
+        "MeanAnomaly": 42.63123
+      }
+    },
+    {
+      "id": 0,
+      "name": "Altair",
+      "kind": "SystemBarycentre",
+      "parentId": null,
+      "elements": null,
+      "children": [
+        3
+      ]
+    }
+  ],
+  "providers": {
+    "edsm": {
+      "status": "ready",
+      "bodies": [
+        {
+          "bodyId": 0,
+          "name": "Altair",
+          "type": "Star",
+          "subType": "A (Blue-White) Star",
+          "parents": null,
+          "orbitalPeriod": null,
+          "semiMajorAxis": null,
+          "orbitalEccentricity": null,
+          "orbitalInclination": null,
+          "argOfPeriapsis": null,
+          "updateTime": "2021-01-11 02:30:03",
+          "isMainStar": true,
+          "distanceToArrival": 0,
+          "solarRadius": 1.7499999884974837,
+          "surfaceTemperature": 8676,
+          "solarMasses": 1.972656
+        },
+        {
+          "bodyId": 1,
+          "name": "Altair 1",
+          "type": "Planet",
+          "subType": "High metal content world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 113.83092651765045,
+          "semiMajorAxis": 0.5765390571917278,
+          "orbitalEccentricity": 0.000601,
+          "orbitalInclination": 0.010429,
+          "argOfPeriapsis": 116.843367,
+          "updateTime": "2026-11-12 10:32:00",
+          "distanceToArrival": 288,
+          "radius": 7732.805,
+          "gravity": 1.5477552115691626,
+          "surfaceTemperature": 590,
+          "earthMasses": 2.275136,
+          "isLandable": true,
+          "terraformingState": null,
+          "atmosphereType": "No atmosphere"
+        },
+        {
+          "bodyId": 2,
+          "name": "Altair 2",
+          "type": "Planet",
+          "subType": "High metal content world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 194.31160417972222,
+          "semiMajorAxis": 0.8234825195889636,
+          "orbitalEccentricity": 0.001407,
+          "orbitalInclination": 0.005987,
+          "argOfPeriapsis": 179.960083,
+          "updateTime": "2026-11-12 10:32:00",
+          "distanceToArrival": 411,
+          "radius": 8906.593,
+          "gravity": 1.9341200100903182,
+          "surfaceTemperature": 1752,
+          "earthMasses": 3.771704,
+          "isLandable": false,
+          "terraformingState": null,
+          "atmosphereType": "Hot thick Carbon dioxide"
+        },
+        {
+          "bodyId": 3,
+          "name": "Darkes Hollow",
+          "type": "Planet",
+          "subType": "Rocky body",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 300.9999998741667,
+          "semiMajorAxis": 1.3360009103098818,
+          "orbitalEccentricity": 0,
+          "orbitalInclination": 0,
+          "argOfPeriapsis": 333.115788,
+          "updateTime": "2026-11-13 21:22:22",
+          "distanceToArrival": 667,
+          "radius": 3352.66525,
+          "gravity": 0.4704700656444049,
+          "surfaceTemperature": 388,
+          "earthMasses": 0.13,
+          "isLandable": true,
+          "terraformingState": null,
+          "atmosphereType": "No atmosphere"
+        },
+        {
+          "bodyId": 4,
+          "name": "Biggs Colony",
+          "type": "Planet",
+          "subType": "Earth-like world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 1315.9999830855324,
+          "semiMajorAxis": 4.220002815615209,
+          "orbitalEccentricity": null,
+          "orbitalInclination": 348.700008,
+          "argOfPeriapsis": 50.697154,
+          "updateTime": "2026-11-13 16:46:07",
+          "distanceToArrival": 2106,
+          "radius": 6275.7905,
+          "gravity": 1.1154649036460347,
+          "surfaceTemperature": 316,
+          "earthMasses": 1.08,
+          "isLandable": false,
+          "terraformingState": "Terraformed",
+          "atmosphereType": "Thick Suitable for water-based life"
+        },
+        {
+          "bodyId": 5,
+          "name": "Lowing's Rock",
+          "type": "Planet",
+          "subType": "Rocky body",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 2959.9999801980325,
+          "semiMajorAxis": 6.125004417429185,
+          "orbitalEccentricity": null,
+          "orbitalInclination": 0.4,
+          "argOfPeriapsis": 269.315865,
+          "updateTime": "2026-11-12 10:32:00",
+          "distanceToArrival": 3056,
+          "radius": 860.5050625,
+          "gravity": 0.10987329936913728,
+          "surfaceTemperature": 181,
+          "earthMasses": 0.002,
+          "isLandable": true,
+          "terraformingState": null,
+          "atmosphereType": "No atmosphere"
+        }
+      ],
+      "receivedAt": 1794725715114,
+      "systemAddress": "306253399220",
+      "systemName": "Altair"
+    },
+    "spansh": {
+      "status": "ready",
+      "bodies": [
+        {
+          "bodyId": 0,
+          "name": "Altair",
+          "type": "Star",
+          "subType": "A (Blue-White) Star",
+          "timestamps": {
+            "distanceToArrival": "2026-11-12T10:32:00Z"
+          },
+          "updateTime": "2026-11-15T06:13:25Z",
+          "mainStar": true,
+          "distanceToArrival": 0,
+          "solarRadius": 1.74999998849748,
+          "surfaceTemperature": 8676,
+          "solarMasses": 1.972656
+        },
+        {
+          "bodyId": 1,
+          "name": "Altair 1",
+          "type": "Planet",
+          "subType": "High metal content world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 113.83092651765,
+          "semiMajorAxis": 0.57653905719173,
+          "orbitalEccentricity": 0.000601,
+          "orbitalInclination": 0.010429,
+          "argOfPeriapsis": 116.843367,
+          "meanAnomaly": 36.22055,
+          "ascendingNode": 32.430319,
+          "timestamps": {
+            "distanceToArrival": "2026-11-12T10:32:00Z",
+            "meanAnomaly": "2026-11-12T10:32:00Z"
+          },
+          "updateTime": "2026-11-12T10:32:00Z",
+          "distanceToArrival": 287.556342,
+          "radius": 7732.805,
+          "gravity": 1.54634536555522,
+          "surfaceTemperature": 590.937439,
+          "earthMasses": 2.275136,
+          "isLandable": true,
+          "terraformingState": "Not terraformable",
+          "atmosphereType": null
+        },
+        {
+          "bodyId": 2,
+          "name": "Altair 2",
+          "type": "Planet",
+          "subType": "High metal content world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 194.311604179722,
+          "semiMajorAxis": 0.823482519588974,
+          "orbitalEccentricity": 0.001407,
+          "orbitalInclination": 0.005987,
+          "argOfPeriapsis": 179.960083,
+          "meanAnomaly": 71.222387,
+          "ascendingNode": 96.607077,
+          "timestamps": {
+            "distanceToArrival": "2026-11-12T10:32:00Z",
+            "meanAnomaly": "2026-11-12T10:32:00Z"
+          },
+          "updateTime": "2026-11-12T10:32:00Z",
+          "distanceToArrival": 410.736288,
+          "radius": 8906.593,
+          "gravity": 1.93235790761701,
+          "surfaceTemperature": 1752.998657,
+          "earthMasses": 3.771704,
+          "isLandable": false,
+          "terraformingState": "Not terraformable",
+          "atmosphereType": "Hot thick Carbon dioxide"
+        },
+        {
+          "bodyId": 3,
+          "name": "Darkes Hollow",
+          "type": "Planet",
+          "subType": "Rocky body",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 300.999999874167,
+          "semiMajorAxis": 1.3360009103099,
+          "orbitalEccentricity": 0,
+          "orbitalInclination": 0,
+          "argOfPeriapsis": 333.115788,
+          "meanAnomaly": 42.63123,
+          "ascendingNode": 0,
+          "timestamps": {
+            "distanceToArrival": "2026-11-15T06:16:45Z",
+            "meanAnomaly": "2026-11-15T06:16:45Z"
+          },
+          "updateTime": "2026-11-15T06:16:45Z",
+          "distanceToArrival": 666.670845,
+          "radius": 3352.66525,
+          "gravity": 0.470041602936678,
+          "surfaceTemperature": 388.197296,
+          "earthMasses": 0.13,
+          "isLandable": true,
+          "terraformingState": "Not terraformable",
+          "atmosphereType": null
+        },
+        {
+          "bodyId": 4,
+          "name": "Biggs Colony",
+          "type": "Planet",
+          "subType": "Earth-like world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 1315.99998308552,
+          "semiMajorAxis": 4.22000281561522,
+          "orbitalEccentricity": 0,
+          "orbitalInclination": 348.700008,
+          "argOfPeriapsis": 50.697154,
+          "meanAnomaly": 33.029922,
+          "ascendingNode": 0,
+          "timestamps": {
+            "distanceToArrival": "2026-11-13T16:46:07Z",
+            "meanAnomaly": "2026-11-13T16:46:07Z"
+          },
+          "updateTime": "2026-11-13T16:46:07Z",
+          "distanceToArrival": 2105.801593,
+          "radius": 6275.7905,
+          "gravity": 1.11444896502498,
+          "surfaceTemperature": 316.979279,
+          "earthMasses": 1.08,
+          "isLandable": false,
+          "terraformingState": "Terraformed"
+        },
+        {
+          "bodyId": 5,
+          "name": "Lowing's Rock",
+          "type": "Planet",
+          "subType": "Rocky body",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 2959.99998019801,
+          "semiMajorAxis": 6.12500441742921,
+          "orbitalEccentricity": 0,
+          "orbitalInclination": 0.4,
+          "argOfPeriapsis": 269.315865,
+          "meanAnomaly": 237.710775,
+          "ascendingNode": 0,
+          "timestamps": {
+            "distanceToArrival": "2026-11-12T10:32:00Z",
+            "meanAnomaly": "2026-11-12T10:32:00Z"
+          },
+          "updateTime": "2026-11-12T10:32:00Z",
+          "distanceToArrival": 3056.406505,
+          "radius": 860.5050625,
+          "gravity": 0.109773223207913,
+          "surfaceTemperature": 181.302032,
+          "earthMasses": 0.002,
+          "isLandable": true,
+          "terraformingState": "Not terraformable",
+          "atmosphereType": null
+        }
+      ],
+      "receivedAt": 1794725716202,
+      "systemAddress": "306253399220",
+      "systemName": "Altair"
+    },
+    "edgis": {
+      "status": "ready",
+      "bodies": [
+        {
+          "bodyId": 0,
+          "name": "Altair",
+          "type": "Star",
+          "subType": "A",
+          "parents": [],
+          "updateTime": "2026-11-14T21:36:25+00:00",
+          "distanceToArrival": 0,
+          "radius": 1217124.992,
+          "surfaceTemperature": 8676,
+          "solarMasses": 1.972656,
+          "rings": []
+        },
+        {
+          "bodyId": 1,
+          "name": "Altair 1",
+          "type": "Planet",
+          "subType": "High metal content world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 113.83092651765045,
+          "semiMajorAxis": 0.5765390571917299,
+          "orbitalEccentricity": 0.000601,
+          "orbitalInclination": 0.010429,
+          "argOfPeriapsis": 116.843367,
+          "meanAnomaly": 36.22055,
+          "ascendingNode": 32.430319,
+          "updateTime": "2026-11-12T10:32:00+00:00",
+          "distanceToArrival": 287.556342,
+          "radius": 7732.805,
+          "gravity": 1.5464005547256199,
+          "surfaceTemperature": 590.937439,
+          "earthMasses": 2.275136,
+          "isLandable": true,
+          "terraformingState": "Not terraformable",
+          "atmosphereType": "None",
+          "rings": []
+        },
+        {
+          "bodyId": 2,
+          "name": "Altair 2",
+          "type": "Planet",
+          "subType": "High metal content world",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 194.31160417972222,
+          "semiMajorAxis": 0.823482519588974,
+          "orbitalEccentricity": 0.001407,
+          "orbitalInclination": 0.005987,
+          "argOfPeriapsis": 179.960083,
+          "meanAnomaly": 71.222387,
+          "ascendingNode": 96.607077,
+          "updateTime": "2026-11-12T10:32:00+00:00",
+          "distanceToArrival": 410.736288,
+          "radius": 8906.593,
+          "gravity": 1.932426873601077,
+          "surfaceTemperature": 1752.998657,
+          "earthMasses": 3.771704,
+          "isLandable": false,
+          "terraformingState": "Not terraformable",
+          "atmosphereType": "CarbonDioxide",
+          "rings": []
+        },
+        {
+          "bodyId": 3,
+          "name": "Darkes Hollow",
+          "type": "Planet",
+          "subType": "Rocky body",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 300.9999998741667,
+          "semiMajorAxis": 1.336000910309903,
+          "orbitalEccentricity": 0,
+          "orbitalInclination": 0,
+          "argOfPeriapsis": 333.115788,
+          "meanAnomaly": 42.63123,
+          "ascendingNode": 0,
+          "updateTime": "2026-11-15T06:16:45+00:00",
+          "distanceToArrival": 666.670845,
+          "radius": 3352.66525,
+          "gravity": 0.470058378753193,
+          "surfaceTemperature": 388.197296,
+          "earthMasses": 0.13,
+          "isLandable": true,
+          "atmosphereType": "None",
+          "rings": []
+        },
+        {
+          "bodyId": 4,
+          "name": "Biggs Colony",
+          "type": "Planet",
+          "subType": "Earthlike body",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 1315.9999830855209,
+          "semiMajorAxis": 4.22000281561522,
+          "orbitalEccentricity": 0,
+          "orbitalInclination": 348.700008,
+          "argOfPeriapsis": 50.697154,
+          "meanAnomaly": 33.029922,
+          "ascendingNode": 0,
+          "updateTime": "2026-11-13T16:46:07+00:00",
+          "distanceToArrival": 2105.801593,
+          "radius": 6275.7905,
+          "gravity": 1.1144887397837182,
+          "surfaceTemperature": 316.979279,
+          "earthMasses": 1.08,
+          "isLandable": false,
+          "terraformingState": "Terraformed",
+          "atmosphereType": "EarthLike",
+          "rings": []
+        },
+        {
+          "bodyId": 5,
+          "name": "Lowing's Rock",
+          "type": "Planet",
+          "subType": "Rocky body",
+          "parents": [
+            {
+              "Star": 0
+            }
+          ],
+          "orbitalPeriod": 2959.9999801980093,
+          "semiMajorAxis": 6.12500441742921,
+          "orbitalEccentricity": 0,
+          "orbitalInclination": 0.4,
+          "argOfPeriapsis": 269.315865,
+          "meanAnomaly": 237.710775,
+          "ascendingNode": 0,
+          "updateTime": "2026-11-12T10:32:00+00:00",
+          "distanceToArrival": 3056.406505,
+          "radius": 860.5050625,
+          "gravity": 0.10977714102165367,
+          "surfaceTemperature": 181.302032,
+          "earthMasses": 0.002,
+          "isLandable": true,
+          "terraformingState": "Not terraformable",
+          "atmosphereType": "None",
+          "rings": []
+        }
+      ],
+      "receivedAt": 1794725715985,
+      "systemAddress": "306253399220",
+      "systemName": "Altair"
+    }
+  },
+  "priorSpanshDarkes": {
+    "name": "Darkes Hollow",
+    "bodyId": 3,
+    "type": "Planet",
+    "parents": [
+      {
+        "Star": 0
+      }
+    ],
+    "isLandable": true,
+    "radius": 3352.66525,
+    "gravity": 0.470041602936678,
+    "semiMajorAxis": 1.3360009103099,
+    "orbitalEccentricity": 0.0,
+    "orbitalInclination": 0.0,
+    "ascendingNode": 0.0,
+    "argOfPeriapsis": 333.115788,
+    "meanAnomaly": 40.991386,
+    "orbitalPeriod": 300.999999874167,
+    "axialTilt": 0.487558,
+    "rotationalPeriod": 0.597978404560185,
+    "timestamps": {
+      "distanceToArrival": "2026-11-13T21:22:22Z",
+      "meanAnomaly": "2026-11-13T21:22:22Z"
+    },
+    "updateTime": "2026-11-13T21:22:22Z"
+  }
+}

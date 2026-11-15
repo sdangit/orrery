@@ -63,3 +63,17 @@ test('new searches and returning live prevent stale in-flight lookups from takin
   assert.equal(displays.at(-1)[0].systemName,'Latest');
   assert.equal(browser.browsing,false);
 });
+
+test('system search includes enabled EDGIS alongside Spansh after resolving the address', async () => {
+  const requests = [];
+  const { browser, displays } = harness(async (request) => {
+    requests.push(request);
+    return request.providers[0] === 'edsm' ? reply('LFT 509')
+      : { edgis: { status: 'ready', bodies: [{ bodyId: 2, name: 'Ross 54' }] } };
+  }, ['edsm', 'spansh', 'edgis']);
+  await browser.search('LFT 509');
+  assert.deepEqual(requests[1].providers, ['spansh', 'edgis']);
+  assert.ok(requests[1].systemAddress);
+  assert.equal(displays.at(-1)[1].edgis.bodies[0].name, 'Ross 54');
+  assert.equal(displays.at(-1)[1].spansh.status, 'unavailable');
+});

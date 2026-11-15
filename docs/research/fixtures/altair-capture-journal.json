@@ -1,0 +1,52 @@
+{
+  "sourceFilename": "Journal.2026-11-14T164938.01.log",
+  "events": [
+    {
+      "timestamp": "2026-11-15T06:13:25Z",
+      "event": "FSDJump",
+      "StarSystem": "Altair",
+      "SystemAddress": 306253399220,
+      "StarPos": [
+        -12.3125,
+        -2.75,
+        11.0
+      ],
+      "Body": "Altair",
+      "BodyID": 0
+    },
+    {
+      "timestamp": "2026-11-15T06:18:39Z",
+      "event": "ApproachBody",
+      "StarSystem": "Altair",
+      "SystemAddress": 306253399220,
+      "Body": "Darkes Hollow",
+      "BodyID": 3
+    }
+  ],
+  "scans": [
+    {
+      "timestamp": "2026-11-15T06:16:45Z",
+      "event": "Scan",
+      "BodyName": "Darkes Hollow",
+      "BodyID": 3,
+      "Parents": [
+        {
+          "Star": 0
+        }
+      ],
+      "StarSystem": "Altair",
+      "SystemAddress": 306253399220,
+      "DistanceFromArrivalLS": 666.670845,
+      "Radius": 3352665.25,
+      "SemiMajorAxis": 199862891435.62317,
+      "Eccentricity": 0.0,
+      "OrbitalInclination": 0.0,
+      "Periapsis": 333.115788,
+      "OrbitalPeriod": 26006399.989128,
+      "AscendingNode": 0.0,
+      "MeanAnomaly": 42.63123,
+      "RotationPeriod": 51665.334154,
+      "AxialTilt": 0.487558
+    }
+  ]
+}

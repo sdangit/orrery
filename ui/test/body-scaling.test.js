@@ -103,3 +103,34 @@ test('physical-scale orbit lines pass through the current body position between 
     }
   }
 });
+
+test('selected labels keep the same readable screen size in every scale mode at an unchanged camera zoom', () => {
+  const camera = new THREE.PerspectiveCamera(60, 1, 1e-10, 1e9);
+  camera.up.set(0, 0, 1);
+  for (const scaleMode of ['compact', 'distances', 'realistic']) {
+    const { updatables } = build(scaleMode);
+    const planet = updatables.get(1);
+    for (const distance of [100, 10000]) {
+      for (const zoom of [1, 2]) {
+        camera.zoom = zoom;
+        camera.updateProjectionMatrix();
+        camera.position.copy(planet.bodyGroup.position).add(new THREE.Vector3(distance, -distance, distance));
+        camera.lookAt(planet.bodyGroup.position);
+        updateBodyAnnotations(updatables, camera, 800, { selectedId:1 });
+        const cameraUp = new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion);
+        const center = planet.bodyGroup.position.clone().add(planet.label.position);
+        const top = center.clone().addScaledVector(cameraUp, planet.label.scale.y / 2).project(camera);
+        const bottom = center.clone().addScaledVector(cameraUp, -planet.label.scale.y / 2).project(camera);
+        assert.ok(Math.abs((top.y - bottom.y) * 400 - 18) < 1e-6,
+          `${scaleMode}: label should be 18 CSS pixels tall at distance ${distance}, zoom ${zoom}`);
+        assert.equal(planet.label.visible, true);
+        assert.ok(planet.label.position.clone().normalize().distanceTo(cameraUp) < 1e-8,
+          'label sits above the body in screen space as the camera rotates');
+      }
+    }
+    camera.lookAt(camera.position.clone().sub(planet.bodyGroup.position).add(camera.position));
+    updateBodyAnnotations(updatables, camera, 800);
+    assert.equal(planet.label.visible, false, `${scaleMode}: hide labels behind the camera`);
+    assert.equal(Boolean(planet.marker), scaleMode === 'realistic', 'location markers remain exclusive to physical sizes');
+  }
+});

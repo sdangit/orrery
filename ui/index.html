@@ -17,127 +17,228 @@
   <body>
     <canvas id="c" tabindex="0" aria-label="System map: drag to orbit, Shift-drag or right-drag to pan, scroll or pinch to zoom"></canvas>
 
-    <div id="systemPanel" class="panel">
-      <h2><span class="tick">&#9656;</span> System</h2>
-      <div class="stat big"><span>Name</span><span id="sysName">&mdash;</span></div>
-      <form id="systemSearchForm">
-        <div class="row"><label for="systemSearchInput">Find system (EDSM)</label></div>
-        <input id="systemSearchInput" type="text" maxlength="128" placeholder="System name" required autocomplete="off" />
-        <button class="act ghost" type="submit" id="systemSearchButton">Show system</button>
-      </form>
-      <button class="act ghost" id="returnLiveButton" hidden>Return to live system</button>
-      <p id="systemSearchStatus" class="time-note" role="status"></p>
-      <button class="act ghost" id="browseBodiesButton">Browse bodies</button>
-      <section id="timeControls" aria-label="Simulation time">
-        <div class="row"><span class="time-label">ED date / time</span><span class="val" id="timeStatus">Live</span></div>
-        <div id="edClock" role="timer" aria-label="Elite Dangerous simulation date and UTC time">&mdash;</div>
-        <div class="stat"><span>Reference</span><span id="timeReference">Real-time seconds</span></div>
-        <div class="row"><span class="time-label">Playback speed</span><span class="val" id="playbackSpeed">1&times;</span></div>
-        <div class="time-buttons">
-          <button class="act ghost" id="slowerTimeButton" aria-label="Halve playback speed">&divide;2</button>
-          <button class="act ghost" id="fasterTimeButton" aria-label="Double playback speed">&times;2</button>
-          <button class="act ghost" id="pauseTimeButton" aria-pressed="false">Pause</button>
-          <button class="act ghost" id="reverseTimeButton" aria-pressed="false">Reverse</button>
-        </div>
-        <p id="playbackDescription" class="time-note"></p>
-        <p class="time-note">Select a body to use its orbit as the time reference.</p>
-        <button class="act ghost" id="nowButton">Return to live time</button>
-      </section>
-      <div class="stat"><span>Bodies</span><span id="sysBodyCount">&mdash;</span></div>
-      <div class="stat" id="sysNextStopRow" hidden><span>Next stop</span><span id="sysNextStop" class="val-live">&mdash;</span></div>
-      <div class="stat"><span>Source</span><span id="sysSource" class="val-demo">DEMO</span></div>
-      <div class="stat"><span>Orbiting</span><span id="orbitTarget">System center</span></div>
-      <button class="act ghost" id="centerMainStarButton" disabled>Center main star</button>
-      <button class="act ghost" id="fitSystemButton">Fit system</button>
-      <button class="act ghost" id="resetViewButton">Reset view</button>
-      <div class="stat"><span>Mode</span><span id="sysMode">Exploration</span></div>
-      <div class="row"><label>Mode override</label></div>
-      <select id="modeSelect">
-        <option value="">Auto</option>
-        <option value="exploration">Exploration</option>
-        <option value="exobiology">Exobiology</option>
-        <option value="mining">Mining</option>
-        <option value="piracy">Piracy</option>
-      </select>
-      <div class="stat"><span>Security</span><span id="sysSecurity">&mdash;</span></div>
-      <div id="piracyInfo" hidden>
-        <div class="stat"><span>Nav Beacon</span><span id="sysNavBeacon">&mdash;</span></div>
-        <div class="stat"><span>Combat zones</span><span id="sysCombatZones">&mdash;</span></div>
-        <div class="stat"><span>Bounty (session)</span><span id="sysBountyTally">&mdash;</span></div>
+    <header id="viewToolbar" class="panel" aria-label="View controls">
+      <button class="act ghost" id="systemToggle" aria-controls="systemPanel" aria-expanded="true">System</button>
+      <div class="toolbar-view">
+        <label class="sr-only" for="scaleSelect">Scale mode</label>
+        <select id="scaleSelect">
+          <option value="compact">Compact</option>
+          <option value="distances">True distances</option>
+          <option value="realistic">Fully to scale</option>
+        </select>
+        <button class="act ghost" id="viewToggle" aria-controls="viewMenu" aria-expanded="false">View ▾</button>
+        <button class="act ghost" id="centerMainStarButton" disabled>Center main star</button>
+        <button class="act ghost" id="fitSystemButton">Fit system</button>
+        <button class="act ghost" id="resetViewButton">Reset view</button>
       </div>
-      <div class="stat"><span>Scale</span><span id="sysScale" class="val-warn">compressed &mdash; not to scale</span></div>
-      <div class="row"><label for="scaleSelect">Scale mode</label></div>
-      <select id="scaleSelect">
-        <option value="compact">Compact</option>
-        <option value="distances">True distances</option>
-        <option value="realistic">Fully to scale</option>
-      </select>
-      <label class="chk"><input type="checkbox" id="edsmToggle"> EDSM backfill (network)</label>
-      <label class="chk"><input type="checkbox" id="spanshToggle"> Spansh backfill (network)</label>
-      <button class="act ghost" id="refreshCommunityButton" disabled title="Fetch fresh data from enabled providers">Refresh community data</button>
-      <p id="communityStatus" class="time-note" role="status">Community data off</p>
-      <p id="communityIssues" class="time-note" hidden></p>
-      <label class="chk"><input type="checkbox" id="audioToggle"> Audio cues</label>
-      <div class="row"><label>Color scheme</label></div>
-      <select id="schemeSelect">
-        <option value="ember">Ember</option>
-        <option value="ice">Ice</option>
-        <option value="viridian">Viridian</option>
-        <option value="amethyst">Amethyst</option>
-      </select>
-    </div>
+      <div class="toolbar-panels">
+        <button class="act ghost" id="legendToggle" aria-controls="legend" aria-expanded="false">Legend</button>
+        <button class="act ghost" id="bodyToggle" aria-controls="bodyDrawer" aria-expanded="false" disabled>Body details</button>
+        <button class="act ghost" id="settingsToggle" aria-controls="settingsPanel" aria-expanded="false">⚙ Settings</button>
+      </div>
+    </header>
 
-    <div id="detail" class="panel" hidden>
-      <h2><span class="tick">&#9656;</span> <span id="detailName">&mdash;</span></h2>
-      <nav aria-label="Body hierarchy">
-        <div id="bodyBreadcrumbs" aria-label="Ancestors"></div>
-        <div class="body-navigation-buttons">
-          <button class="act ghost" id="previousBodyButton" aria-label="Previous sibling">←</button>
-          <button class="act ghost" id="parentBodyButton" aria-label="Parent group">↑ Up</button>
-          <button class="act ghost" id="nextBodyButton" aria-label="Next sibling">→</button>
+    <section id="viewMenu" class="panel" aria-labelledby="viewHeading" hidden>
+      <div class="panel-heading">
+        <h2 id="viewHeading">View orientation</h2>
+        <button class="act ghost icon-button" id="closeViewButton" aria-label="Close view controls">×</button>
+      </div>
+      <label class="field-label" for="viewReference">Reference plane</label>
+      <select id="viewReference">
+        <option value="system">System reference plane</option>
+        <option value="selected" id="selectedOrbitOption" disabled>Selected orbit</option>
+      </select>
+      <p class="time-note" id="viewReferenceNote"></p>
+      <div class="view-presets">
+        <button class="act ghost" id="viewTopButton" aria-pressed="false" title="Look perpendicular to the reference plane">Top</button>
+        <button class="act ghost" id="viewFrontButton" aria-pressed="false" title="Look edge-on along the reference plane">Front</button>
+        <button class="act ghost" id="viewSideButton" aria-pressed="false" title="Look edge-on, 90 degrees from Front">Side</button>
+        <button class="act ghost" id="viewAngledButton" aria-pressed="true" title="Look obliquely across the reference plane">Angled</button>
+      </div>
+      <p id="viewOrientationStatus" class="time-note" role="status">Angled · System reference plane</p>
+      <p class="time-note">Center and zoom stay unchanged. Drag to rotate freely after aligning.</p>
+      <label class="chk"><input type="checkbox" id="referenceGridToggle"> System plane grid</label>
+      <label class="field-label" for="referenceGridOrigin">Grid origin</label>
+      <select id="referenceGridOrigin">
+        <option value="view">Follow view centre</option>
+        <option value="system">System centre</option>
+      </select>
+      <p class="time-note" id="referenceGridNote">Blue above, orange below. Aligned to the system axes. Follow the view centre for close-ups, or pin the plane to the system centre. Zoom in for finer divisions.</p>
+      <p class="time-note" id="referenceGridStep" hidden></p>
+    </section>
+
+    <aside id="systemPanel" class="panel side-panel" aria-labelledby="systemHeading">
+      <div class="panel-heading">
+        <h2 id="systemHeading"><span class="tick">▸</span> System</h2>
+        <button class="act ghost icon-button" id="collapseSystemButton" aria-label="Collapse system panel">‹</button>
+      </div>
+      <div class="panel-scroll">
+        <div class="stat big"><span>Name</span><span id="sysName">&mdash;</span></div>
+        <div class="stat"><span>Source</span><span id="sysSource" class="val-demo">DEMO</span></div>
+        <form id="systemSearchForm">
+          <label class="field-label" for="systemSearchInput">Find system (EDSM)</label>
+          <input id="systemSearchInput" type="text" maxlength="128" placeholder="System name" required autocomplete="off" />
+          <button class="act ghost" type="submit" id="systemSearchButton">Show system</button>
+        </form>
+        <button class="act ghost" id="returnLiveButton" hidden>Return to live system</button>
+        <p id="systemSearchStatus" class="time-note" role="status"></p>
+        <button class="act" id="browseBodiesButton">Browse bodies →</button>
+        <section class="panel-section" aria-label="System summary">
+          <div class="stat"><span>Bodies</span><span id="sysBodyCount">&mdash;</span></div>
+          <div class="stat" id="sysNextStopRow" hidden><span>Next stop</span><span id="sysNextStop" class="val-live">&mdash;</span></div>
+          <div class="stat"><span>Security</span><span id="sysSecurity">&mdash;</span></div>
+          <div class="stat"><span>Activity</span><button class="text-button" id="activitySettingsButton" title="Change activity mode in Settings"><span id="sysMode">Exploration</span> ↗</button></div>
+          <div id="piracyInfo" hidden>
+            <div class="stat"><span>Nav Beacon</span><span id="sysNavBeacon">&mdash;</span></div>
+            <div class="stat"><span>Combat zones</span><span id="sysCombatZones">&mdash;</span></div>
+            <div class="stat"><span>Bounty (session)</span><span id="sysBountyTally">&mdash;</span></div>
+          </div>
+        </section>
+        <section class="panel-section" aria-label="Community data">
+          <div class="section-heading"><h3>Community data</h3><button class="text-button" id="dataSettingsButton">Configure ↗</button></div>
+          <p id="communityStatus" class="time-note" role="status">Community data off</p>
+          <p id="communityIssues" class="time-note" hidden></p>
+          <button class="act ghost" id="refreshCommunityButton" disabled title="Fetch fresh data from enabled providers">Refresh community data</button>
+        </section>
+        <div id="sessionStrip" class="panel-section" hidden>
+          <h3>Session</h3>
+          <div class="stat"><span>Scans</span><span id="stripScans">0</span></div>
+          <div class="stat"><span>First discoveries</span><span id="stripFirstDisc">0</span></div>
+          <div class="stat"><span>Bounty</span><span><span id="stripBounty">0</span> CR</span></div>
         </div>
-        <p class="time-note" id="bodySiblingStatus"></p>
-        <p class="time-note" id="bodyChildrenLabel"></p>
-        <div id="bodyChildren"></div>
-      </nav>
-      <button class="act ghost" id="centerSelectedButton" disabled>Center selection</button>
-      <button class="act ghost" id="zoomSelectedButton" disabled>Zoom to body</button>
-      <button class="act ghost" id="useTimeReferenceButton" disabled>Use as time reference</button>
-      <button class="act ghost" id="closeDetailButton">Close details</button>
-      <div id="detailBackfillNotice" class="val-warn" hidden style="margin-bottom:8px;">COMMUNITY DATA &mdash; NOT YET SCANNED</div>
-      <div class="stat"><span>Data sources</span><span id="detailSources">&mdash;</span></div>
-      <div class="stat"><span>Position</span><span id="detailPosition">&mdash;</span></div>
-      <details class="provenance">
-        <summary>Orbit and source timestamps</summary>
-        <div class="stat"><span>Orbit source</span><span id="detailOrbitSource">&mdash;</span></div>
-        <div class="stat timestamp"><span>Orbit epoch (UTC)</span><span id="detailOrbitEpoch">&mdash;</span></div>
-        <div class="stat timestamp"><span>Record updated (UTC)</span><span id="detailRecordUpdated">&mdash;</span></div>
-      </details>
-      <div id="detailSpotlight" class="spotlight-row" hidden></div>
-      <div class="row"><label>Nickname</label></div>
-      <input type="text" id="nicknameInput" placeholder="pin a nickname&hellip;" maxlength="40" />
-      <div class="stat"><span>Type</span><span id="detailKind">&mdash;</span></div>
-      <div class="stat"><span>Distance from arrival</span><span id="detailDist">&mdash;</span></div>
-      <div class="stat"><span>Radius</span><span id="detailRadius">&mdash;</span></div>
-      <div class="stat"><span>Mass</span><span id="detailMass">&mdash;</span></div>
-      <div class="stat"><span>Gravity</span><span id="detailGravity">&mdash;</span></div>
-      <div class="stat"><span>Surface temp</span><span id="detailTemp">&mdash;</span></div>
-      <div class="stat"><span>Atmosphere</span><span id="detailAtmo">&mdash;</span></div>
-      <div class="stat"><span>Landable</span><span id="detailLandable">&mdash;</span></div>
-      <div class="stat"><span>Orbital period</span><span id="detailPeriod">&mdash;</span></div>
-      <div class="stat" id="detailRingsRow" hidden><span>Rings</span><span id="detailRings">&mdash;</span></div>
+      </div>
+    </aside>
+
+    <aside id="bodyDrawer" class="panel side-panel" aria-label="Selected body" hidden>
+      <div id="detail" hidden>
+        <div class="panel-heading">
+          <h2><span class="tick">▸</span> <span id="detailName">&mdash;</span></h2>
+          <button class="act ghost icon-button" id="closeDetailButton" aria-label="Collapse body details">›</button>
+        </div>
+        <div class="body-navigation">
+          <nav aria-label="Body hierarchy">
+            <div id="bodyBreadcrumbs" aria-label="Ancestors"></div>
+            <div class="body-navigation-buttons">
+              <button class="act ghost" id="previousBodyButton" aria-label="Previous sibling">←</button>
+              <button class="act ghost" id="parentBodyButton" aria-label="Parent group">↑ Up</button>
+              <button class="act ghost" id="nextBodyButton" aria-label="Next sibling">→</button>
+            </div>
+            <p class="time-note" id="bodySiblingStatus"></p>
+          </nav>
+          <div class="body-actions">
+            <button class="act ghost" id="centerSelectedButton" disabled>Center selection</button>
+            <button class="act ghost" id="zoomSelectedButton" disabled>Zoom to body</button>
+          </div>
+        </div>
+        <div class="panel-scroll">
+          <details class="fold" id="bodyChildrenSection">
+            <summary id="bodyChildrenLabel">Children</summary>
+            <div id="bodyChildren"></div>
+          </details>
+          <div id="detailBackfillNotice" class="val-warn">Community data — not yet scanned</div>
+          <div id="detailSpotlight" class="spotlight-row" hidden></div>
+          <div class="body-facts">
+            <div class="stat"><span>Type</span><span id="detailKind">&mdash;</span></div>
+            <div class="stat"><span>Arrival distance</span><span id="detailDist">&mdash;</span></div>
+            <div class="stat"><span>Radius</span><span id="detailRadius">&mdash;</span></div>
+            <div class="stat"><span>Orbital period</span><span id="detailPeriod">&mdash;</span></div>
+          </div>
+          <button class="act ghost" id="useTimeReferenceButton" disabled>Use as time reference</button>
+          <details class="fold">
+            <summary>Physical properties</summary>
+            <div class="stat"><span>Mass</span><span id="detailMass">&mdash;</span></div>
+            <div class="stat"><span>Gravity</span><span id="detailGravity">&mdash;</span></div>
+            <div class="stat"><span>Surface temp</span><span id="detailTemp">&mdash;</span></div>
+            <div class="stat"><span>Atmosphere</span><span id="detailAtmo">&mdash;</span></div>
+            <div class="stat"><span>Landable</span><span id="detailLandable">&mdash;</span></div>
+            <div class="stat" id="detailRingsRow" hidden><span>Rings</span><span id="detailRings">&mdash;</span></div>
+          </details>
+          <details class="fold">
+            <summary>Exploration</summary>
       <div id="detailBio" hidden>
         <div class="stat"><span>Bio signals</span><span id="detailBioCount">&mdash;</span></div>
         <div class="stat" id="detailGenusesRow" hidden><span>Genuses</span><span id="detailGenuses">&mdash;</span></div>
         <div id="detailSamples"></div>
       </div>
-      <div class="stat"><span>Discovered</span><span id="detailDiscovered">&mdash;</span></div>
-      <div class="stat"><span>Mapped</span><span id="detailMapped">&mdash;</span></div>
-      <button class="act" id="copyName">Copy name</button>
-    </div>
+            <div class="stat"><span>Discovered</span><span id="detailDiscovered">&mdash;</span></div>
+            <div class="stat"><span>Mapped</span><span id="detailMapped">&mdash;</span></div>
+            <div class="stat" title="First footfall status at the time of the recorded scan."><span>First footfall</span><span id="detailFootfall">&mdash;</span></div>
+          </details>
+          <details class="fold provenance">
+            <summary>Data sources &amp; orbit timestamps</summary>
+            <div class="stat"><span>Data sources</span><span id="detailSources">&mdash;</span></div>
+            <div class="stat"><span>Position</span><span id="detailPosition">&mdash;</span></div>
+            <div class="stat"><span>Orbit source</span><span id="detailOrbitSource">&mdash;</span></div>
+            <div class="stat timestamp"><span>Orbit epoch (UTC)</span><span id="detailOrbitEpoch">&mdash;</span></div>
+            <div class="stat timestamp"><span>Record updated (UTC)</span><span id="detailRecordUpdated">&mdash;</span></div>
+          </details>
+          <details class="fold">
+            <summary>Name &amp; nickname</summary>
+            <label class="field-label" for="nicknameInput">Nickname</label>
+            <input type="text" id="nicknameInput" placeholder="pin a nickname…" maxlength="40" />
+            <button class="act ghost" id="copyName">Copy name</button>
+          </details>
+        </div>
+      </div>
+    </aside>
 
-    <div id="legend" class="panel" hidden>
-      <h2><span class="tick">&#9656;</span> Legend</h2>
+    <aside id="settingsPanel" class="panel side-panel" aria-labelledby="settingsHeading" hidden>
+      <div class="panel-heading">
+        <h2 id="settingsHeading"><span class="tick">▸</span> Settings</h2>
+        <button class="act ghost icon-button" id="closeSettingsButton" aria-label="Close settings">×</button>
+      </div>
+      <div class="panel-scroll">
+        <p class="time-note settings-intro">Preferences save automatically on this device.</p>
+        <section class="settings-section" aria-labelledby="appearanceHeading">
+          <h3 id="appearanceHeading">Appearance</h3>
+          <label class="field-label" for="schemeSelect">Color scheme</label>
+          <select id="schemeSelect">
+            <option value="ember">Ember</option>
+            <option value="ice">Ice</option>
+            <option value="viridian">Viridian</option>
+            <option value="amethyst">Amethyst</option>
+          </select>
+          <div class="row">
+            <label for="orbitBrightness">Orbit brightness</label>
+            <output id="orbitBrightnessValue" for="orbitBrightness">100%</output>
+          </div>
+          <input id="orbitBrightness" type="range" min="0" max="400" step="5" value="100" aria-describedby="orbitBrightnessHint" />
+          <div class="section-heading">
+            <span class="setting-range-label">Off — 400%</span>
+            <button class="text-button" id="resetOrbitBrightness" type="button">Reset to 100%</button>
+          </div>
+          <p id="orbitBrightnessHint" class="time-note">Selected orbits stay a little brighter automatically.</p>
+          <p class="time-note">Switch scale modes in the view toolbar. Open the legend there for a guide to colors and symbols.</p>
+        </section>
+        <section class="settings-section" aria-labelledby="dataHeading">
+          <h3 id="dataHeading">Data</h3>
+          <label class="chk"><input type="checkbox" id="edsmToggle"> EDSM backfill (network)</label>
+          <label class="chk"><input type="checkbox" id="spanshToggle"> Spansh backfill (network)</label>
+          <label class="chk"><input type="checkbox" id="edgisToggle"> EDGIS backfill (network)</label>
+          <p class="time-note">Fill missing system data from enabled providers. Journal data takes priority. System-name searches use EDSM.</p>
+          <p class="time-note">Refresh community data from the System panel.</p>
+        </section>
+        <section class="settings-section" aria-labelledby="generalHeading">
+          <h3 id="generalHeading">General</h3>
+          <label class="field-label" for="modeSelect">Activity mode</label>
+          <select id="modeSelect">
+            <option value="">Auto</option>
+            <option value="exploration">Exploration</option>
+            <option value="exobiology">Exobiology</option>
+            <option value="mining">Mining</option>
+            <option value="piracy">Piracy</option>
+          </select>
+          <p class="time-note">Auto follows your current activity. A manual choice changes body highlights and system context.</p>
+          <label class="chk"><input type="checkbox" id="audioToggle"> Audio cues</label>
+        </section>
+      </div>
+    </aside>
+
+    <aside id="legend" class="panel" aria-labelledby="legendHeading" hidden>
+      <div class="panel-heading">
+        <h2 id="legendHeading"><span class="tick">▸</span> Legend</h2>
+        <button class="act ghost icon-button" id="closeLegendButton" aria-label="Close legend">×</button>
+      </div>
       <div class="legend-section">Icons</div>
       <div class="stat"><span>&#10022;</span><span>Star</span></div>
       <div class="stat"><span>&#9675;</span><span>Planet</span></div>
@@ -151,18 +252,42 @@
       <div class="stat"><span class="swatch sw-wire"></span><span>Wireframe: community data, not yet scanned</span></div>
       <div class="stat"><span class="swatch sw-dim"></span><span>Dim ring band: belt/ring (brighter = better reserves)</span></div>
       <div class="stat"><span class="swatch sw-orbit"></span><span>Faint ellipse: orbit path</span></div>
+    </aside>
+
+    <div id="orientationAxes">
+      <svg id="axisLegend" viewBox="0 0 96 96" role="img" aria-label="System X, Y and Z axes, rotated with the view">
+        <title>System axes · solid positive directions, dashed negative directions</title>
+      </svg>
+      <span>System axes</span>
     </div>
-
-    <div id="sessionStrip" class="panel" hidden>
-      <span class="strip-label">Session</span>
-      <span class="strip-stat">SCANS <span id="stripScans">0</span></span>
-      <span class="strip-stat">FIRST DISC <span id="stripFirstDisc">0</span></span>
-      <span class="strip-stat">BOUNTY <span id="stripBounty">0</span> CR</span>
+    <div id="viewStatus" aria-label="Current view">
+      <span>Orbiting <strong id="orbitTarget">System center</strong></span>
+      <span id="sysScale" class="val-warn">compressed — not to scale</span>
     </div>
+    <div id="hint">drag to orbit · right-drag / Shift-drag to pan · scroll / pinch to zoom</div>
 
-    <button class="act ghost" id="legendToggle">Legend</button>
-
-    <div id="hint" class="panel">drag to orbit &middot; right-drag / Shift-drag to pan &middot; scroll / pinch to zoom &middot; click a body for details</div>
+    <section id="timeControls" class="panel" aria-label="Simulation time">
+      <div class="playback-summary">
+        <div class="clock-block">
+          <div class="clock-label"><span class="time-label">ED date / time</span><span id="timeStatus">Live</span></div>
+          <div id="edClock" role="timer" aria-label="Elite Dangerous simulation date and UTC time">&mdash;</div>
+        </div>
+        <div class="time-buttons">
+          <button class="act ghost" id="slowerTimeButton" aria-label="Halve playback speed">÷2</button>
+          <span id="playbackSpeed" aria-label="Playback speed">1×</span>
+          <button class="act ghost" id="fasterTimeButton" aria-label="Double playback speed">×2</button>
+          <button class="act ghost" id="pauseTimeButton" aria-pressed="false">Pause</button>
+          <button class="act ghost" id="reverseTimeButton" aria-pressed="false">Reverse</button>
+          <button class="act ghost" id="nowButton" title="Return to live time">Live time</button>
+        </div>
+        <button class="act ghost" id="playbackToggle" aria-expanded="false" aria-controls="playbackDetails">More ▴</button>
+      </div>
+      <div id="playbackDetails" hidden>
+        <div class="stat"><span>Time reference</span><span id="timeReference">Real-time seconds</span></div>
+        <p id="playbackDescription" class="time-note"></p>
+        <p class="time-note">Select a body and choose “Use as time reference” to animate relative to its orbital period.</p>
+      </div>
+    </section>
 
     <script type="module" src="/src/main.js"></script>
   </body>
