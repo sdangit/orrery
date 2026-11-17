@@ -5,7 +5,8 @@ import { parseJsonPreservingIntegers, systemAddressString } from '../src/json-in
 import { parseJournalLines } from '../src/journal-parser.js';
 
 const input = { systemName: 'Sol', systemAddress: '10477373803', providers: ['edsm', 'spansh'] };
-const system = { name: 'Sol', id64: 10477373803, bodies: [{ bodyId: 0, name: 'Sol', type: 'Star', axialTilt: -0.25, stations: ['unused'] }] };
+const system = { name: 'Sol', id64: 10477373803, bodies: [{ bodyId: 0, name: 'Sol', type: 'Star', axialTilt: -0.25,
+  belts: [{ name: 'Asteroid Belt', innerRadius: 308170000000, outerRadius: 489190000000, type: 'Rocky' }], stations: ['unused'] }] };
 const response = (source, value = system) => ({ ok: true, text: async () => JSON.stringify(source === 'spansh' ? { system: value } : value) });
 
 test('provider calls use fixed URLs, verify identity, and trim unrelated data', async () => {
@@ -20,6 +21,7 @@ test('provider calls use fixed URLs, verify identity, and trim unrelated data', 
   assert.equal(result.edsm.bodies[0].stations, undefined);
   assert.equal(result.edsm.bodies[0].axialTilt, -0.25);
   assert.equal(result.spansh.bodies[0].axialTilt, -0.25);
+  assert.deepEqual(result.spansh.bodies[0].belts, system.bodies[0].belts);
   assert.ok(calls.every((c) => c.options.signal instanceof AbortSignal && c.options.redirect === 'error'));
   service.close();
 });

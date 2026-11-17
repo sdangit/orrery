@@ -5,7 +5,7 @@ const BODY_FIELDS = ['bodyId', 'name', 'type', 'subType', 'parents', 'orbitalPer
   'orbitalEccentricity', 'orbitalInclination', 'argOfPeriapsis', 'meanAnomaly', 'ascendingNode',
   'timestamps', 'updateTime', 'mainStar', 'isMainStar', 'distanceToArrival', 'solarRadius', 'radius',
   'gravity', 'surfaceTemperature', 'earthMasses', 'solarMasses', 'isLandable', 'terraformingState',
-  'atmosphereType', 'reserveLevel', 'rings', 'axialTilt'];
+  'atmosphereType', 'reserveLevel', 'rings', 'belts', 'axialTilt'];
 
 export function parseCommunityRequest(params) {
   const systemName = params.get('systemName');

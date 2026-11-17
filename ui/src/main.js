@@ -23,13 +23,19 @@ import { bindViewPanel } from './view-panel.js';
 import { bindOrbitSettings } from './orbit-settings.js';
 import { createReferenceGrid, bindGridToggle, gridStepLabel } from './reference-grid.js';
 import { createAxisLegend } from './axis-legend.js';
+import { bindDisplaySettings, watchPixelRatio } from './display-settings.js';
+import { labelPixelRatio, refreshLabelTextures } from './labels.js';
+import { createBarycenterGuide, bindBarycenterToggle } from './barycenter-guide.js';
 
+const displaySettings = bindDisplaySettings({ onChange: () => resize() });
 const hud = bindHudLayout();
 observeHudSize();
 
 // ---------- renderer & scene ----------
 const canvas = document.getElementById('c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, logarithmicDepthBuffer: true });
+let labelRasterRatio = labelPixelRatio(displaySettings.labelScale);
+let displayPixelRatio = devicePixelRatio;
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.setClearColor(0x060402);
 renderer.autoClear = false;
@@ -40,6 +46,9 @@ const referenceGrid = createReferenceGrid();
 const axisLegend = createAxisLegend(document.getElementById('axisLegend'));
 let gridFollowsView = true;
 scene.add(referenceGrid.mesh);
+const barycenterGuide = createBarycenterGuide();
+let showBarycenters = true;
+scene.add(barycenterGuide.group);
 
 // ---------- HUD color scheme (milestone 7) ----------
 // Applied before the first scene build so the 3D labels pick up the accent.
@@ -81,6 +90,9 @@ function requestRender() { needsRender = true; }
 
 function loop(now) {
   requestAnimationFrame(loop);
+  // Some browser/display transitions change DPR without a resize or media-query
+  // event. This cheap check also catches those before the next scene render.
+  if (devicePixelRatio !== displayPixelRatio) resize();
   const realDt = lastFrameTime === null ? 0 : now - lastFrameTime;
   lastFrameTime = now;
   const wasPlaying = !timeControl.live && !timeControl.paused;
@@ -99,7 +111,11 @@ function loop(now) {
   }
   // A programmatic focus above is already included in this render.
   needsRender = false;
-  updateBodyAnnotations(updatables, camera, canvas.getBoundingClientRect().height, { selectedId });
+  updateBodyAnnotations(updatables, camera, canvas.getBoundingClientRect().height,
+    { selectedId, labelScale:displaySettings.labelScale });
+  barycenterGuide.update({ nodes:renderedNodes, selectedId, focusedId:focusedBodyId,
+    getPosition:navigationPosition, camera, viewportHeight:canvas.getBoundingClientRect().height,
+    labelScale:displaySettings.labelScale, visible:showBarycenters });
   axisLegend.update(camera);
   if (referenceGrid.mesh.visible) {
     const layout = referenceGrid.update(camera, orbitCamera.controls.target, canvas.getBoundingClientRect().height,
@@ -134,13 +150,18 @@ function resize() {
   const { width: w, height: h } = canvas.getBoundingClientRect();
   if (!w || !h) return;
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  displayPixelRatio = devicePixelRatio;
   renderer.setSize(w, h, false);
+  const ratio = labelPixelRatio(displaySettings.labelScale);
+  if (ratio !== labelRasterRatio) {
+    labelRasterRatio = ratio;
+    refreshLabelTextures(updatables,ratio);
+  }
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
   requestRender();
 }
 addEventListener('resize', resize);
-resize();
 
 // ---------- selection ----------
 let selectedId = null;
@@ -162,6 +183,7 @@ let bountyTally = 0;
 let nextSystem = null;
 let scaleMode = 'compact';
 let displayBrowsing = false;
+resize();
 
 const orbitSettings = bindOrbitSettings({ onChange(brightness) {
   highlightSelectedOrbit(updatables, selectedId, brightness);
@@ -178,6 +200,10 @@ bindGridToggle({ onChange(visible, followView) {
 } });
 
 const nicknameInput = document.getElementById('nicknameInput');
+bindBarycenterToggle({ onChange(visible) {
+  showBarycenters = visible;
+  requestRender();
+} });
 document.getElementById('browseBodiesButton').addEventListener('click', () => navigateTo(SYSTEM));
 function selectedNode() {
   return selectedId === SYSTEM ? { id: SYSTEM, kind: 'SystemBarycentre', name: systemName, sources: [] } : renderedNodes.get(selectedId);
@@ -281,6 +307,7 @@ function currentBodyBounds() {
   scene.updateMatrixWorld(true);
   const bounds = new THREE.Box3();
   for (const mesh of pickables.keys()) bounds.expandByObject(mesh);
+  for (const entry of updatables.values()) if (entry.band) bounds.expandByObject(entry.bodyGroup);
   return bounds;
 }
 
@@ -311,15 +338,18 @@ function centerBody(id) {
 
 function updateZoomButton() {
   const button = document.getElementById('zoomSelectedButton');
-  button.disabled = !(updatables.get(selectedId)?.radius > 0);
-  button.title = button.disabled ? 'A known body radius is needed to zoom in' : 'Frame this body and its rings';
+  const entry = updatables.get(selectedId);
+  button.textContent = renderedNodes.get(selectedId)?.kind === 'AsteroidBelt' ? 'Zoom to belt' : 'Zoom to body';
+  button.disabled = !((entry?.frameRadius ?? entry?.radius) > 0);
+  button.title = button.disabled ? 'A known radius or belt extent is needed to zoom in'
+    : entry?.band ? 'Frame this asteroid belt' : 'Frame this body and its rings';
 }
 
 function zoomToBody(id) {
   const entry = updatables.get(id);
-  if (!(entry?.radius > 0)) return;
+  if (!((entry?.frameRadius ?? entry?.radius) > 0)) return;
   centerBody(id);
-  const radius = Math.max(entry.radius * 2.3, ...entry.rings.map((ring) => ring.geometry.parameters.outerRadius));
+  const radius = Math.max(entry.frameRadius ?? entry.radius * 2.3, ...entry.rings.map((ring) => ring.geometry.parameters.outerRadius));
   orbitCamera.focus(entry.bodyGroup.position, fitDistance(camera, radius, visibleCameraArea()));
 }
 
@@ -524,6 +554,7 @@ function rebuildSceneVisuals() {
   const built = buildSystemScene(renderedNodes, timeControl.simTimeMs, systemName, effectiveMode(), nicknames, {
     scaleMode,
     labelColor: labelAccent,
+    labelPixelRatio: labelRasterRatio,
   });
   scene.add(built.group);
   pickables = built.pickables;
@@ -670,3 +701,5 @@ connectLive({
     setSourceBadge(liveStatus);
   },
 });
+
+watchPixelRatio(resize);

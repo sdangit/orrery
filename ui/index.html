@@ -33,38 +33,52 @@
       </div>
       <div class="toolbar-panels">
         <button class="act ghost" id="legendToggle" aria-controls="legend" aria-expanded="false">Legend</button>
-        <button class="act ghost" id="bodyToggle" aria-controls="bodyDrawer" aria-expanded="false" disabled>Body details</button>
+        <button class="act ghost" id="bodyToggle" aria-controls="bodyDrawer" aria-expanded="false" disabled>Details</button>
         <button class="act ghost" id="settingsToggle" aria-controls="settingsPanel" aria-expanded="false">⚙ Settings</button>
       </div>
     </header>
 
     <section id="viewMenu" class="panel" aria-labelledby="viewHeading" hidden>
       <div class="panel-heading">
-        <h2 id="viewHeading">View orientation</h2>
+        <h2 id="viewHeading">View</h2>
         <button class="act ghost icon-button" id="closeViewButton" aria-label="Close view controls">×</button>
       </div>
-      <label class="field-label" for="viewReference">Reference plane</label>
-      <select id="viewReference">
-        <option value="system">System reference plane</option>
-        <option value="selected" id="selectedOrbitOption" disabled>Selected orbit</option>
-      </select>
-      <p class="time-note" id="viewReferenceNote"></p>
-      <div class="view-presets">
-        <button class="act ghost" id="viewTopButton" aria-pressed="false" title="Look perpendicular to the reference plane">Top</button>
-        <button class="act ghost" id="viewFrontButton" aria-pressed="false" title="Look edge-on along the reference plane">Front</button>
-        <button class="act ghost" id="viewSideButton" aria-pressed="false" title="Look edge-on, 90 degrees from Front">Side</button>
-        <button class="act ghost" id="viewAngledButton" aria-pressed="true" title="Look obliquely across the reference plane">Angled</button>
+      <div class="panel-scroll">
+        <section aria-labelledby="orientationHeading">
+          <h3 id="orientationHeading">Camera orientation</h3>
+          <label class="field-label" for="viewReference">Align camera to</label>
+          <select id="viewReference">
+            <option value="system">System reference plane</option>
+            <option value="selected" id="selectedOrbitOption" disabled>Selected orbit</option>
+          </select>
+          <p class="time-note" id="viewReferenceNote"></p>
+          <div class="view-presets">
+            <button class="act ghost" id="viewTopButton" aria-pressed="false" title="Look perpendicular to the reference plane">Top</button>
+            <button class="act ghost" id="viewFrontButton" aria-pressed="false" title="Look edge-on along the reference plane">Front</button>
+            <button class="act ghost" id="viewSideButton" aria-pressed="false" title="Look edge-on, 90 degrees from Front">Side</button>
+            <button class="act ghost" id="viewAngledButton" aria-pressed="true" title="Look obliquely across the reference plane">Angled</button>
+          </div>
+          <p id="viewOrientationStatus" class="time-note" role="status">Angled · System reference plane</p>
+          <p class="time-note">Center and zoom stay unchanged. Drag to rotate freely after aligning.</p>
+        </section>
+        <section class="panel-section" aria-labelledby="gridHeading">
+          <h3 id="gridHeading">Reference grid</h3>
+          <label class="chk"><input type="checkbox" id="referenceGridToggle"> System plane grid</label>
+          <label class="field-label" for="referenceGridOrigin">Grid origin</label>
+          <select id="referenceGridOrigin">
+            <option value="view">Follow view center</option>
+            <option value="system">System center</option>
+          </select>
+          <p class="time-note" id="referenceGridNote">The grid stays parallel to the system XY plane, even when the camera is aligned to a selected orbit. Blue on the +Z side, orange on the −Z side.</p>
+          <p class="time-note">Follow the view center for close-ups, or pin the plane to the system center. Zoom in for finer divisions.</p>
+          <p class="time-note" id="referenceGridStep" hidden></p>
+        </section>
+        <section class="panel-section" aria-labelledby="barycenterHeading">
+          <h3 id="barycenterHeading">Orbital group centers</h3>
+          <label class="chk"><input type="checkbox" id="barycenterToggle" checked> Show barycenters</label>
+          <p class="time-note">Faint × markers show group centers. The selected group is brightest; the camera-focused group has medium brightness. Inactive markers appear as the bodies separate on screen.</p>
+        </section>
       </div>
-      <p id="viewOrientationStatus" class="time-note" role="status">Angled · System reference plane</p>
-      <p class="time-note">Center and zoom stay unchanged. Drag to rotate freely after aligning.</p>
-      <label class="chk"><input type="checkbox" id="referenceGridToggle"> System plane grid</label>
-      <label class="field-label" for="referenceGridOrigin">Grid origin</label>
-      <select id="referenceGridOrigin">
-        <option value="view">Follow view centre</option>
-        <option value="system">System centre</option>
-      </select>
-      <p class="time-note" id="referenceGridNote">Blue above, orange below. Aligned to the system axes. Follow the view centre for close-ups, or pin the plane to the system centre. Zoom in for finer divisions.</p>
-      <p class="time-note" id="referenceGridStep" hidden></p>
     </section>
 
     <aside id="systemPanel" class="panel side-panel" aria-labelledby="systemHeading">
@@ -109,11 +123,11 @@
       </div>
     </aside>
 
-    <aside id="bodyDrawer" class="panel side-panel" aria-label="Selected body" hidden>
+    <aside id="bodyDrawer" class="panel side-panel" aria-label="Selection details" hidden>
       <div id="detail" hidden>
         <div class="panel-heading">
           <h2><span class="tick">▸</span> <span id="detailName">&mdash;</span></h2>
-          <button class="act ghost icon-button" id="closeDetailButton" aria-label="Collapse body details">›</button>
+          <button class="act ghost icon-button" id="closeDetailButton" aria-label="Collapse selection details">›</button>
         </div>
         <div class="body-navigation">
           <nav aria-label="Body hierarchy">
@@ -139,12 +153,15 @@
           <div id="detailSpotlight" class="spotlight-row" hidden></div>
           <div class="body-facts">
             <div class="stat"><span>Type</span><span id="detailKind">&mdash;</span></div>
-            <div class="stat"><span>Arrival distance</span><span id="detailDist">&mdash;</span></div>
-            <div class="stat"><span>Radius</span><span id="detailRadius">&mdash;</span></div>
-            <div class="stat"><span>Orbital period</span><span id="detailPeriod">&mdash;</span></div>
+            <div class="stat" id="detailDistRow"><span>Arrival distance</span><span id="detailDist">&mdash;</span></div>
+            <div class="stat" id="detailRadiusRow"><span>Radius</span><span id="detailRadius">&mdash;</span></div>
+            <div class="stat" id="detailPeriodRow"><span>Orbital period</span><span id="detailPeriod">&mdash;</span></div>
+            <div class="stat" id="detailBeltInnerRow" hidden><span>Inner radius</span><span id="detailBeltInner">&mdash;</span></div>
+            <div class="stat" id="detailBeltOuterRow" hidden><span>Outer radius</span><span id="detailBeltOuter">&mdash;</span></div>
           </div>
+          <p class="time-note" id="detailBeltNote" hidden></p>
           <button class="act ghost" id="useTimeReferenceButton" disabled>Use as time reference</button>
-          <details class="fold">
+          <details class="fold" id="detailPhysicalSection">
             <summary>Physical properties</summary>
             <div class="stat"><span>Mass</span><span id="detailMass">&mdash;</span></div>
             <div class="stat"><span>Gravity</span><span id="detailGravity">&mdash;</span></div>
@@ -153,11 +170,11 @@
             <div class="stat"><span>Landable</span><span id="detailLandable">&mdash;</span></div>
             <div class="stat" id="detailRingsRow" hidden><span>Rings</span><span id="detailRings">&mdash;</span></div>
           </details>
-          <details class="fold">
+          <details class="fold" id="detailExplorationSection">
             <summary>Exploration</summary>
       <div id="detailBio" hidden>
         <div class="stat"><span>Bio signals</span><span id="detailBioCount">&mdash;</span></div>
-        <div class="stat" id="detailGenusesRow" hidden><span>Genuses</span><span id="detailGenuses">&mdash;</span></div>
+        <div class="stat" id="detailGenusesRow" hidden><span>Genera</span><span id="detailGenuses">&mdash;</span></div>
         <div id="detailSamples"></div>
       </div>
             <div class="stat"><span>Discovered</span><span id="detailDiscovered">&mdash;</span></div>
@@ -188,7 +205,26 @@
         <button class="act ghost icon-button" id="closeSettingsButton" aria-label="Close settings">×</button>
       </div>
       <div class="panel-scroll">
-        <p class="time-note settings-intro">Preferences save automatically on this device.</p>
+        <p class="time-note settings-intro">Preferences save automatically in this browser.</p>
+        <section class="settings-section" aria-labelledby="displayHeading">
+          <h3 id="displayHeading">Display size</h3>
+          <div class="row">
+            <label for="uiScale">UI scale</label>
+            <output id="uiScaleValue" for="uiScale">100%</output>
+          </div>
+          <input id="uiScale" type="range" min="75" max="200" step="5" value="100" aria-describedby="displaySizeHint" />
+          <p class="setting-range-label">75–200% · panels and controls</p>
+          <div class="row">
+            <label for="labelScale">Body label size</label>
+            <output id="labelScaleValue" for="labelScale">100%</output>
+          </div>
+          <input id="labelScale" type="range" min="75" max="300" step="5" value="100" aria-describedby="displaySizeHint" />
+          <div class="section-heading">
+            <span class="setting-range-label">75–300% · map labels</span>
+            <button class="text-button" id="resetDisplaySizes" type="button">Reset both to 100%</button>
+          </div>
+          <p id="displaySizeHint" class="time-note">Adjust sizes for this screen. Larger labels reveal as you zoom closer to a group.</p>
+        </section>
         <section class="settings-section" aria-labelledby="appearanceHeading">
           <h3 id="appearanceHeading">Appearance</h3>
           <label class="field-label" for="schemeSelect">Color scheme</label>
@@ -208,18 +244,18 @@
             <button class="text-button" id="resetOrbitBrightness" type="button">Reset to 100%</button>
           </div>
           <p id="orbitBrightnessHint" class="time-note">Selected orbits stay a little brighter automatically.</p>
-          <p class="time-note">Switch scale modes in the view toolbar. Open the legend there for a guide to colors and symbols.</p>
+          <p class="time-note">For body sizes and orbital distances, use the toolbar’s scale menu. Camera alignment and the grid are under View.</p>
         </section>
         <section class="settings-section" aria-labelledby="dataHeading">
-          <h3 id="dataHeading">Data</h3>
-          <label class="chk"><input type="checkbox" id="edsmToggle"> EDSM backfill (network)</label>
-          <label class="chk"><input type="checkbox" id="spanshToggle"> Spansh backfill (network)</label>
-          <label class="chk"><input type="checkbox" id="edgisToggle"> EDGIS backfill (network)</label>
+          <h3 id="dataHeading">Community data</h3>
+          <label class="chk"><input type="checkbox" id="edsmToggle"> EDSM (network)</label>
+          <label class="chk"><input type="checkbox" id="spanshToggle"> Spansh (network)</label>
+          <label class="chk"><input type="checkbox" id="edgisToggle"> EDGIS (network)</label>
           <p class="time-note">Fill missing system data from enabled providers. Journal data takes priority. System-name searches use EDSM.</p>
           <p class="time-note">Refresh community data from the System panel.</p>
         </section>
         <section class="settings-section" aria-labelledby="generalHeading">
-          <h3 id="generalHeading">General</h3>
+          <h3 id="generalHeading">Activity &amp; audio</h3>
           <label class="field-label" for="modeSelect">Activity mode</label>
           <select id="modeSelect">
             <option value="">Auto</option>
@@ -230,6 +266,7 @@
           </select>
           <p class="time-note">Auto follows your current activity. A manual choice changes body highlights and system context.</p>
           <label class="chk"><input type="checkbox" id="audioToggle"> Audio cues</label>
+          <p class="time-note">Play a cue for newly detected first discoveries or biological signals in your live system.</p>
         </section>
       </div>
     </aside>
@@ -239,19 +276,30 @@
         <h2 id="legendHeading"><span class="tick">▸</span> Legend</h2>
         <button class="act ghost icon-button" id="closeLegendButton" aria-label="Close legend">×</button>
       </div>
-      <div class="legend-section">Icons</div>
-      <div class="stat"><span>&#10022;</span><span>Star</span></div>
-      <div class="stat"><span>&#9675;</span><span>Planet</span></div>
-      <div class="stat"><span>&#9673;</span><span>Planet, landable</span></div>
-      <div class="stat"><span>&middot;</span><span>Moon</span></div>
-      <div class="stat"><span>&#9672;</span><span>Moon, landable</span></div>
-      <div class="legend-section">Colors &amp; effects</div>
-      <div class="stat"><span class="swatch sw-amber"></span><span>First discovery / high value / terraformable</span></div>
-      <div class="stat"><span class="swatch sw-cyan"></span><span>Landable surface ring &middot; pristine-reserve glow (mining)</span></div>
-      <div class="stat"><span class="swatch sw-green"></span><span>Biological signals (exobiology mode)</span></div>
-      <div class="stat"><span class="swatch sw-wire"></span><span>Wireframe: community data, not yet scanned</span></div>
-      <div class="stat"><span class="swatch sw-dim"></span><span>Dim ring band: belt/ring (brighter = better reserves)</span></div>
-      <div class="stat"><span class="swatch sw-orbit"></span><span>Faint ellipse: orbit path</span></div>
+      <div class="panel-scroll">
+        <div class="legend-section">Icons</div>
+        <div class="stat"><span>&#10022;</span><span>Star</span></div>
+        <div class="stat"><span>&#9675;</span><span>Planet</span></div>
+        <div class="stat"><span>&#9673;</span><span>Planet, landable</span></div>
+        <div class="stat"><span>&middot;</span><span>Moon</span></div>
+        <div class="stat"><span>&#9672;</span><span>Moon, landable</span></div>
+        <div class="stat"><span>+</span><span>Nearby bodies with hidden labels · zoom in to reveal</span></div>
+        <div class="stat"><span>×</span><span>Barycenter · faint normally, medium when camera-focused, brightest when selected</span></div>
+        <div class="legend-section">Colors &amp; effects</div>
+        <div class="stat"><span class="swatch sw-amber"></span><span>First discovery / high value / terraformable</span></div>
+        <div class="stat"><span class="swatch sw-cyan"></span><span>Landable surface ring &middot; pristine-reserve glow (mining)</span></div>
+        <div class="stat"><span class="swatch sw-green"></span><span>Biological signals (exobiology mode)</span></div>
+        <div class="stat"><span class="swatch sw-wire"></span><span>Wireframe: community data, not yet scanned</span></div>
+        <div class="stat"><span class="swatch sw-dim"></span><span>Dim ring band: belt/ring (brighter = better reserves)</span></div>
+        <div class="stat"><span class="swatch sw-orbit"></span><span>Orbit path · selected orbit is brighter</span></div>
+        <div class="legend-section">Scale modes</div>
+        <p class="time-note"><strong>Compact:</strong> compressed distances and enlarged bodies.</p>
+        <p class="time-note"><strong>True distances:</strong> accurate distances with enlarged bodies.</p>
+        <p class="time-note"><strong>Fully to scale:</strong> accurate distances and body sizes. Small location markers and labels remain readable screen aids.</p>
+        <div class="legend-section">Orientation</div>
+        <p class="time-note">The X/Y/Z indicator rotates with the view. Solid arms point in positive directions; dashed arms point in negative directions.</p>
+        <p class="time-note">The system grid is blue on its +Z side and orange on its −Z side. It is a system reference plane, not a calibrated galactic plane.</p>
+      </div>
     </aside>
 
     <div id="orientationAxes">

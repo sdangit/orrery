@@ -1,0 +1,439 @@
+{
+  "note": "Reduced public API responses captured 2026-11-16. Spansh /api/dump/{id64}, EDSM /api-system-v1/bodies, EDGIS /system-map. Sol 10477373803; Shinrarta Dezhra 3932277478106.",
+  "systems": {
+    "Sol": {
+      "spansh": {
+        "bodies": [
+          {
+            "bodyId": 0,
+            "name": "Sol",
+            "type": "Star",
+            "subType": "G (White-Yellow) Star",
+            "timestamps": {
+              "distanceToArrival": "2026-11-17T01:12:34Z"
+            },
+            "updateTime": "2026-11-17T01:12:34Z",
+            "mainStar": true,
+            "solarRadius": 0.999999953989935,
+            "axialTilt": -0.219615,
+            "belts": [
+              {
+                "innerRadius": 308170000000,
+                "mass": 4060500000000,
+                "name": "Asteroid Belt",
+                "outerRadius": 489190000000,
+                "type": "Rocky"
+              }
+            ]
+          },
+          {
+            "bodyId": 5,
+            "name": "Mars",
+            "type": "Planet",
+            "subType": "Earth-like world",
+            "parents": [
+              {
+                "Star": 0
+              }
+            ],
+            "orbitalPeriod": 686.971001602986,
+            "semiMajorAxis": 1.52367856711137,
+            "orbitalEccentricity": 0.0934,
+            "orbitalInclination": 1.85,
+            "argOfPeriapsis": 286.536985,
+            "meanAnomaly": 160.528843,
+            "ascendingNode": 49.562,
+            "timestamps": {
+              "distanceToArrival": "2026-11-17T01:12:34Z",
+              "meanAnomaly": "2026-11-17T01:12:34Z"
+            },
+            "updateTime": "2026-11-17T01:12:34Z",
+            "radius": 3396.2,
+            "axialTilt": 0.439648
+          },
+          {
+            "bodyId": 7,
+            "name": "Jupiter",
+            "type": "Planet",
+            "subType": "Class I gas giant",
+            "parents": [
+              {
+                "Star": 0
+              }
+            ],
+            "orbitalPeriod": 4332.58981340462,
+            "semiMajorAxis": 5.20426581400207,
+            "orbitalEccentricity": 0.048775,
+            "orbitalInclination": 1.305,
+            "argOfPeriapsis": 275.066007,
+            "meanAnomaly": 267.669281,
+            "ascendingNode": 100.491996,
+            "timestamps": {
+              "distanceToArrival": "2026-11-17T01:12:34Z",
+              "meanAnomaly": "2026-11-17T01:12:34Z"
+            },
+            "updateTime": "2026-11-17T01:12:34Z",
+            "radius": 71492,
+            "axialTilt": 0.054629
+          },
+          {
+            "bodyId": 31,
+            "name": "Sol barycentre 31",
+            "type": "Barycentre",
+            "orbitalPeriod": 90464.999968255,
+            "semiMajorAxis": 39.2652576704823,
+            "orbitalEccentricity": 0.248,
+            "orbitalInclination": 17.150999,
+            "argOfPeriapsis": 113.762999,
+            "meanAnomaly": 273.909834,
+            "ascendingNode": 110.286825,
+            "timestamps": {
+              "meanAnomaly": "2026-11-17T01:12:34Z"
+            },
+            "updateTime": "2026-11-17T01:12:34Z"
+          }
+        ]
+      },
+      "edsm": {
+        "bodies": [
+          {
+            "bodyId": 0,
+            "name": "Sol",
+            "type": "Star",
+            "subType": "G (White-Yellow) Star",
+            "parents": null,
+            "orbitalPeriod": null,
+            "semiMajorAxis": null,
+            "orbitalEccentricity": null,
+            "orbitalInclination": null,
+            "argOfPeriapsis": null,
+            "updateTime": "2021-01-11 03:07:05",
+            "isMainStar": true,
+            "solarRadius": 0.9999999539899354,
+            "axialTilt": -0.219615,
+            "belts": [
+              {
+                "name": "Asteroid Belt",
+                "type": "Rocky",
+                "mass": 4060500000000,
+                "innerRadius": 308170000,
+                "outerRadius": 489190000
+              }
+            ]
+          },
+          {
+            "bodyId": 5,
+            "name": "Mars",
+            "type": "Planet",
+            "subType": "Earth-like world",
+            "parents": [
+              {
+                "Star": 0
+              }
+            ],
+            "orbitalPeriod": 686.9710016029861,
+            "semiMajorAxis": 1.5236785671113833,
+            "orbitalEccentricity": 0.0934,
+            "orbitalInclination": 1.85,
+            "argOfPeriapsis": 286.536985,
+            "updateTime": "2026-11-15 21:05:44",
+            "radius": 3396.2,
+            "axialTilt": 0.439648
+          },
+          {
+            "bodyId": 7,
+            "name": "Jupiter",
+            "type": "Planet",
+            "subType": "Class I gas giant",
+            "parents": [
+              {
+                "Star": 0
+              }
+            ],
+            "orbitalPeriod": 4332.589813404629,
+            "semiMajorAxis": 5.204265814002057,
+            "orbitalEccentricity": 0.048775,
+            "orbitalInclination": 1.305,
+            "argOfPeriapsis": 275.066007,
+            "updateTime": "2026-11-15 21:05:44",
+            "radius": 71492,
+            "axialTilt": 0.054629
+          }
+        ]
+      }
+    },
+    "Shinrarta Dezhra": {
+      "spansh": {
+        "bodies": [
+          {
+            "bodyId": 1,
+            "name": "Shinrarta Dezhra",
+            "type": "Star",
+            "subType": "K (Yellow-Orange) Star",
+            "parents": [
+              {
+                "Null": 0
+              }
+            ],
+            "orbitalPeriod": 1847.15594406481,
+            "semiMajorAxis": 1.1569602727459,
+            "orbitalEccentricity": 0.018651,
+            "orbitalInclination": 21.118831,
+            "argOfPeriapsis": 201.271868,
+            "meanAnomaly": 322.176978,
+            "ascendingNode": 0,
+            "timestamps": {
+              "distanceToArrival": "2026-11-16T21:04:43Z",
+              "meanAnomaly": "2026-11-16T21:04:43Z"
+            },
+            "updateTime": "2026-11-17T00:54:08Z",
+            "mainStar": true,
+            "solarRadius": 0.766601524083393,
+            "axialTilt": -0.041915,
+            "belts": [
+              {
+                "innerRadius": 879730000,
+                "mass": 117620000000000,
+                "name": "Shinrarta Dezhra A A Belt",
+                "outerRadius": 2186700000,
+                "type": "Rocky"
+              }
+            ]
+          },
+          {
+            "bodyId": 11,
+            "name": "Shinrarta Dezhra A 1",
+            "type": "Planet",
+            "subType": "High metal content world",
+            "parents": [
+              {
+                "Star": 1
+              },
+              {
+                "Null": 0
+              }
+            ],
+            "orbitalPeriod": 10.4631538744329,
+            "semiMajorAxis": 0.0810398834938175,
+            "orbitalEccentricity": 0.002692,
+            "orbitalInclination": -0.044359,
+            "argOfPeriapsis": 115.330592,
+            "meanAnomaly": 255.616193,
+            "ascendingNode": -54.042659,
+            "timestamps": {
+              "distanceToArrival": "2026-11-16T21:04:43Z",
+              "meanAnomaly": "2026-11-16T21:04:43Z"
+            },
+            "updateTime": "2026-11-16T22:09:18Z",
+            "radius": 5635.897,
+            "axialTilt": 0.271899
+          },
+          {
+            "bodyId": 23,
+            "name": "Shinrarta Dezhra barycentre 23",
+            "type": "Barycentre",
+            "orbitalPeriod": 17.8199813321759,
+            "semiMajorAxis": 0.0169857124406297,
+            "orbitalEccentricity": 0.000087,
+            "orbitalInclination": -0.029337,
+            "argOfPeriapsis": 14.903732,
+            "meanAnomaly": 134.392562,
+            "ascendingNode": -31.548801,
+            "timestamps": {
+              "meanAnomaly": "2026-11-16T21:04:43Z"
+            },
+            "updateTime": "2026-11-16T21:04:43Z"
+          },
+          {
+            "bodyId": 59,
+            "name": "Shinrarta Dezhra barycentre 59",
+            "type": "Barycentre",
+            "orbitalPeriod": 20.3327531064005,
+            "semiMajorAxis": 0.00875473331309191,
+            "orbitalEccentricity": 0.00229,
+            "orbitalInclination": 0.111108,
+            "argOfPeriapsis": 0.449006,
+            "meanAnomaly": 207.374324,
+            "ascendingNode": 144.988172,
+            "timestamps": {
+              "meanAnomaly": "2026-11-16T21:04:43Z"
+            },
+            "updateTime": "2026-11-16T21:04:43Z"
+          }
+        ]
+      },
+      "edsm": {
+        "bodies": [
+          {
+            "bodyId": 1,
+            "name": "Shinrarta Dezhra",
+            "type": "Star",
+            "subType": "K (Yellow-Orange) Star",
+            "parents": [
+              {
+                "Null": 0
+              }
+            ],
+            "orbitalPeriod": 1847.1559440648148,
+            "semiMajorAxis": 1.156960272745914,
+            "orbitalEccentricity": 0.018651,
+            "orbitalInclination": 21.118831,
+            "argOfPeriapsis": 201.271868,
+            "updateTime": "2026-11-15 20:19:25",
+            "isMainStar": true,
+            "solarRadius": 0.7666015240833932,
+            "axialTilt": -0.041915,
+            "belts": [
+              {
+                "name": "Shinrarta Dezhra A A Belt",
+                "type": "Rocky",
+                "mass": 117620000000000,
+                "innerRadius": 879730,
+                "outerRadius": 2186700
+              }
+            ]
+          },
+          {
+            "bodyId": 11,
+            "name": "Shinrarta Dezhra A 1",
+            "type": "Planet",
+            "subType": "High metal content world",
+            "parents": [
+              {
+                "Star": 1
+              },
+              {
+                "Null": 0
+              }
+            ],
+            "orbitalPeriod": 10.46315387443287,
+            "semiMajorAxis": 0.08103988349381633,
+            "orbitalEccentricity": 0.002692,
+            "orbitalInclination": -0.044359,
+            "argOfPeriapsis": 115.330592,
+            "updateTime": "2026-11-15 20:19:25",
+            "radius": 5635.897,
+            "axialTilt": 0.271899
+          }
+        ]
+      },
+      "edgisRecords": [
+        {
+          "system_id64": 3932277478106,
+          "body_id": 0,
+          "body_name": "Shinrarta Dezhra AB",
+          "type": "Barycenter",
+          "atmosphere": "no atmosphere",
+          "distance_from_arrival_ls": 0,
+          "atmosphere_composition": [],
+          "materials": [],
+          "parents": [],
+          "updatetime": "2026-09-12T20:43:53+00:00"
+        },
+        {
+          "system_id64": 3932277478106,
+          "body_id": 1,
+          "body_name": "Shinrarta Dezhra",
+          "type": "Star",
+          "atmosphere": "no atmosphere",
+          "radius": 533171360,
+          "surface_temperature": 4343,
+          "axial_tilt": -0.041915,
+          "semi_major_axis": 173078793287.27722,
+          "eccentricity": 0.018651,
+          "orbital_inclination": 21.118831,
+          "periapsis": 201.271868,
+          "mean_anomaly": 322.176978,
+          "orbital_period": 159594273.5672,
+          "rotation_period": 285618.408516,
+          "ascending_node": 0,
+          "distance_from_arrival_ls": 0,
+          "age_my": 8068,
+          "absolute_magnitude": 7.129517,
+          "luminosity": "V",
+          "star_type": "K",
+          "subclass": 4,
+          "stellar_mass": 0.648438,
+          "atmosphere_composition": [],
+          "materials": [],
+          "parents": [
+            {
+              "Null": 0
+            }
+          ],
+          "updatetime": "2026-11-16T21:04:43+00:00"
+        },
+        {
+          "system_id64": 3932277478106,
+          "body_id": 3,
+          "body_name": "Shinrarta Dezhra A A Belt",
+          "type": "StellarRing",
+          "distance_from_arrival_ls": 3.463373,
+          "atmosphere_composition": [],
+          "materials": [],
+          "parents": [
+            {
+              "Star": 1
+            },
+            {
+              "Null": 0
+            }
+          ],
+          "updatetime": "2026-11-16T21:04:43+00:00"
+        },
+        {
+          "system_id64": 3932277478106,
+          "body_id": 23,
+          "body_name": "Barycenter23",
+          "type": "Barycenter",
+          "atmosphere": "no atmosphere",
+          "semi_major_axis": 2541026413.440704,
+          "eccentricity": 0.000087,
+          "orbital_inclination": -0.029337,
+          "periapsis": 14.903732,
+          "mean_anomaly": 134.392562,
+          "orbital_period": 1539646.3871,
+          "ascending_node": -31.548801,
+          "distance_from_arrival_ls": 0,
+          "atmosphere_composition": [],
+          "materials": [],
+          "parents": [
+            {
+              "Planet": 18
+            },
+            {
+              "Null": 0
+            }
+          ],
+          "updatetime": "2026-11-16T21:04:43+00:00"
+        },
+        {
+          "system_id64": 3932277478106,
+          "body_id": 59,
+          "body_name": "Barycenter59",
+          "type": "Barycenter",
+          "atmosphere": "no atmosphere",
+          "semi_major_axis": 1309689462.184906,
+          "eccentricity": 0.00229,
+          "orbital_inclination": 0.111108,
+          "periapsis": 0.449006,
+          "mean_anomaly": 207.374324,
+          "orbital_period": 1756749.868393,
+          "ascending_node": 144.988172,
+          "distance_from_arrival_ls": 0,
+          "atmosphere_composition": [],
+          "materials": [],
+          "parents": [
+            {
+              "Planet": 56
+            },
+            {
+              "Null": 0
+            }
+          ],
+          "updatetime": "2026-11-16T21:04:43+00:00"
+        }
+      ]
+    }
+  }
+}

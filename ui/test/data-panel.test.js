@@ -12,6 +12,22 @@ function setup() {
   return (id) => document.getElementById(id);
 }
 
+test('belt details show extent and assumed plane, then restore ordinary body sections', () => {
+  const el = setup();
+  renderDetailPanel({ id: 'belt:0:a', name: 'Asteroid Belt', kind: 'AsteroidBelt',
+    raw: { InnerRad: 308170000000, OuterRad: 489190000000, RingClass: 'eRingClass_Rocky' } }, 'Sol');
+  assert.equal(el('detailKind').textContent, 'Asteroid belt (Rocky)');
+  assert.equal(el('detailBeltInner').textContent, '308170000 km');
+  assert.equal(el('detailBeltOuter').textContent, '489190000 km');
+  assert.match(el('detailPosition').textContent, /assumed plane/);
+  assert.equal(el('detailExplorationSection').hidden, true);
+  assert.equal(el('detailRadiusRow').hidden, true);
+  renderDetailPanel({ id: 0, kind: 'Star', raw: {} }, 'Sol');
+  assert.equal(el('detailBeltInnerRow').hidden, true);
+  assert.equal(el('detailExplorationSection').hidden, false);
+  assert.equal(el('detailRadiusRow').hidden, false);
+});
+
 test('details separate orbital epoch, database freshness, ancestry quality and personal scan status', () => {
   const el = setup();
   renderDetailPanel({ id: 3, name: 'Earth', kind: 'Planet', sources: ['journal', 'spansh'],

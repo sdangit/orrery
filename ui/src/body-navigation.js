@@ -5,6 +5,7 @@ export const isBody = (node) => ['Star', 'Planet'].includes(node?.kind);
 
 export function navigationLabel(node, systemName) {
   if (node.id === SYSTEM || node.kind === 'SystemBarycentre') return 'System';
+  if (node.kind === 'AsteroidBelt') return node.name ? shortDesignator(node.name, systemName) : 'Asteroid belt';
   if (!isBody(node)) return `Orbital group ${node.id}`;
   return node.name ? shortDesignator(node.name, systemName) : `Body ${node.id}`;
 }
@@ -12,7 +13,7 @@ export function navigationLabel(node, systemName) {
 /** A navigable forest even when source data has missing parents or cycles. */
 export function createBodyNavigation(nodes) {
   const entries = new Map([...nodes].filter(([, n]) =>
-    ['Star', 'Planet', 'Barycentre'].includes(n.kind)));
+    ['Star', 'Planet', 'Barycentre', 'AsteroidBelt'].includes(n.kind)));
   const parents = new Map();
   for (const [id, node] of entries) {
     parents.set(id, entries.has(node.parentId) ? node.parentId : SYSTEM);
@@ -30,8 +31,9 @@ export function createBodyNavigation(nodes) {
   const children = new Map([[SYSTEM, []]]);
   for (const id of entries.keys()) children.set(id, []);
   for (const [id, parent] of parents) children.get(parent).push(id);
-  const size = (id) => entries.get(id).elements?.semiMajorAxis ?? Infinity;
-  for (const ids of children.values()) ids.sort((a, b) => size(a) - size(b) || a - b);
+  const size = (id) => entries.get(id).elements?.semiMajorAxis ?? entries.get(id).raw?.InnerRad ?? Infinity;
+  for (const ids of children.values()) ids.sort((a, b) => size(a) - size(b)
+    || String(a).localeCompare(String(b), undefined, { numeric: true }));
   return {
     children: (id) => children.get(id) ?? [],
     parent: (id) => parents.get(id) ?? SYSTEM,

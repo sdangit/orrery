@@ -17,6 +17,12 @@ export function mapEdgisBodies(bodies) {
     surfaceTemperature: b.surface_temperature, distanceToArrival: b.distance_from_arrival_ls,
     isLandable: b.landable, terraformingState: b.terraform_state,
     atmosphereType: b.atmosphere_type, updateTime: b.updatetime,
+    belts: bodies.filter(r => r?.type === 'StellarRing'
+      && Object.values(r.parents?.[0] ?? {})[0] === b.body_id).map(r => ({
+        name: r.body_name, type: { eRingClass_Icy: 'Icy', eRingClass_Rocky: 'Rocky',
+          eRingClass_Metalic: 'Metallic', eRingClass_MetalRich: 'Metal Rich' }[r.ring_class],
+        innerRadius: r.ring_inner_rad, outerRadius: r.ring_outer_rad,
+      })),
     // Ring records may include synthetic negative IDs and duplicate real rows.
     // Attach only validated ring metadata, never render them as extra bodies.
     rings: [...new Map(bodies.filter((r) => r?.type === 'PlanetaryRing'
