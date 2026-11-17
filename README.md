@@ -44,6 +44,15 @@ Scale is the part that isn't honest, and the panel says so while it's happening.
 - **True distances:** proportional distances with exaggerated body sizes.
 - **Fully to scale:** distances, body radii, and ring radii all use the same linear scale.
 
+Asteroid belts appear as outlined annular bands with radial hatching, using
+their reported inner and outer radii. They are listed beneath their host in
+**Children**; selecting one highlights it, and **Zoom to belt** frames the band.
+Belt radii follow orbital distance scaling in all three scale modes. Journal,
+EDSM and Spansh measurements are supported; EDGIS can also identify belts whose
+extent is missing (listed without an invented band). The plane currently uses
+the host's child-orbit reference frame, an assumption to validate in-game.
+Radial divisions are decorative and do not indicate asteroid cluster positions.
+
 In Fully to scale, a small open diamond marks bodies that are too small to see;
 markers, labels, and click targets are screen aids, not physical sizes. The actual
 sphere stays at its physical radius. Bodies with an unknown radius get only a
@@ -78,16 +87,26 @@ npm start
 Leave it running while you play. Drag to orbit, scroll to zoom, click a body for its details.
 
 The top toolbar keeps scale modes and camera actions within reach. **System**
-and **Body details** toggle the side panels without clearing your selection.
+and **Details** toggle the side panels without clearing your selection.
 The System panel holds search, system context, community-data status/refresh,
 and live session statistics. Body details groups physical properties,
 exploration, provenance, and nicknames into expandable sections.
 
-**Settings** opens appearance, data-provider, activity-mode, and audio preferences
+**Settings** groups display size, appearance, community data, and activity/audio preferences
 in place of body details; closing it restores the previous panel state. **Legend**
 opens a temporary reference panel. Escape dismisses either overlay. Narrow
 windows show one side panel at a time, and short windows keep their contents
-scrollable. Incoming journal updates preserve your panel choices.
+scrollable. Dismissing Settings or Legend restores the preceding System or body
+panel on narrow layouts. Incoming journal updates preserve your panel choices.
+
+**Settings → Display size → UI scale** sizes panels and controls from 75–200%.
+**Body label size** independently sizes map labels from 75–300%; label spacing
+and the collapsed-body **+** hints adapt with it. Both preview immediately and
+save in the current browser profile for this app address, so separate browser
+profiles can be tuned for different displays. **Reset both to 100%** restores
+both defaults. These settings leave the camera and physical body sizes unchanged.
+Label textures also adapt to display pixel density, including when moving the
+window between displays.
 
 **Settings → Appearance → Orbit brightness** adjusts all orbit lines from off
 to 400%, with 100% matching the default appearance. Above 100%, both color
@@ -113,6 +132,14 @@ labels. A small **+** beside a visible label indicates nearby bodies whose label
 are still collapsed; it disappears as their labels become readable. Modest overlap
 is allowed, with separate reveal/hide thresholds to avoid flicker while zooming.
 Hidden labels do not hide the bodies or their selectable location markers.
+
+Navigating to an **Orbital group** centers the camera on its barycenter.
+**View → Show barycenters** is on by default and saves in this browser. Its **×**
+markers are faint normally, medium when camera-focused, and brightest when selected.
+Inactive markers hide when their children are tightly clustered; selected/focused
+markers remain visible whenever their position is on-screen. Markers follow playback,
+use the body-label size setting, and do not represent physical bodies. **System center** instead
+centers the displayed bodies' bounds; it is not a calculated center of mass.
 
 **Center main star** and the detail panel's **Center selection** move the
 orbit pivot while preserving angle and zoom. The centered body stays under the

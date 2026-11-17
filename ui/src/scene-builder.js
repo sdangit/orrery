@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighlight, compressDistance, parentOrbitFrame } from '@orrery/shared';
+import { displayPosition, absolutePosition, classifySpotlight, classifyModeHighlight, compressDistance, parentOrbitFrame, isBeltRing } from '@orrery/shared';
 import { makeLabel } from './labels.js';
 import { bodyColor, bodyDisplayRadius, bodyIcon } from './body-visuals.js';
 import { shortDesignator } from './naming.js';
@@ -7,6 +7,7 @@ import { METRES_PER_UNIT, scaleSettings } from './scale-modes.js';
 import { makeBodyMarker } from './body-markers.js';
 import { buildOrbitPath, updateOrbitPhase } from './orbit-path.js';
 import { resolveOrbitBrightness } from './orbit-settings.js';
+import { buildAsteroidBelt } from './asteroid-belt.js';
 
 const RING_CLASS_COLORS = {
   eRingClass_Icy: 0xcfe8f5,
@@ -48,11 +49,11 @@ function addOrbitPath(group, nodes, node, pos, trueDistances, radius, atEpochMs)
 
 /**
  * Builds Three.js objects for every renderable body in the tree (stars and
- * planets/moons — barycentres have orbit paths but no visible body, and belt
- * clusters render as their parent's ring band rather than as individual
- * points, since the journal gives no per-cluster angular position).
+ * planets/moons — barycentres have orbit paths but no visible body). Belts
+ * render as schematic annuli. Clusters have no known angular position and
+ * are not drawn as individual points.
  *
- * @param {Map<number, object>} nodes
+ * @param {Map<number|string, object>} nodes Merged tree including belt regions.
  * @param {number} atEpochMs
  * @param {string} systemName Used to strip the redundant system-name prefix off in-scene labels (see naming.js).
  * @param {string} [mode] The active activity mode (see mode-detect.js's MODES) — drives per-mode highlighting (see mode-highlight.js). Defaults to 'exploration', which has no per-body highlight beyond the always-on spotlight treatment.
@@ -64,7 +65,7 @@ function addOrbitPath(group, nodes, node, pos, trueDistances, radius, atEpochMs)
  *   `updatables` lets updateSystemScene() move bodies as simulated time advances (the warp slider) without a full scene rebuild.
  */
 export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'exploration', nicknames = {}, options = {}) {
-  const { scaleMode = 'compact', labelColor = '#ff8a2a' } = options;
+  const { scaleMode = 'compact', labelColor = '#ff8a2a', labelPixelRatio } = options;
   const { trueDistances, trueSizes } = scaleSettings(scaleMode);
   const group = new THREE.Group();
   const pickables = new Map();
@@ -73,7 +74,8 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
 
   for (const node of nodes.values()) {
     const orbitOnly = node.kind === 'Barycentre' && node.elements && node.parentId != null;
-    if (!RENDERABLE_KINDS.has(node.kind) && !orbitOnly) continue;
+    const beltOnly = node.kind === 'AsteroidBelt';
+    if (!RENDERABLE_KINDS.has(node.kind) && !orbitOnly && !beltOnly) continue;
 
     // In live play a body can be scanned before its parent is (e.g. a moon
     // mapped before its planet ever got a full Scan), which buildBodyTree
@@ -86,6 +88,18 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
       pos = scenePosition(nodes, node.id, atEpochMs, trueDistances);
     } catch (err) {
       console.warn(`orrery: skipping body ${node.id} (${node.name ?? 'unnamed'}) — ${err.message}`);
+      continue;
+    }
+    if (beltOnly) {
+      const band = buildAsteroidBelt(nodes, node, trueDistances);
+      if (!band) continue;
+      const bodyGroup = new THREE.Group();
+      bodyGroup.position.set(pos.x, pos.y, pos.z);
+      bodyGroup.add(band);
+      group.add(bodyGroup);
+      updatables.set(node.id, { kind: node.kind, bodyGroup, mesh: null, radius: 0,
+        frameRadius: band.userData.outerRadius, label: null, marker: null,
+        rings: [], orbit: null, band, parentId: node.parentId });
       continue;
     }
     if (orbitOnly) {
@@ -165,12 +179,12 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
     // Spotlight (e.g. a genuinely high-value world) still pops through even
     // on backfill data — that's the point of showing it before it's scanned.
     const finalLabelColor = spotlighted ? '#ffd24d' : (node.isBackfill ? '#7a4a1e' : labelColor);
-    const label = makeLabel(labelText, finalLabelColor);
+    const label = makeLabel(labelText, finalLabelColor, { pixelRatio:labelPixelRatio });
     label.userData.text = labelText; // stashed for testability — canvas-texture text isn't otherwise inspectable
     label.userData.aspect = label.scale.x / label.scale.y;
     label.position.set(0, 0, radius + 1.1);
     bodyGroup.add(label);
-    const labelHint = makeLabel('+',finalLabelColor);
+    const labelHint = makeLabel('+',finalLabelColor, { pixelRatio:labelPixelRatio });
     labelHint.userData.text = '+';
     labelHint.userData.aspect = labelHint.scale.x/labelHint.scale.y;
     labelHint.visible = false;
@@ -185,14 +199,13 @@ export function buildSystemScene(nodes, atEpochMs, systemName, mode = 'explorati
 
     updatable.orbit = addOrbitPath(group, nodes, node, pos, trueDistances, radius, atEpochMs);
 
-    // Ring band(s), drawn once per owning body regardless of how many belt
-    // clusters reference it — the journal never gives individual cluster
-    // angles, only that they exist somewhere in the band. Fully-to-scale mode
-    // uses the same physical units for ring radii as for bodies and distances.
+    // Planetary rings retain their filled-band treatment. Journal belt entries
+    // become separate AsteroidBelt nodes during the data merge.
     const rawRings = node.raw?.Rings;
     if (Array.isArray(rawRings) && !ringsAddedFor.has(node.id)) {
       ringsAddedFor.add(node.id);
       for (const ring of rawRings) {
+        if (isBeltRing(ring)) continue;
         if (!Number.isFinite(ring.InnerRad) || !Number.isFinite(ring.OuterRad)
             || ring.InnerRad < 0 || ring.OuterRad <= ring.InnerRad) continue;
         const innerR = trueSizes ? ring.InnerRad / METRES_PER_UNIT : compressDistance(ring.InnerRad);
@@ -283,6 +296,12 @@ export function disposeSystemScene(group) {
 export function highlightSelectedOrbit(updatables, selectedId, brightness = 1) {
   const intensity = resolveOrbitBrightness(brightness);
   for (const [id, entry] of updatables) {
+    if (entry.band) {
+      const selected = id === selectedId;
+      entry.band.material.color.setHex(selected ? 0xffcf8c : 0xb17b4a);
+      entry.band.material.opacity = Math.min(1, (selected ? 0.85 : 0.5) * intensity);
+      entry.band.visible = intensity > 0;
+    }
     if (!entry.orbit) continue;
     const selected = id === selectedId;
     entry.orbit.material.color.setHex(selected ? 0xa76b32 : 0x7a4a1e);

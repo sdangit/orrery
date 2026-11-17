@@ -1,6 +1,7 @@
 // Provider adapters feed one journal-shaped model. Merge only within one system;
 // the watcher verifies system identity before returning any provider's data.
 import { mapEdsmPlanetClass, mapEdsmTerraformState } from './edsm-mapping.js';
+import { mergeBeltRecords, addBeltNodes } from './asteroid-belts.js';
 
 export const AU_IN_METRES = 149597870700;
 export const EARTH_GRAVITY = 9.80665;
@@ -81,6 +82,14 @@ function rawFor(body, source) {
       && r.innerRadius >= 0 && r.outerRadius > r.innerRadius && ringClasses[r.type])
       .map((r) => ({ Name: r.name, RingClass: ringClasses[r.type], InnerRad: r.innerRadius * scale, OuterRad: r.outerRadius * scale }));
     if (rings.length) raw.Rings = rings;
+  }
+  if (Array.isArray(body.belts)) {
+    const scale = source === 'edsm' ? 1000 : 1;
+    raw.Belts = body.belts.filter(b => typeof b?.name === 'string' && b.name.trim()).map(b => ({
+      Name: b.name, RingClass: ringClasses[b.type],
+      ...(finite(b.innerRadius) && finite(b.outerRadius) && b.innerRadius >= 0 && b.outerRadius > b.innerRadius
+        ? { InnerRad: b.innerRadius * scale, OuterRad: b.outerRadius * scale } : {}),
+    }));
   }
   return raw;
 }
@@ -191,6 +200,8 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
       for (const key of ['name', 'landable', 'isMainStar']) field(key, candidate[key], candidate.source);
       for (const [key, value] of Object.entries(candidate.raw)) field(`raw.${key}`, value, candidate.source);
     }
+    const belts = mergeBeltRecords(compatible);
+    if (belts.length) node.raw.Belts = belts;
     // Never infer personal discovery/mapping status from community coverage.
     if (!journal) { node.raw.WasDiscovered = true; node.wasDiscovered = true; node.wasMapped = null; }
     const orbit = compatible.find((n) => n.orbitQuality === 'propagated')
@@ -270,5 +281,6 @@ export function mergeCommunityBodies(journalNodes, providers = {}, { now = Date.
     node.isMoon = [...seen].some((id) => id !== node.id && nodes.get(id)?.kind === 'Planet');
   }
   for (const node of nodes.values()) nodes.get(node.parentId)?.children.push(node.id);
+  addBeltNodes(nodes);
   return { nodes, diagnostics: [...new Set(diagnostics)] };
 }

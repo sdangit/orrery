@@ -1,4 +1,4 @@
-import { classifySpotlight, reserveLevelLabel, EARTH_GRAVITY } from '@orrery/shared';
+import { classifySpotlight, reserveLevelLabel, EARTH_GRAVITY, validBeltRadii, isBeltRing } from '@orrery/shared';
 import { navigationLabel } from './body-navigation.js';
 import { bodyIcon } from './body-visuals.js';
 
@@ -83,7 +83,7 @@ const RING_CLASS_LABELS = {
 };
 
 function fmtRings(node) {
-  const rings = node.raw?.Rings;
+  const rings = Array.isArray(node.raw?.Rings) ? node.raw.Rings.filter(r => !isBeltRing(r)) : [];
   if (!Array.isArray(rings) || rings.length === 0) return null;
   const classes = [...new Set(rings.map((r) => RING_CLASS_LABELS[r.RingClass] ?? r.RingClass))].join(', ');
   const reserveLevel = node.raw?.ReserveLevel;
@@ -94,6 +94,7 @@ function fmtKind(node) {
   const raw = node.raw ?? {};
   if (node.kind === 'Star') return `Star (${raw.StarType ?? '?'})`;
   if (node.kind === 'Planet') return `${raw.PlanetClass ?? 'Planet'}${node.isMoon ? ' (moon)' : ''}`;
+  if (node.kind === 'AsteroidBelt') return `Asteroid belt${RING_CLASS_LABELS[raw.RingClass] ? ` (${RING_CLASS_LABELS[raw.RingClass]})` : ''}`;
   return 'Orbital group';
 }
 
@@ -139,6 +140,21 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   panel.hidden = false;
 
   const raw = node.raw ?? {};
+  const isBelt = node.kind === 'AsteroidBelt';
+  for (const id of ['detailDistRow', 'detailRadiusRow', 'detailPeriodRow',
+    'detailPhysicalSection', 'detailExplorationSection', 'useTimeReferenceButton']) {
+    document.getElementById(id).hidden = isBelt;
+  }
+  for (const id of ['detailBeltInnerRow', 'detailBeltOuterRow', 'detailBeltNote']) {
+    document.getElementById(id).hidden = !isBelt;
+  }
+  if (isBelt) {
+    setText('detailBeltInner', fmtRadius(raw.InnerRad));
+    setText('detailBeltOuter', fmtRadius(raw.OuterRad));
+    setText('detailBeltNote', validBeltRadii(raw)
+      ? 'Band shown in the parent’s orbital reference plane (assumed). Radial lines do not mark individual clusters.'
+      : 'Belt extent unavailable; no band can be drawn.');
+  }
   const { spotlighted, reasons } = classifySpotlight(node);
 
   const designator = nickname ?? navigationLabel(node, systemName);
@@ -157,6 +173,11 @@ export function renderDetailPanel(node, systemName, nickname = null) {
   setText('detailOrbitEpoch', node.phaseReferenceBodyId != null
     ? `Estimated from binary companion (body ${node.phaseReferenceBodyId})`
     : node.orbitQuality === 'approximate' ? 'Unknown (illustrative phase)' : utc(node.elements?.epochMs));
+  if (isBelt) {
+    setText('detailPosition', node.positionIssue ? 'Parent position unavailable' : 'Centred on parent · assumed plane');
+    setText('detailOrbitSource', 'No independent orbital elements');
+    setText('detailOrbitEpoch', 'Not applicable');
+  }
   setText('detailRecordUpdated', Object.entries(node.recordUpdates ?? {})
     .filter(([, ms]) => Number.isFinite(ms)).map(([source, ms]) => `${sourceNames[source]}: ${utc(ms)}`).join('\n') || '—');
   setText('detailKind', fmtKind(node));

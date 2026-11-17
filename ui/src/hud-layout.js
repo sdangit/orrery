@@ -1,6 +1,6 @@
 /** Panel visibility is independent of selection and incoming journal updates. */
 export function bindHudLayout({ root = document, storage = localStorage,
-  isNarrow = () => matchMedia('(max-width: 700px)').matches } = {}) {
+  isNarrow = () => root.documentElement.classList.contains('hud-narrow') } = {}) {
   const el = (id) => root.getElementById(id);
   let systemOpen = storage.getItem('orrery.systemPanelOpen') !== 'false';
   let bodyOpen = true;
@@ -9,6 +9,8 @@ export function bindHudLayout({ root = document, storage = localStorage,
   let legendOpen = storage.getItem('orrery.legendVisible') === 'true';
   let playbackOpen = false;
   let settingsOpener = el('settingsToggle');
+  let systemBeforeSettings = false;
+  let systemBeforeLegend = false;
 
   function expanded(id, value) { el(id).setAttribute('aria-expanded', String(value)); }
   function render() {
@@ -31,7 +33,7 @@ export function bindHudLayout({ root = document, storage = localStorage,
   function makeRoomOnNarrowScreen() { if (isNarrow()) systemOpen = false; }
   function closeSettings() {
     settingsOpen = false;
-    if (isNarrow() && ['activitySettingsButton', 'dataSettingsButton'].includes(settingsOpener.id)) {
+    if (isNarrow() && systemBeforeSettings) {
       systemOpen = true;
       bodyOpen = false;
     }
@@ -39,12 +41,22 @@ export function bindHudLayout({ root = document, storage = localStorage,
     settingsOpener.focus();
   }
   function openSettings(opener, field) {
+    if (!settingsOpen) systemBeforeSettings = systemOpen || (legendOpen && systemBeforeLegend);
     settingsOpener = opener;
     settingsOpen = true;
     hideLegend();
     makeRoomOnNarrowScreen();
     render();
     el(field ?? 'closeSettingsButton').focus();
+  }
+  function closeLegend() {
+    hideLegend();
+    if (isNarrow() && systemBeforeLegend && !settingsOpen) {
+      systemOpen = true;
+      bodyOpen = false;
+    }
+    render();
+    el('legendToggle').focus();
   }
   function click(id, fn) { el(id).addEventListener('click', fn); }
   function toggleSystem() {
@@ -70,25 +82,29 @@ export function bindHudLayout({ root = document, storage = localStorage,
   });
   click('closeSettingsButton', closeSettings);
   click('activitySettingsButton', () => openSettings(el('activitySettingsButton'), 'modeSelect'));
-  click('dataSettingsButton', () => openSettings(el('dataSettingsButton'), 'spanshToggle'));
+  click('dataSettingsButton', () => openSettings(el('dataSettingsButton'), 'edsmToggle'));
   click('legendToggle', () => {
-    legendOpen = !legendOpen;
-    if (legendOpen) makeRoomOnNarrowScreen();
+    if (legendOpen) { closeLegend(); return; }
+    systemBeforeLegend = systemOpen;
+    legendOpen = true;
+    makeRoomOnNarrowScreen();
     saveLegend(); render();
     if (legendOpen) el('closeLegendButton').focus();
   });
-  click('closeLegendButton', () => { hideLegend(); render(); el('legendToggle').focus(); });
+  click('closeLegendButton', closeLegend);
   click('playbackToggle', () => { playbackOpen = !playbackOpen; render(); });
   // Using an orbital reference benefits from seeing its meaning immediately.
   click('useTimeReferenceButton', () => { playbackOpen = true; render(); });
-  root.defaultView?.addEventListener('resize', () => {
+  const resize = () => {
     // Crossing the responsive breakpoint must also reconcile already-open panels.
     if (isNarrow() && (!el('bodyDrawer').hidden || settingsOpen || legendOpen)) systemOpen = false;
     render();
-  });
+  };
+  root.defaultView?.addEventListener('resize',resize);
+  root.defaultView?.addEventListener('orrery-ui-scale',resize);
   root.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape' || event.defaultPrevented) return;
-    if (legendOpen) { hideLegend(); render(); el('legendToggle').focus(); }
+    if (legendOpen) closeLegend();
     else if (settingsOpen) closeSettings();
     else return;
     event.preventDefault();

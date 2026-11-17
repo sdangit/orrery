@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import * as THREE from 'three';
 import { buildSystemScene, updateSystemScene } from '../src/scene-builder.js';
+import { mergeCommunityBodies } from '@orrery/shared';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const demoSystem = JSON.parse(readFileSync(join(__dirname, '..', 'src', 'data', 'demo-system.json'), 'utf8'));
@@ -45,15 +46,17 @@ test('the star (id 1) gets a mesh with a positive display radius', () => {
   assert.ok(starMesh.geometry.parameters.radius > 0);
 });
 
-test('the star\'s ring (real Rings data on body 1) produces a ring mesh in the scene', () => {
-  const { group } = buildSystemScene(nodes, Date.now(), demoSystem.systemName);
-  const ringMeshes = [];
-  group.traverse((obj) => {
-    if (obj.geometry instanceof THREE.RingGeometry) ringMeshes.push(obj);
+test('the journal star belt becomes one outlined band, not a duplicate filled ring', () => {
+  const merged = mergeCommunityBodies(nodes).nodes;
+  const { group, updatables } = buildSystemScene(merged, Date.now(), demoSystem.systemName);
+  const belts = [...merged.values()].filter(n => n.kind === 'AsteroidBelt' && n.parentId === 1);
+  assert.equal(belts.length, 1);
+  assert.ok(updatables.get(belts[0].id).band.isLineSegments);
+  const filled = [];
+  group.traverse(obj => {
+    if (obj.geometry instanceof THREE.RingGeometry && obj.userData.bodyId === 1) filled.push(obj);
   });
-  // Body 1 has one Rings entry in the fixture; landable-marker rings also use
-  // RingGeometry, so just assert at least one ring mesh exists rather than an exact count.
-  assert.ok(ringMeshes.length > 0, 'expected at least one ring mesh from real Rings data');
+  assert.equal(filled.length, 0);
 });
 
 test('body labels are shortened to their designator, not the full system-qualified name', () => {

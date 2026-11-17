@@ -89,3 +89,39 @@ test('resizing into a narrow viewport reconciles panels already open on desktop'
   resize(false);
   assert.equal(el('bodyDrawer').hidden, false);
 });
+
+test('toolbar overlays restore the previous panel on narrow screens, including stacked legend and settings', () => {
+  const { hud, root, el } = setup(true);
+  hud.selectionChanged(true);
+  el('settingsToggle').click();
+  el('legendToggle').click();
+  el('closeLegendButton').click();
+  assert.equal(el('settingsPanel').hidden, false);
+  assert.equal(el('systemPanel').hidden, true);
+  el('closeSettingsButton').click();
+  assert.equal(el('systemPanel').hidden, false);
+  assert.equal(el('bodyDrawer').hidden, true);
+  el('legendToggle').click();
+  root.keydown({ key:'Escape', preventDefault() {} });
+  assert.equal(el('systemPanel').hidden, false);
+  // Switching from Legend directly to Settings retains the underlying panel.
+  el('legendToggle').click();
+  el('settingsToggle').click();
+  el('settingsToggle').click();
+  assert.equal(el('systemPanel').hidden, false);
+  // Starting with body details restores those instead of opening System.
+  hud.selectionChanged(true, { reveal:true });
+  el('settingsToggle').click();
+  el('closeSettingsButton').click();
+  assert.equal(el('bodyDrawer').hidden, false);
+  assert.equal(el('systemPanel').hidden, true);
+});
+
+test('community-data shortcut focuses the first provider and returns to its opener', () => {
+  const { el, focus } = setup(true);
+  el('dataSettingsButton').click();
+  assert.equal(focus(), 'edsmToggle');
+  el('closeSettingsButton').click();
+  assert.equal(focus(), 'dataSettingsButton');
+  assert.equal(el('systemPanel').hidden, false);
+});

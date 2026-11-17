@@ -18,6 +18,7 @@ class FakeCanvasRenderingContext2D {
     return { width: text.length * 8 };
   }
   fillText() {}
+  setTransform() {}
 }
 
 class FakeCanvas {

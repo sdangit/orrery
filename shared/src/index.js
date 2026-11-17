@@ -19,3 +19,4 @@ export { mapEdsmPlanetClass, mapEdsmTerraformState } from './edsm-mapping.js';
 export { buildBackfillNodes } from './edsm-backfill.js';
 export { mergeCommunityBodies, normalizeCommunityBodies, completeElements, EARTH_GRAVITY } from './community-backfill.js';
 export { mapEdgisBodies } from './edgis-mapping.js';
+export { isBeltRing, validBeltRadii } from './asteroid-belts.js';
